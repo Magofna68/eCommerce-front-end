@@ -67,7 +67,7 @@ export default function Navigationbar({currentUser}) {
         // <Router>
           <Container className='p-0' fluid={true}>
             <Navbar className='border' bg="transparent" expand="sm">
-             <Navbar.Brand href="/" className='logo'>
+             <Navbar.Brand href="eCommerce-FrontEnd/" className='logo'>
                 <img 
                   src={Logo} 
                   style={{
