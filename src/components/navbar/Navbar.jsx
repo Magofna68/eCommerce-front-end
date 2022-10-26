@@ -82,16 +82,16 @@ export default function Navigationbar({currentUser}) {
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
                {/* <Link className="nav-link" to="/">Sign In</Link> */}
-               <Link className="nav-link" to="/">Home</Link>
-               <Link className='nav-link' to="/shop">Shop</Link>
-               <Link className='nav-link' to='/contact'>contact</Link>
+               <Link className="nav-link" to="eCommerce-FrontEnd/">Home</Link>
+               <Link className='nav-link' to="eCommerce-FrontEnd/shop">Shop</Link>
+               <Link className='nav-link' to='eCommerce-FrontEnd/contact'>contact</Link>
                 {
                   currentUser ? 
                   <div>
-                    <Link className="nav-link" to='/' onClick={()=> auth.signOut(console.log("Goodbye"))}>Sign Out</Link>
+                    <Link className="nav-link" to='eCommerce-FrontEnd/' onClick={()=> auth.signOut(console.log("Goodbye"))}>Sign Out</Link>
                   </div>
                   :
-                    <Link className="nav-link" to='/login'>Sign In</Link>
+                    <Link className="nav-link" to='eCommerce-FrontEnd/login'>Sign In</Link>
                   }
                     {
                       currentUser ?
@@ -232,12 +232,12 @@ export default function Navigationbar({currentUser}) {
 
           <Routes>
           {/* <Route path='/'>Sign In</Route> */}
-            <Route path='/login'  element={<SignInAndSignUpPage/>}></Route>
-            <Route path="/" exact element={<HomePage />}></Route>
-            <Route path='/shop' element={<ShopPage/>}></Route>
-            <Route path='/success' element={<PaymentCompletePage />}></Route>
-            <Route path='cancel' element={<PaymentFailedPage />}></Route>
-            <Route path='/contact' element={<ContactPage />}></Route>
+            <Route path='eCommerce-FrontEnd/login'  element={<SignInAndSignUpPage/>}></Route>
+            <Route path="eCommerce-FrontEnd/" exact element={<HomePage />}></Route>
+            <Route path='eCommerce-FrontEnd/shop' element={<ShopPage/>}></Route>
+            <Route path='eCommerce-FrontEnd/success' element={<PaymentCompletePage />}></Route>
+            <Route path='eCommerce-FrontEnd/cancel' element={<PaymentFailedPage />}></Route>
+            <Route path='eCommerce-FrontEnd/contact' element={<ContactPage />}></Route>
           </Routes>
         </Container> 
       // </Router>
