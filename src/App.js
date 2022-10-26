@@ -65,11 +65,11 @@ componentWillUnmount() {
             <Header currentUser={this.state.currentUser}/>
           </div>
           <Routes>
-            <Route path='/shop/jackets' element={<Jackets />}/>
-            <Route path='/shop/sneakers' element={<Sneakers/>}/>
-            <Route path='/shop/mens' element={<MensClothing />}/>
-            <Route path='/shop/womens' element={<WomensClothing/>}/>
-            <Route path='/shop/hats' element={<Hats/>}/>
+            <Route path='eCommerce-FrontEnd/shop/jackets' element={<Jackets />}/>
+            <Route path='eCommerce-FrontEnd/shop/sneakers' element={<Sneakers/>}/>
+            <Route path='eCommerce-FrontEnd/shop/mens' element={<MensClothing />}/>
+            <Route path='eCommerce-FrontEnd/shop/womens' element={<WomensClothing/>}/>
+            <Route path='eCommerce-FrontEnd/shop/hats' element={<Hats/>}/>
             {/* <Route path='/shop/:Rout */}
           </Routes>
         </Router>
