@@ -8,6 +8,8 @@ import Hats from './components/shop/category/hats/Hats';
 import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
+import PaymentFailedPage from './pages/paymentCompletePage/PaymentFailedPage';
+import PaymentCompletePage from './pages/paymentCompletePage/PaymentCompletePage';
 import {Header} from './components/utility/header/Header';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
@@ -70,6 +72,8 @@ componentWillUnmount() {
             <Route path='eCommerce-FrontEnd/shop/mens' element={<MensClothing />}/>
             <Route path='eCommerce-FrontEnd/shop/womens' element={<WomensClothing/>}/>
             <Route path='eCommerce-FrontEnd/shop/hats' element={<Hats/>}/>
+            <Route path='eCommerce-FrontEnd/cancel' element={<PaymentFailedPage />} />
+            <Route path='eCommerce-FrontEnd/success' element={<PaymentCompletePage />} />
             {/* <Route path='/shop/:Rout */}
           </Routes>
         </Router>
