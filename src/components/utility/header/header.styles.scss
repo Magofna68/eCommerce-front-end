@@ -1,0 +1,32 @@
+
+.slogan{
+  background: black;
+  display: flex;
+  flex: 1;
+  margin-left: 3%;
+}
+
+.header-bottom {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0px;
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+  
+  .header-bottom_phone{
+    margin-right: 65px;
+  }
+  
+  .header-bottom_email{
+    margin-right: 55px;
+  }
+}
+
+.header-text {
+  font-size: 10px;
+}

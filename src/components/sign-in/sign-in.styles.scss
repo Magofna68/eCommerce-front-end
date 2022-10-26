@@ -1,0 +1,19 @@
+.sign-in {
+  display: flex;
+  width: 380px;
+  // max-width: 380px;
+  // margin: 5%;
+  flex-direction: column;
+  // background-color: blue;
+
+  .title{
+    margin: 10px 0;
+  }
+
+  .button-container {
+    // width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}

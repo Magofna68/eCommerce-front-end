@@ -1,0 +1,56 @@
+
+.navbar-brand {
+margin-left: 10px;
+max-width: 5%;
+// min-width: 50px;
+height: auto;
+  // font-size: 30px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+a.nav-link {
+  text-transform: uppercase;
+  margin: 0 10px;
+
+  &:hover {
+    transform: scale(1.05);
+    color: black;
+    font-weight: 500;
+  }
+}
+
+.navbar-text {
+  font-size: 10px;
+  justify-content: baseline;
+  margin-right: 5px;
+}
+h2 {
+  font-weight: 800;
+}
+// .logo {
+//   width: 100px;
+// }
+
+#clearItemFromCart{
+  transition: .5s ease all;
+  color: red;
+
+  &:hover {
+    transform: scale(1.5);
+    border: 1px solid red;
+    color: white;
+  }
+}
+
+.cartQuantityArrow{
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.25);
+    color: rgb(249, 209, 209)
+  }
+}

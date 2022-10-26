@@ -1,0 +1,70 @@
+.contactPage {
+  // display: flex;
+  margin-top: 3%;
+
+  h4{
+    font-weight: 600;
+    font-family: open;
+    font-size: 20px;
+    text-align: left;
+    margin-top: 15px;
+  }
+  // hr{
+  //   margin: 0;
+  // }
+
+  .customerService{
+    // border-right: .5px solid black;
+    height: 320px;
+    text-align: left;
+    margin: 20px 0 0px 5px;
+
+      li {
+        cursor: pointer;
+        text-decoration: none;
+        margin-bottom: 0px;
+
+        &:hover {
+          transform: scale(1.01);
+          font-weight: 600;
+        }
+      }
+    }
+
+    .quickLinks{
+      text-align: left;
+      margin: 5px 0 0 5px;
+      list-style-type: none;
+      
+      li {
+        cursor: pointer;
+        text-decoration: none;
+        margin-bottom: -2px;
+        font-family: open;
+        &:hover {
+          transform: scale(1.01);
+          color: blue;
+        }
+      }
+    }
+  
+
+  .contactPannel{
+    text-align: left;
+
+    h2{
+      font-weight: 500;
+      margin: 3% 0 0 0;
+    }
+
+    .pannelItem{
+      font-size: 14px;
+
+      h6{
+        margin-top: 3%;
+        font-weight: bold;
+        font-family: open;
+      }
+    }
+  }
+}
