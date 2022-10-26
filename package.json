@@ -2,7 +2,7 @@
   "name": "e-commerce",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Magofna68.github.io/e-commerce",
+  "homepage": "https://Magofna68.github.io/eCommerce-FrontEnd",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
