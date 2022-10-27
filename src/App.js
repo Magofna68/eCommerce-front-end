@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.scss';
@@ -8,8 +9,6 @@ import Hats from './components/shop/category/hats/Hats';
 import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
-import PaymentFailedPage from './pages/paymentCompletePage/PaymentFailedPage';
-import PaymentCompletePage from './pages/paymentCompletePage/PaymentCompletePage';
 import {Header} from './components/utility/header/Header';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
@@ -62,18 +61,18 @@ componentWillUnmount() {
 
     return (
       <CartProvider>
-        <Router>
+        <Router 
+        // basename='/eCommerce-FrontEnd'
+        >
           <div className="App">
             <Header currentUser={this.state.currentUser}/>
           </div>
           <Routes>
-            <Route path='eCommerce-FrontEnd/shop/jackets' element={<Jackets />}/>
-            <Route path='eCommerce-FrontEnd/shop/sneakers' element={<Sneakers/>}/>
-            <Route path='eCommerce-FrontEnd/shop/mens' element={<MensClothing />}/>
-            <Route path='eCommerce-FrontEnd/shop/womens' element={<WomensClothing/>}/>
-            <Route path='eCommerce-FrontEnd/shop/hats' element={<Hats/>}/>
-            <Route path='eCommerce-FrontEnd/cancel' element={<PaymentFailedPage />} />
-            <Route path='eCommerce-FrontEnd/success' element={<PaymentCompletePage />} />
+            <Route path='/shop/jackets' element={<Jackets />}/>
+            <Route path='/shop/sneakers' element={<Sneakers/>}/>
+            <Route path='/shop/mens' element={<MensClothing />}/>
+            <Route path='/shop/womens' element={<WomensClothing/>}/>
+            <Route path='/shop/hats' element={<Hats/>}/>
             {/* <Route path='/shop/:Rout */}
           </Routes>
         </Router>
