@@ -61,9 +61,7 @@ componentWillUnmount() {
 
     return (
       <CartProvider>
-        <Router 
-        // basename='/eCommerce-FrontEnd'
-        >
+        <Router basename='/'>
           <div className="App">
             <Header currentUser={this.state.currentUser}/>
           </div>
