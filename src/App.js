@@ -26,7 +26,7 @@ class App extends React.Component {
 unsubscribeFromAuth = null
 
 componentDidMount() {
-  console.log("componentDidMount Hit")
+  // console.log("componentDidMount Hit")
   // subscriber to listen to auth state change -- allots for OAuth sign in while component is mounted
   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
     if (userAuth) {
@@ -49,7 +49,7 @@ componentDidMount() {
     }
     // createUserProfileDocument(userAuth);
     // this.setState({ currentUser: user });
-    console.log("Welcome", userAuth.displayName);
+    // console.log("Welcome", userAuth.displayName);
   })
 }
 componentWillUnmount() {

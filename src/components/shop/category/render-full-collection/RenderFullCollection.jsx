@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 
 export const RenderFullCollection = ({title, items}) => (
-  <Container fluid
+  <Container fluid="true"
       className='collection'
     >
       <Row>

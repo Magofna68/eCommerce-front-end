@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 
 export const CollectionPreview = ({title, items, routeName}) => (
     <Container
-      fluid
+      fluid="true"
       className='collectionPreview'
     >
       <Row>

@@ -16,7 +16,7 @@ class ShopPage extends Component {
   render() {
     const { collections } = this.state;
     return (
-      <div fluid className='shopPage'>
+      <div fluid="true" className='shopPage'>
         {
             collections?.map(({id, ...otherCollectionProps})=> (
             <CollectionPreview key={id} {...otherCollectionProps} />

@@ -17,7 +17,7 @@ import Logo from '../../assets/crown.png'
 
 import { auth } from '../../firebase/Firebase.utils';
 
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, } from 'react-router-dom';
 import { Container, Button, Modal } from 'react-bootstrap';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
@@ -41,9 +41,10 @@ export default function Navigationbar({currentUser}) {
   const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0); 
   
   const checkout = async () => {
-    await fetch('https://e-commerce-backend.onrender.com/checkout', {
+    await fetch('http://localhost:4000/checkout', {
       // make post request to fetch Url
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -64,7 +65,7 @@ export default function Navigationbar({currentUser}) {
 
   return (
         // <Router>
-          <Container className='p-0' fluid={true}>
+          <Container className='p-0' fluid="true">
             <Navbar className='border' bg="transparent" expand="sm">
              <Navbar.Brand href="/" className='logo'>
                 <img 
@@ -162,6 +163,7 @@ export default function Navigationbar({currentUser}) {
                             }}
                           >
                             <img 
+                              key={idx}
                               src={currentProduct.img}
                               maxWidth='100%'
                               height="100%"

@@ -46,7 +46,7 @@ export default class Directory extends React.Component {
   }
   render() {
     return (
-      <div fluid className='directory-menu'>
+      <div fluid="true" className='directory-menu'>
         {this.state.sections.map(({id, ...otherSectionProps }) => (
             <MenuItem key={id} {...otherSectionProps} />
         ))}

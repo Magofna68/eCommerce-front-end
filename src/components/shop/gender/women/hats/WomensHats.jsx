@@ -4,7 +4,7 @@ import { Card, Container } from 'react-bootstrap';
 
 export default function WomensHats() {
   return (
-    <Container fluid className='womens-container'>
+    <Container fluid="true" className='womens-container'>
       <h3>Womens Hats</h3>
       <div className='womens-hat-container'>
         {womensHats.map((item) => (

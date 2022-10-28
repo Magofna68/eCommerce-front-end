@@ -28,7 +28,7 @@ export default function ContactPage() {
   ]
 
   return (
-    <Container className='contactPage' fluid>
+    <Container className='contactPage' fluid="true">
       <Row>
         <Col sm={4}>
           <br/><br/>

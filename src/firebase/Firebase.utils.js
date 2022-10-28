@@ -19,7 +19,7 @@ const userRef = firestore.doc(`users/${userAuth.uid}`);
 const snapShot = await userRef.get();
 // snapShot is the Obj. we get back from firestore that holds info; will recieve whether
 // snapShot is or isnt created & valid
-console.log(snapShot)
+// console.log(snapShot)
 
 // takes properties out of userAuth and stores them in database for authenticated users
 if (!snapShot.exists) {
