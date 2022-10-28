@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.scss';
@@ -60,7 +60,7 @@ componentWillUnmount() {
 
     return (
       <CartProvider>
-        <Router>
+        <Router basename='/'>
           <div className="App">
             <Header currentUser={this.state.currentUser}/>
           </div>
