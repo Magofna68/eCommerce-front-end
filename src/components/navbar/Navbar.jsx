@@ -41,7 +41,7 @@ export default function Navigationbar({currentUser}) {
   const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0); 
   
   const checkout = async () => {
-    await fetch('http://localhost:4000/checkout', {
+    await fetch('https://https-magofna68-github-io-ecommerce.onrender.com/checkout', {
       // make post request to fetch Url
       method: 'POST',
       mode: 'cors',
