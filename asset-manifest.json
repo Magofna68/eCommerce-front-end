@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Magofna68/eCommerce-front-end/static/css/main.eb9db133.css",
+    "main.js": "/Magofna68/eCommerce-front-end/static/js/main.e52e2140.js",
+    "static/media/DB.jpg": "/Magofna68/eCommerce-front-end/static/media/DB.c850349c57abb0ca70a0.jpg",
+    "static/media/Paradise3.jpg": "/Magofna68/eCommerce-front-end/static/media/Paradise3.437a29fe4cee9484c504.jpg",
+    "static/media/Paradise.jpg": "/Magofna68/eCommerce-front-end/static/media/Paradise.bae8dfe1ce85cebc0ed2.jpg",
+    "static/media/Bass.jpg": "/Magofna68/eCommerce-front-end/static/media/Bass.289dc6774b923f19a546.jpg",
+    "static/media/Oreo.jpg": "/Magofna68/eCommerce-front-end/static/media/Oreo.cf88e8a38aff72e9cc53.jpg",
+    "static/media/Paradise2.jpg": "/Magofna68/eCommerce-front-end/static/media/Paradise2.e240840534160d741311.jpg",
+    "static/media/Insomniac.jpg": "/Magofna68/eCommerce-front-end/static/media/Insomniac.a729946b3cabf8ccd619.jpg",
+    "static/media/TSSF.jpg": "/Magofna68/eCommerce-front-end/static/media/TSSF.e6b7c39ce8298e47bb7d.jpg",
+    "static/media/EDC.jpg": "/Magofna68/eCommerce-front-end/static/media/EDC.bb7f7384eb4e64e89f6e.jpg",
+    "static/media/crown.png": "/Magofna68/eCommerce-front-end/static/media/crown.c8fa3d1872f5bdaecc2d.png",
+    "index.html": "/Magofna68/eCommerce-front-end/index.html",
+    "main.eb9db133.css.map": "/Magofna68/eCommerce-front-end/static/css/main.eb9db133.css.map",
+    "main.e52e2140.js.map": "/Magofna68/eCommerce-front-end/static/js/main.e52e2140.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb9db133.css",
+    "static/js/main.e52e2140.js"
+  ]
+}
