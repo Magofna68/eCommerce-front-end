@@ -87,7 +87,7 @@ export function CartProvider({children}) {
       totalCost += (priceArray * cartItem.quantity);
       console.log(totalCost, "Total Cost");
     });
-    return totalCost;
+    return Number(totalCost).toFixed(2);
   }
 
   const contextValue = {

@@ -63,6 +63,10 @@ export default function Navigationbar({currentUser}) {
     })
   }
 
+  function roundNumber(price) {
+    return Number.toFixed(2)
+  }
+
   return (
         // <Router>
           <Container className='p-0' fluid="true">
