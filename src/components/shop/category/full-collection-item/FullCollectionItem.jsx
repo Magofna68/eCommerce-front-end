@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
+// import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import ItemDetailPage from '../../../../pages/itemDetailPage/ItemDetailPage';
 
 import { useNavigate } from 'react-router';
@@ -10,15 +10,15 @@ import './fullCollectionItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 
-export default function FullCollectionItem({id, name, price, img, img2}) {
+export default function FullCollectionItem({title, id, name, price, img, img2}) {
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // console.log(cart.items);
 return (
   <Card 
     className='fullCollectionItem'
-    // onClick={()=> navigate('shop/:Route' + id)}
+    // onClick={()=> navigate(`/${title.toLowerCase()}/`+id)}
   >
     <Card.Img 
       className="fullCollectionImg"
@@ -94,6 +94,7 @@ return (
     </div>
   </Card>
   // </ShoppingCartProvider>
+
 )};
 
 // export default FullCollectionItem;

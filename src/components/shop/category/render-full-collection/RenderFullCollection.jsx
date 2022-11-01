@@ -33,7 +33,7 @@ export const RenderFullCollection = ({title, items}) => (
             >
             {
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} id={id}{...otherItemProps} />
+                <FullCollectionItem key={id} title={title} id={id}{...otherItemProps} />
                 ))
               };
           </div>

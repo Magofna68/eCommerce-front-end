@@ -235,7 +235,7 @@ export default function Navigationbar({currentUser}) {
                         open={open}
                         onClick={handleBackdropClose}
                       >
-                        <CircularProgress color="inherit" />
+                        <CircularProgress color="success" />
                       </Backdrop>
                     </>
                     :
