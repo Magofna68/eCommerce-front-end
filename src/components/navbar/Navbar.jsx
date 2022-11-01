@@ -1,30 +1,32 @@
 import './navbar.styles.scss';
 
 import { Row, Col, } from 'react-bootstrap';
-import ClearIcon from '@mui/icons-material/Clear';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-
-import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
+import { Container, Button, Modal } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/esm/Nav';
+
+import ClearIcon from '@mui/icons-material/Clear';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import CircularProgress from '@mui/material/CircularProgress';
+import Backdrop from '@mui/material/Backdrop';
+
+import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
 import ShopPage from '../../pages/shopPage/ShopPage';
 import ContactPage from '../../pages/contactPage/ContactPage';
 import HomePage from '../../pages/homePage/HomePage';
 import Logo from '../../assets/crown.png'
-
 import { auth } from '../../firebase/Firebase.utils';
-
-import { BrowserRouter as Router, Route, Link, Routes, } from 'react-router-dom';
-import { Container, Button, Modal } from 'react-bootstrap';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-
-import React, { useState, useContext } from 'react';
 import { ShoppingCartContext } from '../context/ShoppingCartContext';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
+
+import { BrowserRouter as Router, Route, Link, Routes, } from 'react-router-dom';
+
+import React, { useState, useContext } from 'react';
 
 export default function Navigationbar({currentUser}) {
   const cart = useContext(ShoppingCartContext);
@@ -39,8 +41,17 @@ export default function Navigationbar({currentUser}) {
   // }
 
   const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0); 
-  
+  const [open, setOpen ] = useState(false);
+  const handleBackdropClose = () => {
+    setOpen(false);
+  }
+  const handleToggle = () => {
+    setOpen(!open);
+    checkout()
+  }
+
   const checkout = async () => {
+    // await fetch('http://localhost:4000/checkout', {
     await fetch('https://https-magofna68-github-io-ecommerce.onrender.com/checkout', {
       // make post request to fetch Url
       method: 'POST',
@@ -61,10 +72,6 @@ export default function Navigationbar({currentUser}) {
           window.location.assign(response.url);
         }
     })
-  }
-
-  function roundNumber(price) {
-    return Number.toFixed(2)
   }
 
   return (
@@ -219,9 +226,18 @@ export default function Navigationbar({currentUser}) {
                     <h3 style={{ textAlign: 'right'}}><span style={{fontSize: '20px'}}>Total:</span> ${cart.getTotalCost()}</h3>
                   {
                     currentUser ?
-                      <Button variant="success" onClick={checkout}>
+                    <>
+                      <Button variant="success" onClick={handleToggle}>
                         Proceed to Checkout
                       </Button>
+                      <Backdrop
+                        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                        open={open}
+                        onClick={handleBackdropClose}
+                      >
+                        <CircularProgress color="inherit" />
+                      </Backdrop>
+                    </>
                     :
                     <div style={{display: 'flex', justifyContent: 'right'}}>
                       <p style={{fontWeight: 300, fontSize: '12px'}}>You'll have to sign in to complete your purchase</p>
