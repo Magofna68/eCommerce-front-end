@@ -3,20 +3,22 @@ import './collectionPreview.styles.scss'
 import {CollectionItem} from '../collection-item/CollectionItem';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+// import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
-
-export const CollectionPreview = ({title, items, routeName}) => (
+export const CollectionPreview = ({title, items, routeName }) => (
     <Container
       fluid="true"
       className='collectionPreview'
     >
-      <Row>
-        <h1 
-          className='title'
-          >
-          {title.toUpperCase()}
-        </h1>
-      </Row>
+      <div className='titleContainer'>
+        <h2>
+          <Link className="nav-link" to={'/shop/'+ routeName}>
+            {title.toUpperCase()}
+          </Link>
+        <hr />
+        </h2>
+      </div>
       <div 
         className='preview'
         style={{ 

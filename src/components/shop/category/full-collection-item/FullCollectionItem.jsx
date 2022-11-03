@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import ItemDetailPage from '../../../../pages/itemDetailPage/ItemDetailPage';
 
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import './fullCollectionItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
@@ -13,20 +14,26 @@ import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 export default function FullCollectionItem({title, id, name, price, img, img2}) {
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // console.log(cart.items);
 return (
   <Card 
-    className='fullCollectionItem'
-    // onClick={()=> navigate(`/${title.toLowerCase()}/`+id)}
+  className='fullCollectionItem'
   >
+    {/* <Link 
+      className="nav-link" 
+      to={'/shop/'+ title.toLowerCase() + id} 
+      > */}
     <Card.Img 
       className="fullCollectionImg"
+      // onClick={()=> <Link to={'/shop/'+ title.toLowerCase() + id}  element= {<ItemDetailPage id={id} name={name} />}></Link>
       variant='top' 
+      // onClick={()=> <ItemDetailPage id={id} />}
       src={img} 
       style={{
         height: '75%',
       }}/>
+    {/* </Link> */}
     <Card.Body 
       style={{
         height: '15%',

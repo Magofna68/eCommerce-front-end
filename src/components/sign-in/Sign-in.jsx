@@ -4,6 +4,7 @@ import FormInput from '../form-input/Form-input';
 import CustomButton from '../utility/custom-button/Custom-button';
 import { auth, signInWithGoogle } from '../../firebase/Firebase.utils';
 import { Route} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export default class SignIn extends React.Component {
 constructor(props) {
@@ -11,27 +12,20 @@ constructor(props) {
   this.State = {
     email: "",
     password: "",
-    // user: false,
+    currentUser: null,
 
   }
 }
 
 handleSubmit = async (event) => {
   event.preventDefault();
-
-  const { email, password, user } = this.state;
-  // console.log({email, password});
-
+  const { email, password } = this.state;
   try {
     await auth.signInWithEmailAndPassword(email, password);
     // this.setState({user: email})
     // console.log("User", user)
-    // console.log("you have successfully been signed in", email)
-    this.setState({email: "", password: ""});
-    // console.log("User", user)
-    // if (user === true) {
-    //   return <Route path='/home' />
-    // }
+    console.log("you have successfully been signed in", email)
+    this.setState({email: "", password: "",});
   } catch (error) {
     console.log(error);
   }
@@ -40,25 +34,17 @@ handleSubmit = async (event) => {
 handleChange = (e) => {
   // e.preventDefault();
   const { value, name } = e.target;
-  console.log({value, name});
+  // console.log({value, name});
   // dynamically set property value
   this.setState({[name]: value})
 }
 
-// handleClick = (e) => {
-
-//   if () {
-//     return;
-//   } else {
-//     window.location.href='#home';
-//   }
-// }
   render() {
+
     return (
       <div className='sign-in'>
-        <h2>I already have an account</h2>
-        <span>Sign in with your email and password</span>
-
+          <h2>I already have an account</h2>
+          <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput 
             name="email" 
@@ -79,7 +65,14 @@ handleChange = (e) => {
             required 
           />
           <div className='button-container'>
-            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton 
+              type="submit" 
+              onClick={() => {
+                this.setState({currentUser: true})
+              }}
+            >
+              Sign In
+            </CustomButton>
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustomButton>
           </div>
         </form>

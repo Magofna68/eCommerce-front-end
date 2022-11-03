@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import { useContext } from 'react';
 
 const config = {
   apiKey: "AIzaSyBhnVx1XWwHwiosiNmpjDDGwZw8QyKIJUY",
@@ -10,6 +11,7 @@ const config = {
   messagingSenderId: "756447485486",
   appId: "1:756447485486:web:6f633390210d031e0409bf"
 };
+
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
 if (!userAuth) return;

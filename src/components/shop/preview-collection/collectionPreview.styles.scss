@@ -4,9 +4,28 @@
   margin-bottom: 5%;
   overflow: visible;
 
-  .title {
-    font-size: 28px;
-    margin-bottom: 25px;
+  // .title {
+  //   font-size: 28px;
+  //   margin-bottom: 25px;
+  // }
+  .titleContainer{
+    display: flex;
+    margin: 5% 0 0 2%;
+    justify-content: center;
+    
+    
+    a.nav-link{
+      text-align: center;
+      width: fit-content;
+      transition: 0s;
+      font-weight: 600;
+      font-stretch: expanded;
+  
+      &:hover {
+        color: gray;
+        transform: scale(1.01);
+      }
+    }
   }
 
   .preview {

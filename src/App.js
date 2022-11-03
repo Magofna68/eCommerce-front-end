@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,} from 'react-router-dom';
 
 import './App.scss';
 import Jackets from './components/shop/category/jackets/Jackets';
@@ -8,6 +8,7 @@ import Hats from './components/shop/category/hats/Hats';
 import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
+// import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
 import {Header} from './components/utility/header/Header';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
@@ -30,6 +31,7 @@ componentDidMount() {
   // subscriber to listen to auth state change -- allots for OAuth sign in while component is mounted
   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
     if (userAuth) {
+
       const userRef = await createUserProfileDocument(userAuth);
       // onSnapShot is equivalent to onAuthStateChange -- built in method from firebase
       userRef.onSnapshot(snapShot => {
@@ -43,9 +45,10 @@ componentDidMount() {
         });
         // console.log(this.state);
       });
-    } else {
-      this.setState({currentUser: userAuth});
-      // history.push('/home');
+      
+    } else { 
+      this.setState({currentUser: userAuth})
+      
     }
     // createUserProfileDocument(userAuth);
     // this.setState({ currentUser: user });
@@ -57,7 +60,7 @@ componentWillUnmount() {
 }
 
   render() {
-
+  // const { currentUser } = this.state;
     return (
       <CartProvider>
         <Router basename='/'>
@@ -70,7 +73,8 @@ componentWillUnmount() {
             <Route path='/shop/mens' element={<MensClothing />}/>
             <Route path='/shop/womens' element={<WomensClothing/>}/>
             <Route path='/shop/hats' element={<Hats/>}/>
-            {/* <Route path='/shop/:Rout */}
+              {/* <Route path=":id" element={<ItemDetailPage />} /> */}
+            {/* <Route path='/' exact element={<ItemDetailPage  />} />  */}
           </Routes>
         </Router>
       </CartProvider>

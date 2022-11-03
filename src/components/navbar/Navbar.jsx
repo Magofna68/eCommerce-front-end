@@ -1,5 +1,8 @@
 import './navbar.styles.scss';
 
+import {Navigate } from 'react-router';
+import  {Redirect} from 'react-router-dom';
+
 import { Row, Col, } from 'react-bootstrap';
 import { Container, Button, Modal } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
@@ -24,22 +27,17 @@ import { ShoppingCartContext } from '../context/ShoppingCartContext';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
 
-import { BrowserRouter as Router, Route, Link, Routes, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, redirect, } from 'react-router-dom';
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 export default function Navigationbar({currentUser}) {
   const cart = useContext(ShoppingCartContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // function onProceedToCheckout (currentUser) => {
-  //   if (!currentUser) 
-  //     return <h1>Youll have to sign in before checking out.</h1>
   
-  // }
-
+  
   const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0); 
   const [open, setOpen ] = useState(false);
   const handleBackdropClose = () => {
@@ -49,6 +47,12 @@ export default function Navigationbar({currentUser}) {
     setOpen(!open);
     checkout()
   }
+
+if (currentUser) {
+//   // setAuthenticated(loggedInUser)
+//   <Navigate path="#/login" />
+// } else {
+  <Navigate path="/" />}
 
   const checkout = async () => {
     // await fetch('http://localhost:4000/checkout', {
@@ -99,7 +103,7 @@ export default function Navigationbar({currentUser}) {
                 {
                   currentUser ? 
                   <div>
-                    <Link className="nav-link" to='/' onClick={()=> auth.signOut(console.log("Goodbye"))}>Sign Out</Link>
+                    <Link className="nav-link" to='/' onClick={()=> auth.signOut(console.log(auth.currentUser))}>Sign Out</Link>
                   </div>
                   :
                     <Link className="nav-link" to='/login'>Sign In</Link>
@@ -253,8 +257,12 @@ export default function Navigationbar({currentUser}) {
 
           <Routes>
           {/* <Route path='/'>Sign In</Route> */}
+            <Route path="/" exact element={<HomePage />}>
+              {/* {
+                currentUser ? <Redirect to="/" /> : <ShopPage />
+              } */}
+            </Route>
             <Route path='/login'  element={<SignInAndSignUpPage/>}></Route>
-            <Route path="/" exact element={<HomePage />}></Route>
             <Route path='/shop' element={<ShopPage/>}></Route>
             <Route path='/success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
