@@ -10,11 +10,10 @@ export default class SignIn extends React.Component {
 constructor(props) {
   super(props);
   this.State = {
-    email: "",
-    password: "",
-    currentUser: null,
-
-  }
+    email: '',
+    password: '',
+    // currentUser: null,
+  };
 }
 
 handleSubmit = async (event) => {
@@ -40,7 +39,6 @@ handleChange = (e) => {
 }
 
   render() {
-
     return (
       <div className='sign-in'>
           <h2>I already have an account</h2>
@@ -50,7 +48,7 @@ handleChange = (e) => {
             name="email" 
             type="email" 
             id="email_input"
-            // value={this.state.email}
+            value={this.email}
             handleChange={this.handleChange}
             label="Email"
             required 
@@ -59,7 +57,7 @@ handleChange = (e) => {
             name="password" 
             type="password" 
             password="password_input"
-            // value={this.state.password} 
+            value={this.password} 
             handleChange={this.handleChange}
             label="Password"
             required 
@@ -67,6 +65,7 @@ handleChange = (e) => {
           <div className='button-container'>
             <CustomButton 
               type="submit" 
+              value='submit'
               onClick={() => {
                 this.setState({currentUser: true})
               }}

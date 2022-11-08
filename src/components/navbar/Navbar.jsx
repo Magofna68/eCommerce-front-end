@@ -166,7 +166,7 @@ if (currentUser) {
                       </Row>
                   {cart.items.map((currentProduct, idx) => (
                     <>
-                      <Row>
+                      <Row style={{marginBottom: '15px'}}>
                         <Col xs={2} style={{padding: '0'}}>
                           <div 
                             className='imgContainer'
@@ -180,9 +180,10 @@ if (currentUser) {
                             <img 
                               key={idx}
                               src={currentProduct.img}
-                              maxWidth='100%'
+                              maxWidth='70px'
                               height="100%"
                               alt="Cart Preview"
+                              id="img"
                             />
                             <ClearIcon 
                               fontSize="sm" 
@@ -262,11 +263,11 @@ if (currentUser) {
                 currentUser ? <Redirect to="/" /> : <ShopPage />
               } */}
             </Route>
-            <Route path='/login'  element={<SignInAndSignUpPage/>}></Route>
-            <Route path='/shop' element={<ShopPage/>}></Route>
-            <Route path='/success' element={<PaymentCompletePage />}></Route>
+            <Route path='login'  element={<SignInAndSignUpPage/>}></Route>
+            <Route path='shop' element={<ShopPage/>}></Route>
+            <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
-            <Route path='/contact' element={<ContactPage />}></Route>
+            <Route path='contact' element={<ContactPage />}></Route>
           </Routes>
         </Container> 
       // </Router>

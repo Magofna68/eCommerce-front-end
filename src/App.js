@@ -8,7 +8,7 @@ import Hats from './components/shop/category/hats/Hats';
 import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
-// import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
+import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
 import {Header} from './components/utility/header/Header';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
@@ -61,6 +61,7 @@ componentWillUnmount() {
 
   render() {
   // const { currentUser } = this.state;
+  // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
     return (
       <CartProvider>
         <Router basename='/'>
@@ -68,13 +69,19 @@ componentWillUnmount() {
             <Header currentUser={this.state.currentUser}/>
           </div>
           <Routes>
-            <Route path='/shop/jackets' element={<Jackets />}/>
-            <Route path='/shop/sneakers' element={<Sneakers/>}/>
-            <Route path='/shop/mens' element={<MensClothing />}/>
-            <Route path='/shop/womens' element={<WomensClothing/>}/>
-            <Route path='/shop/hats' element={<Hats/>}/>
-              {/* <Route path=":id" element={<ItemDetailPage />} /> */}
-            {/* <Route path='/' exact element={<ItemDetailPage  />} />  */}
+            {/* pathways for categories */}
+            <Route path='shop/jackets/' element={<Jackets />}/>
+            <Route path='shop/sneakers' element={<Sneakers/>}/>
+            <Route path='shop/mens' element={<MensClothing />}/>
+            <Route path='shop/womens' element={<WomensClothing/>}/>
+            <Route path='shop/hats' element={<Hats/>}/>
+
+            {/* pathway for itemDetails */}
+            <Route path='shop/jackets/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/hats/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/sneakers/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/mens/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
           </Routes>
         </Router>
       </CartProvider>

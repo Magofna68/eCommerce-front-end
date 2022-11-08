@@ -1,16 +1,32 @@
 import './collectionItem.styles.scss';
-import React, { useContext } from 'react';
+import React, { useContext, useNavigate } from 'react';
 import {Card, Button } from 'react-bootstrap/'
 import { ShoppingCartContext } from '../../context/ShoppingCartContext';
-
 
 export function CollectionItem ({id, name, price, img, img2}) {
 const cart = useContext(ShoppingCartContext);
 const productQuantity = cart.getProductQuantity(id);
+const navigate = useNavigate();
 
+let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
+const toItemDetail = (id, name, price, img, desc) => {
+  navigate(path, {
+    state:  {
+      id: id, 
+      name: name, 
+      price: price, 
+      img: img,
+      img2: img2,
+      desc: desc,
+    }
+  })
+}
   return (
-
-  <Card className='collectionItem'>
+  // <a href={'/shop/', + }></a>
+  <Card 
+    className='collectionItem'
+    onClick={toItemDetail}
+  >
     <Card.Img 
       variant='top' 
       className='collectionItemImg'
