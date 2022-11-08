@@ -10,6 +10,7 @@ import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
 import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
 import {Header} from './components/utility/header/Header';
+import NotFound from './pages/notFound/NotFound';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
 
@@ -82,6 +83,8 @@ componentWillUnmount() {
             <Route path='shop/sneakers/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/mens/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
+            {/* <Route path='shop/womens/hats/:id' element={<ItemDetailPage />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </CartProvider>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
  const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   const navigate = useNavigate();
-
+  let path = navigate('shop/'.concat(title.toLowerCase()).concat('/', linkUrl))
  return (
   
   <div 

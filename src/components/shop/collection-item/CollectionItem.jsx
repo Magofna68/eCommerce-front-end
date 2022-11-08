@@ -9,7 +9,7 @@ const navigate = useNavigate();
 const cart = useContext(ShoppingCartContext);
 const productQuantity = cart.getProductQuantity(id);
 
-let path = '/shop/'.concat(routeName.toLowerCase()).concat('/', id)
+let path = id
 const toItemDetail = (id, name, price, img, desc) => {
   navigate(path, {
     state:  {
