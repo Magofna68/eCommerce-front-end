@@ -1,7 +1,6 @@
 import './navbar.styles.scss';
 
 import {Navigate } from 'react-router';
-import  {Redirect} from 'react-router-dom';
 
 import { Row, Col, } from 'react-bootstrap';
 import { Container, Button, Modal } from 'react-bootstrap';
@@ -27,9 +26,9 @@ import { ShoppingCartContext } from '../context/ShoppingCartContext';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
 
-import { BrowserRouter as Router, Route, Link, Routes, redirect, } from 'react-router-dom';
+import { Route, Link, Routes, } from 'react-router-dom';
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext,  } from 'react';
 
 export default function Navigationbar({currentUser}) {
   const cart = useContext(ShoppingCartContext);
@@ -82,7 +81,7 @@ if (currentUser) {
         // <Router>
           <Container className='p-0' fluid="true">
             <Navbar className='border' bg="transparent" expand="sm">
-             <Navbar.Brand href="/" className='logo'>
+             <Navbar.Brand href="." className='logo'>
                 <img 
                   src={Logo} 
                   style={{
