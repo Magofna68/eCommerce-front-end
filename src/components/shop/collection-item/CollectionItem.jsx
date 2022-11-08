@@ -1,14 +1,15 @@
 import './collectionItem.styles.scss';
-import React, { useContext, useNavigate } from 'react';
+import React, { useContext } from 'react';
 import {Card, Button } from 'react-bootstrap/'
 import { ShoppingCartContext } from '../../context/ShoppingCartContext';
+import {useNavigate} from 'react-router-dom';
 
-export function CollectionItem ({id, name, price, img, img2}) {
+export function CollectionItem ({id, name, price, img, img2, routeName}) {
+const navigate = useNavigate();
 const cart = useContext(ShoppingCartContext);
 const productQuantity = cart.getProductQuantity(id);
-const navigate = useNavigate();
 
-let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
+let path = '/shop/'.concat(routeName.toLowerCase()).concat('/', id)
 const toItemDetail = (id, name, price, img, desc) => {
   navigate(path, {
     state:  {
@@ -25,7 +26,7 @@ const toItemDetail = (id, name, price, img, desc) => {
   // <a href={'/shop/', + }></a>
   <Card 
     className='collectionItem'
-    onClick={toItemDetail}
+    onClick={()=> toItemDetail(id, name, price, img)}
   >
     <Card.Img 
       variant='top' 
