@@ -4,7 +4,7 @@ import {Card, Button } from 'react-bootstrap/'
 import { ShoppingCartContext } from '../../context/ShoppingCartContext';
 import {useNavigate} from 'react-router-dom';
 
-export function CollectionItem ({id, name, price, img, img2, routeName}) {
+export function CollectionItem ({id, name, price, img, img2, routeName, desc}) {
 const navigate = useNavigate();
 const cart = useContext(ShoppingCartContext);
 const productQuantity = cart.getProductQuantity(id);
@@ -26,7 +26,7 @@ const toItemDetail = (id, name, price, img, desc) => {
   // <a href={'/shop/', + }></a>
   <Card 
     className='collectionItem'
-    onClick={()=> toItemDetail(id, name, price, img)}
+    onClick={()=> toItemDetail({id, name, price, img, img2, desc})}
   >
     <Card.Img 
       variant='top' 

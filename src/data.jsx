@@ -23,7 +23,7 @@ const SHOP_DATA = [
         alt: 'Nike Shoe',
         img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a0374c16-982d-44a8-b791-18d7b47fab9f/dunk-high-retro-mens-shoe-dTVTCk.png',
         price: '125',
-        desc: ''
+        desc: 'The Nike Dunk High arrived in 1985 and was worn on both college and NBA courts while Michael Jordan was rewriting history in his similarly looking Air Jordan 1. The Nike Dunk High\'s reputation as a sneaker that can be easily adjusted to match specific colors delivered the Dunk to a new generation in 1998, when customization, graphics, and experimentation with fabrics became more prevalent.'
       },
       {
         // id: uuid(),
@@ -32,7 +32,7 @@ const SHOP_DATA = [
         alt: 'Air Jordan Shoe',
         img: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/1f1b7246-1dcd-43de-af62-995320e977ef/air-jordan-6-retro-low-mens-shoes-MPwhfh.png',
         price: '200',
-        desc: ''
+        desc: 'Released in \'91 and reissued throughout the early 2000s, the Air Jordan VI\'s first low-cut form didn\'t arrive until 2002. Twenty years later, we\'re bringing you a fresh, yet familiar new pair of kicks for spring.'
       },
       {
         id: 'price_1LvS4lKFRYyirzJ3nai5kJRN',

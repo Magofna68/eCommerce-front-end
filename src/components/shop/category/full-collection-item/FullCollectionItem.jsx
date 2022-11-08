@@ -19,7 +19,7 @@ export default function FullCollectionItem({title, id, name, price, img, img2, d
   const navigate = useNavigate();
 
   let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
-  const toItemDetail = (id, name, price, img, desc) => {
+  const toItemDetail = (id, name, price, img, desc, img2) => {
     navigate(path, {
       state:  {
         id: id, 
@@ -36,7 +36,7 @@ return (
 <>
   <Card 
     className='fullCollectionItem'
-    onClick={() => toItemDetail(id, name, price, img)}
+    onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
     >
 {/* <Link to={'/shop/'+ title.toLowerCase() + {id}, {state: {id: id, name: name}}}> Test</Link> */}
     {/* <Link 
@@ -119,11 +119,11 @@ return (
     </div>
   </Card>
   
-  <Routes>
+  {/* <Routes> */}
     {/* <Route path={path} element={<ItemDetailPage />} /> */}
-    <Route path='shop/hats/:id' exact element={<ItemDetailPage  />} /> 
+    {/* <Route path='shop/hats/:id' exact element={<ItemDetailPage  />} />  */}
 
-  </Routes>
+  {/* </Routes> */}
   </>
   
   // </ShoppingCartProvider>
