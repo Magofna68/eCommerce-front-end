@@ -3,7 +3,7 @@ import './navbar.styles.scss';
 import {Navigate } from 'react-router';
 
 import { Row, Col, } from 'react-bootstrap';
-import { Container, Button, Modal } from 'react-bootstrap';
+import { Container, Button, Modal, NavDropdown } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import Navbar from 'react-bootstrap/Navbar';
@@ -96,8 +96,21 @@ if (currentUser) {
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
                {/* <Link className="nav-link" to="/">Sign In</Link> */}
+
+              <NavDropdown title="Shop" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/jackets">Jackets</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#/shop/mens">
+                  Men's
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/womens">
+                  Women's
+                </NavDropdown.Item>
+              </NavDropdown>
                <Link className="nav-link" to="/">Home</Link>
-               <Link className='nav-link' to="/shop">Shop</Link>
+
                <Link className='nav-link' to='/contact'>contact</Link>
                 {
                   currentUser ? 

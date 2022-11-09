@@ -6,11 +6,16 @@ import { useNavigate } from 'react-router';
  const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   const navigate = useNavigate();
   let path = navigate('shop/'.concat(title.toLowerCase()).concat('/', linkUrl))
+
+  function goToCategory() {
+    window.location.assign('http://localhost:3000/#/shop/' + linkUrl)
+  }
  return (
   
   <div 
     className={`${size} menu-item`} 
-    onClick={() => navigate('shop/' + linkUrl)}
+    // onClick={() => navigate('shop/' + linkUrl)}
+    onClick={() => goToCategory()}
   >
     <div 
       className="background-image"

@@ -21,6 +21,7 @@ export default function ItemDetailPage(props) {
   let img2 = location.state.img2;
   let price = location.state.price;
   // let desc = location.state.desc;
+  
   const productQuantity = cart.getProductQuantity(id);
   
   return (
