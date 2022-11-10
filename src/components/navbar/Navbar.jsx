@@ -29,6 +29,7 @@ import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage
 import { Route, Link, Routes, } from 'react-router-dom';
 
 import React, { useState, useContext,  } from 'react';
+import { Notyf } from 'notyf';
 
 export default function Navigationbar({currentUser}) {
   const cart = useContext(ShoppingCartContext);
@@ -47,11 +48,15 @@ export default function Navigationbar({currentUser}) {
     checkout()
   }
 
-if (currentUser) {
-//   // setAuthenticated(loggedInUser)
-//   <Navigate path="#/login" />
-// } else {
-  <Navigate path="/" />}
+  const notyf = new Notyf();
+
+  function showSuccessAlert() {
+    notyf.success({
+      message: 'You have been successfully signed out. Goodbye',
+      duration: 5000,
+      dismissible: true,
+    });
+  };
 
   const checkout = async () => {
     // await fetch('http://localhost:4000/checkout', {
@@ -81,7 +86,7 @@ if (currentUser) {
         // <Router>
           <Container className='p-0' fluid="true">
             <Navbar className='border' bg="transparent" expand="sm">
-             <Navbar.Brand href="." className='logo'>
+             <Navbar.Brand href="#/" className='logo'>
                 <img 
                   src={Logo} 
                   style={{
@@ -115,7 +120,7 @@ if (currentUser) {
                 {
                   currentUser ? 
                   <div>
-                    <Link className="nav-link" to='/' onClick={()=> auth.signOut(console.log(auth.currentUser))}>Sign Out</Link>
+                    <Link className="nav-link" to='#/' onClick={()=> auth.signOut(showSuccessAlert())}>Sign Out</Link>
                   </div>
                   :
                     <Link className="nav-link" to='/login'>Sign In</Link>
@@ -275,7 +280,7 @@ if (currentUser) {
                 currentUser ? <Redirect to="/" /> : <ShopPage />
               } */}
             </Route>
-            <Route path='login'  element={<SignInAndSignUpPage/>}></Route>
+            <Route path='login'  element={<SignInAndSignUpPage />}></Route>
             <Route path='shop' element={<ShopPage/>}></Route>
             <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
