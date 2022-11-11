@@ -8,7 +8,7 @@ import './menu-item.scss';
   // let path = navigate('shop/'.concat(title.toLowerCase()).concat('/', linkUrl))
 
   function goToCategory() {
-    window.location.assign('http://localhost:3000/#/shop/' + linkUrl)
+    window.location.assign('https://magofna68.github.io/eCommerce-front-end/#/shop/' + linkUrl)
   }
  return (
   

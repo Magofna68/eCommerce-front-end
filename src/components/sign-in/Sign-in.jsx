@@ -3,8 +3,6 @@ import './sign-in.styles.scss';
 import FormInput from '../form-input/Form-input';
 import CustomButton from '../utility/custom-button/Custom-button';
 import { auth, signInWithGoogle } from '../../firebase/Firebase.utils';
-import { Route} from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import Container from 'react-bootstrap/Container'
@@ -25,11 +23,11 @@ showSuccessAlert() {
     duration: 5000,
     dismissible: true,
   });
-  // notification.on('click', ({target, event}) => {
-    window.location.href='http://localhost:3000/#/shop';
-  // });
-  // notyf.dismiss(notification);
+    window.location.href='https://magofna68.github.io/eCommerce-front-end/#/';
+
+  notyf.dismiss(notification);
 }
+
 showErrorAlert() {
   notyf.error({
     message: 'Something went wrong. Please try again.',

@@ -1,7 +1,5 @@
 import './navbar.styles.scss';
 
-import {Navigate } from 'react-router';
-
 import { Row, Col, } from 'react-bootstrap';
 import { Container, Button, Modal, NavDropdown } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
@@ -57,10 +55,10 @@ export default function Navigationbar({currentUser}) {
       duration: 5000,
       dismissible: true,
     });
+    window.location.href = 'https://magofna68.github.io/eCommerce-front-end/#/'
   };
 
   const checkout = async () => {
-    // await fetch('http://localhost:4000/checkout', {
     await fetch('https://https-magofna68-github-io-ecommerce.onrender.com/checkout', {
       // make post request to fetch Url
       method: 'POST',
@@ -87,7 +85,7 @@ export default function Navigationbar({currentUser}) {
         // <Router>
           <Container className='p-0' fluid="true">
             <Navbar className='border' bg="transparent" expand="sm">
-             <Navbar.Brand href="http://localhost:3000/#/" className='logo'>
+             <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
                 <img 
                   src={Logo} 
                   style={{
@@ -101,8 +99,6 @@ export default function Navigationbar({currentUser}) {
              <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
-               {/* <Link className="nav-link" to="/">Sign In</Link> */}
-
               <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
                 <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item>
