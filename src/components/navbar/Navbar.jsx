@@ -1,16 +1,16 @@
 import './navbar.styles.scss';
 
 import {Navigate } from 'react-router';
-import  {Redirect} from 'react-router-dom';
 
 import { Row, Col, } from 'react-bootstrap';
-import { Container, Button, Modal } from 'react-bootstrap';
+import { Container, Button, Modal, NavDropdown } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/esm/Nav';
 
 import ClearIcon from '@mui/icons-material/Clear';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -27,9 +27,10 @@ import { ShoppingCartContext } from '../context/ShoppingCartContext';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
 
-import { BrowserRouter as Router, Route, Link, Routes, redirect, } from 'react-router-dom';
+import { Route, Link, Routes, } from 'react-router-dom';
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext,  } from 'react';
+import { Notyf } from 'notyf';
 
 export default function Navigationbar({currentUser}) {
   const cart = useContext(ShoppingCartContext);
@@ -48,11 +49,15 @@ export default function Navigationbar({currentUser}) {
     checkout()
   }
 
-if (currentUser) {
-//   // setAuthenticated(loggedInUser)
-//   <Navigate path="#/login" />
-// } else {
-  <Navigate path="/" />}
+  const notyf = new Notyf();
+  
+  function showSuccessAlert() {
+    notyf.success({
+      message: 'Sign out Successful. Goodbye.',
+      duration: 5000,
+      dismissible: true,
+    });
+  };
 
   const checkout = async () => {
     // await fetch('http://localhost:4000/checkout', {
@@ -82,7 +87,7 @@ if (currentUser) {
         // <Router>
           <Container className='p-0' fluid="true">
             <Navbar className='border' bg="transparent" expand="sm">
-             <Navbar.Brand href="/" className='logo'>
+             <Navbar.Brand href="http://localhost:3000/#/" className='logo'>
                 <img 
                   src={Logo} 
                   style={{
@@ -97,13 +102,26 @@ if (currentUser) {
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
                {/* <Link className="nav-link" to="/">Sign In</Link> */}
+
+              <NavDropdown title="Shop" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/jackets">Jackets</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#/shop/mens">
+                  Men's
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/womens">
+                  Women's
+                </NavDropdown.Item>
+              </NavDropdown>
                <Link className="nav-link" to="/">Home</Link>
-               <Link className='nav-link' to="/shop">Shop</Link>
+
                <Link className='nav-link' to='/contact'>contact</Link>
                 {
                   currentUser ? 
                   <div>
-                    <Link className="nav-link" to='/' onClick={()=> auth.signOut(console.log(auth.currentUser))}>Sign Out</Link>
+                    <Link className="nav-link" to='#/' onClick={()=> auth.signOut(showSuccessAlert())}>Sign Out</Link>
                   </div>
                   :
                     <Link className="nav-link" to='/login'>Sign In</Link>
@@ -150,13 +168,13 @@ if (currentUser) {
           </Navbar>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Your Shopping Cart</Modal.Title>
+              <Modal.Title><span id="modalTitle">UNDERGROUND ROYALTY</span></Modal.Title>
             </Modal.Header>
               <Modal.Body>
-                <h3 style={{marginBottom: '10%'}}>{productCount} Items Added To Cart:</h3>
                 {
                   productCount > 0 ?
                   <>
+                  <h4 style={{marginBottom: '10%'}}>Items In Cart: {productCount}</h4>
                     <Container style={{marginBottom: '5%'}}>
                       <Row style={{marginBottom: '1%'}}>
                         <Col><h6>Item:</h6></Col>
@@ -166,7 +184,7 @@ if (currentUser) {
                       </Row>
                   {cart.items.map((currentProduct, idx) => (
                     <>
-                      <Row>
+                      <Row style={{marginBottom: '15px'}}>
                         <Col xs={2} style={{padding: '0'}}>
                           <div 
                             className='imgContainer'
@@ -180,9 +198,10 @@ if (currentUser) {
                             <img 
                               key={idx}
                               src={currentProduct.img}
-                              maxWidth='100%'
+                              maxWidth='70px'
                               height="100%"
                               alt="Cart Preview"
+                              id="img"
                             />
                             <ClearIcon 
                               fontSize="sm" 
@@ -249,26 +268,25 @@ if (currentUser) {
                   }
                   </>
                   :
-                  <h3>Visit the shop page to add items</h3>
+                  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+                    <br/>
+                    <RemoveShoppingCartIcon fontSize="large" /><br/>
+                    <h5 style={{display: 'block'}}>Click <a href="/">Here</a> to visit the Shop Page</h5>
+                    <br/><br/>
+                  </div>
                 }
               </Modal.Body>
-              {/* <Button onClick={()=> console.log(cart.name)}>click me</Button> */}
           </Modal>
 
           <Routes>
-          {/* <Route path='/'>Sign In</Route> */}
             <Route path="/" exact element={<HomePage />}>
-              {/* {
-                currentUser ? <Redirect to="/" /> : <ShopPage />
-              } */}
             </Route>
-            <Route path='/login'  element={<SignInAndSignUpPage/>}></Route>
-            <Route path='/shop' element={<ShopPage/>}></Route>
-            <Route path='/success' element={<PaymentCompletePage />}></Route>
+            <Route path='login'  element={<SignInAndSignUpPage />}></Route>
+            <Route path='shop' element={<ShopPage/>}></Route>
+            <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
-            <Route path='/contact' element={<ContactPage />}></Route>
+            <Route path='contact' element={<ContactPage />}></Route>
           </Routes>
         </Container> 
-      // </Router>
   )
 }

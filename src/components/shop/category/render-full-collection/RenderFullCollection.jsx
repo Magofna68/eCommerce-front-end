@@ -33,7 +33,7 @@ export const RenderFullCollection = ({title, items, routeName}) => (
             >
             {
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} title={title} id={id}{...otherItemProps} />
+                <FullCollectionItem key={id} title={title} id={id} {...otherItemProps} />
                 ))
               };
           </div>

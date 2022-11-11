@@ -1,4 +1,8 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 import './sign-in-sign-up.syles.scss';
 
@@ -8,10 +12,16 @@ import SignUp from '../../components/sign-up/Sign-up'
 const SignInAndSignUpPage = () => {
   
   return(
-    <div className='sign-in-and-sign-up'>
-      <SignIn /> 
-      <SignUp />
-    </div>
+    <Container fluid>
+      <Row>
+        <Col lg={6} md={6} sm={12} xs={12}>
+          <SignIn  /> 
+        </Col>
+        <Col lg={6} md={6} sm={12} xs={12}>
+          <SignUp />
+        </Col>
+      </Row>
+    </Container>
   )
 };
 

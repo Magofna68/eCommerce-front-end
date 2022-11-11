@@ -32,7 +32,7 @@ export const CollectionPreview = ({title, items, routeName }) => (
           // limit to only 4 items to display; gets rerendered with component
           .filter((item, index)=> index < 4)
           .map(({id, ...otherItemProps}) => (
-            <CollectionItem key={id} id={id} {...otherItemProps} />
+            <CollectionItem key={id} id={id} routeName={routeName} {...otherItemProps} />
             ))}
       </div>
     </Container>

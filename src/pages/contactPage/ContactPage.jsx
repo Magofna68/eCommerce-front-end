@@ -4,6 +4,10 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 
+import PhoneIcon from '@mui/icons-material/Phone';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+
 
 export default function ContactPage() {
   const services = [
@@ -64,7 +68,7 @@ export default function ContactPage() {
                     <p>If you are contacting us about an order, please have your order number readily available.</p>
                   </Col>
                   <Col>
-                    <h6>Mail Address</h6>
+                    <h6><MailOutlineIcon /> Mail Address</h6>
                     <p>
                       Underground Royalty LLC<br/>
                       111 Maid-Up Ave. N <br/>
@@ -73,7 +77,7 @@ export default function ContactPage() {
                   </Col>
                 </Row>
                 <Row>
-                  <h6>Customer Service Hours:</h6>
+                  <h6><PersonOutlineIcon /> Customer Service Hours:</h6>
                   <p>
                     Mon-Fri 6:00-17:00
                     <br/>
@@ -83,7 +87,10 @@ export default function ContactPage() {
                   </p>
                 </Row>
                 <Row>
-                  <h6>Customer Service Phone:</h6>
+                  <h6>
+                    <PhoneIcon fontSize='medium'/>
+                    Customer Service Phone:
+                  </h6>
                   <p>1-800-XXX-XXXX</p>
                 </Row>
                 </div>

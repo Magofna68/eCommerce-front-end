@@ -6,27 +6,45 @@ import ItemDetailPage from '../../../../pages/itemDetailPage/ItemDetailPage';
 
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import { Route, Routes,} from 'react-router-dom';
+
 
 import './fullCollectionItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 
-export default function FullCollectionItem({title, id, name, price, img, img2}) {
+export default function FullCollectionItem({title, id, name, price, img, img2, desc}) {
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   const navigate = useNavigate();
-  // console.log(cart.items);
+
+  let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
+  const toItemDetail = (id, name, price, img, desc, img2) => {
+    navigate(path, {
+      state:  {
+        id: id, 
+        name: name, 
+        price: price, 
+        img: img,
+        img2: img2,
+        desc: desc,
+      }
+    })
+  }
+
 return (
+<>
   <Card 
-  className='fullCollectionItem'
-  >
+    className='fullCollectionItem'
+    onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
+    >
+{/* <Link to={'/shop/'+ title.toLowerCase() + {id}, {state: {id: id, name: name}}}> Test</Link> */}
     {/* <Link 
       className="nav-link" 
       to={'/shop/'+ title.toLowerCase() + id} 
       > */}
     <Card.Img 
       className="fullCollectionImg"
-      // onClick={()=> <Link to={'/shop/'+ title.toLowerCase() + id}  element= {<ItemDetailPage id={id} name={name} />}></Link>
       variant='top' 
       // onClick={()=> <ItemDetailPage id={id} />}
       src={img} 
@@ -100,8 +118,15 @@ return (
         </>}
     </div>
   </Card>
-  // </ShoppingCartProvider>
+  
+  {/* <Routes> */}
+    {/* <Route path={path} element={<ItemDetailPage />} /> */}
+    {/* <Route path='shop/hats/:id' exact element={<ItemDetailPage  />} />  */}
 
-)};
+  {/* </Routes> */}
+  </>
+  
+  // </ShoppingCartProvider>
+  )};
 
 // export default FullCollectionItem;

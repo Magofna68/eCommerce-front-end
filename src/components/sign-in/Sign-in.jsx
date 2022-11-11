@@ -5,16 +5,36 @@ import CustomButton from '../utility/custom-button/Custom-button';
 import { auth, signInWithGoogle } from '../../firebase/Firebase.utils';
 import { Route} from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
+import Container from 'react-bootstrap/Container'
+
+const notyf = new Notyf();
 
 export default class SignIn extends React.Component {
 constructor(props) {
   super(props);
   this.State = {
-    email: "",
-    password: "",
-    currentUser: null,
-
-  }
+    email: '',
+    password: '',
+  };
+}
+showSuccessAlert() {
+  const notification = notyf.success({
+    message: 'Sign in Successful',
+    duration: 5000,
+    dismissible: true,
+  });
+  // notification.on('click', ({target, event}) => {
+    window.location.href='http://localhost:3000/#/shop';
+  // });
+  // notyf.dismiss(notification);
+}
+showErrorAlert() {
+  notyf.error({
+    message: 'Something went wrong. Please try again.',
+    duration: 3000,
+  });
 }
 
 handleSubmit = async (event) => {
@@ -22,11 +42,11 @@ handleSubmit = async (event) => {
   const { email, password } = this.state;
   try {
     await auth.signInWithEmailAndPassword(email, password);
-    // this.setState({user: email})
-    // console.log("User", user)
-    console.log("you have successfully been signed in", email)
+    console.log("you have successfully been signed in", email);
+    this.showSuccessAlert();
     this.setState({email: "", password: "",});
   } catch (error) {
+    this.showErrorAlert()
     console.log(error);
   }
 };
@@ -40,9 +60,9 @@ handleChange = (e) => {
 }
 
   render() {
-
     return (
       <div className='sign-in'>
+        <Container fluid>
           <h2>I already have an account</h2>
           <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
@@ -50,7 +70,7 @@ handleChange = (e) => {
             name="email" 
             type="email" 
             id="email_input"
-            // value={this.state.email}
+            value={this.email}
             handleChange={this.handleChange}
             label="Email"
             required 
@@ -59,7 +79,7 @@ handleChange = (e) => {
             name="password" 
             type="password" 
             password="password_input"
-            // value={this.state.password} 
+            value={this.password} 
             handleChange={this.handleChange}
             label="Password"
             required 
@@ -67,6 +87,7 @@ handleChange = (e) => {
           <div className='button-container'>
             <CustomButton 
               type="submit" 
+              value='submit'
               onClick={() => {
                 this.setState({currentUser: true})
               }}
@@ -76,6 +97,7 @@ handleChange = (e) => {
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustomButton>
           </div>
         </form>
+        </Container>
       </div>
     )
   }
