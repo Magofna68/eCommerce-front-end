@@ -11,6 +11,7 @@ import WomensClothing from './components/shop/gender/women/WomensClothing';
 import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
 import {Header} from './components/utility/header/Header';
 import NotFound from './pages/notFound/NotFound';
+import HomePage from './pages/homePage/HomePage.jsx';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
 
@@ -71,7 +72,7 @@ componentWillUnmount() {
           </div>
           <Routes>
             {/* pathways for categories */}
-            <Route path='shop/jackets/' element={<Jackets />}/>
+            <Route path='shop/jackets' element={<Jackets />}/>
             <Route path='shop/sneakers' element={<Sneakers/>}/>
             <Route path='shop/mens' element={<MensClothing />}/>
             <Route path='shop/womens' element={<WomensClothing/>}/>
@@ -83,7 +84,7 @@ componentWillUnmount() {
             <Route path='shop/sneakers/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/mens/hats/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
-            <Route path='shop/womens/womens' element={<NotFound />} />
+            <Route path='shop/womens/womens' element={<HomePage />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Router>
