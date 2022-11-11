@@ -267,7 +267,7 @@ export default function Navigationbar({currentUser}) {
                   <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                     <br/>
                     <RemoveShoppingCartIcon fontSize="large" /><br/>
-                    <h5 style={{display: 'block'}}>Click <a href="/">Here</a> to visit the Shop Page</h5>
+                    <h5 style={{display: 'block'}}>Click <a href="https://magofna68.github.io/eCommerce-front-end/#/">Here</a> to visit the Shop Page</h5>
                     <br/><br/>
                   </div>
                 }

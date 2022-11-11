@@ -38,15 +38,9 @@ return (
     className='fullCollectionItem'
     onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
     >
-{/* <Link to={'/shop/'+ title.toLowerCase() + {id}, {state: {id: id, name: name}}}> Test</Link> */}
-    {/* <Link 
-      className="nav-link" 
-      to={'/shop/'+ title.toLowerCase() + id} 
-      > */}
     <Card.Img 
       className="fullCollectionImg"
       variant='top' 
-      // onClick={()=> <ItemDetailPage id={id} />}
       src={img} 
       style={{
         height: '75%',
@@ -81,7 +75,7 @@ return (
         ${price}
       </Card.Text>
     </Card.Body>
-    <div className='w-100'>
+    {/* <div className='w-100'>
       {productQuantity === 0 ? (
         <Button 
           onClick={() => cart.addOneItemToCart(id, name, price, img)}
@@ -90,13 +84,8 @@ return (
           style={{
            border: 'none',
           //  marginBottom: '1px',
-          }}
-        >+ Add to Cart
-          {/* <AddShoppingCartSharpIcon 
-            font="large"  
-            variant="outline-primary"
-            className="rounded-circle"
-          /> */}
+        }}>
+          + Add to Cart
         </Button>
       ) : <>
         <div 
@@ -116,7 +105,7 @@ return (
           <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
         </div>
         </>}
-    </div>
+    </div> */}
   </Card>
   
   {/* <Routes> */}

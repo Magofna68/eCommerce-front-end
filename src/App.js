@@ -85,7 +85,7 @@ componentWillUnmount() {
             <Route path='shop/mens/hats/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
             {/* <Route path='shop/womens/womens' element={<HomePage />} /> */}
-            <Route path="*" element={<NotFound />} />
+            <Route element={<NotFound />} />
           </Routes>
         </Router>
       </CartProvider>

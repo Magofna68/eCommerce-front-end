@@ -5,7 +5,7 @@ export default function NotFound() {
     <div>
       <h1>THE PAGE YOU WERE LOOKING FOR WAS NOT FOUND</h1>
         <br/><br/>
-      <a href="/">CLICK TO RETURN HOME</a>
+      <a href="https://magofna68.github.io/eCommerce-front-end/#/">CLICK TO RETURN HOME</a>
     </div>
   )
 }
