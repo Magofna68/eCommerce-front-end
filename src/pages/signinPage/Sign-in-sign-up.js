@@ -9,7 +9,7 @@ import './sign-in-sign-up.syles.scss';
 import SignIn from '../../components/sign-in/Sign-in';
 import SignUp from '../../components/sign-up/Sign-up'
 
-const SignInAndSignUpPage = ({currentUser}) => {
+const SignInAndSignUpPage = () => {
   
   return(
     <Container fluid>

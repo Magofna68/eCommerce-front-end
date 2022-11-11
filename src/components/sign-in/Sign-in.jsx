@@ -24,14 +24,10 @@ showSuccessAlert() {
     message: 'Sign in Successful',
     duration: 5000,
     dismissible: true,
-    // position: {
-    //   x: 'center',
-    //   y: 'bottom'
-    // }
   });
-  notification.on('click', ({target, event}) => {
-    window.location.href='#/';
-  });
+  // notification.on('click', ({target, event}) => {
+    window.location.href='http://localhost:3000/#/shop';
+  // });
   // notyf.dismiss(notification);
 }
 showErrorAlert() {
