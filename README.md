@@ -66,6 +66,11 @@ _*This project mainly focused on utilizing the skills I have learned thus far an
 5. React-Bootstrap -- for styling and design
 6. Stripe -- for payment processing
 7. Material-UI/Core -- for styling purposes
+8. Render -- for hosting STRIPE backend
+9. Notyf -- TOAST notifications
+
+# Known Bugs:
+- Currently utilizing useNavigate from gender to ItemDetail, but not capturing the state object as it navigates thus leaving the ItemDetail page empty.
 
 ## Support and contact details
 
