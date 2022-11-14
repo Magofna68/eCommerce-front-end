@@ -52,7 +52,7 @@ export const Header = ({currentUser}) => (
             <div className='labelContain'>
               {
                 currentUser ?
-                  <Navbar.Text><span className="navbar-text">Signed in as:<span style={{fontWeight: 'bold', color: 'black'}}>{currentUser.displayName}</span></span></Navbar.Text>
+                  <Navbar.Text><span className="navbar-text">Hello:  <span style={{fontWeight: 'bold', color: 'black', fontSize: '12px'}}>{currentUser.displayName}</span></span></Navbar.Text>
                 :
                   <Navbar.Text><span className="navbar-text">Have an account?</span></Navbar.Text>
               }     
