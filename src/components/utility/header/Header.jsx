@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigationbar from '../../navbar/Navbar.jsx'
+import SearchBar from '../../searchBar/SearchBar';
 
 import './header.styles.scss';
 // import HomePage from '../../pages/home/HomePage';
@@ -28,7 +29,10 @@ export const Header = ({currentUser}) => (
             <section className='header-bottom_email'>
               Magofna68@gmail.com
             </section>
-            </section>
+          </section>
+          <div className='searchBar'>
+            <SearchBar />
+          </div>
           <Navigationbar currentUser = {currentUser} />
         </section>
     );
