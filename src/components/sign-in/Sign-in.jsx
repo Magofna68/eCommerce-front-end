@@ -18,14 +18,14 @@ constructor(props) {
   };
 }
 showSuccessAlert() {
-  const notification = notyf.success({
+  // window.location.href='https://magofna68.github.io/eCommerce-front-end/#/';
+  window.location.href='http://localhost:3000/eCommerce-front-end#/'
+  notyf.success({
     message: 'Sign in Successful',
     duration: 5000,
     dismissible: true,
   });
-    window.location.href='https://magofna68.github.io/eCommerce-front-end/#/';
 
-  notyf.dismiss(notification);
 }
 
 showErrorAlert() {
