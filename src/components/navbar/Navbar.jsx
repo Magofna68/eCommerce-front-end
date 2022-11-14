@@ -20,10 +20,11 @@ import ShopPage from '../../pages/shopPage/ShopPage';
 import ContactPage from '../../pages/contactPage/ContactPage';
 import HomePage from '../../pages/homePage/HomePage';
 import Logo from '../../assets/crown.png'
-import { auth } from '../../firebase/Firebase.utils';
+// import { auth } from '../../firebase/Firebase.utils';
 import { ShoppingCartContext } from '../context/ShoppingCartContext';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
+import SearchBar from '../searchBar/SearchBar';
 
 import { Route, Link, Routes, } from 'react-router-dom';
 
@@ -114,7 +115,7 @@ export default function Navigationbar({currentUser}) {
                <Link className="nav-link" to="/">Home</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>
-                {
+                {/* {
                   currentUser ? 
                   <div>
                     <Link className="nav-link" to='#/' onClick={()=> auth.signOut(showSuccessAlert())}>Sign Out</Link>
@@ -127,7 +128,8 @@ export default function Navigationbar({currentUser}) {
                         <Navbar.Text><span style={{}} className="navbar-text">Signed in as: <br/><span style={{fontWeight: 'bold', color: 'black'}}>{currentUser.displayName}</span></span></Navbar.Text>
                       :
                         <Navbar.Text><span className="navbar-text">Have an account?</span></Navbar.Text>
-                    }
+                    } */}
+                  <SearchBar />
                   <span style={{
                     marginRight: '3%',
                   }}>

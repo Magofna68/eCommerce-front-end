@@ -2,17 +2,18 @@ import './searchBar.styles.scss';
 import {MdSearch} from 'react-icons/md';
 import React from 'react'
 import CustomButton from '../utility/custom-button/Custom-button';
+import Container from 'react-bootstrap/Container';
 
 export default function SearchBar() {
   return (
-    <div className='searchBarContain'>
+    <Container fluid className='searchBarContain'>
       <div className='searchBar'>
-        <button type="submit"><i class="fa fa-search"></i>
+        <button type="submit">
           <MdSearch />
         </button>
         <input placeholder='Search..' type="text" name="search">
         </input>
       </div>
-    </div>
+    </Container>
   )
 }

@@ -1,5 +1,27 @@
-.searchBar{
+.signIn{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  // flex-direction: column;
 
+  .labelContain{
+    display: flex;
+    // justify-content: right;
+    // width: 300px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    a.nav-link {
+      font-size: 15px;
+      // margin-bottom: 0;
+    }
+  }
+}
+
+
+a.nav-link{
+  margin: 0;
 }
 
 .slogan{
