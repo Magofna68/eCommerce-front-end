@@ -18,8 +18,8 @@ constructor(props) {
   };
 }
 showSuccessAlert() {
-  // window.location.href='https://magofna68.github.io/eCommerce-front-end/#/';
-  window.location.href='http://localhost:3000/eCommerce-front-end#/'
+  window.location.href='https://magofna68.github.io/eCommerce-front-end/#/';
+  // window.location.href='http://localhost:3000/eCommerce-front-end#/'
   notyf.success({
     message: 'Sign in Successful',
     duration: 5000,

@@ -6,34 +6,8 @@ import Queen from '../../../../assets/Queen.png';
 export default function WomensClothing() {
   return (
     <div>
-      {/* <h1
-        style={{
+        <div style={{
           display: 'flex',
-          justifyContent: 'center',
-          fontFamily: 'sans-serif',
-          fontWeight: '600',
-          marginTop: '5%',
-          justifyContent: 'center',
-          fontFamily: 'cursive',
-          fontSize: '50px'
-        }}>
-          QUEENS
-          
-          </h1> */}
-        {/* <div style={{
-          marginTop: '-5px',
-          marginBottom: '-25px',
-          // width: '50vw',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <img src={Queen} alt="queen" width="100px" />
-        </div> */}
-                <div style={{
-          // marginTop: '-25px',
-          display: 'flex',
-          // marginBottom: '25px',
           width: '96vw',
           position: 'fixed',       
           color: 'grey',

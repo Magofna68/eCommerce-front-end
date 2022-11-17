@@ -2,16 +2,13 @@ import React from 'react'
 import { MENS_SHOP_DATA as mensCollections } from '../../../../data';
 import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
-import Queen from '../../../../assets/Queen.png';
-import { convertLength } from '@mui/material/styles/cssUtils';
+
 
 export default function MensClothing() {
   return (
     <div>
         <div style={{
-          // marginTop: '-25px',
           display: 'flex',
-          // marginBottom: '25px',
           width: '96vw',
           position: 'fixed',       
           color: 'grey',
