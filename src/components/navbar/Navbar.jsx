@@ -85,7 +85,9 @@ export default function Navigationbar({currentUser}) {
   return (
         // <Router>
           <Container className='p-0' fluid="true">
-            <Navbar className='border' bg="transparent" expand="sm">
+            <Navbar className='border' bg="transparent" expand="sm" style={{
+
+            }}>
              <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
                 <img 
                   src={Logo} 
