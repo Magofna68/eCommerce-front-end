@@ -19,16 +19,17 @@ import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
 import ShopPage from '../../pages/shopPage/ShopPage';
 import ContactPage from '../../pages/contactPage/ContactPage';
 import HomePage from '../../pages/homePage/HomePage';
-import Logo from '../../assets/crown.png'
-import { auth } from '../../firebase/Firebase.utils';
-import { ShoppingCartContext } from '../context/ShoppingCartContext';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
+
+import Logo from '../../assets/crown.png'
+import { ShoppingCartContext } from '../context/ShoppingCartContext';
+import SearchBar from '../searchBar/SearchBar';
 
 import { Route, Link, Routes, } from 'react-router-dom';
 
 import React, { useState, useContext,  } from 'react';
-import { Notyf } from 'notyf';
+
 
 export default function Navigationbar({currentUser}) {
   const cart = useContext(ShoppingCartContext);
@@ -47,16 +48,6 @@ export default function Navigationbar({currentUser}) {
     checkout()
   }
 
-  const notyf = new Notyf();
-  
-  function showSuccessAlert() {
-    notyf.success({
-      message: 'Sign out Successful. Goodbye.',
-      duration: 5000,
-      dismissible: true,
-    });
-    window.location.href = 'https://magofna68.github.io/eCommerce-front-end/#/'
-  };
 
   const checkout = async () => {
     await fetch('https://https-magofna68-github-io-ecommerce.onrender.com/checkout', {
@@ -82,9 +73,10 @@ export default function Navigationbar({currentUser}) {
   }
 
   return (
-        // <Router>
           <Container className='p-0' fluid="true">
-            <Navbar className='border' bg="transparent" expand="sm">
+            <Navbar className='border' bg="transparent" expand="sm" style={{
+
+            }}>
              <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
                 <img 
                   src={Logo} 
@@ -114,23 +106,10 @@ export default function Navigationbar({currentUser}) {
                <Link className="nav-link" to="/">Home</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>
-                {
-                  currentUser ? 
-                  <div>
-                    <Link className="nav-link" to='#/' onClick={()=> auth.signOut(showSuccessAlert())}>Sign Out</Link>
-                  </div>
-                  :
-                    <Link className="nav-link" to='/login'>Sign In</Link>
-                  }
-                    {
-                      currentUser ?
-                        <Navbar.Text><span style={{}} className="navbar-text">Signed in as: <br/><span style={{fontWeight: 'bold', color: 'black'}}>{currentUser.displayName}</span></span></Navbar.Text>
-                      :
-                        <Navbar.Text><span className="navbar-text">Have an account?</span></Navbar.Text>
-                    }
+                <SearchBar />
                   <span style={{
                     marginRight: '3%',
-                  }}>
+                }}>
                   <Button
                     style={{
                       width: '3rem',
