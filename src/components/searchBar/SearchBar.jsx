@@ -38,6 +38,11 @@ export default function SearchBar() {
     }
   }
 
+  const handleClick = (e) => {
+    window.location.href='http://localhost:3000/eCommerce-front-end#/pageNotAvailable';
+    handleClose()
+  }
+
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)
 
@@ -75,20 +80,20 @@ export default function SearchBar() {
         { show && searchResults ? 
           (
             <Container fluid className='searchResults'>
-              <Offcanvas show={show} onHide={handleClose} placement={'start'} style={{width: '375px'}}>
+              <Offcanvas show={show} onHide={handleClose} placement={'start'} style={{width: '375px',}}>
                 <Offcanvas.Header closeButton>
-                  <img src={Crown} alt='company Logo' width="75px" />
+                  <img src={Crown} alt='company Logo' width="75px" id="crownLogo"/>
                   <Offcanvas.Title><h2 style={{textAlign: 'center', marginTop: '10%'}}>Underground Royalty</h2></Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
+                <Offcanvas.Body style={{mineight: '95vh'}}>
                   <h4>Results:</h4>
                   <Table striped bordered hover variant="dark" sz="lg">
                     <tbody style={{display: 'block'}} id="searchTable">
                         {searchResults.map((item, index) => {
                           return (
-                            <tr style={{ minWidth: '300px'}}>
-                              <td><img src={item.img} alt="test" width='50px'/></td>
-                              <td><Link to='/pageNotAvailable'>{item.name}</Link></td>
+                            <tr className="itemContainer" onClick={handleClick}>
+                              <img src={item.img} alt="test" />
+                              <td>{item.name}</td>
                             </tr>
                           )
                         })}
