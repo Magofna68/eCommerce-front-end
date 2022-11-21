@@ -5,16 +5,17 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 
-export const CollectionPreview = ({title, items, routeName }) => (
+// export const CollectionPreview = ({title, items, routeName }) => (
+  export const CollectionPreview = ({items}) => (
     <Container
       fluid="true"
       className='collectionPreview'
     >
       <div className='titleContainer'>
         <h2>
-          <Link className="nav-link" to={'/shop/'+ routeName}>
+          {/* <Link className="nav-link" to={'/shop/'+ routeName}>
             {title.toUpperCase()}
-          </Link>
+          </Link> */}
         <hr />
         </h2>
       </div>
@@ -29,9 +30,9 @@ export const CollectionPreview = ({title, items, routeName }) => (
       >
         {items
           // limit to only 4 items to display; gets rerendered with component
-          .filter((item, index)=> index < 4)
+          // .filter((item, index)=> index < 4)
           .map(({id, ...otherItemProps}) => (
-            <CollectionItem key={id} id={id} routeName={routeName} {...otherItemProps} />
+            <CollectionItem key={id} id={id} {...otherItemProps} />
             ))}
       </div>
     </Container>

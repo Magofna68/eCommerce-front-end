@@ -258,6 +258,7 @@ const SHOP_DATA = [
     items: [
       {
         id: 'price_1LvTojKFRYyirzJ3CXpdLfK5',
+        title: 'Shirts',
         name: 'AE Graphic Tee',
         alt: 'White Graphic shirt',
         img: 'https://s7d2.scene7.com/is/image/aeo/0160_4124_100_f?$pdp-mtg-opt$&fmt=webp',
@@ -332,7 +333,164 @@ const SHOP_DATA = [
   }
 ]
 
-
+export const MENS_SHOP_LIST = [
+  { 
+    items:[
+      {
+        id: 'price_1LvSGNKFRYyirzJ3nshDkSA6',
+        title: 'Hats',
+        name: 'Alumni Oreo Snap-back',
+        alt: 'Alumni designer hat',
+        img: `${Oreo}`,
+        price: '19.99',
+        desc: ''
+      },
+      {
+        id:'price_1LvSGsKFRYyirzJ350VT9sRR',
+        title: 'Hats',
+        name: 'Alumni Designer Strap-back',
+        alt: 'designer hat',
+        img: `${Paradise3}`,
+        price: '22.99',
+        desc: ''
+      },
+      {
+        id: 'price_1LvSHLKFRYyirzJ3gM2GXxto',
+        title: 'Hats',
+        name: 'Alumni Paradise Snap-back',
+        alt: 'Alumni designer hat',
+        img: `${Paradise}`,
+        price: '20',
+        desc: ''
+      },
+      {
+        id: 'price_1LvSHrKFRYyirzJ39iUpQjkF',
+        title: 'Hats',
+        name: 'Alumni Designer Snap-back',
+        alt: 'designer hat',
+        img: `${Paradise2}`,
+        price: '19.99',
+        desc: ''
+      },
+      {
+        id: 'price_1Lv4dkKFRYyirzJ3scXKuUNb',
+        title: 'Shoes',
+        name: 'Mens Nike Dunk High Retro',
+        alt: 'Nike Shoe',
+        img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a0374c16-982d-44a8-b791-18d7b47fab9f/dunk-high-retro-mens-shoe-dTVTCk.png',
+        price: '125',
+        desc: ''
+      },
+      {
+        id: 'price_1Lv4fDKFRYyirzJ3zo5SjNBm',
+        title: 'Shoes',
+        name: 'Air Jordan 6 Retro Low',
+        alt: 'Air Jordan Shoe',
+        img: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/1f1b7246-1dcd-43de-af62-995320e977ef/air-jordan-6-retro-low-mens-shoes-MPwhfh.png',
+        price: '200',
+        desc: ''
+      },
+      {
+        id: 'price_1LvS4lKFRYyirzJ3nai5kJRN',
+        title: 'Shoes',
+        name: 'Vans: Era Core Classics',
+        alt: 'Vans Shoe',
+        img: 'https://m.media-amazon.com/images/I/71b8Cc6XRfL._AC_SR1840,1472__FMwebp_.jpg',
+        price:'54.95',
+        desc: ''
+      },
+      {
+        id: 'price_1LvS5pKFRYyirzJ3DPIitZ5j',
+        title: 'Shoes',
+        name: 'Men\'s Leather Oxford Dress Shoes',
+        alt: 'Mens Dress Shoe',
+        img: 'https://cdnimg.brunomarcshoes.com/brunomarcshoes/product/product/2022-09-19/9065/10:06--1.jpg',
+        price: '42.99',
+        desc: ''
+      },
+      {
+        id: 'price_1LvSBNKFRYyirzJ3uzz096kf',
+        title: 'Jackets',
+        name: 'Men\'s Vintage Fashion Coat',
+        alt: 'Mens Leather Jacket',
+        img: 'https://i.ebayimg.com/images/g/O1MAAOSw~z5jMXTu/s-l500.jpg',
+        img2: 'https://i.ebayimg.com/images/g/TygAAOSw-bNjMXTv/s-l500.jpg',
+        price: '50.50',
+        desc: ''
+      },
+      {
+        id: 'price_1LvSBuKFRYyirzJ3ypNdwwz8',
+        title: 'Jackets',
+        name: 'Men\'s Lightweight Bomber Jacket',
+        alt: 'Mens Bomber Jacket Shell',
+        img: 'https://m.media-amazon.com/images/I/71M8rwNjBKS._AC_UY879_.jpg',
+        img2: 'https://m.media-amazon.com/images/I/71IvRQD5AjL._AC_UY879_.jpg',
+        price: '33.99',
+        desc: ''
+      },
+      {
+        id: 'price_1LvSCSKFRYyirzJ3t7hf3Y3r',
+        title: 'Jackets',
+        name: 'Men\'s Hip-Hop Style Fluffy Winter Coat',
+        alt: 'Fluffy winter Jacket',
+        img: 'https://cdn.shopify.com/s/files/1/0088/6377/6815/products/Winter-Coat-Solid-Color-Plush-Simple-Fluffy-Men-Jacket-Hip-hop-Style-Winter-Coat_47264229-222a-4ea0-ab13-252a2516c1b2_1024x1024@2x.jpg?v=1663142831',
+        img2: 'https://cdn.shopify.com/s/files/1/0088/6377/6815/products/Winter-Coat-Solid-Color-Plush-Simple-Fluffy-Men-Jacket-Hip-hop-Style-Winter-Coat_00cfb976-a36d-4c4d-9d79-415fe27eafc6_1024x1024@2x.jpg?v=1663142818',
+        price: '149',
+        desc: ''
+      },
+      {
+        id: 'price_1LvSD0KFRYyirzJ3TfZm0pHh',
+        title: 'Jackets',
+        name: 'Men\'s Quilted Cotton Summer Jacket',
+        alt: 'Mens Solid Color Jacket',
+        img: 'https://i5.walmartimages.com/asr/4c5224a2-3e51-4a56-bc21-92ebc558ed3d.c2b0b56ba884cca32cdb3faf439392c5.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+        img2: 'https://i5.walmartimages.com/asr/7c7f9c5a-1502-44d4-a74e-3b90a5949eca.95985889496f865eb122c127bc45e42e.jpeg',
+        price: '34.99',
+        desc: ''
+      },
+      {
+        id: 'price_1LvTojKFRYyirzJ3CXpdLfK5',
+        title: 'Shirts',
+        name: 'AE Graphic Tee',
+        alt: 'White Graphic shirt',
+        img: 'https://s7d2.scene7.com/is/image/aeo/0160_4124_100_f?$pdp-mtg-opt$&fmt=webp',
+        img2: 'https://s7d2.scene7.com/is/image/aeo/0160_4124_100_b?$pdp-mtg-opt$&fmt=webp',
+        price: '14.99',
+        desc: ''
+      },
+      {
+        id: 'price_1LvTpNKFRYyirzJ33Lf8RniP',
+        title: 'Shirts',
+        name: 'Men\'s Random Allover Shirt',
+        alt: 'Printed Button-Up',
+        img: 'https://img.ltwebstatic.com/images3_pi/2022/04/24/165076834615aa93b86a959f2d85ef6b3ba8e53f62_thumbnail_900x.webp',
+        img2: 'https://img.ltwebstatic.com/images3_pi/2022/04/24/165076834851cafbb7a54dcd43dddba85623b7b681_thumbnail_900x.webp',
+        price: '12',
+        desc: ''
+      },
+      {
+        id: 'price_1LvTq3KFRYyirzJ3ABcOFBbR',
+        title: 'Shirts',
+        name: 'Men\'s Fashion Design Long Sleeve',
+        alt: 'White Long Sleeve Shirt',
+        img: 'https://i5.walmartimages.com/asr/eaaba20d-1327-4338-a4d5-8858c01d5146.c569110490e2abc067a864cd8a6d8a80.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+        img2: 'https://i5.walmartimages.com/asr/89668cda-b8ab-4e21-a444-869d6fbf823b.a648f72c123d45121effafb5fb6d75b2.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+        price: '15',
+        desc: ''
+      },
+      {
+        id: 'price_1LvTqeKFRYyirzJ3X9O7i0RO',
+        title: 'Shirts',
+        name: 'Men\'s NFL Cincinnati, Joe Mixon Legend Jersey',
+        alt: 'Black and Striped Jersey',
+        img: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt2_full.jpg?_hv=2&w=900',
+        img2: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt3_full.jpg?_hv=2&w=900',
+        price: '99',
+        desc: ''
+      },
+    ]
+  } 
+]
 
 export const MENS_SHOP_DATA = [
   {
