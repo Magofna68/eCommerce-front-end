@@ -5,6 +5,8 @@ import CollectionItem from '../../collection-item/CollectionItem';
 import CollectionPreview from '../../preview-collection/CollectionPreview';
 import { PropTypes } from 'prop-types';
 import Container from 'react-bootstrap/Container';
+import Link from 'react-dom';
+import './itemList.styles.scss';
 
 
 export default function ItemList(props) {
@@ -14,18 +16,15 @@ export default function ItemList(props) {
 
   return (
   
-        <Container
-        fluid="true"
-        className='collectionPreview'
-        >
-          <h1>ItemList</h1>
-        <div className='titleContainer'>
-          <h2>
-            {/* <Link className="nav-link" to={'/shop/'+ items.routeName}>
-              {items.routeName.toUpperCase()}
-            </Link> */}
+        <Container fluid="true" className='collectionPreview'>
+          <h1>Shop Men's</h1>
+          {/* <div className='titleContainer'> */}
+          {/* <h2>
+            <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
+              {mensCollection.title.toUpperCase()}
+            </Link>
           <hr />
-          </h2>
+          </h2> */}
           <div 
             className='preview'
             style={{ 
@@ -33,6 +32,7 @@ export default function ItemList(props) {
               display: 'flex',
               alignContent: 'space-between',
               justifyContent: 'center',
+              marginTop: '10%',
             }}
           >
         {
@@ -46,7 +46,7 @@ export default function ItemList(props) {
           )
         }
       </div>
-    </div>
+    {/* </div> */}
   </Container>
   )
 }

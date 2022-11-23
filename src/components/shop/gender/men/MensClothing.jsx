@@ -17,25 +17,12 @@ class MensClothing extends Component {
       selectedItem: null,
       itemList:  MENS_SHOP_LIST ,
     }
-  //   const itemObjList = [];
-  //   const finalList = [];
-  //   for (let i=0; i < this.state.itemList.length; i++) {
-  //     for (let k = 0; k < this.state.itemList[i][k]; k++) {
-  //       itemObjList.push(this.state.itemList[i][k])
-  //       // finalList.push(itemObjList[i][k].length)
-  //     console.log(finalList)
-  //     console.log(itemObjList)
-  //   }
-  // }
-      }
+  }
   
 
-  handleClick = (id) => {
+  handleClick = (e) => {
     if (this.state.selectedItem != null) {
       this.setState({selectedItem: null})
-    } else {
-      const selectedItem = this.state.itemList.filter(item => item.id === id[0])
-      console.log(this.state.itemList)
     }
   }
 
@@ -71,21 +58,30 @@ class MensClothing extends Component {
         mensCollection={this.state.itemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
-      buttonText = "Item List Page"
+      // buttonText = "Item List Page"
     }
 
 
     return (
       <div>
+        {
+          !buttonText ?
         <div className="backdropContain">
           <div className='backdropMobile'>
             <h1>Men's</h1><h1>Clothing</h1>
           </div>
             <img src={King} alt="KINGs" width="150px" style={{zIndex: -1}}/>
         </div>
-
+        :
+        null
+        }
         {currentlyVisibleState}
-        <Button onClick={this.handleClick}>{buttonText}</Button>
+        {
+          buttonText ? 
+          <Button onClick={this.handleClick}>{buttonText}</Button>
+          :
+          null
+        }
       </div>
     );
   }
