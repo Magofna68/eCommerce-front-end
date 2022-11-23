@@ -861,6 +861,7 @@ export const WOMENS_SHOP_DATA = [
   export const WOMENS_SHOP_LIST = [
     {
       id: 'price_1LvSDcKFRYyirzJ3nlyzkGus',
+      title: 'hats',
       name: 'Bass Academy Snap-back',
       alt: 'Black hat',
       img: `${Bass}`,
@@ -869,6 +870,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id:'price_1LvSElKFRYyirzJ3171I58iI',
+      title: 'hats',
       name: 'Insomniac Snap-back',
       alt: 'Black Insomniac hat',
       img: `${Insomniac}`,
@@ -877,6 +879,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvSFJKFRYyirzJ3xixTEwzK',
+      title: 'hats',
       name: 'Illuminated EDC snap-back',
       alt: 'Black light up EDC snap',
       img: `${EDC}`,
@@ -885,6 +888,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvSFvKFRYyirzJ3SGBMCDyn',
+      title: 'hats',
       name: 'DB dad hat',
       alt: 'Retro hat',
       img: `${DB}`,
@@ -893,6 +897,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvSIJKFRYyirzJ30xepwWJH',
+      title: 'hats',
       name: 'TSSF dad hat',
       alt: 'Navy blue and cream dad hat',
       img: `${TSSF}`,
@@ -902,6 +907,7 @@ export const WOMENS_SHOP_DATA = [
     {
       // id: uuid(),
       id: 'price_1Lv4gBKFRYyirzJ3uwBrj6C1',
+      title: 'jackets',
       name: 'Womens Winter Warmer Coat | Insulated Jacket',
       alt: 'Womens Winter Jacket Model',
       img: 'https://cdni.llbean.net/is/image/wim/271139_0_44?hei=1095&wid=950&resMode=sharp2&defaultImage=llbprod/A0211793_2',
@@ -910,6 +916,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvS9ZKFRYyirzJ3OAHakPOO',
+      title: 'jackets',
       name: 'Womens Jackets Long-sleeve Printed Fringed Jacket',
       alt: 'Womens Jacket Model',
       img: 'https://img-va.myshopline.com/image/store/2000372313/1640572147473/a425b42fb0144dd795cd40fa538010ca_1296x.jpg?w=1100&h=1500',
@@ -918,6 +925,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvSA9KFRYyirzJ3Bh4H3I9c',
+      title: 'jackets',
       name: ' Women\'s Foxy Sherpa Jacket',
       alt: 'Womens Jacket',
       img: 'https://cdn.shopify.com/s/files/1/2185/2813/products/W4313R_01660_b1_s1_a1_1_m89_750x.jpg?v=1662676081',
@@ -926,6 +934,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvSAjKFRYyirzJ36qRYenNv',
+      title: 'jackets',
       name: 'Women\'s Classic Suit Blazer',
       alt: 'Womens Blazer',
       img: 'https://bananarepublicfactory.gapfactory.com/webcontent/0028/599/220/cn28599220.jpg',
@@ -934,6 +943,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvS6bKFRYyirzJ3ifZOM4Rx',
+      title: 'shoes',
       name: 'Women\'s Catiba Pro',
       alt: 'Off-white Vintage Gum Sole shoe',
       img: 'https://cdn.shopify.com/s/files/1/2495/5044/products/catiba-catiba-pro-off-white-sneaker-canvas.slideshow3_1458c07d-fd02-4af5-be0e-74ae47c7be07.jpg?v=1624857339',
@@ -943,6 +953,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvS7FKFRYyirzJ3Ll2Nr9bR',
+      title: 'shoes',
       name: 'Women\'s Chuck Taylor All-Star Lift',
       alt: 'Lifted Black Converse with White Sole',
       img: 'https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw3d987bc4/images/a_107/560845C_A_107X1.jpg?sw=964',
@@ -952,6 +963,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvS7vKFRYyirzJ3wyDROVDB',
+      title: 'shoes',
       name: 'Women\'s Adidas Swift Running Shoe',
       alt: 'Original Swift Running Shoe',
       img: 'https://m.media-amazon.com/images/I/71CFoM4M0-L._AC_SX695._SX._UX._SY._UY_.jpg',
@@ -962,6 +974,7 @@ export const WOMENS_SHOP_DATA = [
     {
       id: 'price_1LvS8XKFRYyirzJ3zrmm6mNi',
       name: 'Women\'s Nike Revolution 5',
+      title: 'shoes',
       alt: 'Black and White Running Shoes',
       img: 'https://m.media-amazon.com/images/I/512tsZixA4L._AC_UX695_.jpg',
       img2: 'https://m.media-amazon.com/images/I/51-jt4VR-sL._AC_UX695_.jpg',
@@ -970,6 +983,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvTrEKFRYyirzJ3Vc8xfuJV',
+      title: 'shirt',
       name: 'Women\'s Chargers NFL Nike Jersey',
       alt: 'Chargers NFL Home Jersey',
       img: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt2_full.jpg?_hv=2&w=900',
@@ -979,6 +993,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvTs4KFRYyirzJ30UtLkz2v',
+      title: 'shirts',
       name: 'Women\'s Pro Choice Tee',
       alt: 'Feminism Shirt',
       img: 'https://i.ebayimg.com/images/g/pMIAAOSw32dixu~~/s-l300.jpg',
@@ -988,6 +1003,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvTtEKFRYyirzJ3zr45II15',
+      title: 'shirts',
       name: 'Women\'s Classic Denim',
       alt: 'Classic Long Sleeve Denim',
       img: 'https://i5.walmartimages.com/asr/b6caa34c-ab70-471e-a5ec-280355f786dc.41023d3576fab5ecbc91fb32056b8e00.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
@@ -997,6 +1013,7 @@ export const WOMENS_SHOP_DATA = [
     },
     {
       id: 'price_1LvTtqKFRYyirzJ3kr5VAjtp',
+      title: 'shirts',
       name: 'Women\'s Evil Natural Tee',
       alt: 'Creme Melodie T-Shirt',
       img: 'https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Melodie-Evil-Natural-T-Shirt-_332986-front-US.jpg',

@@ -11,8 +11,6 @@ import './itemList.styles.scss';
 
 export default function ItemList(props) {
   const { itemCollection, onItemSelection } = props;
-  // let itemCollection = props.itemCollection;
-  // let onItemSelection = props.onItemSelection;
 
   return (
   
