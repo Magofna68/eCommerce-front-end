@@ -334,8 +334,8 @@ const SHOP_DATA = [
 ]
 
 export const MENS_SHOP_LIST = [
-  { 
-    items:[
+  // { 
+  //   items:[
       {
         id: 'price_1LvSGNKFRYyirzJ3nshDkSA6',
         title: 'Hats',
@@ -372,6 +372,11 @@ export const MENS_SHOP_LIST = [
         price: '19.99',
         desc: ''
       },
+  //   ]
+  // },
+  // {
+  //   routeName: 'shoes',
+  //   items: [
       {
         id: 'price_1Lv4dkKFRYyirzJ3scXKuUNb',
         title: 'Shoes',
@@ -408,6 +413,11 @@ export const MENS_SHOP_LIST = [
         price: '42.99',
         desc: ''
       },
+    // ]
+  // },
+  // {
+  //   routeName: 'jackets',
+  //   items: [
       {
         id: 'price_1LvSBNKFRYyirzJ3uzz096kf',
         title: 'Jackets',
@@ -448,6 +458,11 @@ export const MENS_SHOP_LIST = [
         price: '34.99',
         desc: ''
       },
+  //   ]
+  // },
+  // {
+  //   routeName: 'shirts',
+  //   items: [
       {
         id: 'price_1LvTojKFRYyirzJ3CXpdLfK5',
         title: 'Shirts',
@@ -488,8 +503,8 @@ export const MENS_SHOP_LIST = [
         price: '99',
         desc: ''
       },
-    ]
-  } 
+  //   ]
+  // } 
 ]
 
 export const MENS_SHOP_DATA = [

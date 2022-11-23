@@ -84,7 +84,7 @@ componentWillUnmount() {
             <Route path='shop/jackets/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/hats/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/sneakers/:id' element={<ItemDetailPage />} /> 
-            <Route path='shop/mens/hats/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/mens/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
             {/* <Route path='shop/womens/womens' element={<HomePage />} /> */}
             <Route element={<NotFound />} />

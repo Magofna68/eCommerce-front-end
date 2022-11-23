@@ -3,20 +3,58 @@ import React from 'react'
 import King from '../../../../assets/King.png';
 import CollectionItem from '../../collection-item/CollectionItem';
 import CollectionPreview from '../../preview-collection/CollectionPreview';
+import { PropTypes } from 'prop-types';
+import Container from 'react-bootstrap/Container';
 
 
 export default function ItemList(props) {
-  const { mensCollection } = props;
+  // const { mensCollection, onItemSelection } = props;
+  let mensCollection = props.mensCollection;
+  let onItemSelection = props.onItemSelection;
+
   return (
-    <div>
-      <h1>ItemList</h1>
+  
+        <Container
+        fluid="true"
+        className='collectionPreview'
+        >
+          <h1>ItemList</h1>
+        <div className='titleContainer'>
+          <h2>
+            {/* <Link className="nav-link" to={'/shop/'+ items.routeName}>
+              {items.routeName.toUpperCase()}
+            </Link> */}
+          <hr />
+          </h2>
+          <div 
+            className='preview'
+            style={{ 
+              flexWrap: 'wrap',
+              display: 'flex',
+              alignContent: 'space-between',
+              justifyContent: 'center',
+            }}
+          >
         {
-          mensCollection.map(({id, ...otherCollectionProps}) => (
-             <CollectionPreview key={id} id={id} {...otherCollectionProps} />
-          ))
+          mensCollection.map(({id, ...props}) => (
+            <CollectionItem
+              key={id}
+              handleItemSelection={onItemSelection}
+              {...props}
+            />
+            )
+          )
         }
+      </div>
     </div>
+  </Container>
   )
+}
+
+ItemList.propTypes = {
+  item: PropTypes.object,
+  mensCollection: PropTypes.array,
+  onItemSelection: PropTypes.func,
 }
 
 
@@ -43,8 +81,7 @@ export default function ItemList(props) {
 //               justifyContent: 'center',
 //             }}
 //           >
-              {/* limit to only 4 items to display; gets rerendered with component
-              .filter((index)=> index < 4) */}
+
           //   { 
           //   itemList.map(({id, ...otherItemProps}) => (
           //       <CollectionItem key={id} id={id} onItemSelection={onItemSelection} handleClick={onClick} />
