@@ -858,6 +858,154 @@ export const WOMENS_SHOP_DATA = [
   }
 ]
 
+  export const WOMENS_SHOP_LIST = [
+    {
+      id: 'price_1LvSDcKFRYyirzJ3nlyzkGus',
+      name: 'Bass Academy Snap-back',
+      alt: 'Black hat',
+      img: `${Bass}`,
+      price: '24.99',
+      desc: ''
+    },
+    {
+      id:'price_1LvSElKFRYyirzJ3171I58iI',
+      name: 'Insomniac Snap-back',
+      alt: 'Black Insomniac hat',
+      img: `${Insomniac}`,
+      price: '29.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvSFJKFRYyirzJ3xixTEwzK',
+      name: 'Illuminated EDC snap-back',
+      alt: 'Black light up EDC snap',
+      img: `${EDC}`,
+      price: '34.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvSFvKFRYyirzJ3SGBMCDyn',
+      name: 'DB dad hat',
+      alt: 'Retro hat',
+      img: `${DB}`,
+      price: '12.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvSIJKFRYyirzJ30xepwWJH',
+      name: 'TSSF dad hat',
+      alt: 'Navy blue and cream dad hat',
+      img: `${TSSF}`,
+      price: '17.99',
+      desc: ''
+    },
+    {
+      // id: uuid(),
+      id: 'price_1Lv4gBKFRYyirzJ3uwBrj6C1',
+      name: 'Womens Winter Warmer Coat | Insulated Jacket',
+      alt: 'Womens Winter Jacket Model',
+      img: 'https://cdni.llbean.net/is/image/wim/271139_0_44?hei=1095&wid=950&resMode=sharp2&defaultImage=llbprod/A0211793_2',
+      price: '37.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvS9ZKFRYyirzJ3OAHakPOO',
+      name: 'Womens Jackets Long-sleeve Printed Fringed Jacket',
+      alt: 'Womens Jacket Model',
+      img: 'https://img-va.myshopline.com/image/store/2000372313/1640572147473/a425b42fb0144dd795cd40fa538010ca_1296x.jpg?w=1100&h=1500',
+      price: '44.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvSA9KFRYyirzJ3Bh4H3I9c',
+      name: ' Women\'s Foxy Sherpa Jacket',
+      alt: 'Womens Jacket',
+      img: 'https://cdn.shopify.com/s/files/1/2185/2813/products/W4313R_01660_b1_s1_a1_1_m89_750x.jpg?v=1662676081',
+      price: '198',
+      desc: ''
+    },
+    {
+      id: 'price_1LvSAjKFRYyirzJ36qRYenNv',
+      name: 'Women\'s Classic Suit Blazer',
+      alt: 'Womens Blazer',
+      img: 'https://bananarepublicfactory.gapfactory.com/webcontent/0028/599/220/cn28599220.jpg',
+      price: '104',
+      desc: ''
+    },
+    {
+      id: 'price_1LvS6bKFRYyirzJ3ifZOM4Rx',
+      name: 'Women\'s Catiba Pro',
+      alt: 'Off-white Vintage Gum Sole shoe',
+      img: 'https://cdn.shopify.com/s/files/1/2495/5044/products/catiba-catiba-pro-off-white-sneaker-canvas.slideshow3_1458c07d-fd02-4af5-be0e-74ae47c7be07.jpg?v=1624857339',
+      img2: 'https://cdn.shopify.com/s/files/1/2495/5044/products/catiba-catiba-pro-off-white-sneaker-canvas.slideshow1_e7855403-f774-4faa-a049-c0d2b1857b09.jpg?v=1624857339',
+      price: '89',
+      desc: ''
+    },
+    {
+      id: 'price_1LvS7FKFRYyirzJ3Ll2Nr9bR',
+      name: 'Women\'s Chuck Taylor All-Star Lift',
+      alt: 'Lifted Black Converse with White Sole',
+      img: 'https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw3d987bc4/images/a_107/560845C_A_107X1.jpg?sw=964',
+      img2: 'https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw3476d3b3/images/c_107/560845C_C_107X1.jpg?sw=2000',
+      price: '75',
+      desc: ''
+    },
+    {
+      id: 'price_1LvS7vKFRYyirzJ3wyDROVDB',
+      name: 'Women\'s Adidas Swift Running Shoe',
+      alt: 'Original Swift Running Shoe',
+      img: 'https://m.media-amazon.com/images/I/71CFoM4M0-L._AC_SX695._SX._UX._SY._UY_.jpg',
+      img2: 'https://m.media-amazon.com/images/I/81ew2IgxrGL._AC_SX695._SX._UX._SY._UY_.jpg',
+      price: '89',
+      desc: ''
+    },
+    {
+      id: 'price_1LvS8XKFRYyirzJ3zrmm6mNi',
+      name: 'Women\'s Nike Revolution 5',
+      alt: 'Black and White Running Shoes',
+      img: 'https://m.media-amazon.com/images/I/512tsZixA4L._AC_UX695_.jpg',
+      img2: 'https://m.media-amazon.com/images/I/51-jt4VR-sL._AC_UX695_.jpg',
+      price: '89.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvTrEKFRYyirzJ3Vc8xfuJV',
+      name: 'Women\'s Chargers NFL Nike Jersey',
+      alt: 'Chargers NFL Home Jersey',
+      img: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt2_full.jpg?_hv=2&w=900',
+      img2: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt3_full.jpg?_hv=2&w=900',
+      price: '129',
+      desc: ''
+    },
+    {
+      id: 'price_1LvTs4KFRYyirzJ30UtLkz2v',
+      name: 'Women\'s Pro Choice Tee',
+      alt: 'Feminism Shirt',
+      img: 'https://i.ebayimg.com/images/g/pMIAAOSw32dixu~~/s-l300.jpg',
+      img2: 'https://i.ebayimg.com/images/g/uukAAOSw7lRixvAS/s-l300.jpg',
+      price: '17.99',
+      desc: ''
+    },
+    {
+      id: 'price_1LvTtEKFRYyirzJ3zr45II15',
+      name: 'Women\'s Classic Denim',
+      alt: 'Classic Long Sleeve Denim',
+      img: 'https://i5.walmartimages.com/asr/b6caa34c-ab70-471e-a5ec-280355f786dc.41023d3576fab5ecbc91fb32056b8e00.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+      img2: 'https://i5.walmartimages.com/asr/ce4de04c-5ae1-4aae-9f42-009b553c7fc8.d9942e1476445df8f57ff11515091a13.jpeg',
+      price: '36',
+      desc: ''
+    },
+    {
+      id: 'price_1LvTtqKFRYyirzJ3kr5VAjtp',
+      name: 'Women\'s Evil Natural Tee',
+      alt: 'Creme Melodie T-Shirt',
+      img: 'https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Melodie-Evil-Natural-T-Shirt-_332986-front-US.jpg',
+      img2: 'https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Melodie-Evil-Natural-T-Shirt-_332986-back-US.jpg',
+      price: '31.95',
+      desc: ''
+    }
+  ]
+
  function getProductData(id) {
   let shopData = SHOP_DATA.find(item => item.id === id)
   console.log(shopData);

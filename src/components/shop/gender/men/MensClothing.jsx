@@ -55,7 +55,7 @@ class MensClothing extends Component {
     } else { 
       currentlyVisibleState = 
       <ItemList 
-        mensCollection={this.state.itemList} 
+        itemCollection={this.state.itemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
       // buttonText = "Item List Page"
@@ -87,11 +87,11 @@ class MensClothing extends Component {
   }
 }
 
+export default MensClothing;
 // MensClothing.propTypes = {
 
 // };
 
-export default MensClothing;
 
 // export default function MensClothing() {
 //   return (

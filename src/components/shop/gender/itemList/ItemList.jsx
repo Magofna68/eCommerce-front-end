@@ -10,14 +10,14 @@ import './itemList.styles.scss';
 
 
 export default function ItemList(props) {
-  // const { mensCollection, onItemSelection } = props;
-  let mensCollection = props.mensCollection;
-  let onItemSelection = props.onItemSelection;
+  const { itemCollection, onItemSelection } = props;
+  // let itemCollection = props.itemCollection;
+  // let onItemSelection = props.onItemSelection;
 
   return (
   
         <Container fluid="true" className='collectionPreview'>
-          <h1>Shop Men's</h1>
+          <h1>Shop</h1>
           {/* <div className='titleContainer'> */}
           {/* <h2>
             <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
@@ -36,7 +36,7 @@ export default function ItemList(props) {
             }}
           >
         {
-          mensCollection.map(({id, ...props}) => (
+          itemCollection.map(({id, ...props}) => (
             <CollectionItem
               key={id}
               handleItemSelection={onItemSelection}
@@ -46,7 +46,6 @@ export default function ItemList(props) {
           )
         }
       </div>
-    {/* </div> */}
   </Container>
   )
 }
@@ -56,53 +55,4 @@ ItemList.propTypes = {
   mensCollection: PropTypes.array,
   onItemSelection: PropTypes.func,
 }
-
-
-// export default function ItemList(props) {
-//   const { itemList, onItemSelection, onClick } = props;
-//   return (
-//     <div>
-//       <div className="backdropContain">
-//         <div className='backdropMobile'>
-//           <h1>Men's</h1><h1>Clothing</h1>
-//         </div>
-//         <img src={King} alt="KINGs" width="150px" style={{zIndex: -1}}/>
-//       </div>
-//       <div>
-//         {
-//           // itemList.map(({id, ...otherCollectionProps}) => (
-
-//             <div 
-//             className='preview'
-//             style={{ 
-//               flexWrap: 'wrap',
-//               display: 'flex',
-//               alignContent: 'space-between',
-//               justifyContent: 'center',
-//             }}
-//           >
-
-          //   { 
-          //   itemList.map(({id, ...otherItemProps}) => (
-          //       <CollectionItem key={id} id={id} onItemSelection={onItemSelection} handleClick={onClick} />
-          //       // <CollectionItem key={id} id={id} routeName={props.routeName} {...otherItemProps} updateSelectedItem={props.whenItemClicked} />
-          //       ))}
-          // </div>
-
-            // itemList.map((item) => 
-            // <CollectionPreview 
-            //   key={item.id}
-            //   id={item.id}
-            //   title={item.title}
-            //   items={item.items}
-            //   whenItemClicked={onItemSelection}
-            //   handleSelectedClick={onClick}
-            // />
-              // key={item.id} {...otherCollectionProps} />
-          // )
-//         }
-//       </div>
-//     </div>
-//   )
-// }
 
