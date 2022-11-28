@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-export const RenderFullCollection = ({title, items, routeName}) => (
+export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection}) => (
   <Container fluid="true"
       className='collection'
     >
@@ -33,7 +33,7 @@ export const RenderFullCollection = ({title, items, routeName}) => (
             >
             {
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} title={title} id={id} {...otherItemProps} />
+                <FullCollectionItem key={id} title={title} id={id} onItemSelection={onItemSelection} {...otherItemProps} />
                 ))
               };
           </div>

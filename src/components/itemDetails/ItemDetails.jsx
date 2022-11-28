@@ -4,6 +4,8 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 
+
+// came from ItemDetail
 export default function ItemDetails(props) {
   const { name, price, img, id, img2, title } = props;
   const cart = useContext(ShoppingCartContext);

@@ -28,7 +28,7 @@ const productQuantity = cart.getProductQuantity(id);
 //   })
 // }
 
-const info = (e) => {
+const saveSelectedItem = (e) => {
   const selectedItem = [props][0];
   console.log(selectedItem)
   handleItemSelection(selectedItem);
@@ -40,7 +40,7 @@ const info = (e) => {
     key={id}
     className='collectionItem'
     // onClick={(e) => handleItemSelection(props.id)}
-    onClick={(e)=> info(e)}
+    onClick={(e)=> saveSelectedItem(e)}
   >
     <Card.Img 
       variant='top' 

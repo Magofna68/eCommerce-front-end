@@ -4,6 +4,7 @@ import Jackets from '../shop/category/jackets/Jackets';
 import Sneakers from '../shop/category/sneakers/Sneakers';
 import WomensClothing from '../shop/gender/women/WomensClothing';
 import MensClothing from '../shop/gender/men/MensClothing';
+import ItemDetail from '../../pages/itemDetailPage/ItemDetail';
 import CategoryControl from '../shop/category/categoryControl/CategoryControl';
 
 import Container from 'react-bootstrap/Container';
@@ -17,12 +18,6 @@ export default class Directory extends React.Component {
     this.state = {
       currentView: null,
       selectedItem: null,
-      // viewingSneakers: null,
-      // viewingJackets: null,
-      // viewingShirts: null,
-      // viewingHats: null,
-      // viewingMens: null,
-      // viewingWomens: null,
       sections: [
         {
           title: 'hats',
@@ -59,52 +54,65 @@ export default class Directory extends React.Component {
       ]
     }
 
-    const handleClearStateClick = (e) => {
-      this.setState({
-        currentView: null,
-      });
-    }
+  }
+  
+  handleClearStateClick = (e) => {
+    this.setState({
+      currentView: null,
+      // selectedItem: null,
+    });
   }
 
-    // const handleJacketClick = (e) => {
-    //   this.setState({ currentView: 'jackets' })
-    //   }
-  
-    // const handleSneakerClick = (e) => {
-    //   this.setState({ currentView: 'sneakers' })
-    // }
-  
-    // const handleShirtClick = (e) => {
-    //   this.setState({currentView: 'shirts'})
-    // }
+  handleClearItemStateClick = (e) => {
+    this.setState({
+      selectedItem: null,
+    })
+  }
 
-     categoryRedirect = async (clickedTitle) => {
-      const categoryToAssign = clickedTitle
-      await this.setState({
-        currentView: categoryToAssign
-      })
-      console.log(this.state.currentView)
-    }
+  handleChangingSelectedItem = (id) => {
+    console.log(id)
+    const selectedItem = id;
+    console.log(selectedItem)
+    this.setState({
+      selectedItem: selectedItem
+    })
+  }
+
+    categoryRedirect = async (clickedTitle) => {
+    const categoryToAssign = clickedTitle
+    await this.setState({
+      currentView: categoryToAssign
+    })
+    console.log(this.state.currentView)
+  }
+  
   render() {
-    const { currentView, handleClearStateClick, viewingHats, viewingJackets, viewingSneakers, viewingMens, viewingWomens } = this.state;
+    const { currentView, handleClearStateClick, selectedItem } = this.state;
     let currentlyVisibleState = null;
     let buttonText = null;
     let buttonDisplayed = null;
     // let test = window.location.assign(<MensClothing />)
 
+    if (selectedItem != null) {
+      currentlyVisibleState = <ItemDetail itemToShow={selectedItem} />
+      buttonText = "Back to Items"
+      buttonDisplayed = true;
+    } else {
+
     switch(currentView) {
       case 'hats':
-        currentlyVisibleState = <Hats />
+        currentlyVisibleState = <Hats onItemSelection={this.handleChangingSelectedItem} />
         buttonText = "Return to Categories"
         buttonDisplayed = true;
+      
       break;
       case 'jackets':
-        currentlyVisibleState = <Jackets />
+        currentlyVisibleState = <Jackets onItemSelection={this.handleChangingSelectedItem} />
         buttonText = "Return to Categories"
         buttonDisplayed = true;
       break;
       case 'sneakers':
-        currentlyVisibleState = <Sneakers />
+        currentlyVisibleState = <Sneakers onItemSelection={this.handleChangingSelectedItem} />
         buttonText = "Return to Categories"
         buttonDisplayed = true;
       break;
@@ -122,6 +130,7 @@ export default class Directory extends React.Component {
           categoryRedirect={this.categoryRedirect}
         />
     }
+  }
 
     return (
       <Container>
@@ -130,7 +139,10 @@ export default class Directory extends React.Component {
           buttonDisplayed === null ?
           null
           :
-          <Button onClick={this.state.handleClearStateClick}>{buttonText}</Button>
+          buttonText === "Back to Items" ?
+          <Button onClick={this.handleClearItemStateClick}>{buttonText}</Button>
+          :
+          <Button onClick={this.handleClearStateClick}>{buttonText}</Button>
         }
       </Container>
     );

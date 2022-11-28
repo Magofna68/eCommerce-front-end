@@ -13,30 +13,41 @@ import './fullCollectionItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 
-export default function FullCollectionItem({title, id, name, price, img, img2, desc}) {
+export default function FullCollectionItem(props) {
+  const {title, id, name, price, img, img2, desc, onItemSelection} = props;
+  
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   const navigate = useNavigate();
 
-  let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
-  const toItemDetail = (id, name, price, img, desc, img2) => {
-    navigate(path, {
-      state:  {
-        id: id, 
-        name: name, 
-        price: price, 
-        img: img,
-        img2: img2,
-        desc: desc,
-      }
-    })
+  // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
+  // const toItemDetail = (id, name, price, img, desc, img2) => {
+  //   navigate(path, {
+  //     state:  {
+  //       id: id, 
+  //       name: name, 
+  //       price: price, 
+  //       img: img,
+  //       img2: img2,
+  //       desc: desc,
+  //     }
+  //   })
+  // }
+
+  const saveSelectedItem = (e) => {
+    const selectedItem = [props][0];
+    console.log(selectedItem)
+    console.log({selectedItem})
+    onItemSelection(selectedItem);
+    // this.setState({selectedItem: selectedItem})
   }
 
 return (
 <>
   <Card 
     className='fullCollectionItem'
-    onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
+    onClick={(e)=> saveSelectedItem(e)}
+    // onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
     >
     <Card.Img 
       className="fullCollectionImg"
