@@ -90,6 +90,7 @@ export default class Directory extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     let buttonDisplayed = null;
+    // let test = window.location.assign(<MensClothing />)
 
     switch(currentView) {
       case 'hats':
@@ -108,10 +109,10 @@ export default class Directory extends React.Component {
         buttonDisplayed = true;
       break;
       case 'mens':
-        currentlyVisibleState = <MensClothing />
+        window.location.assign('#/shop/mens')
       break;
       case 'womens':
-        currentlyVisibleState = <WomensClothing />
+        window.location.assign('#/shop/womens')
       break;
       default:
         currentlyVisibleState = 
@@ -129,7 +130,7 @@ export default class Directory extends React.Component {
           buttonDisplayed === null ?
           null
           :
-          <Button onClick={this.handleClearStateClick}>{buttonText}</Button>
+          <Button onClick={this.state.handleClearStateClick}>{buttonText}</Button>
         }
       </Container>
     );

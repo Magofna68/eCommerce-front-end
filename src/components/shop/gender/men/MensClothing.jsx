@@ -26,6 +26,9 @@ class MensClothing extends Component {
     }
   }
 
+  handleHomeClick = () => {
+    window.location.assign('#/')
+  }
 
   handleChangingSelectedItem = (id) => {
     console.log(id)
@@ -58,7 +61,7 @@ class MensClothing extends Component {
         itemCollection={this.state.itemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
-      // buttonText = "Item List Page"
+      buttonText = "Home"
     }
 
 
@@ -78,10 +81,10 @@ class MensClothing extends Component {
         {currentlyVisibleState}
         <hr/>
         {
-          buttonText ? 
-          <Button onClick={this.handleClick}>{buttonText}</Button>
+          buttonText === "Home" ? 
+          <Button onClick={this.handleHomeClick}>{buttonText}</Button>
           :
-          null
+          <Button onClick={this.handleClick}>{buttonText}</Button>
         }
       </div>
     );
