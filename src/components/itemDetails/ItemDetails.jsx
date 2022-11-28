@@ -49,7 +49,7 @@ export default function ItemDetails(props) {
               fontWeight: 600
             }}
           >
-            Select Size: {props.title}
+            Select Size:
           </span>
           {/* {
 

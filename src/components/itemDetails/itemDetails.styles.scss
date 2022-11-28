@@ -40,6 +40,7 @@ div.container-md{
 #img{
 
   &:hover{
-    transform: scale(500%);
+    // transform: translateX(500px);
+    transform: scale(300%);
   }
 }

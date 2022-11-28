@@ -76,6 +76,7 @@ class MensClothing extends Component {
         null
         }
         {currentlyVisibleState}
+        <hr/>
         {
           buttonText ? 
           <Button onClick={this.handleClick}>{buttonText}</Button>

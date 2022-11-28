@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
+import Hats from '../shop/category/hats/Hats';
+import Jackets from '../shop/category/jackets/Jackets';
+import Sneakers from '../shop/category/sneakers/Sneakers';
+import WomensClothing from '../shop/gender/women/WomensClothing';
+import MensClothing from '../shop/gender/men/MensClothing';
+import CategoryControl from '../shop/category/categoryControl/CategoryControl';
 
-import MenuItem from '../menu-item/Menu-item';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 import './directory.styles.scss';
 
 export default class Directory extends React.Component {
-  constructor() {
-    super ();
+  constructor(props) {
+    super (props);
     this.state = {
+      currentView: null,
+      selectedItem: null,
+      // viewingSneakers: null,
+      // viewingJackets: null,
+      // viewingShirts: null,
+      // viewingHats: null,
+      // viewingMens: null,
+      // viewingWomens: null,
       sections: [
         {
           title: 'hats',
@@ -43,14 +58,82 @@ export default class Directory extends React.Component {
         },
       ]
     }
+
+    const handleClearStateClick = (e) => {
+      this.setState({
+        currentView: null,
+      });
+    }
   }
+
+    // const handleJacketClick = (e) => {
+    //   this.setState({ currentView: 'jackets' })
+    //   }
+  
+    // const handleSneakerClick = (e) => {
+    //   this.setState({ currentView: 'sneakers' })
+    // }
+  
+    // const handleShirtClick = (e) => {
+    //   this.setState({currentView: 'shirts'})
+    // }
+
+     categoryRedirect = async (clickedTitle) => {
+      const categoryToAssign = clickedTitle
+      await this.setState({
+        currentView: categoryToAssign
+      })
+      console.log(this.state.currentView)
+    }
   render() {
+    const { currentView, handleClearStateClick, viewingHats, viewingJackets, viewingSneakers, viewingMens, viewingWomens } = this.state;
+    let currentlyVisibleState = null;
+    let buttonText = null;
+    let buttonDisplayed = null;
+
+    switch(currentView) {
+      case 'hats':
+        currentlyVisibleState = <Hats />
+        buttonText = "Return to Categories"
+        buttonDisplayed = true;
+      break;
+      case 'jackets':
+        currentlyVisibleState = <Jackets />
+        buttonText = "Return to Categories"
+        buttonDisplayed = true;
+      break;
+      case 'sneakers':
+        currentlyVisibleState = <Sneakers />
+        buttonText = "Return to Categories"
+        buttonDisplayed = true;
+      break;
+      case 'mens':
+        currentlyVisibleState = <MensClothing />
+      break;
+      case 'womens':
+        currentlyVisibleState = <WomensClothing />
+      break;
+      default:
+        currentlyVisibleState = 
+        <CategoryControl 
+          currentView={this.state.currentView}
+          sections={this.state.sections} 
+          categoryRedirect={this.categoryRedirect}
+        />
+    }
+
     return (
-      <div fluid="true" className='directory-menu'>
-        {this.state.sections.map(({id, ...otherSectionProps }) => (
-            <MenuItem key={id} {...otherSectionProps} />
-        ))}
-      </div>
-    )
+      <Container>
+        {currentlyVisibleState}
+        {
+          buttonDisplayed === null ?
+          null
+          :
+          <Button onClick={this.handleClearStateClick}>{buttonText}</Button>
+        }
+      </Container>
+    );
   }
 }
+
+
