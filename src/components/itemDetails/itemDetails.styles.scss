@@ -1,0 +1,46 @@
+div.container-md{
+  margin-top: 3%;
+}
+
+.sizeContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 15%;
+  
+  .shoeSize{
+    width: 3.5rem;
+    border: solid 1px;
+    list-style: none;
+    text-align: center;
+    margin: 5px;
+    margin-bottom: 3%;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgb(97, 97, 97);
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.itemName{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  text-align: center;
+  font-size: 25px;
+  
+}
+
+#img{
+
+  &:hover{
+    // transform: translateX(500px);
+    transform: scale(300%);
+  }
+}

@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
+import Hats from '../shop/category/hats/Hats';
+import Jackets from '../shop/category/jackets/Jackets';
+import Sneakers from '../shop/category/sneakers/Sneakers';
+import ItemDetail from '../../pages/itemDetailPage/ItemDetail';
+import CategoryControl from '../shop/category/categoryControl/CategoryControl';
 
-import MenuItem from '../menu-item/Menu-item';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 import './directory.styles.scss';
 
 export default class Directory extends React.Component {
-  constructor() {
-    super ();
+  constructor(props) {
+    super (props);
     this.state = {
+      currentView: null,
+      selectedItem: null,
       sections: [
         {
           title: 'hats',
@@ -43,14 +51,101 @@ export default class Directory extends React.Component {
         },
       ]
     }
+
   }
+  
+  handleClearStateClick = (e) => {
+    this.setState({
+      currentView: null,
+      // selectedItem: null,
+    });
+  }
+
+  handleClearItemStateClick = (e) => {
+    this.setState({
+      selectedItem: null,
+    })
+  }
+
+  handleChangingSelectedItem = (id) => {
+    console.log(id)
+    const selectedItem = id;
+    console.log(selectedItem)
+    this.setState({
+      selectedItem: selectedItem
+    })
+  }
+
+    categoryRedirect = async (clickedTitle) => {
+    const categoryToAssign = clickedTitle
+    await this.setState({
+      currentView: categoryToAssign
+    })
+    console.log(this.state.currentView)
+  }
+  
   render() {
+    const { currentView, handleClearStateClick, selectedItem } = this.state;
+    let currentlyVisibleState = null;
+    let buttonText = null;
+    let buttonDisplayed = null;
+    // let test = window.location.assign(<MensClothing />)
+
+    if (selectedItem != null) {
+      currentlyVisibleState = <ItemDetail itemToShow={selectedItem} />
+      buttonText = "Back to Items"
+      buttonDisplayed = true;
+    } else {
+
+    switch(currentView) {
+      case 'hats':
+        currentlyVisibleState = <Hats onItemSelection={this.handleChangingSelectedItem} />
+        buttonText = "Return to Categories"
+        buttonDisplayed = true;
+      
+      break;
+      case 'jackets':
+        currentlyVisibleState = <Jackets onItemSelection={this.handleChangingSelectedItem} />
+        buttonText = "Return to Categories"
+        buttonDisplayed = true;
+      break;
+      case 'sneakers':
+        currentlyVisibleState = <Sneakers onItemSelection={this.handleChangingSelectedItem} />
+        buttonText = "Return to Categories"
+        buttonDisplayed = true;
+      break;
+      case 'mens':
+        window.location.assign('#/shop/mens')
+      break;
+      case 'womens':
+        window.location.assign('#/shop/womens')
+      break;
+      default:
+        currentlyVisibleState = 
+        <CategoryControl 
+          currentView={this.state.currentView}
+          sections={this.state.sections} 
+          categoryRedirect={this.categoryRedirect}
+        />
+    }
+  }
+
     return (
-      <div fluid="true" className='directory-menu'>
-        {this.state.sections.map(({id, ...otherSectionProps }) => (
-            <MenuItem key={id} {...otherSectionProps} />
-        ))}
-      </div>
-    )
+      <Container style={{ padding: 0}}>
+        {currentlyVisibleState}
+        <hr />
+        {
+          buttonDisplayed === null ?
+          null
+          :
+          buttonText === "Back to Items" ?
+          <Button onClick={this.handleClearItemStateClick}>{buttonText}</Button>
+          :
+          <Button onClick={this.handleClearStateClick}>{buttonText}</Button>
+        }
+      </Container>
+    );
   }
 }
+
+

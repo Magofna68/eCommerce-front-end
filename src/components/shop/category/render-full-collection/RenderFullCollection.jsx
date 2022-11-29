@@ -3,12 +3,14 @@ import FullCollectionItem from '../full-collection-item/FullCollectionItem';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
 
 
-export const RenderFullCollection = ({title, items, routeName}) => (
+export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection}) => (
   <Container fluid="true"
       className='collection'
     >
+      <Breadcrumb />
       <Row>
         <h1 
           className='title'
@@ -33,7 +35,7 @@ export const RenderFullCollection = ({title, items, routeName}) => (
             >
             {
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} title={title} id={id} {...otherItemProps} />
+                <FullCollectionItem key={id} title={title} id={id} onItemSelection={onItemSelection} {...otherItemProps} />
                 ))
               };
           </div>

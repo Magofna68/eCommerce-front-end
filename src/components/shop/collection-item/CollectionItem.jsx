@@ -3,32 +3,44 @@ import React, { useContext } from 'react';
 import {Card, Button } from 'react-bootstrap/'
 import { ShoppingCartContext } from '../../context/ShoppingCartContext';
 import {useNavigate} from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
-export function CollectionItem ({id, name, price, img, img2, routeName, desc}) {
-const navigate = useNavigate();
+// export function CollectionItem (props) {
+export function CollectionItem (props) {
+  const { id, name, price, img, routeName, img2, handleItemSelection} = props;
+// const navigate = useNavigate();
 const cart = useContext(ShoppingCartContext);
 const productQuantity = cart.getProductQuantity(id);
 
-let path = routeName + '/' + id;
+// let path = routeName + '/' + id;
 
 
-const toItemDetail = (id, name, price, img, desc) => {
-  navigate(path, {
-    state:  {
-      id: id, 
-      name: name, 
-      price: price, 
-      img: img,
-      img2: img2,
-      desc: desc,
-    }
-  })
+// const toItemDetail = (id, name, price, img, desc) => {
+//   navigate(path, {
+//     state:  {
+//       id: id, 
+//       name: name, 
+//       price: price, 
+//       img: img,
+//       img2: img2,
+//       desc: desc,
+//     }
+//   })
+// }
+
+const saveSelectedItem = (e) => {
+  const selectedItem = [props][0];
+  console.log(selectedItem)
+  handleItemSelection(selectedItem);
+  // this.setState({selectedItem: selectedItem})
 }
   return (
   // <a href={'/shop/', + }></a>
   <Card 
+    key={id}
     className='collectionItem'
-    onClick={()=> toItemDetail({id, name, price, img, img2, desc})}
+    // onClick={(e) => handleItemSelection(props.id)}
+    onClick={(e)=> saveSelectedItem(e)}
   >
     <Card.Img 
       variant='top' 
@@ -107,6 +119,10 @@ const toItemDetail = (id, name, price, img, desc) => {
     </div>
   </Card>
 );
+}
+
+CollectionItem.propType = {
+  onItemSelection: PropTypes.func,
 }
 
 export default CollectionItem;

@@ -1,0 +1,13 @@
+.breadcrumb {
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+  justify-content: right;
+  text-align: right;
+  transition: all 2s ease;
+    
+  :hover {
+    color: black;
+    text-decoration: none;
+    }
+}
