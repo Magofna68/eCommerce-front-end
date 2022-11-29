@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/eCommerce-front-end/static/css/main.4d3b3444.css",
-    "main.js": "/eCommerce-front-end/static/js/main.35ad2fe1.js",
+    "main.css": "/eCommerce-front-end/static/css/main.22485708.css",
+    "main.js": "/eCommerce-front-end/static/js/main.851bb640.js",
     "static/media/DB.jpg": "/eCommerce-front-end/static/media/DB.c850349c57abb0ca70a0.jpg",
     "static/media/Paradise3.jpg": "/eCommerce-front-end/static/media/Paradise3.437a29fe4cee9484c504.jpg",
     "static/media/Paradise.jpg": "/eCommerce-front-end/static/media/Paradise.bae8dfe1ce85cebc0ed2.jpg",
@@ -15,11 +15,11 @@
     "static/media/crown.png": "/eCommerce-front-end/static/media/crown.c8fa3d1872f5bdaecc2d.png",
     "static/media/Queen.png": "/eCommerce-front-end/static/media/Queen.ec06be51b2c139d52c81.png",
     "index.html": "/eCommerce-front-end/index.html",
-    "main.4d3b3444.css.map": "/eCommerce-front-end/static/css/main.4d3b3444.css.map",
-    "main.35ad2fe1.js.map": "/eCommerce-front-end/static/js/main.35ad2fe1.js.map"
+    "main.22485708.css.map": "/eCommerce-front-end/static/css/main.22485708.css.map",
+    "main.851bb640.js.map": "/eCommerce-front-end/static/js/main.851bb640.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d3b3444.css",
-    "static/js/main.35ad2fe1.js"
+    "static/css/main.22485708.css",
+    "static/js/main.851bb640.js"
   ]
 }
