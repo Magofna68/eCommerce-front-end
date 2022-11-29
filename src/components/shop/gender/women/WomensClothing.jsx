@@ -7,7 +7,7 @@ import ItemDetailPage from '../../../../pages/itemDetailPage/ItemDetailPage';
 import ItemList from '../itemList/ItemList';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';
-
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
 
 
 class WomensClothing extends Component {
@@ -68,7 +68,7 @@ class WomensClothing extends Component {
     return (
       <div>
         {
-          !buttonText ?
+          buttonText === "Home" ?
         <div className="backdropContain">
           <div className='backdropMobile'>
             <h1>Women's</h1><h1>Clothing</h1>
@@ -78,6 +78,7 @@ class WomensClothing extends Component {
         :
         null
         }
+        <Breadcrumb />
         {currentlyVisibleState}
         <hr/>
         {

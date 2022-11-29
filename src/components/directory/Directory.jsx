@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Hats from '../shop/category/hats/Hats';
 import Jackets from '../shop/category/jackets/Jackets';
 import Sneakers from '../shop/category/sneakers/Sneakers';
-import WomensClothing from '../shop/gender/women/WomensClothing';
-import MensClothing from '../shop/gender/men/MensClothing';
 import ItemDetail from '../../pages/itemDetailPage/ItemDetail';
 import CategoryControl from '../shop/category/categoryControl/CategoryControl';
 
@@ -133,8 +131,9 @@ export default class Directory extends React.Component {
   }
 
     return (
-      <Container>
+      <Container style={{ padding: 0}}>
         {currentlyVisibleState}
+        <hr />
         {
           buttonDisplayed === null ?
           null
