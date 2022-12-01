@@ -34,7 +34,7 @@ div.container-md{
   font-weight: 400;
   text-align: center;
   font-size: 25px;
-  
+  margin-bottom: -10px
 }
 
 #img{
@@ -49,3 +49,15 @@ div.container-md{
   background-color: black;
   color: white;
 }
+
+#returnIcon{
+  width: 98%;
+  justify-content: space-between;
+  padding: 5px;
+  margin: -3% -2% 0 -2%;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  align-content: left;
+}
+

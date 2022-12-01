@@ -48,6 +48,11 @@ export default function Navigationbar({currentUser}) {
     checkout()
   }
 
+  
+    const [, updateState ] = useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
+    console.log("render");
+    // window.location.assign("http://localhost:3000/eCommerce-front-end#/")
 
   const checkout = async () => {
     await fetch('https://https-magofna68-github-io-ecommerce.onrender.com/checkout', {
@@ -74,7 +79,7 @@ export default function Navigationbar({currentUser}) {
 
   return (
           <Container className='p-0' fluid="true">
-            <Navbar className='border' bg="transparent" expand="sm" style={{
+            <Navbar className='border' bg="transparent" expand="sm" style={{ width: '100%'
 
             }}>
              <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>

@@ -25,7 +25,6 @@ showSuccessAlert() {
     duration: 5000,
     dismissible: true,
   });
-
 }
 
 showErrorAlert() {
@@ -50,9 +49,7 @@ handleSubmit = async (event) => {
 };
 
 handleChange = (e) => {
-  // e.preventDefault();
   const { value, name } = e.target;
-  // console.log({value, name});
   // dynamically set property value
   this.setState({[name]: value})
 }

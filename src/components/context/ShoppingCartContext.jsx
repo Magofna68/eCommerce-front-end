@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { getProductData } from '../../data';
+import { Notyf } from 'notyf';
 
 export const ShoppingCartContext = createContext({
   items: [],
@@ -14,6 +15,23 @@ export const ShoppingCartContext = createContext({
 export function CartProvider({children}) {
   const [cartProducts, setCartProducts ] = useState([]);
 
+  const notyf = new Notyf();
+
+  function showSuccessAlert() {
+    notyf.success({
+      message: 'Added to Cart',
+      duration: 5000,
+      dismissible: true,
+    })
+  }
+
+  function showErrorAlert() {
+    notyf.error({
+      message: 'Removed from Cart',
+      duration: 5000,
+      dismissible: true,
+    })
+  }
   
   function getProductQuantity(id) {
    const quantity = cartProducts.find(product => product.id === id)?.quantity
@@ -27,6 +45,7 @@ export function CartProvider({children}) {
 
   function addOneItemToCart(id, name, price, img) {
     const quantity = getProductQuantity(id);
+    showSuccessAlert()
 
     if (quantity === 0) {  //if product is not in cart
       setCartProducts(
@@ -50,10 +69,12 @@ export function CartProvider({children}) {
           product                                     // No -- leave product as is
         )
       )
+      showSuccessAlert()
     }
   }
 
   function deleteItemFromCart(id) {
+    showErrorAlert()
     setCartProducts(
       cartProducts => cartProducts.filter(currentProduct => {
         return currentProduct.id !== id;

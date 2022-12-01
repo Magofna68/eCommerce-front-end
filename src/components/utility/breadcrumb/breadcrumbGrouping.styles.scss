@@ -1,0 +1,25 @@
+.breadcrumbGrouping {
+  display: flex;
+  text-decoration: none;
+  width: 98%;
+  margin: 5% 0 0 3%;
+  justify-content: left;
+  text-align: right;
+  transition: all 2s ease;
+    
+  :hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+}
+
+.breadcrumb{
+  margin: 2.5% 0 0 2%;
+
+  :hover{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

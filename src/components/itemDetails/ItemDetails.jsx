@@ -1,63 +1,38 @@
 import './itemDetails.styles.scss';
 import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
-
+import Chip from '@mui/material/Chip';
 import SizeList from '../../components/utility/sizeList/SizeList';
-
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { name, price, img, id, img2, title } = props;
+  const { name, price, img, id, img2, title, handleClearItemStateClick } = props;
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   
-  const [ selectedSize, setSelectedSize ] = useState([]);
+  const [ selectedSize, setSelectedSize ] = useState('');
   const [ active, setActive ] = useState(false);
-  const [ selected, setSelected ] = useState(false);
-  // const [itemDetailState, setItemDetailState ] = useState({
-  //   activeObj: null,
-  //   size: [ 
-  //     { id: 1, value: 6,},
-  //     { id: 2, value: 6.5,},
-  //     { id: 3, value: 7 },
-  //     { id: 4, value: 7.5 },
-  //     { id: 5, value: 8 },
-  //     { id: 6, value: 8.5 },
-  //     { id: 7, value: 9 },
-  //     { id: 8, value: 9.5 },
-  //     { id: 9, value: 10 },
-  //     { id: 10, value: 10.5 },
-  //     { id: 11, value: 11 },
-  //     { id: 12, value: 11.5 },
-  //     { id: 13, value: 12 },
-  //     { id: 14, value: 12.5 },
-  //     { id: 15, value: 13 },
-  //   ]
-  // });
-  
-  // const shoeSize = [
-  //   6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10,
-  //   10.5, 11, 11.5, 12, 12.5, 13, 13.5
-  // ]
 
   const sneakers = [
-    { id: 1, value: 6 },
-    { id: 2, value: 6.5 },
-    { id: 3, value: 7 },
-    { id: 4, value: 7.5 },
-    { id: 5, value: 8 },
-    { id: 6, value: 8.5 },
-    { id: 7, value: 9 },
-    { id: 8, value: 9.5 },
-    { id: 9, value: 10 },
-    { id: 10, value: 10.5 },
+    { id: 6, value: 6 },
+    { id: 6.5, value: 6.5 },
+    { id: 7, value: 7 },
+    { id: 7.5, value: 7.5 },
+    { id: 8, value: 8 },
+    { id: 8.5, value: 8.5 },
+    { id: 9, value: 9 },
+    { id: 9.5, value: 9.5 },
+    { id: 10, value: 10 },
+    { id: 10.5, value: 10.5 },
     { id: 11, value: 11 },
-    { id: 12, value: 11.5 },
-    { id: 13, value: 12 },
-    { id: 14, value: 12.5 },
-    { id: 15, value: 13 },
+    { id: 11.5, value: 11.5 },
+    { id: 12, value: 12 },
+    { id: 12.5, value: 12.5 },
+    { id: 13, value: 13 },
   ]
   
   const clothesSize = [
@@ -69,32 +44,49 @@ export default function ItemDetails(props) {
     {id: 5, value: 'XXL'},
     {id: 6, value: '3XL'},
   ]
-  function handleSizeSelect(id) {
-    console.log("ID", id)
-    // setSelectedSize({id: id, value: value, selected: true})
-    setSelectedSize(id)
+  
+  
+  function handleSizeSelect(id, value) {
+    console.log("ID", selectedSize)
+    setSelectedSize(value)
     setActive(active => !active)
   }
 
+  function handleDelete() {
+    setSelectedSize('');
+  }
+
   useEffect(() => {
-    console.log("Selected Size; ID", selectedSize)
-  
-    // setItemDetailState({...itemDetailState, activeObj: selectedSize.id})
+    console.log("Selected ID:", selectedSize)
     setActive(active => !active)
- 
-    // setSelectedSize({...selectedSize, selected: false})
-  }, [selectedSize]);
+   }, [selectedSize]);
 
+  let sizeChip = `Size ${selectedSize}`
+  
 
-
-  // const consoleLog = (info) => {
-  //   console.log(info)
-  // }
-
-  let item = title;
-  console.log(item)
   return (
     // <div>
+        <>
+      <span id="returnIcon" onClick={handleClearItemStateClick}>
+        {/* <Button 
+        // onClick={handleClearItemStateClick} 
+          style={{
+            color: 'black',
+            outline: 'solid 3px grey',
+            background: 'white',
+            width: '35px',
+            height: '35px',
+            display: 'flex',
+            justifyContent: 'center',
+            opacity: 0.6,
+            borderRadius: '50%',
+            // paddingBottom: '5px'
+          }}
+        >
+          <KeyboardReturnIcon fontSize="medium" />
+        </Button> */}
+        <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
+      </span>
     <Container fluid="md">
       <Row>
         <Col sm={8}>
@@ -110,12 +102,24 @@ export default function ItemDetails(props) {
           <span style={{ 
               fontSize: '25px',
               fontWeight: 500,
-              display: 'flex', 
-              justifyContent: 'center',
+              marginTop: '-10px'
           }}>
+            {
+              selectedSize ?
+                <Chip  
+                  variant="outlined" 
+                  color="success" 
+                  size="small"
+                  label={sizeChip}
+                  onDelete={handleDelete} 
+                />
+            :
+              null
+            }
+            <br/>
             ${price}
           </span>
-          <br/>
+          <br/><br/>
           <span style={{
               fontSize: '12px', 
               fontWeight: 600
@@ -127,7 +131,7 @@ export default function ItemDetails(props) {
 
           } */}
           <div className='sizeContainer'>
-            
+
           {
             props.title.toLowerCase() === 'sneakers' ?
               sneakers.map(({ id, value }) => (
@@ -152,16 +156,18 @@ export default function ItemDetails(props) {
           }
 
           </div>
-          <div className='w-100'>
+          {
+            selectedSize ?
+            <div className='w-100'>
             {
               productQuantity === 0 ? (
                 <Button 
-                  onClick={() => cart.addOneItemToCart(id, name, price, img)}
-                  variant="outline-primary" 
-                  className="w-100"
-                  style={{
+                onClick={() => cart.addOneItemToCart(id, name, price, img)}
+                variant="outline-primary" 
+                className="w-100"
+                style={{
                   border: 'none',
-                  }}>
+                }}>
                     + Add to Cart
                 </Button>
               ) 
@@ -170,11 +176,11 @@ export default function ItemDetails(props) {
                 <div 
                   className='d-flex align-items-center flex-column' 
                   style={{gap: '.5rem'}}
-                >
+                  >
                   <div 
                     className='d-flex align-items-center justify-content-center'
                     style={{gap: '.5rem'}}
-                  >
+                    >
                     <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
                     <div>
                       <span className='fs-3'>{productQuantity}</span> in cart
@@ -186,9 +192,12 @@ export default function ItemDetails(props) {
               </>
             }
           </div>
+          : null
+         }
           <Col><img src={img2} alt="" width="80px" id="img"></img></Col>
         </Col>
       </Row>
     </Container>
+    </>
   )
 }
