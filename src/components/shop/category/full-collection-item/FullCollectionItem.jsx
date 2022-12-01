@@ -18,7 +18,7 @@ export default function FullCollectionItem(props) {
   
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
   // const toItemDetail = (id, name, price, img, desc, img2) => {
@@ -34,7 +34,7 @@ export default function FullCollectionItem(props) {
   //   })
   // }
 
-  const saveSelectedItem = (e) => {
+  const goToSelectedItem = (e) => {
     const selectedItem = [props][0];
     console.log(selectedItem)
     console.log({selectedItem})
@@ -46,7 +46,7 @@ return (
 <>
   <Card 
     className='fullCollectionItem'
-    onClick={(e)=> saveSelectedItem(e)}
+    onClick={(e)=> goToSelectedItem(e)}
     // onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
     >
     <Card.Img 

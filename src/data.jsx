@@ -19,6 +19,7 @@ const SHOP_DATA = [
       {
         // id: uuid(),
         id: 'price_1Lv4dkKFRYyirzJ3scXKuUNb',
+        title: 'sneakers',
         name: 'Mens Nike Dunk High Retro',
         alt: 'Nike Shoe',
         img: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/a0374c16-982d-44a8-b791-18d7b47fab9f/dunk-high-retro-mens-shoe-dTVTCk.png',
@@ -28,6 +29,7 @@ const SHOP_DATA = [
       {
         // id: uuid(),
         id: 'price_1Lv4fDKFRYyirzJ3zo5SjNBm',
+        title: 'sneakers',
         name: 'Air Jordan 6 Retro Low',
         alt: 'Air Jordan Shoe',
         img: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/1f1b7246-1dcd-43de-af62-995320e977ef/air-jordan-6-retro-low-mens-shoes-MPwhfh.png',
@@ -36,6 +38,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS4lKFRYyirzJ3nai5kJRN',
+        title: 'sneakers',
         name: 'Vans: Era Core Classics',
         alt: 'Vans Shoe',
         img: 'https://m.media-amazon.com/images/I/71b8Cc6XRfL._AC_SR1840,1472__FMwebp_.jpg',
@@ -44,6 +47,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS5pKFRYyirzJ3DPIitZ5j',
+        title: 'sneakers',
         name: 'Men\'s Leather Oxford Dress Shoes',
         alt: 'Mens Dress Shoe',
         img: 'https://cdnimg.brunomarcshoes.com/brunomarcshoes/product/product/2022-09-19/9065/10:06--1.jpg',
@@ -52,6 +56,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS6bKFRYyirzJ3ifZOM4Rx',
+        title: 'sneakers',
         name: 'Women\'s Catiba Pro',
         alt: 'Off-white Vintage Gum Sole shoe',
         img: 'https://cdn.shopify.com/s/files/1/2495/5044/products/catiba-catiba-pro-off-white-sneaker-canvas.slideshow3_1458c07d-fd02-4af5-be0e-74ae47c7be07.jpg?v=1624857339',
@@ -61,6 +66,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS7FKFRYyirzJ3Ll2Nr9bR',
+        title: 'sneakers',
         name: 'Women\'s Chuck Taylor All-Star Lift',
         alt: 'Lifted Black Converse with White Sole',
         img: 'https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw3d987bc4/images/a_107/560845C_A_107X1.jpg?sw=964',
@@ -70,6 +76,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS7vKFRYyirzJ3wyDROVDB',
+        title: 'sneakers',
         name: 'Women\'s Adidas Swift Running Shoe',
         alt: 'Original Swift Running Shoe',
         img: 'https://m.media-amazon.com/images/I/71CFoM4M0-L._AC_SX695._SX._UX._SY._UY_.jpg',
@@ -79,6 +86,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS8XKFRYyirzJ3zrmm6mNi',
+        title: 'sneakers',
         name: 'Women\'s Nike Revolution 5',
         alt: 'Black and White Running Shoes',
         img: 'https://m.media-amazon.com/images/I/512tsZixA4L._AC_UX695_.jpg',

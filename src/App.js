@@ -9,9 +9,8 @@ import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
 import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
-import {Header} from './components/utility/header/Header';
+import { Header } from './components/utility/header/Header';
 import NotFound from './pages/notFound/NotFound';
-import HomePage from './pages/homePage/HomePage.jsx';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
 
@@ -24,10 +23,13 @@ class App extends React.Component {
     // to update us on when authentication state changes
     this.state = {
       currentUser: null,
+      currentView: null,
     }
 }
 
 unsubscribeFromAuth = null
+
+
 
 componentDidMount() {
   // console.log("componentDidMount Hit")

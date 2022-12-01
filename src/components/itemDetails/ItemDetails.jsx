@@ -1,6 +1,8 @@
 import './itemDetails.styles.scss';
-import React, {useContext} from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
+
+import SizeList from '../../components/utility/sizeList/SizeList';
 
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 
@@ -10,16 +12,84 @@ export default function ItemDetails(props) {
   const { name, price, img, id, img2, title } = props;
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
+  
+  const [ selectedSize, setSelectedSize ] = useState([]);
+  const [ active, setActive ] = useState(false);
+  const [ selected, setSelected ] = useState(false);
+  // const [itemDetailState, setItemDetailState ] = useState({
+  //   activeObj: null,
+  //   size: [ 
+  //     { id: 1, value: 6,},
+  //     { id: 2, value: 6.5,},
+  //     { id: 3, value: 7 },
+  //     { id: 4, value: 7.5 },
+  //     { id: 5, value: 8 },
+  //     { id: 6, value: 8.5 },
+  //     { id: 7, value: 9 },
+  //     { id: 8, value: 9.5 },
+  //     { id: 9, value: 10 },
+  //     { id: 10, value: 10.5 },
+  //     { id: 11, value: 11 },
+  //     { id: 12, value: 11.5 },
+  //     { id: 13, value: 12 },
+  //     { id: 14, value: 12.5 },
+  //     { id: 15, value: 13 },
+  //   ]
+  // });
+  
+  // const shoeSize = [
+  //   6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10,
+  //   10.5, 11, 11.5, 12, 12.5, 13, 13.5
+  // ]
 
-
-  const shoeSize = [
-    6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10,
-    10.5, 11, 11.5, 12, 12.5, 13, 13.5
+  const sneakers = [
+    { id: 1, value: 6 },
+    { id: 2, value: 6.5 },
+    { id: 3, value: 7 },
+    { id: 4, value: 7.5 },
+    { id: 5, value: 8 },
+    { id: 6, value: 8.5 },
+    { id: 7, value: 9 },
+    { id: 8, value: 9.5 },
+    { id: 9, value: 10 },
+    { id: 10, value: 10.5 },
+    { id: 11, value: 11 },
+    { id: 12, value: 11.5 },
+    { id: 13, value: 12 },
+    { id: 14, value: 12.5 },
+    { id: 15, value: 13 },
   ]
-
+  
   const clothesSize = [
-    'xs', 's','m','l','xl','xxl','xxxl'
+    {id: 0, value: 'XS'},
+    {id: 1, value: 'S'},
+    {id: 2, value: 'M'},
+    {id: 3, value: 'L'},
+    {id: 4, value: 'XL'},
+    {id: 5, value: 'XXL'},
+    {id: 6, value: '3XL'},
   ]
+  function handleSizeSelect(id) {
+    console.log("ID", id)
+    // setSelectedSize({id: id, value: value, selected: true})
+    setSelectedSize(id)
+    setActive(active => !active)
+  }
+
+  useEffect(() => {
+    console.log("Selected Size; ID", selectedSize)
+  
+    // setItemDetailState({...itemDetailState, activeObj: selectedSize.id})
+    setActive(active => !active)
+ 
+    // setSelectedSize({...selectedSize, selected: false})
+  }, [selectedSize]);
+
+
+
+  // const consoleLog = (info) => {
+  //   console.log(info)
+  // }
 
   let item = title;
   console.log(item)
@@ -57,18 +127,30 @@ export default function ItemDetails(props) {
 
           } */}
           <div className='sizeContainer'>
+            
           {
-            props.title.toLowerCase() === 'shoes' ?
-
-            
-              shoeSize.map((size) => 
-              <li className="shoeSize">{size}</li>
-              )
-            
+            props.title.toLowerCase() === 'sneakers' ?
+              sneakers.map(({ id, value }) => (
+                <SizeList
+                  key={id}
+                  id={id}
+                  value={value}
+                  onSizeSelect={handleSizeSelect}
+                  active={selectedSize === id}
+                />
+              ))
            : 
-              clothesSize.map((size) => 
-              <li className="shoeSize">{size}</li>)
+              clothesSize.map(({id, value}) => 
+                <SizeList 
+                  key={id}
+                  id={id}
+                  value={value}
+                  onSizeSelect={handleSizeSelect}
+                  active={selectedSize === id}
+                />
+              )
           }
+
           </div>
           <div className='w-100'>
             {

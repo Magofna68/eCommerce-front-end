@@ -91,7 +91,7 @@ export default function Navigationbar({currentUser}) {
              <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
-              <NavDropdown title="Shop" id="basic-nav-dropdown">
+              {/* <NavDropdown title="Shop" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
                 <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item>
                 <NavDropdown.Item href="#/shop/jackets">Jackets</NavDropdown.Item>
@@ -102,7 +102,7 @@ export default function Navigationbar({currentUser}) {
                 <NavDropdown.Item href="#/shop/womens">
                   Women's
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
                <Link className="nav-link" to="/">Home</Link>
 
                <Link className='nav-link' to='#/contact'>contact</Link>

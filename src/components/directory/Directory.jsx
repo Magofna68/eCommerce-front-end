@@ -85,7 +85,7 @@ export default class Directory extends React.Component {
   }
   
   render() {
-    const { currentView, handleClearStateClick, selectedItem } = this.state;
+    const { currentView, selectedItem } = this.state;
     let currentlyVisibleState = null;
     let buttonText = null;
     let buttonDisplayed = null;
