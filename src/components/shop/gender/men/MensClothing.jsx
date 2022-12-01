@@ -40,6 +40,13 @@ class MensClothing extends Component {
     console.log(this.state.itemList)
   }
 
+  handleClearItemStateClick = (e) => {
+    console.log("HandleClear")
+    this.setState({
+      selectedItem: null,
+    })
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -47,7 +54,8 @@ class MensClothing extends Component {
     if (this.state.selectedItem != null) {
       currentlyVisibleState = 
       <ItemDetail 
-        itemToShow={this.state.selectedItem} 
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick} 
       />
       buttonText = "Back to Items"
     } else { 

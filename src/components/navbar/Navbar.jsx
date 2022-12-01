@@ -108,7 +108,7 @@ export default function Navigationbar({currentUser}) {
                   Women's
                 </NavDropdown.Item>
               </NavDropdown> */}
-               <Link className="nav-link" onClick={forceUpdate}>Home</Link>
+               <Link className="nav-link" to="/">Home</Link>
 
                <Link className='nav-link' to='#/contact'>contact</Link>
                 <SearchBar />

@@ -29,6 +29,13 @@ class WomensClothing extends Component {
   handleHomeClick = () => {
     window.location.assign('#/')
   }
+  
+  handleClearItemStateClick = (e) => {
+    console.log("HandleClear")
+    this.setState({
+      selectedItem: null,
+    })
+  }
 
   handleChangingSelectedItem = (id) => {
     console.log(id)
@@ -53,6 +60,7 @@ class WomensClothing extends Component {
       currentlyVisibleState = 
       <ItemDetail 
         itemToShow={this.state.selectedItem} 
+        onClearItemStateClick={this.handleClearItemStateClick}
       />
       buttonText = "Back to Items"
     } else { 

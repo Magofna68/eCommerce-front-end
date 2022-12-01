@@ -17,7 +17,7 @@ export default function ItemList(props) {
     <>
     <Breadcrumb />
         <Container fluid="true" className='collectionPreview'>
-          <h1>Shop</h1>
+          <h1 style={{ marginLeft: '2%'}}>Shop</h1>
           {/* <div className='titleContainer'> */}
           {/* <h2>
             <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
