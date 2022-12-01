@@ -78,7 +78,6 @@ class WomensClothing extends Component {
         :
         null
         }
-        <Breadcrumb />
         {currentlyVisibleState}
         <hr/>
         {

@@ -3,14 +3,14 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 import SizeList from '../../components/utility/sizeList/SizeList';
-import { Notyf } from 'notyf';
-
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { name, price, img, id, img2, title } = props;
+  const { name, price, img, id, img2, title, handleClearItemStateClick } = props;
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   
@@ -62,10 +62,31 @@ export default function ItemDetails(props) {
    }, [selectedSize]);
 
   let sizeChip = `Size ${selectedSize}`
-  let item = title;
-  console.log(item)
+  
+
   return (
     // <div>
+        <>
+      <span id="returnIcon" onClick={handleClearItemStateClick}>
+        {/* <Button 
+        // onClick={handleClearItemStateClick} 
+          style={{
+            color: 'black',
+            outline: 'solid 3px grey',
+            background: 'white',
+            width: '35px',
+            height: '35px',
+            display: 'flex',
+            justifyContent: 'center',
+            opacity: 0.6,
+            borderRadius: '50%',
+            // paddingBottom: '5px'
+          }}
+        >
+          <KeyboardReturnIcon fontSize="medium" />
+        </Button> */}
+        <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
+      </span>
     <Container fluid="md">
       <Row>
         <Col sm={8}>
@@ -177,5 +198,6 @@ export default function ItemDetails(props) {
         </Col>
       </Row>
     </Container>
+    </>
   )
 }

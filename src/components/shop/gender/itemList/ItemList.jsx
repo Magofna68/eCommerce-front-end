@@ -7,13 +7,15 @@ import { PropTypes } from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
 
 
 export default function ItemList(props) {
   const { itemCollection, onItemSelection } = props;
 
   return (
-  
+    <>
+    <Breadcrumb />
         <Container fluid="true" className='collectionPreview'>
           <h1>Shop</h1>
           {/* <div className='titleContainer'> */}
@@ -45,6 +47,7 @@ export default function ItemList(props) {
         }
       </div>
   </Container>
+  </>
   )
 }
 

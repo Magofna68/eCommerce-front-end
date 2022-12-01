@@ -50,10 +50,14 @@ div.container-md{
   color: white;
 }
 
-#sizeChip{
-  height: 20px;
+#returnIcon{
+  width: 98%;
+  justify-content: space-between;
+  padding: 5px;
+  margin: -3% -2% 0 -2%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
+  align-items: left;
+  justify-content: left;
+  align-content: left;
 }
+

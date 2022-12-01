@@ -5,8 +5,9 @@ import './mensClothing.styles.scss';
 import ItemList from '../itemList/ItemList';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';
-import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
-
+import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb';
+import Link from '@mui/material/Link';
+import HomeIcon from '@mui/icons-material/Home';
 
 class MensClothing extends Component {
   constructor(props) {
@@ -63,16 +64,15 @@ class MensClothing extends Component {
       <div>
         {
           buttonText === "Home" ?
-        <div className="backdropContain">
-          <div className='backdropMobile'>
-            <h1>Men's</h1><h1>Clothing</h1>
-          </div>
-            <img src={King} alt="KINGs" width="150px" style={{zIndex: -1}}/>
-        </div>
+            <div className="backdropContain">
+              <div className='backdropMobile'>
+                <h1>Men's</h1><h1>Clothing</h1>
+              </div>
+                <img src={King} alt="KINGs" width="150px" style={{zIndex: -1}}/>
+            </div>
         :
-        null
+          null
         }
-        <Breadcrumb />
         {currentlyVisibleState}
         <hr/>
         {

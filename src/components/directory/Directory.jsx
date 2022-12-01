@@ -62,6 +62,7 @@ export default class Directory extends React.Component {
   }
 
   handleClearItemStateClick = (e) => {
+    console.log("HandleClear")
     this.setState({
       selectedItem: null,
     })
@@ -92,7 +93,8 @@ export default class Directory extends React.Component {
     // let test = window.location.assign(<MensClothing />)
 
     if (selectedItem != null) {
-      currentlyVisibleState = <ItemDetail itemToShow={selectedItem} />
+      currentlyVisibleState = 
+      <ItemDetail itemToShow={selectedItem} onClearItemStateClick={this.handleClearItemStateClick}/>
       buttonText = "Back to Items"
       buttonDisplayed = true;
     } else {
