@@ -1,7 +1,7 @@
 import './itemDetails.styles.scss';
 import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
-
+import Chip from '@mui/material/Chip';
 import SizeList from '../../components/utility/sizeList/SizeList';
 
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
@@ -13,51 +13,26 @@ export default function ItemDetails(props) {
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   
-  const [ selectedSize, setSelectedSize ] = useState([]);
+  const [ selectedSize, setSelectedSize ] = useState('');
   const [ active, setActive ] = useState(false);
-  const [ selected, setSelected ] = useState(false);
-  // const [itemDetailState, setItemDetailState ] = useState({
-  //   activeObj: null,
-  //   size: [ 
-  //     { id: 1, value: 6,},
-  //     { id: 2, value: 6.5,},
-  //     { id: 3, value: 7 },
-  //     { id: 4, value: 7.5 },
-  //     { id: 5, value: 8 },
-  //     { id: 6, value: 8.5 },
-  //     { id: 7, value: 9 },
-  //     { id: 8, value: 9.5 },
-  //     { id: 9, value: 10 },
-  //     { id: 10, value: 10.5 },
-  //     { id: 11, value: 11 },
-  //     { id: 12, value: 11.5 },
-  //     { id: 13, value: 12 },
-  //     { id: 14, value: 12.5 },
-  //     { id: 15, value: 13 },
-  //   ]
-  // });
-  
-  // const shoeSize = [
-  //   6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10,
-  //   10.5, 11, 11.5, 12, 12.5, 13, 13.5
-  // ]
+  // const [ show, setShow ] = useState(false);
 
   const sneakers = [
-    { id: 1, value: 6 },
-    { id: 2, value: 6.5 },
-    { id: 3, value: 7 },
-    { id: 4, value: 7.5 },
-    { id: 5, value: 8 },
-    { id: 6, value: 8.5 },
-    { id: 7, value: 9 },
-    { id: 8, value: 9.5 },
-    { id: 9, value: 10 },
-    { id: 10, value: 10.5 },
+    { id: 6, value: 6 },
+    { id: 6.5, value: 6.5 },
+    { id: 7, value: 7 },
+    { id: 7.5, value: 7.5 },
+    { id: 8, value: 8 },
+    { id: 8.5, value: 8.5 },
+    { id: 9, value: 9 },
+    { id: 9.5, value: 9.5 },
+    { id: 10, value: 10 },
+    { id: 10.5, value: 10.5 },
     { id: 11, value: 11 },
-    { id: 12, value: 11.5 },
-    { id: 13, value: 12 },
-    { id: 14, value: 12.5 },
-    { id: 15, value: 13 },
+    { id: 11.5, value: 11.5 },
+    { id: 12, value: 12 },
+    { id: 12.5, value: 12.5 },
+    { id: 13, value: 13 },
   ]
   
   const clothesSize = [
@@ -69,28 +44,25 @@ export default function ItemDetails(props) {
     {id: 5, value: 'XXL'},
     {id: 6, value: '3XL'},
   ]
-  function handleSizeSelect(id) {
-    console.log("ID", id)
+  
+  
+  function handleSizeSelect(id, value) {
+    console.log("ID", selectedSize)
     // setSelectedSize({id: id, value: value, selected: true})
-    setSelectedSize(id)
+    setSelectedSize(value)
     setActive(active => !active)
   }
 
+  function handleDelete() {
+    setSelectedSize('');
+  }
+
   useEffect(() => {
-    console.log("Selected Size; ID", selectedSize)
-  
-    // setItemDetailState({...itemDetailState, activeObj: selectedSize.id})
+    console.log("Selected ID:", selectedSize)
     setActive(active => !active)
- 
-    // setSelectedSize({...selectedSize, selected: false})
-  }, [selectedSize]);
+   }, [selectedSize]);
 
-
-
-  // const consoleLog = (info) => {
-  //   console.log(info)
-  // }
-
+  let sizeChip = `Size ${selectedSize}`
   let item = title;
   console.log(item)
   return (
@@ -110,12 +82,27 @@ export default function ItemDetails(props) {
           <span style={{ 
               fontSize: '25px',
               fontWeight: 500,
-              display: 'flex', 
-              justifyContent: 'center',
+              marginTop: '-10px'
+              // display: 'flex', 
+              // justifyContent: 'center',
+              // alignContent: 'center'
           }}>
+            {
+              selectedSize ?
+                <Chip  
+                  variant="outlined" 
+                  color="success" 
+                  size="small"
+                  label={sizeChip}
+                  onDelete={handleDelete} 
+                />
+            :
+              null
+            }
+            <br/>
             ${price}
           </span>
-          <br/>
+          <br/><br/>
           <span style={{
               fontSize: '12px', 
               fontWeight: 600
@@ -127,7 +114,7 @@ export default function ItemDetails(props) {
 
           } */}
           <div className='sizeContainer'>
-            
+
           {
             props.title.toLowerCase() === 'sneakers' ?
               sneakers.map(({ id, value }) => (

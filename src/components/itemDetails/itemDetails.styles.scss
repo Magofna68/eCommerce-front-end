@@ -34,7 +34,7 @@ div.container-md{
   font-weight: 400;
   text-align: center;
   font-size: 25px;
-  
+  margin-bottom: -10px
 }
 
 #img{
@@ -48,4 +48,12 @@ div.container-md{
 .active{
   background-color: black;
   color: white;
+}
+
+#sizeChip{
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
