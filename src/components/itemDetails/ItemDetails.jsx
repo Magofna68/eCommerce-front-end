@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 import SizeList from '../../components/utility/sizeList/SizeList';
+import { Notyf } from 'notyf';
 
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 
@@ -15,7 +16,6 @@ export default function ItemDetails(props) {
   
   const [ selectedSize, setSelectedSize ] = useState('');
   const [ active, setActive ] = useState(false);
-  // const [ show, setShow ] = useState(false);
 
   const sneakers = [
     { id: 6, value: 6 },
@@ -48,7 +48,6 @@ export default function ItemDetails(props) {
   
   function handleSizeSelect(id, value) {
     console.log("ID", selectedSize)
-    // setSelectedSize({id: id, value: value, selected: true})
     setSelectedSize(value)
     setActive(active => !active)
   }
@@ -83,9 +82,6 @@ export default function ItemDetails(props) {
               fontSize: '25px',
               fontWeight: 500,
               marginTop: '-10px'
-              // display: 'flex', 
-              // justifyContent: 'center',
-              // alignContent: 'center'
           }}>
             {
               selectedSize ?
@@ -139,16 +135,18 @@ export default function ItemDetails(props) {
           }
 
           </div>
-          <div className='w-100'>
+          {
+            selectedSize ?
+            <div className='w-100'>
             {
               productQuantity === 0 ? (
                 <Button 
-                  onClick={() => cart.addOneItemToCart(id, name, price, img)}
-                  variant="outline-primary" 
-                  className="w-100"
-                  style={{
+                onClick={() => cart.addOneItemToCart(id, name, price, img)}
+                variant="outline-primary" 
+                className="w-100"
+                style={{
                   border: 'none',
-                  }}>
+                }}>
                     + Add to Cart
                 </Button>
               ) 
@@ -157,11 +155,11 @@ export default function ItemDetails(props) {
                 <div 
                   className='d-flex align-items-center flex-column' 
                   style={{gap: '.5rem'}}
-                >
+                  >
                   <div 
                     className='d-flex align-items-center justify-content-center'
                     style={{gap: '.5rem'}}
-                  >
+                    >
                     <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
                     <div>
                       <span className='fs-3'>{productQuantity}</span> in cart
@@ -173,6 +171,8 @@ export default function ItemDetails(props) {
               </>
             }
           </div>
+          : null
+         }
           <Col><img src={img2} alt="" width="80px" id="img"></img></Col>
         </Col>
       </Row>
