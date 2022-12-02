@@ -71,26 +71,31 @@ export default function ItemDetails(props) {
       </span>
     <Container fluid="md">
       <Row>
+
         <Col sm={8}>
           <div 
             styles={{
               width: '90vw',
             }}>
               <img src={img} alt="test" width="100%"></img>
+          </div>
+          <Row sm={12}>
+            <div className='imgPreviewContainer'>
+              {/* <Col> */}
+                <span id="img">
+                  <img src={img2} alt="" width="50px"></img>
+                </span>
+                <span id="img">
+                  <img src={img2} alt="" width="50px"></img>
+                </span>
+              {/* </Col> */}
             </div>
+          </Row>
         </Col>
+
         <Col sm={4}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
-          <span 
-          className='chipContainer'
-          // style={{ 
-          //     fontSize: '25px',
-          //     fontWeight: 500,
-          //     marginTop: '-10px',
-          //     // display: 'flex',
-          //     justifyContent: 'center'
-          // }}
-          >
+          <div className='chipContainer'>
             {
               selectedSize ?
               <span className='fade-in-chip'>
@@ -100,14 +105,25 @@ export default function ItemDetails(props) {
                   size="small"
                   label={sizeChip}
                   onDelete={handleDelete} 
-                />
+                  />
               </span>
-            :
-              null
-            }
+                :
+                null
+              }
+            </div>
+          {/* <span 
+          className='chipContainer'
+          style={{ 
+              fontSize: '25px',
+              fontWeight: 500,
+              marginTop: '-10px',
+              // display: 'flex',
+              justifyContent: 'center'
+          }}
+          >
             <br/>
-            <h3>${price}</h3>
-          </span>
+          </span> */}
+            <h3 style={{ marginTop: '2%', marginBottom: '-5%'}}>${price}</h3>
           <br/><br/>
           <span style={{
               fontSize: '12px', 
@@ -145,6 +161,8 @@ export default function ItemDetails(props) {
           }
 
           </div>
+          <div style={{ height: '35px'}}>
+
           {
             selectedSize ?
             <div className='w-100'>
@@ -182,10 +200,15 @@ export default function ItemDetails(props) {
             }
           </div>
           : null
-         }
-          <Col><img src={img2} alt="" width="80px" id="img"></img></Col>
+        }
+        </div>
+          {/* <Col><img src={img2} alt="" width="80px" id="img"></img></Col> */}
         </Col>
       </Row>
+      {/* <Row> */}
+        {/* <Container style={{background: 'blue', width: '50%', height: '50px', display: 'flex', justifyContent: 'left', alignContent: 'left'}}></Container> */}
+      {/* <img src={img2} alt="" width="10px" id="img"></img> */}
+      {/* </Row> */}
     </Container>
     </>
   )
