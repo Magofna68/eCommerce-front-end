@@ -61,3 +61,49 @@ div.container-md{
   align-content: left;
 }
 
+.chipContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  margin: 10% 0 % 0;
+
+  .MuiButtonBase-root {
+    margin: auto;
+    width: 100px;
+    color: rgb(46, 181, 91);
+  }
+}
+
+.fade-in-chip{
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn{
+  0% { opacity: 0; }
+  100% { opacity: 100; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

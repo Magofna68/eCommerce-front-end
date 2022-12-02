@@ -65,26 +65,8 @@ export default function ItemDetails(props) {
   
 
   return (
-    // <div>
-        <>
+    <>
       <span id="returnIcon" onClick={handleClearItemStateClick}>
-        {/* <Button 
-        // onClick={handleClearItemStateClick} 
-          style={{
-            color: 'black',
-            outline: 'solid 3px grey',
-            background: 'white',
-            width: '35px',
-            height: '35px',
-            display: 'flex',
-            justifyContent: 'center',
-            opacity: 0.6,
-            borderRadius: '50%',
-            // paddingBottom: '5px'
-          }}
-        >
-          <KeyboardReturnIcon fontSize="medium" />
-        </Button> */}
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
       </span>
     <Container fluid="md">
@@ -99,13 +81,19 @@ export default function ItemDetails(props) {
         </Col>
         <Col sm={4}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
-          <span style={{ 
-              fontSize: '25px',
-              fontWeight: 500,
-              marginTop: '-10px'
-          }}>
+          <span 
+          className='chipContainer'
+          // style={{ 
+          //     fontSize: '25px',
+          //     fontWeight: 500,
+          //     marginTop: '-10px',
+          //     // display: 'flex',
+          //     justifyContent: 'center'
+          // }}
+          >
             {
               selectedSize ?
+              <span className='fade-in-chip'>
                 <Chip  
                   variant="outlined" 
                   color="success" 
@@ -113,11 +101,12 @@ export default function ItemDetails(props) {
                   label={sizeChip}
                   onDelete={handleDelete} 
                 />
+              </span>
             :
               null
             }
             <br/>
-            ${price}
+            <h3>${price}</h3>
           </span>
           <br/><br/>
           <span style={{
