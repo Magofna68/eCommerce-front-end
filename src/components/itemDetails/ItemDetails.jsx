@@ -79,13 +79,13 @@ export default function ItemDetails(props) {
             }}>
               <img src={img} alt="test" width="100%"></img>
           </div>
-          <Row sm={12}>
+          <Row sm={4} xs={3} style={{marginTop: '10px'}}>
             <div className='imgPreviewContainer'>
               {/* <Col> */}
-                <span id="img">
+                <span className='img'>
                   <img src={img2} alt="" width="50px"></img>
                 </span>
-                <span id="img">
+                <span className="img">
                   <img src={img2} alt="" width="50px"></img>
                 </span>
               {/* </Col> */}
@@ -123,7 +123,9 @@ export default function ItemDetails(props) {
           >
             <br/>
           </span> */}
-            <h3 style={{ marginTop: '2%', marginBottom: '-5%'}}>${price}</h3>
+            <span id="priceContainer">
+              <h3>${price}</h3>
+            </span>
           <br/><br/>
           <span style={{
               fontSize: '12px', 
@@ -165,7 +167,7 @@ export default function ItemDetails(props) {
 
           {
             selectedSize ?
-            <div className='w-100'>
+            <div className='w-100 fade-in-chip'>
             {
               productQuantity === 0 ? (
                 <Button 

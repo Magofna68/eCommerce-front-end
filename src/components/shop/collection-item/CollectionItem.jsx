@@ -58,7 +58,7 @@ const saveSelectedItem = (e) => {
         ${price}
       </Card.Text>
     </Card.Body>
-    <div className='w-100'>
+    {/* <div className='w-100'>
       {productQuantity === 0 ? (
         <Button
           onClick={() => cart.addOneItemToCart(id, name, price, img)}
@@ -96,7 +96,7 @@ const saveSelectedItem = (e) => {
       </div>
         </>
       }
-    </div>
+    </div> */}
   </Card>
 );
 }
