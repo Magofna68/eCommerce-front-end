@@ -49,9 +49,8 @@ export default function Navigationbar({currentUser}) {
   }
 
   
-    const [, updateState ] = useState();
-    const forceUpdate = React.useCallback(() => updateState({}), []);
-    console.log("render");
+    // const [, updateState ] = useState();
+    // const forceUpdate = React.useCallback(() => updateState({}), []);
     // window.location.assign("http://localhost:3000/eCommerce-front-end#/")
 
   const checkout = async () => {
@@ -77,11 +76,15 @@ export default function Navigationbar({currentUser}) {
     })
   }
 
+  const clearState = () => {
+    window.location.reload(true);
+    window.location.assign('/')
+    console.log("ClearState REACHED");
+  }
+
   return (
           <Container className='p-0' fluid="true">
-            <Navbar className='border' bg="transparent" expand="sm" style={{ width: '100%'
-
-            }}>
+            <Navbar className='border' bg="transparent" expand="sm" >
              <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
                 <img 
                   src={Logo} 
@@ -108,7 +111,7 @@ export default function Navigationbar({currentUser}) {
                   Women's
                 </NavDropdown.Item>
               </NavDropdown> */}
-               <Link className="nav-link" to="/">Home</Link>
+               <Link className="nav-link" to="/" onClick={clearState}>Home</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
