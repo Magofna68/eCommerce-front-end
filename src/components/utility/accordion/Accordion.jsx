@@ -7,7 +7,8 @@ export default function AlwaysOpenExample(props) {
   return (
     <Accordion defaultActiveKey={['0']} alwaysOpen flush>
       <Accordion.Item eventKey="0">
-        <Accordion.Header>Description:</Accordion.Header>
+        {/* <h4 style={{ marginLeft: '6%'}}>Description:</h4> */}
+        {/* <Accordion.Header>Description:</Accordion.Header> */}
         <Accordion.Body>
           {desc}
         </Accordion.Body>

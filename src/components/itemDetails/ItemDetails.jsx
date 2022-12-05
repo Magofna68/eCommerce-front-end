@@ -118,8 +118,8 @@ export default function ItemDetails(props) {
                 null
               }
             </div>
-            <br/>
-            <div style={{ textAlign: 'left'}}>
+            
+            <div style={{ textAlign: 'left', marginTop: '-3%'}}>
               <Accordion desc={desc} details={detailList} />              
             </div>
           <br/>

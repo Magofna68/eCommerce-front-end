@@ -111,7 +111,7 @@ export default function Navigationbar({currentUser}) {
                   Women's
                 </NavDropdown.Item>
               </NavDropdown> */}
-               <Link className="nav-link" to="/" onClick={clearState}>Home</Link>
+               <Link className="nav-link" to="/" onClick={clearState}>Shop</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
