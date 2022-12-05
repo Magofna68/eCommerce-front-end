@@ -14,7 +14,7 @@ import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 
 export default function FullCollectionItem(props) {
-  const {title, id, name, price, img, img2, desc, onItemSelection} = props;
+  const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, onItemSelection} = props;
   
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);

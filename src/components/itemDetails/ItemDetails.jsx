@@ -6,11 +6,11 @@ import SizeList from '../../components/utility/sizeList/SizeList';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
-
+import Accordion from '../utility/Accordion';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { name, price, img, id, img2, title, handleClearItemStateClick } = props;
+  const { name, price, id, img, img2, img3, img4, desc, detail, alt, title, handleClearItemStateClick } = props;
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   
@@ -62,14 +62,30 @@ export default function ItemDetails(props) {
    }, [selectedSize]);
 
   let sizeChip = `Size ${selectedSize}`
-  
+
+  // function detailList(props) {
+  //   const details = props.detail;
+  //   console.log(details)
+    
+  //   const detailsList = details.map((detail) => 
+  //     <li className='detailItem'>{detail}</li>
+  //   );
+  //     return(
+  //     <ul>{detailsList}</ul>
+  //     )
+  // }
+  const details = detail;
+  console.log("DETAILS", details)
+  const detailList = details.map((detail) => 
+    <li className='detailItem'>{detail}</li>
+  );
 
   return (
     <>
       <span id="returnIcon" onClick={handleClearItemStateClick}>
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
       </span>
-    <Container fluid="md">
+      <Container fluid="md">
       <Row>
 
         <Col sm={8}>
@@ -86,7 +102,10 @@ export default function ItemDetails(props) {
                   <img src={img2} alt="" width="50px"></img>
                 </span>
                 <span className="img">
-                  <img src={img2} alt="" width="50px"></img>
+                  <img src={img3} alt="" width="50px"></img>
+                </span>
+                <span className="img">
+                  <img src={img4} alt="" width="50px"></img>
                 </span>
               {/* </Col> */}
             </div>
@@ -126,7 +145,16 @@ export default function ItemDetails(props) {
             <span id="priceContainer">
               <h3>${price}</h3>
             </span>
-          <br/><br/>
+            <br/>
+            {/* <p><strong>{desc}</strong></p> */}
+            {/* const details = {detail}
+            const detailList = details.map((detail) => 
+            <li className='detailItem'>{detail}</li>
+            ); */}
+            {/* <br/><br/>
+            {detailList} */}
+            <Accordion desc={desc} details={detailList} />
+          <br/>
           <span style={{
               fontSize: '12px', 
               fontWeight: 600
@@ -140,7 +168,7 @@ export default function ItemDetails(props) {
           <div className='sizeContainer'>
 
           {
-            props.title.toLowerCase() === 'sneakers' ?
+            props.title === 'sneakers' ?
               sneakers.map(({ id, value }) => (
                 <SizeList
                   key={id}
@@ -160,7 +188,7 @@ export default function ItemDetails(props) {
                   active={selectedSize === id}
                 />
               )
-          }
+            }
 
           </div>
           <div style={{ height: '35px'}}>
