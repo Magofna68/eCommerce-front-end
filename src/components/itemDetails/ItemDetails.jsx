@@ -6,7 +6,8 @@ import SizeList from '../../components/utility/sizeList/SizeList';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
-import Accordion from '../utility/Accordion';
+import Accordion from '../utility/accordion/Accordion';
+import { flexbox } from '@mui/system';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
@@ -63,17 +64,6 @@ export default function ItemDetails(props) {
 
   let sizeChip = `Size ${selectedSize}`
 
-  // function detailList(props) {
-  //   const details = props.detail;
-  //   console.log(details)
-    
-  //   const detailsList = details.map((detail) => 
-  //     <li className='detailItem'>{detail}</li>
-  //   );
-  //     return(
-  //     <ul>{detailsList}</ul>
-  //     )
-  // }
   const details = detail;
   console.log("DETAILS", details)
   const detailList = details.map((detail) => 
@@ -88,16 +78,12 @@ export default function ItemDetails(props) {
       <Container fluid="md">
       <Row>
 
-        <Col sm={8}>
-          <div 
-            styles={{
-              width: '90vw',
-            }}>
+        <Col sm={6} lg={7} md={7} xl={7}>
+          <div>
               <img src={img} alt="test" width="100%"></img>
           </div>
           <Row sm={4} xs={3} style={{marginTop: '10px'}}>
             <div className='imgPreviewContainer'>
-              {/* <Col> */}
                 <span className='img'>
                   <img src={img2} alt="" width="50px"></img>
                 </span>
@@ -107,13 +93,15 @@ export default function ItemDetails(props) {
                 <span className="img">
                   <img src={img4} alt="" width="50px"></img>
                 </span>
-              {/* </Col> */}
             </div>
           </Row>
         </Col>
 
-        <Col sm={4}>
+        <Col sm={6} md={5} lg={5} xl={5}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
+            <span id="priceContainer">
+              <h3>${price}</h3>
+            </span>
           <div className='chipContainer'>
             {
               selectedSize ?
@@ -130,30 +118,10 @@ export default function ItemDetails(props) {
                 null
               }
             </div>
-          {/* <span 
-          className='chipContainer'
-          style={{ 
-              fontSize: '25px',
-              fontWeight: 500,
-              marginTop: '-10px',
-              // display: 'flex',
-              justifyContent: 'center'
-          }}
-          >
             <br/>
-          </span> */}
-            <span id="priceContainer">
-              <h3>${price}</h3>
-            </span>
-            <br/>
-            {/* <p><strong>{desc}</strong></p> */}
-            {/* const details = {detail}
-            const detailList = details.map((detail) => 
-            <li className='detailItem'>{detail}</li>
-            ); */}
-            {/* <br/><br/>
-            {detailList} */}
-            <Accordion desc={desc} details={detailList} />
+            <div style={{ textAlign: 'left'}}>
+              <Accordion desc={desc} details={detailList} />              
+            </div>
           <br/>
           <span style={{
               fontSize: '12px', 
@@ -232,13 +200,8 @@ export default function ItemDetails(props) {
           : null
         }
         </div>
-          {/* <Col><img src={img2} alt="" width="80px" id="img"></img></Col> */}
         </Col>
       </Row>
-      {/* <Row> */}
-        {/* <Container style={{background: 'blue', width: '50%', height: '50px', display: 'flex', justifyContent: 'left', alignContent: 'left'}}></Container> */}
-      {/* <img src={img2} alt="" width="10px" id="img"></img> */}
-      {/* </Row> */}
     </Container>
     </>
   )

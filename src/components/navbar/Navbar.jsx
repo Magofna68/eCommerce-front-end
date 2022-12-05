@@ -110,7 +110,7 @@ export default function Navigationbar({currentUser}) {
               </NavDropdown> */}
                <Link className="nav-link" to="/">Home</Link>
 
-               <Link className='nav-link' to='#/contact'>contact</Link>
+               <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
                   <span style={{
                     marginRight: '3%',

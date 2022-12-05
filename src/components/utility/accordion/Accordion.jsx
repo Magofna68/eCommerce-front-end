@@ -21,7 +21,7 @@ export default function AlwaysOpenExample(props) {
       <Accordion.Item eventKey="2">
         <Accordion.Header>Shipping:</Accordion.Header>
         <Accordion.Body>
-          Free standard shipping and free 60-day returns for Members.<br/> 
+          Free standard shipping and free 60-day returns for Members.<br/> <br/>
           Check out our Return Policy <span><Link to='/returnpolicy'>Here</Link></span>.
         </Accordion.Body>
       </Accordion.Item>
