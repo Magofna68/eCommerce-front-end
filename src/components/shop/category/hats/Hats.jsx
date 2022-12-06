@@ -9,6 +9,7 @@ export default function Hats(props) {
   hatCollection.push(SHOP_DATA[2]);
   // console.log({hatCollection})
 
+
   return (
     <div
       style={{

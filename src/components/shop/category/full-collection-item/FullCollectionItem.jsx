@@ -14,7 +14,7 @@ import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 
 export default function FullCollectionItem(props) {
-  const {title, id, name, price, img, img2, desc, onItemSelection} = props;
+  const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, onItemSelection} = props;
   
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
@@ -86,47 +86,6 @@ return (
         ${price}
       </Card.Text>
     </Card.Body>
-    {/* <div className='w-100'>
-      {productQuantity === 0 ? (
-        <Button 
-          onClick={() => cart.addOneItemToCart(id, name, price, img)}
-          variant="outline-primary" 
-          className="w-100"
-          style={{
-           border: 'none',
-          //  marginBottom: '1px',
-        }}>
-          + Add to Cart
-        </Button>
-      ) : <>
-        <div 
-          className='d-flex align-items-center flex-column' 
-          style={{gap: '.5rem'}}
-        >
-          <div 
-            className='d-flex align-items-center justify-content-center'
-            style={{gap: '.5rem'}}
-          >
-            <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
-            <div>
-              <span className='fs-3'>{productQuantity}</span> in cart
-            </div>
-            <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
-          </div>
-          <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
-        </div>
-        </>}
-    </div> */}
   </Card>
-  
-  {/* <Routes> */}
-    {/* <Route path={path} element={<ItemDetailPage />} /> */}
-    {/* <Route path='shop/hats/:id' exact element={<ItemDetailPage  />} />  */}
-
-  {/* </Routes> */}
   </>
-  
-  // </ShoppingCartProvider>
   )};
-
-// export default FullCollectionItem;

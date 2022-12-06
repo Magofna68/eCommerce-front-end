@@ -6,16 +6,19 @@ import SizeList from '../../components/utility/sizeList/SizeList';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
-
+import Accordion from '../utility/accordion/Accordion';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { name, price, img, id, img2, title, handleClearItemStateClick } = props;
+  const { name, price, id, img, img2, img3, img4, desc, detail, alt, title, handleClearItemStateClick } = props;
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
-  
   const [ selectedSize, setSelectedSize ] = useState('');
-  const [ active, setActive ] = useState(false);
+  const [ isActive, setIsActive ] = useState(false);
+  const [ value, setValue ] = useState('');
+  const [ selectedImg, setSelectedImg ] = useState('img')
+  const [activeImg, setActiveImg ] = useState({
+    img: [ {img}, {img2}, {img3}, {img4} ] })
 
   const sneakers = [
     { id: 6, value: 6 },
@@ -48,8 +51,9 @@ export default function ItemDetails(props) {
   
   function handleSizeSelect(id, value) {
     console.log("ID", selectedSize)
-    setSelectedSize(value)
-    setActive(active => !active)
+    console.log("Active", isActive)
+    setValue(value)
+    setSelectedSize(id)
   }
 
   function handleDelete() {
@@ -57,69 +61,117 @@ export default function ItemDetails(props) {
   }
 
   useEffect(() => {
-    console.log("Selected ID:", selectedSize)
-    setActive(active => !active)
-   }, [selectedSize]);
+    setIsActive(current => !current)
+   }, [ selectedSize]);
 
-  let sizeChip = `Size ${selectedSize}`
-  
+  let chip = `Size ${value}`
+
+  const details = detail;
+  const detailList = details.map((detail) => 
+    <li className='detailItem'>{detail}</li>
+  );
+
+  useEffect(() => {
+    switch(selectedImg) {
+      case "img": 
+        setActiveImg(img);
+      break;
+      case "img2": 
+        setActiveImg(img2);
+      break;
+      case "img3": 
+        setActiveImg(img3);
+      break;
+      case "img4": 
+        setActiveImg(img4);
+      break;
+      default:
+        setActiveImg(img)
+    }
+  console.log(activeImg)}, [selectedImg])
 
   return (
-    // <div>
-        <>
+    <>
       <span id="returnIcon" onClick={handleClearItemStateClick}>
-        {/* <Button 
-        // onClick={handleClearItemStateClick} 
-          style={{
-            color: 'black',
-            outline: 'solid 3px grey',
-            background: 'white',
-            width: '35px',
-            height: '35px',
-            display: 'flex',
-            justifyContent: 'center',
-            opacity: 0.6,
-            borderRadius: '50%',
-            // paddingBottom: '5px'
-          }}
-        >
-          <KeyboardReturnIcon fontSize="medium" />
-        </Button> */}
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
       </span>
-    <Container fluid="md">
+      <Container fluid="md">
       <Row>
-        <Col sm={8}>
+
+        {/* <Col sm={6} lg={7} md={7} xl={7}>
           <div 
-            styles={{
-              width: '90vw',
-            }}>
+          className='activeImage'
+          >
               <img src={img} alt="test" width="100%"></img>
+          </div>
+          <Row sm={4} xs={3} style={{marginTop: '10px'}}>
+            <div className='imgPreviewContainer'>
+                <span className='img'>
+                  <img src={img2} alt="" width="50px"></img>
+                </span>
+                <span className="img">
+                  <img src={img3} alt="" width="50px"></img>
+                </span>
+                <span className="img">
+                  <img src={img4} alt="" width="50px"></img>
+                </span>
             </div>
-        </Col>
-        <Col sm={4}>
+          </Row>
+        </Col> */}
+          <Col sm={6} lg={7} md={7} xl={7}>
+            {/* <div className='imagesContain'> */}
+          <div 
+          className='activeImage'
+          >
+              <img src={activeImg} alt="test" width="100%"></img>
+          </div>
+          <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
+            <div 
+              className='imgPreviewContainer'
+            >
+                <span className='img'>
+                  <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
+                </span>
+                <span className='img' >
+                  <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
+                </span>
+                <span className="img" >
+                  <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
+                </span>
+                <span className="img" >
+                  <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
+                </span>
+            </div>
+          </Row>
+          {/* </div> */}
+          </Col>
+
+        <Col sm={6} md={5} lg={5} xl={5}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
-          <span style={{ 
-              fontSize: '25px',
-              fontWeight: 500,
-              marginTop: '-10px'
-          }}>
+            <span id="priceContainer">
+              <h3>${price}</h3>
+            </span>
+          <div className='chipContainer'>
             {
               selectedSize ?
+              <span className='fade-in-chip'>
                 <Chip  
                   variant="outlined" 
                   color="success" 
                   size="small"
-                  label={sizeChip}
+                  label={chip}
                   onDelete={handleDelete} 
-                />
-            :
-              null
-            }
-            <br/>
-            ${price}
-          </span>
-          <br/><br/>
+                  />
+              </span>
+                :
+                null
+              }
+            </div>
+            
+            <div style={{ textAlign: 'left', marginTop: '-3%'}}>
+              <Accordion desc={desc} details={detailList} />              
+            </div>
+          <br/>
           <span style={{
               fontSize: '12px', 
               fontWeight: 600
@@ -133,7 +185,7 @@ export default function ItemDetails(props) {
           <div className='sizeContainer'>
 
           {
-            props.title.toLowerCase() === 'sneakers' ?
+            props.title === 'sneakers' ?
               sneakers.map(({ id, value }) => (
                 <SizeList
                   key={id}
@@ -149,16 +201,19 @@ export default function ItemDetails(props) {
                   key={id}
                   id={id}
                   value={value}
+                  onClick={() => console.log(id)}
                   onSizeSelect={handleSizeSelect}
                   active={selectedSize === id}
                 />
               )
-          }
+            }
 
           </div>
+          <div style={{ height: '35px'}}>
+
           {
             selectedSize ?
-            <div className='w-100'>
+            <div className='w-100 fade-in-chip'>
             {
               productQuantity === 0 ? (
                 <Button 
@@ -193,8 +248,8 @@ export default function ItemDetails(props) {
             }
           </div>
           : null
-         }
-          <Col><img src={img2} alt="" width="80px" id="img"></img></Col>
+        }
+        </div>
         </Col>
       </Row>
     </Container>

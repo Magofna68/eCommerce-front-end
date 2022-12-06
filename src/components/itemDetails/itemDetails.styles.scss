@@ -2,6 +2,7 @@ div.container-md{
   margin-top: 3%;
 }
 
+
 .sizeContainer{
   display: flex;
   justify-content: center;
@@ -9,6 +10,10 @@ div.container-md{
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 15%;
+
+  @media only screen and (max-width: 575px){
+    margin-bottom: 0;
+  }
   
   .shoeSize{
     width: 3.5rem;
@@ -19,6 +24,10 @@ div.container-md{
     margin-bottom: 3%;
     border-radius: 5px;
 
+    @media only screen and (max-width: 575px){
+      width: 5rem;
+    }
+    
     &:hover {
       background-color: rgb(97, 97, 97);
       color: white;
@@ -34,19 +43,45 @@ div.container-md{
   font-weight: 400;
   text-align: center;
   font-size: 25px;
-  margin-bottom: -10px
+  // margin-bottom: -10px
 }
 
-#img{
+.imgPreviewContainer{
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  // align-content: center;
 
-  &:hover{
-    // transform: translateX(500px);
-    transform: scale(300%);
+  // background-color: rgb(217, 217, 217);
+  // border-radius: 15px;
+  width: 215px;
+  // margin: 5px 0 0px 5%;
+
+  @media only screen and (max-width: 575px){
+    justify-content: center;
+    margin-top: 15px;
+    // width: 125px;
+    padding: 0px 0px;
+  }
+
+  .img{
+    margin: 2px 5px ;
+    border-radius: 15px;
+    overflow: hidden;
+    border: solid 3px rgb(209, 209, 209);
+    // padding-left: 2px;
+
+    @media only screen and (max-width: 575px){
+      // justify-content: center;
+      margin: 2px 2px;
+    }
   }
 }
 
 .active{
-  background-color: black;
+  background-color: rgb(18, 18, 18);
   color: white;
 }
 
@@ -61,3 +96,85 @@ div.container-md{
   align-content: left;
 }
 
+h3{
+  // margin-top: 5%;
+
+  @media only screen and (max-width: 575px){
+   text-align: center;
+   margin-top: 5%;
+   margin-bottom: -5%;
+   font-size: larger;
+  }
+}
+.chipContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30px;
+  margin: 5% 0 % 0;
+  padding: 0% 0 0 0;
+
+  @media only screen and (max-width: 575px){
+    text-align: center;
+    margin: 2% 0 0 0;
+  }
+  
+
+  .MuiButtonBase-root {
+    // margin: auto;
+    // margin: 0 0 10px 0;
+    width: 100px;
+    color: rgb(46, 181, 91);
+  }
+}
+
+.fade-in-chip{
+  // height: 50px;
+  // margin: 0 0 10% 0;
+  // transform: translate(20px, 100px);
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn{
+  0% { opacity: 0; }
+  100% { opacity: 100; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#priceContainer{
+  justify-content: center;
+  display: flex;
+  // font-size: 800;
+}
+
+.activeImage{
+  width: 95%;
+  // max-height: 300px;
+}
+
+// .imagesContain{
+//   margin: ;
+// }

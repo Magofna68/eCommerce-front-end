@@ -16,6 +16,7 @@ import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
 
 import CartProvider from './components/context/ShoppingCartContext';
 import UnderConstruction from './pages/underConstruction/UnderConstruction';
+import ReturnPolicyPage from './pages/returnPolicyPage/ReturnPolicyPage';
 
 class App extends React.Component {
   constructor() {
@@ -81,6 +82,7 @@ componentWillUnmount() {
             <Route path='shop/womens' element={<WomensClothing/>}/>
             <Route path='shop/hats' element={<Hats/>}/>
             <Route path="/pageNotAvailable" element={<UnderConstruction />} />
+            <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
 
             {/* pathway for itemDetails */}
             <Route path='shop/jackets/:id' element={<ItemDetailPage />} /> 

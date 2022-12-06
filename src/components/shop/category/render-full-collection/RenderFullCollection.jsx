@@ -31,6 +31,7 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
               display: 'flex',
               alignContent: 'center',
               justifyContent: 'center',
+              width: '100%'
             }}
             >
             {

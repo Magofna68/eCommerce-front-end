@@ -1,0 +1,30 @@
+.returnContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right;
+  
+  .rightContain{
+    width: 50%;
+    .infoItem{
+      margin: 10px 10px; 
+    }
+    
+  }
+  
+}
+
+.leftContain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+  .leftItem{
+    margin: 10px 0;
+
+    p{
+      margin-left: 10%;
+    }
+  }
+}

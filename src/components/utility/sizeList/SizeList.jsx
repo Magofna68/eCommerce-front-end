@@ -8,9 +8,8 @@ export default function SizeList(props) {
       <li 
         key={id}
         // className={`shoeSize ${active ? 'active' : ''}`}
-        className={active ? "shoeSize active" : 'shoeSize'}
+        className={active ? "shoeSize active" : "shoeSize"}
         onClick={() =>  onSizeSelect(id, value)}
-        // console.log(selectedSize) 
       >
         {value}
       </li>

@@ -94,10 +94,8 @@ export default function ContactPage() {
                   <p>1-800-XXX-XXXX</p>
                 </Row>
                 </div>
-              {/* </Col> */}
-              <Col>
-              test
-              </Col>
+              {/* <Col>
+              </Col> */}
           </div>
         </Col>
       </Row>
