@@ -39,7 +39,10 @@ export default function SearchBar() {
   }
 
   const handleClick = (e) => {
-    window.location.href='http://localhost:3000/eCommerce-front-end#/pageNotAvailable';
+    let item = {...e};
+    console.log(item)
+    // window.location.href='http://localhost:3000/eCommerce-front-end#/pageNotAvailable';
+    // window.location.href='https://magofna68.github.io/eCommerce-front-end#/pageNotAvailable'
     handleClose()
   }
 
@@ -55,7 +58,7 @@ export default function SearchBar() {
 
     setSearchResults(itemObj.filter(item =>
     item.name.toLowerCase().includes(searchTerm)))
-    console.log(searchResults)
+    // console.log(searchResults)
   }
 
   return (
@@ -91,7 +94,7 @@ export default function SearchBar() {
                     <tbody style={{display: 'block'}} id="searchTable">
                         {searchResults.map((item, index) => {
                           return (
-                            <tr className="itemContainer" onClick={handleClick}>
+                            <tr key={item.id} className="itemContainer" onClick={handleClick}>
                               <img src={item.img} alt="test" />
                               <td>{item.name}</td>
                             </tr>
@@ -102,7 +105,7 @@ export default function SearchBar() {
                 </Offcanvas.Body>
               </Offcanvas>
             </Container>
-          ) : null}
+          ) : null }
       </div>
         <div>
         </div>

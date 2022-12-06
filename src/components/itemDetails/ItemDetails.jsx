@@ -7,7 +7,6 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 import Accordion from '../utility/accordion/Accordion';
-import { flexbox } from '@mui/system';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
@@ -16,6 +15,7 @@ export default function ItemDetails(props) {
   const productQuantity = cart.getProductQuantity(id);
   const [ selectedSize, setSelectedSize ] = useState('');
   const [ isActive, setIsActive ] = useState(false);
+  const [ value, setValue ] = useState('');
   const [ selectedImg, setSelectedImg ] = useState('img')
   const [activeImg, setActiveImg ] = useState({
     img: [ {img}, {img2}, {img3}, {img4} ] })
@@ -51,8 +51,8 @@ export default function ItemDetails(props) {
   
   function handleSizeSelect(id, value) {
     console.log("ID", selectedSize)
-    // setActiveSize(activeSize => !activeSize)
     console.log("Active", isActive)
+    setValue(value)
     setSelectedSize(id)
   }
 
@@ -61,15 +61,12 @@ export default function ItemDetails(props) {
   }
 
   useEffect(() => {
-    console.log("Selected ID:", selectedSize)
     setIsActive(current => !current)
-    console.log("Active", isActive)
    }, [ selectedSize]);
 
-  let sizeChip = `Size ${selectedSize}`
+  let chip = `Size ${value}`
 
   const details = detail;
-  // console.log("DETAILS", details)
   const detailList = details.map((detail) => 
     <li className='detailItem'>{detail}</li>
   );
@@ -162,7 +159,7 @@ export default function ItemDetails(props) {
                   variant="outlined" 
                   color="success" 
                   size="small"
-                  label={sizeChip}
+                  label={chip}
                   onDelete={handleDelete} 
                   />
               </span>
