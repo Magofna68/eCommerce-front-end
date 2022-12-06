@@ -48,31 +48,34 @@ div.container-md{
 
 .imgPreviewContainer{
   display: flex;
+  cursor: pointer;
   justify-content: center;
-  // align-items: left;
+  align-items: center;
   flex-direction: row;
-  background-color: rgb(208, 208, 208);
-  width: 130px;
-  margin: 5px 0 15px 0;
+  // align-content: center;
+
+  // background-color: rgb(217, 217, 217);
+  // border-radius: 15px;
+  width: 215px;
+  // margin: 5px 0 0px 5%;
 
   @media only screen and (max-width: 575px){
     justify-content: center;
     margin-top: 15px;
-    width: 125px;
+    // width: 125px;
+    padding: 0px 0px;
   }
 
   .img{
-    margin: 2px 1.5px ;
+    margin: 2px 5px ;
+    border-radius: 15px;
+    overflow: hidden;
+    border: solid 3px rgb(209, 209, 209);
     // padding-left: 2px;
 
     @media only screen and (max-width: 575px){
       // justify-content: center;
       margin: 2px 2px;
-    }
-    
-    :hover{
-      // transform: translateX(500px);
-      transform: scale(300%);
     }
   }
 }
@@ -166,3 +169,12 @@ h3{
   display: flex;
   // font-size: 800;
 }
+
+.activeImage{
+  width: 95%;
+  // max-height: 300px;
+}
+
+// .imagesContain{
+//   margin: ;
+// }

@@ -14,9 +14,13 @@ export default function ItemDetails(props) {
   const { name, price, id, img, img2, img3, img4, desc, detail, alt, title, handleClearItemStateClick } = props;
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
-  
   const [ selectedSize, setSelectedSize ] = useState('');
   const [ active, setActive ] = useState(false);
+  const [ selectedImg, setSelectedImg ] = useState('img')
+  const [activeImg, setActiveImg ] = useState({
+    img: [
+      {img}, {img2}, {img3}, {img4}
+    ]})
 
   const sneakers = [
     { id: 6, value: 6 },
@@ -65,10 +69,29 @@ export default function ItemDetails(props) {
   let sizeChip = `Size ${selectedSize}`
 
   const details = detail;
-  console.log("DETAILS", details)
+  // console.log("DETAILS", details)
   const detailList = details.map((detail) => 
     <li className='detailItem'>{detail}</li>
   );
+
+  useEffect(() => {
+    switch(selectedImg) {
+      case "img": 
+        setActiveImg(img);
+      break;
+      case "img2": 
+        setActiveImg(img2);
+      break;
+      case "img3": 
+        setActiveImg(img3);
+      break;
+      case "img4": 
+        setActiveImg(img4);
+      break;
+      default:
+        setActiveImg(img)
+    }
+  console.log(activeImg)}, [selectedImg])
 
   return (
     <>
@@ -78,8 +101,10 @@ export default function ItemDetails(props) {
       <Container fluid="md">
       <Row>
 
-        <Col sm={6} lg={7} md={7} xl={7}>
-          <div>
+        {/* <Col sm={6} lg={7} md={7} xl={7}>
+          <div 
+          className='activeImage'
+          >
               <img src={img} alt="test" width="100%"></img>
           </div>
           <Row sm={4} xs={3} style={{marginTop: '10px'}}>
@@ -95,7 +120,34 @@ export default function ItemDetails(props) {
                 </span>
             </div>
           </Row>
-        </Col>
+        </Col> */}
+          <Col sm={6} lg={7} md={7} xl={7}>
+            {/* <div className='imagesContain'> */}
+          <div 
+          className='activeImage'
+          >
+              <img src={activeImg} alt="test" width="100%"></img>
+          </div>
+          <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
+            <div 
+              className='imgPreviewContainer'
+            >
+                <span className='img'>
+                  <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
+                </span>
+                <span className='img' >
+                  <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
+                </span>
+                <span className="img" >
+                  <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
+                </span>
+                <span className="img" >
+                  <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
+                </span>
+            </div>
+          </Row>
+          {/* </div> */}
+          </Col>
 
         <Col sm={6} md={5} lg={5} xl={5}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
