@@ -15,12 +15,10 @@ export default function ItemDetails(props) {
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   const [ selectedSize, setSelectedSize ] = useState('');
-  const [ active, setActive ] = useState(false);
+  const [ isActive, setIsActive ] = useState(false);
   const [ selectedImg, setSelectedImg ] = useState('img')
   const [activeImg, setActiveImg ] = useState({
-    img: [
-      {img}, {img2}, {img3}, {img4}
-    ]})
+    img: [ {img}, {img2}, {img3}, {img4} ] })
 
   const sneakers = [
     { id: 6, value: 6 },
@@ -53,8 +51,9 @@ export default function ItemDetails(props) {
   
   function handleSizeSelect(id, value) {
     console.log("ID", selectedSize)
-    setSelectedSize(value)
-    setActive(active => !active)
+    // setActiveSize(activeSize => !activeSize)
+    console.log("Active", isActive)
+    setSelectedSize(id)
   }
 
   function handleDelete() {
@@ -63,8 +62,9 @@ export default function ItemDetails(props) {
 
   useEffect(() => {
     console.log("Selected ID:", selectedSize)
-    setActive(active => !active)
-   }, [selectedSize]);
+    setIsActive(current => !current)
+    console.log("Active", isActive)
+   }, [ selectedSize]);
 
   let sizeChip = `Size ${selectedSize}`
 
@@ -204,6 +204,7 @@ export default function ItemDetails(props) {
                   key={id}
                   id={id}
                   value={value}
+                  onClick={() => console.log(id)}
                   onSizeSelect={handleSizeSelect}
                   active={selectedSize === id}
                 />
