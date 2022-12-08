@@ -5,13 +5,21 @@ import {Link} from 'react-router-dom';
 export default function AlwaysOpenExample(props) {
   const { details, desc } = props;
   return (
-    <Accordion defaultActiveKey={['0']} alwaysOpen flush>
+    <Accordion flush>
       <Accordion.Item eventKey="0">
-        {/* <h4 style={{ marginLeft: '6%'}}>Description:</h4> */}
-        {/* <Accordion.Header>Description:</Accordion.Header> */}
-        <Accordion.Body>
-          {desc}
-        </Accordion.Body>
+        {
+          window.innerWidth < 500 ?
+            <>
+              <Accordion.Header>Description:</Accordion.Header>
+              <Accordion.Body>{desc}</Accordion.Body>
+              
+            </>
+            :
+            <>
+              {/* <h4 style={{ marginLeft: '6%'}}>Description:</h4> */}
+              <Accordion.Body>{desc}</Accordion.Body>
+            </>
+    }
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <Accordion.Header>Details:</Accordion.Header>

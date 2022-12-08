@@ -60,8 +60,6 @@ export default function SearchBar() {
         detail: savedItem.detail,
       }
     })
-    // window.location.href='http://localhost:3000/eCommerce-front-end#/pageNotAvailable';
-    // window.location.href='https://magofna68.github.io/eCommerce-front-end#/pageNotAvailable'
     handleClose()
   }
 
@@ -77,7 +75,6 @@ export default function SearchBar() {
 
     setSearchResults(itemObj.filter(item =>
     item.name.toLowerCase().includes(searchTerm)))
-    // console.log(searchResults)
   }
 
   return (

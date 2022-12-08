@@ -142,7 +142,6 @@ export default function ItemDetailPage(props) {
               }
           </div>
         </Row>
-        {/* </div> */}
         </Col>
 
       <Col sm={6} md={5} lg={5} xl={5}>
@@ -170,7 +169,7 @@ export default function ItemDetailPage(props) {
           <div style={{ textAlign: 'left', marginTop: '-3%'}}>
             <Accordion desc={desc} details={detailList} />              
           </div>
-        <br/>
+        {/* <br/> */}
         <span style={{
             fontSize: '12px', 
             fontWeight: 600
