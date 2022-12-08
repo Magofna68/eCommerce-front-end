@@ -39,11 +39,13 @@ export default function SearchBar() {
   }
 
   const handleClick = (e) => {
-    let item = {...e};
-    console.log(item)
+    // e.preventDefault();
+    console.log(e)
+    const savedId = e.target.id;
+    console.log("ID:", savedId)
     // window.location.href='http://localhost:3000/eCommerce-front-end#/pageNotAvailable';
     // window.location.href='https://magofna68.github.io/eCommerce-front-end#/pageNotAvailable'
-    handleClose()
+    // handleClose()
   }
 
   const handleShow = () => setShow(true)
@@ -88,20 +90,26 @@ export default function SearchBar() {
                   <img src={Crown} alt='company Logo' width="75px" id="crownLogo"/>
                   <Offcanvas.Title><h2 style={{textAlign: 'center', marginTop: '10%'}}>Underground Royalty</h2></Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body style={{mineight: '95vh'}}>
+                <Offcanvas.Body style={{minHeight: '95vh', width: '94%'}}>
                   <h4>Results:</h4>
-                  <Table striped bordered hover variant="dark" sz="lg">
-                    <tbody style={{display: 'block'}} id="searchTable">
+                  {/* <Table striped bordered hover variant="dark" sz="lg"> */}
+                    {/* <tbody style={{display: 'block'}} id="searchTable"> */}
+                      <ul className="resultsContainer">
                         {searchResults.map((item, index) => {
                           return (
-                            <tr key={item.id} className="itemContainer" onClick={handleClick}>
+                            <li key={item.id} id={item.id} className="itemContainer" onClick={e => handleClick(e)}>
                               <img src={item.img} alt="test" />
-                              <td>{item.name}</td>
-                            </tr>
+                              {item.name}
+                            </li>
+                            // <tr key={item.id} className="itemContainer" onClick={id => handleClick(id)}>
+                            //   <img src={item.img} alt="test" />
+                            //   <td>{item.name}</td>
+                            // </tr>
                           )
                         })}
-                    </tbody>
-                  </Table>
+                      </ul>
+                    {/* </tbody> */}
+                  {/* </Table> */}
                 </Offcanvas.Body>
               </Offcanvas>
             </Container>
