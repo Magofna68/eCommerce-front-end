@@ -2,9 +2,10 @@ import './itemDetails.styles.scss';
 import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
-import SizeList from '../../components/utility/sizeList/SizeList';
+// import SizeList from '../../components/utility/sizeList/SizeList';
+import SizeList from '../utility/sizeList/SizeList';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
+// import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
 import Accordion from '../utility/accordion/Accordion';
 
@@ -92,9 +93,9 @@ export default function ItemDetails(props) {
 
   return (
     <>
-      <span id="returnIcon" onClick={handleClearItemStateClick}>
+      {/* <span id="returnIcon" onClick={handleClearItemStateClick}>
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
-      </span>
+      </span> */}
       <Container fluid="md">
       <Row>
 

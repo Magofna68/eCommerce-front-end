@@ -8,7 +8,7 @@ import Hats from './components/shop/category/hats/Hats';
 import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
-import ItemDetailPage from './pages/itemDetailPage/ItemDetailPage';
+import ItemDetailPage from './pages/itemDetailPage/SearchedItemDetailPage';
 import { Header } from './components/utility/header/Header';
 import NotFound from './pages/notFound/NotFound';
 
@@ -85,9 +85,10 @@ componentWillUnmount() {
             <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
 
             {/* pathway for itemDetails */}
-            <Route path='shop/jackets/:id' element={<ItemDetailPage />} /> 
+            <Route path='/shop/jackets/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/hats/:id' element={<ItemDetailPage />} /> 
-            <Route path='shop/sneakers/:id' element={<ItemDetailPage />} /> 
+            <Route path='/shop/sneakers/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/shirts/:id' element={<ItemDetailPage />} />
             <Route path='shop/mens/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
             {/* <Route path='shop/womens/womens' element={<HomePage />} /> */}

@@ -117,7 +117,9 @@ export default function Navigationbar({currentUser}) {
                 <SearchBar />
                   <span style={{
                     marginRight: '3%',
-                }}>
+                
+                    }}
+                  >
                   <Button
                     style={{
                       width: '3rem',

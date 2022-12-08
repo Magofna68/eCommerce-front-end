@@ -117,6 +117,7 @@ const SHOP_DATA = [
     items: [
       {
         id: 'price_1Lv4gBKFRYyirzJ3uwBrj6C1',
+        title: 'jackets',
         name: 'Womens Winter Warmer Coat | Insulated Jacket',
         alt: 'Womens Winter Jacket Model',
         img: 'https://cdni.llbean.net/is/image/wim/271139_0_44?hei=1095&wid=950&resMode=sharp2&defaultImage=llbprod/A0211793_2',
@@ -129,6 +130,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvS9ZKFRYyirzJ3OAHakPOO',
+        title: 'jackets',
         name: 'Womens Jackets Long-sleeve Printed Fringed Jacket',
         alt: 'Womens Jacket Model',
         img: 'https://m.media-amazon.com/images/I/61Z2QO-6TBL._AC_UL1500_.jpg',   
@@ -142,6 +144,7 @@ const SHOP_DATA = [
       {
         id: 'price_1LvSA9KFRYyirzJ3Bh4H3I9c',
         name: ' Women\'s Foxy Sherpa Jacket',
+        title: 'jackets',
         alt: 'Womens Jacket',
         img: 'https://cdn.shopify.com/s/files/1/2185/2813/products/W4313R_01660_b1_s1_a1_1_m89_750x.jpg?v=1662676081',
         img2: 'https://cdn.shopify.com/s/files/1/2185/2813/products/W4313R_01660_b1_s1_a2_1_m89_1500x.jpg?v=1664403588',
@@ -153,6 +156,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB58yKFRYyirzJ3LbtqwAda',
+        title: 'jackets',
         name: 'Women\'s Slip-On Blazer',
         alt: 'Womens Blazer',
         img: 'https://www.whitehouseblackmarket.com/Product_Images/570318145ext1_large.jpg?imgPolicy=productLarge',
@@ -165,6 +169,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4S6KFRYyirzJ3YMLFubNj',
+        title: 'jackets',
         name: 'Men\'s Winter Trench Overcoat',
         alt: 'Mens Leather Jacket',
         img: 'https://litb-cgis.rightinthebox.com/images/640x853/202011/ydly1604652840961.jpg?fmt=webp&v=1',
@@ -177,6 +182,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvSBuKFRYyirzJ3ypNdwwz8',
+        title: 'jackets',
         name: 'Men\'s Lightweight Bomber Jacket',
         alt: 'Mens Bomber Jacket Shell',
         img: 'https://ae01.alicdn.com/kf/S48cfa54081a548fd93359d38ab53927aU/Spring-Jacket-Men-Lightweight-Bomber-Jacket-Men-Fashion-Clothing-Baseball-Collared-Thin-Slim-Fit-Coat-For.jpg_Q90.jpg_.webp',
@@ -189,6 +195,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvSCSKFRYyirzJ3t7hf3Y3r',
+        title: 'jackets',
         name: 'Men\'s Hip-Hop Style Fluffy Winter Coat',
         alt: 'Fluffy winter Jacket',
         img: 'https://cdn.shopify.com/s/files/1/0088/6377/6815/products/Winter-Coat-Solid-Color-Plush-Simple-Fluffy-Men-Jacket-Hip-hop-Style-Winter-Coat_47264229-222a-4ea0-ab13-252a2516c1b2_1024x1024@2x.jpg?v=1663142831',
@@ -201,6 +208,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4QkKFRYyirzJ3357YTzSp',
+        title: 'jackets',
         name: 'Mayfair Quilted Bomber Jacket',
         alt: 'Mens Solid Color Jacket',
         img: 'https://n.nordstrommedia.com/id/sr3/cf0104fa-870c-4489-a4cd-76ad715c0be7.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2',
@@ -220,6 +228,7 @@ const SHOP_DATA = [
     items: [
       {
         id: 'price_1MB4K3KFRYyirzJ3AwdNMZax',
+        title: 'hats',
         name: 'God is a designer',
         alt: 'Black hat',
         img: 'https://bookstore.thefutur.com/wp-content/uploads/2019/09/GOD-Raised-Front.jpg',
@@ -232,6 +241,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4KiKFRYyirzJ3YVyYMMf6',
+        title: 'hats',
         name: 'AMI Paris',
         alt: 'designer hat',
         img: 'https://cdn-images.farfetch-contents.com/17/95/96/96/17959696_38954944_1000.jpg',
@@ -244,6 +254,7 @@ const SHOP_DATA = [
       },
       {
         id:'price_1MB4LMKFRYyirzJ35Aixwywj',
+        title: 'hats',
         name: 'Montauk Surf Shop Dad Hat',
         alt: 'Dad Hat',
         img: 'https://images.urbndata.com/is/image/UrbanOutfitters/78161403_020_b?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=720',
@@ -256,6 +267,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4M2KFRYyirzJ3d2phPcgi',
+        title: 'hats',
         name: 'EDC Vybration Snapback',
         alt: 'Retro black and pick hat',
         img: 'https://cdn.shopify.com/s/files/1/1501/7282/products/Insomniacholdings627ac2e776e3a1627ac2e77707f.23294810627ac2e77707f_2048x2048.jpg?v=1652217508',
@@ -268,6 +280,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4MpKFRYyirzJ3EZzVNB6m',
+        title: 'hats',
         name: 'Liquify Casual Bucket Hat',
         alt: 'Bucket Hat',
         img: 'https://www.hats.com/media/catalog/product/K/3/K3588-Kangol-LIQUIFY-CASUAL-Bucket-RED-DEEP-SPRINGS-1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
@@ -280,6 +293,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4NKKFRYyirzJ3oO7QR8Se',
+        title: 'hats',
         name: 'Stellar 20X Cowboy Western Hat',
         alt: 'Expensive Cowboy Hat',
         img: 'https://www.hats.com/media/catalog/product/W/1/W1520A_BK001_MAIN.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
@@ -292,6 +306,7 @@ const SHOP_DATA = [
       },
       {
         id:'price_1MB4NnKFRYyirzJ3bD3a66D9',
+        title: 'hats',
         name: 'Denim Flexfit Army Cap',
         alt: 'Army Cap',
         img: 'https://www.hats.com/media/catalog/product/5/0/5067bc-kangol-denim-flexfit-army-cap-black-3.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
@@ -304,6 +319,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4OIKFRYyirzJ3labU0yW3',
+        title: 'hats',
         name: 'Go Banana\'s Trucker Hat',
         alt: 'Monkey Truckers Hat',
         img: 'https://www.hats.com/media/catalog/product/1/0/101-0107-goorin-go-bananas-trucker-black-1_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
@@ -316,6 +332,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4OoKFRYyirzJ3a67G96sq',
+        title: 'hats',
         name: 'Faux Leather Cap',
         alt: 'designer hat',
         img: 'https://www.hats.com/media/catalog/product/K/5/K5313-Kangol-FAUX-LEATHER-CAP-BLACK-1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
@@ -328,6 +345,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1MB4PeKFRYyirzJ3b5wpw9p0',
+        title: 'hats',
         name: 'Mens Lion & Crown Hat',
         alt: 'Designer Lion Hat',
         img: 'https://img.ltwebstatic.com/images3_pi/2022/08/09/1660028108b4bbf32a8cd00fa3ae37695648763d22_thumbnail_900x.webp',
@@ -347,7 +365,7 @@ const SHOP_DATA = [
     items: [
       {
         id: 'price_1LvTojKFRYyirzJ3CXpdLfK5',
-        title: 'Shirts',
+        title: 'shirts',
         name: 'AE Graphic Tee',
         alt: 'White Graphic shirt',
         img: 'https://s7d2.scene7.com/is/image/aeo/0181_2187_100_of?$pdp-m-opt$&fmt=webp',
@@ -360,6 +378,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTpNKFRYyirzJ33Lf8RniP',
+        title: 'shirts',
         name: 'Men\'s Random Allover Shirt',
         alt: 'Printed Button-Up',
         img: 'https://img.ltwebstatic.com/images3_pi/2022/04/24/165076834615aa93b86a959f2d85ef6b3ba8e53f62_thumbnail_900x.webp',
@@ -372,6 +391,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTq3KFRYyirzJ3ABcOFBbR',
+        title: 'shirts',
         name: 'Men\'s Fashion Design Long Sleeve',
         alt: 'White Long Sleeve Shirt',
         img: 'https://img.ltwebstatic.com/images3_pi/2021/08/12/162876329166b4abf30b4b49cb667f091d0173b21a_thumbnail_900x.webp',
@@ -384,6 +404,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTqeKFRYyirzJ3X9O7i0RO',
+        title: 'shirts',
         name: 'Men\'s NFL Cincinnati, Joe Mixon Legend Jersey',
         alt: 'Black and Striped Jersey',
         img: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt2_full.jpg?_hv=2&w=900',
@@ -396,6 +417,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTrEKFRYyirzJ3Vc8xfuJV',
+        title: 'shirts',
         name: 'Women\'s Chargers NFL Nike Jersey',
         alt: 'Chargers NFL Home Jersey',
         img: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt2_full.jpg?_hv=2&w=900',
@@ -408,6 +430,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTs4KFRYyirzJ30UtLkz2v',
+        title: 'shirts',
         name: 'Women\'s Pro Choice Tee',
         alt: 'Feminism Shirt',
         img: 'https://i5.walmartimages.com/asr/f7f1dd50-f7af-483c-978b-42aba1c77941.51ab7aad309b313d731b242950284831.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
@@ -420,6 +443,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTtEKFRYyirzJ3zr45II15',
+        title: 'shirts',
         name: 'Women\'s Classic Denim',
         alt: 'Classic Long Sleeve Denim',
         img: 'https://img.kwcdn.com/product/1d14c6c0596/f3cd17b3-7afa-42cb-89d3-ea4771c4db48_1340x1787.jpeg?imageView2/2/w/800/q/70',
@@ -432,6 +456,7 @@ const SHOP_DATA = [
       },
       {
         id: 'price_1LvTtqKFRYyirzJ3kr5VAjtp',
+        title: 'shirts',
         name: 'Women\'s Evil Natural Tee',
         alt: 'Creme Melodie T-Shirt',
         img: 'https://scene7.zumiez.com/is/image/zumiez/product_main_medium_2x/Melodie-Evil-Natural-T-Shirt-_332986-front-US.jpg',
@@ -641,7 +666,7 @@ export const MENS_SHOP_LIST = [
       img: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt2_full.jpg?_hv=2&w=900',
       img2: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt3_full.jpg?_hv=2&w=900',
       img3: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-player-game-jersey_pi4293000_altimages_ff_4293979-ad3f032e5c2d010c8a36alt1_full.jpg?_hv=2&w=900',
-      img4: '',
+      // img4: '',
       price: '99',
       desc: 'Rep the on-field look of your favorite Cincinnati Bengals player with this Joe Mixon Game jersey from Nike. Its heat-sealed name, numbers and team details provide a kickoff-ready aesthetic while also offering a comfortable, lightweight feel. Designed for everyday movement, this jersey has a versatile tailored fit and features mesh side panels for added ventilation as you celebrate every big play by the Cincinnati Bengals this season.',
       detail: ['Tagless Collar', 'Officially licensed', 'Material: 100% Polyester Tricot', 'Mesh side panels for extra breathability', 'Heat-sealed name, numbers and team details',]
@@ -867,7 +892,7 @@ export const MENS_SHOP_DATA = [
         img: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt2_full.jpg?_hv=2&w=900',
         img2: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-legend-jersey_pi4059000_altimages_ff_4059559-367f39bca1048a771872alt3_full.jpg?_hv=2&w=900',
         img3: 'https://fanatics.frgimages.com/cincinnati-bengals/mens-nike-joe-mixon-black-cincinnati-bengals-player-game-jersey_pi4293000_altimages_ff_4293979-ad3f032e5c2d010c8a36alt1_full.jpg?_hv=2&w=900',
-        img4: '',
+        // img4: '',
         price: '99',
         desc: 'Rep the on-field look of your favorite Cincinnati Bengals player with this Joe Mixon Game jersey from Nike. Its heat-sealed name, numbers and team details provide a kickoff-ready aesthetic while also offering a comfortable, lightweight feel. Designed for everyday movement, this jersey has a versatile tailored fit and features mesh side panels for added ventilation as you celebrate every big play by the Cincinnati Bengals this season.',
         detail: ['Tagless Collar', 'Officially licensed', 'Material: 100% Polyester Tricot', 'Mesh side panels for extra breathability', 'Heat-sealed name, numbers and team details',]
@@ -901,8 +926,8 @@ export const WOMENS_SHOP_DATA = [
         alt: 'designer hat',
         img: 'https://cdn-images.farfetch-contents.com/17/95/96/96/17959696_38954944_1000.jpg',
         img2: 'https://cdn-images.farfetch-contents.com/17/95/96/96/17959696_38954936_1000.jpg',
-        img3: '',
-        img4: '',
+        // img3: '',
+        // img4: '',
         price: '145',
         desc: 'Embodying AMI Paris\' relaxed approach to style, the instantly recognisable Ami de Coeur monogram details an array of the Parisian label\'s designs. Crafted from denim, the motif finds a home on this cap.',
         detail: ['faded black', 'signature Ami de Coeur monogram motif', 'embroidered logo', 'curved peak', 'Fabric 100%',]
@@ -926,7 +951,7 @@ export const WOMENS_SHOP_DATA = [
         img: 'https://cdn.shopify.com/s/files/1/1501/7282/products/Insomniacholdings627ac2e776e3a1627ac2e77707f.23294810627ac2e77707f_2048x2048.jpg?v=1652217508',
         img2: 'https://cdn.shopify.com/s/files/1/1501/7282/products/Insomniacholdings627ac2e7949990627ac2e794b62.38294973627ac2e794b62_2048x2048.jpg?v=1652217510',
         img3: 'https://cdn.shopify.com/s/files/1/1501/7282/products/Insomniacholdings627ac2e7aad9c6627ac2e7aae51.28153010627ac2e7aae51_2048x2048.jpg?v=1652217511',
-        img4: '',
+        // img4: '',
         price: '34.99',
         desc: 'Electric Daisy Carnival Festival 100% Cotton snapback hat. Embroidered logo on front.',
         detail: ['Adjustable snaps for seamless fit.', 'Vivid design for bold look', 'imported', 'Cotton/Polyester blend', 'Embroidered stiching for 3d feel.',]
@@ -938,7 +963,7 @@ export const WOMENS_SHOP_DATA = [
         img: 'https://www.hats.com/media/catalog/product/K/3/K3588-Kangol-LIQUIFY-CASUAL-Bucket-RED-DEEP-SPRINGS-1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
         img2: 'https://www.hats.com/media/catalog/product/K/3/K3588-Kangol-LIQUIFY-CASUAL-Bucket-RED-DEEP-SPRINGS-5.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
         img3: 'https://www.hats.com/media/catalog/product/K/3/K3588-Kangol-LIQUIFY-CASUAL-Bucket-RED-DEEP-SPRINGS-2.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=600&width=600&canvas=600:600',
-        img4: '',
+        // img4: '',
         price: '70',
         desc: 'The Liquify Casual is a 2 color knit jacquard in high contrast colors to create a wavy liquid effect. It is finished with our K-roo logo on the front and will definitely be a street fashion staple for this season.',
         detail: ['High quality fabrication & design', 'Headband: 100% Nylon', 'Imported', '2 1/4" BRIM', 'Bucket Hat',]
@@ -1005,7 +1030,7 @@ export const WOMENS_SHOP_DATA = [
         img: 'https://www.whitehouseblackmarket.com/Product_Images/570318145ext1_large.jpg?imgPolicy=productLarge',
         img2: 'https://www.whitehouseblackmarket.com/Product_Images/570318145ext2_large.jpg?imgPolicy=productLarge',
         img3: 'https://www.whitehouseblackmarket.com/Product_Images/570318145ext3_large.jpg?imgPolicy=productLarge',
-        img4: '',
+        // img4: '',
         price: '104',
         desc: 'Our work uniform has changed a lot in the last two-years, a more relaxed vibe has taken centerstage. Our slip-on blazer fits the current mood. It still has the classic collar but instead of buttons it has a self-belt so you can decide the silhouette you want. The fit is relaxed and comfortable. Pair with anything from your favorite work pants to jeans.',
         detail: ['Slip-On blazer', 'Relaxed fit', 'Collar, long-sleeves', 'Self-belted', '96% polyester, 4% spandex. Machine wash cold.',]
@@ -1083,7 +1108,7 @@ export const WOMENS_SHOP_DATA = [
         img: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt2_full.jpg?_hv=2&w=900',
         img2: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt3_full.jpg?_hv=2&w=900',
         img3: 'https://fanatics.frgimages.com/los-angeles-chargers/womens-nike-justin-herbert-powder-blue-los-angeles-chargers-game-jersey_pi3911000_altimages_ff_3911893-6d26fc46bc56f4fdb2bcalt1_full.jpg?_hv=2&w=900',
-        img4: '',
+        // img4: '',
         price: '129',
         desc: 'Capture your team\'s distinct identity when you grab this Los Angeles Chargers Justin Herbert Legend Jersey from Nike. It features classic Los Angeles Chargers graphics to show who you support. Before you head to the next Los Angeles Chargers game, grab this incredible jersey so everyone knows your fandom is on full display.',
         detail: ['Nike Dry fabrics move sweat from your skin for quicker evaporation – helping you stay dry, comfortable and focused on the task at hand.', 'Stitched down NFL shield at front neck', 'Material: 100% Polyester', 'Imported', 'Brand: Nike',]
