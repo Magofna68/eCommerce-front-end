@@ -1,5 +1,6 @@
-import './itemDetailPage.styles.scss';
+import { useNavigate } from 'react-router';
 import React, {useContext, useEffect, useState } from 'react'
+import './itemDetailPage.styles.scss';
 import {useLocation } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
 import { Container, Row, Col, Button, } from 'react-bootstrap';
@@ -12,7 +13,7 @@ import Accordion from '../../components/utility/accordion/Accordion';;
 export default function ItemDetailPage(props) {
   const location = useLocation();
   const cart = useContext(ShoppingCartContext);
-  console.log(props)
+  const navigate = useNavigate(-1);
   
   let name = location.state.name;
   let id= location.state.id
@@ -23,7 +24,6 @@ export default function ItemDetailPage(props) {
   let img4 = location.state.img4;
   let desc = location.state.desc;
   let detail = location.state.detail;
-  // let title = location.state.title;
   
   const productQuantity = cart.getProductQuantity(id);
 
@@ -107,9 +107,9 @@ export default function ItemDetailPage(props) {
   
   return (
     <>
-    {/* <span id="returnIcon" onClick={handleClearItemStateClick}>
-      <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
-    </span> */}
+    <span id="returnIcon" onClick={navigate}>
+      <Breadcrumb />
+    </span>
     <Container fluid="md">
     <Row>
         <Col sm={6} lg={7} md={7} xl={7}>
