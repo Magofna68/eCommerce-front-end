@@ -1,6 +1,6 @@
 import React from 'react'
 import CollectionItem from '../../components/shop/collection-item/CollectionItem';
-import ItemDetails from '../../components/itemDetails/ItemDetails.jsx';
+import ItemDetails from './itemDetails/ItemDetails';
 
 export default function ItemDetail(props) {
   const { itemToShow, onClearItemStateClick } = props;

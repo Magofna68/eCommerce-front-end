@@ -36,8 +36,8 @@ export default function FullCollectionItem(props) {
 
   const goToSelectedItem = (e) => {
     const selectedItem = [props][0];
-    console.log(selectedItem)
-    console.log({selectedItem})
+    // console.log(selectedItem)
+    // console.log({selectedItem})
     onItemSelection(selectedItem);
     // this.setState({selectedItem: selectedItem})
   }

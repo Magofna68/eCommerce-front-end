@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import React, {useContext, useEffect, useState } from 'react'
-import './itemDetailPage.styles.scss';
+import './searchedItemDetailPage.styles.scss';
 import {useLocation } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
 import { Container, Row, Col, Button, } from 'react-bootstrap';
