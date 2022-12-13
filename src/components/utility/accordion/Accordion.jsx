@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from 'react-router-dom';
 import ReviewTemplate from '../reviewTemplate/ReviewTemplate';
+import StarIcon from '@mui/icons-material/Star';
 
 const AccordionComponent = (props) => {
   const { details, desc, reviews } = props;
@@ -22,6 +23,16 @@ const AccordionComponent = (props) => {
 //       window.removeEventListener('resize', handleResize);
 //     };
 // }, [isMobile]);
+
+function reviewStars(num) {
+  let stars = [];
+  for (let i = 0; i < num; i++) {
+    stars.push(<StarIcon fontSize="small" />)
+  }
+  return (
+    <span>{stars}</span>
+  );
+};
 
   return (
     <Accordion defaultActiveKey="0" flush style={{marginTop: '3%'}}>
@@ -43,6 +54,8 @@ const AccordionComponent = (props) => {
       <Accordion.Item eventKey="3">
         <Accordion.Header>Rating:</Accordion.Header>
         <Accordion.Body onClick={()=> console.log({reviews})} style={{padding: 0}}>
+        <br/>
+        <a href="/review" style={{display: 'flex', justifyContent: 'center'}}>Leave a Review</a>
           {
             reviews.map(({id, ...otherReviewProps}) => (
               <ReviewTemplate 
@@ -54,6 +67,7 @@ const AccordionComponent = (props) => {
                 // username={reviews.username}
                 // date={reviews.date}
                 {...otherReviewProps}
+                reviewStars={reviewStars}
               />
             )
             )
