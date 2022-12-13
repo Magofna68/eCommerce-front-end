@@ -79,7 +79,7 @@ export default function Navigationbar({currentUser}) {
   const clearState = () => {
     window.location.reload(true);
     window.location.assign('/')
-    console.log("ClearState REACHED");
+    // console.log("ClearState REACHED");
   }
 
   return (
@@ -201,7 +201,7 @@ export default function Navigationbar({currentUser}) {
                           </div>
                         </Col>
                         <Col xs={6} style={{padding: '5px 5px 0 0'}}>
-                        {currentProduct.name}
+                        <span onClick={() => console.log(currentProduct)}>{currentProduct.name}</span>
                         </Col>
                         <Col xs={2} style={{padding: '0', alignContent: 'center', justifyContent: 'space-between'}}>
                           <div style={{display: 'flex', alignContent: 'center', marginTop: '15%'}}>
