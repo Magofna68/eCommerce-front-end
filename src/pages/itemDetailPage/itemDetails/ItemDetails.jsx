@@ -11,7 +11,11 @@ import Accordion from '../../../components/utility/accordion/Accordion';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { name, price, id, img, img2, img3, img4, desc, detail, alt, title, handleClearItemStateClick } = props;
+  const { 
+    name, price, id, img, img2, img3, img4, desc, reviews,
+     detail, alt, title, handleClearItemStateClick 
+  } = props;
+
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   const [ selectedSize, setSelectedSize ] = useState('');
@@ -170,7 +174,7 @@ export default function ItemDetails(props) {
             </div>
             
             <div style={{ textAlign: 'left', marginTop: '-3%'}}>
-              <Accordion desc={desc} details={detailList} />              
+              <Accordion desc={desc} details={detailList} reviews={reviews}/>              
             </div>
           <br/>
           <span style={{

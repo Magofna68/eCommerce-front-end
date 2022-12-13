@@ -1,10 +1,11 @@
-import { WindowRounded } from '@mui/icons-material';
+import { Reviews, WindowRounded } from '@mui/icons-material';
 import React, { useState, useEffect } from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from 'react-router-dom';
+import ReviewTemplate from '../reviewTemplate/ReviewTemplate';
 
-export default function AlwaysOpenExample(props) {
-  const { details, desc } = props;
+const AccordionComponent = (props) => {
+  const { details, desc, reviews } = props;
 //   const { isMobile, setIsMobile } = useState(window.innerWidth)
 
 //   useEffect(()=> {
@@ -39,6 +40,28 @@ export default function AlwaysOpenExample(props) {
           Check out our Return Policy <span><Link to='/returnpolicy'>Here</Link></span>.
         </Accordion.Body>
       </Accordion.Item>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header>Rating:</Accordion.Header>
+        <Accordion.Body onClick={()=> console.log({reviews})} style={{padding: 0}}>
+          {
+            reviews.map(({id, ...otherReviewProps}) => (
+              <ReviewTemplate 
+                key={id} 
+                // id={reviews.id} 
+                // title={reviews.title} 
+                // feedback={reviews.feedback} 
+                // rating={reviews.rating}
+                // username={reviews.username}
+                // date={reviews.date}
+                {...otherReviewProps}
+              />
+            )
+            )
+          }
+        </Accordion.Body>
+      </Accordion.Item>
     </Accordion>
   );
 };
+
+export default AccordionComponent;

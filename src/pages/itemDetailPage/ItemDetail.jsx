@@ -19,6 +19,7 @@ export default function ItemDetail(props) {
         desc={itemToShow.desc}
         detail={itemToShow.detail}
         alt={itemToShow.alt}
+        reviews={itemToShow.reviews}
       />
     </div>
   )
