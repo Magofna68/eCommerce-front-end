@@ -2,15 +2,20 @@ import './itemDetails.styles.scss';
 import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
-import SizeList from '../../components/utility/sizeList/SizeList';
+// import SizeList from '../../components/utility/sizeList/SizeList';
+import SizeList from '../../../components/utility/sizeList/SizeList';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-import Breadcrumb from '../utility/breadcrumb/BreadcrumbGrouping';
-import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
-import Accordion from '../utility/accordion/Accordion';
+import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping';
+import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext';
+import Accordion from '../../../components/utility/accordion/Accordion';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { name, price, id, img, img2, img3, img4, desc, detail, alt, title, handleClearItemStateClick } = props;
+  const { 
+    name, price, id, img, img2, img3, img4, desc, reviews,
+     detail, alt, title, handleClearItemStateClick 
+  } = props;
+
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   const [ selectedSize, setSelectedSize ] = useState('');
@@ -169,7 +174,7 @@ export default function ItemDetails(props) {
             </div>
             
             <div style={{ textAlign: 'left', marginTop: '-3%'}}>
-              <Accordion desc={desc} details={detailList} />              
+              <Accordion desc={desc} details={detailList} reviews={reviews}/>              
             </div>
           <br/>
           <span style={{

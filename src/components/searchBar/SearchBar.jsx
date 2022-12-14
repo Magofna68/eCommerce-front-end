@@ -5,12 +5,12 @@ import {SHOP_DATA} from '../../data';
 import Crown from '../../assets/crown.png';
 
 import Container from 'react-bootstrap/Container';
-import Table from 'react-bootstrap/Table';
+// import Table from 'react-bootstrap/Table';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import {MdSearch} from 'react-icons/md';
 
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 
 export default function SearchBar() {
@@ -38,14 +38,29 @@ export default function SearchBar() {
     }
   }
 
+  const navigate = useNavigate();
+  
   const handleClick = (e) => {
-    // e.preventDefault();
-    console.log(e)
+    // Save the ID into variable and filter through array of obj to find selected item
     const savedId = e.target.id;
-    console.log("ID:", savedId)
-    // window.location.href='http://localhost:3000/eCommerce-front-end#/pageNotAvailable';
-    // window.location.href='https://magofna68.github.io/eCommerce-front-end#/pageNotAvailable'
-    // handleClose()
+    const savedItem = itemObj.filter(item => item.id === savedId)[0]
+    console.log("Saved Item:", savedItem)
+    let path = 'shop/'.concat(savedItem.title).concat('/', savedId)
+    navigate(path, {
+      state:  {
+        id: savedId, 
+        title: savedItem.title,
+        name: savedItem.name, 
+        price: savedItem.price, 
+        img: savedItem.img,
+        img2: savedItem.img2,
+        img3: savedItem.img3,
+        img4: savedItem.img4,
+        desc: savedItem.desc,
+        detail: savedItem.detail,
+      }
+    })
+    handleClose()
   }
 
   const handleShow = () => setShow(true)
@@ -60,7 +75,6 @@ export default function SearchBar() {
 
     setSearchResults(itemObj.filter(item =>
     item.name.toLowerCase().includes(searchTerm)))
-    // console.log(searchResults)
   }
 
   return (

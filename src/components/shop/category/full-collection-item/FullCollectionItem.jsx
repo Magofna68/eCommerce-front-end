@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
-import ItemDetailPage from '../../../../pages/itemDetailPage/ItemDetailPage';
+import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetailPage';
 
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -36,8 +36,8 @@ export default function FullCollectionItem(props) {
 
   const goToSelectedItem = (e) => {
     const selectedItem = [props][0];
-    console.log(selectedItem)
-    console.log({selectedItem})
+    // console.log(selectedItem)
+    // console.log({selectedItem})
     onItemSelection(selectedItem);
     // this.setState({selectedItem: selectedItem})
   }

@@ -79,12 +79,12 @@ export default function Navigationbar({currentUser}) {
   const clearState = () => {
     window.location.reload(true);
     window.location.assign('/')
-    console.log("ClearState REACHED");
+    // console.log("ClearState REACHED");
   }
 
   return (
           <Container className='p-0' fluid="true">
-            <Navbar className='border' bg="transparent" expand="sm" >
+            <Navbar className='border' bg="transparent" expand="md" >
              <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
                 <img 
                   src={Logo} 
@@ -117,7 +117,9 @@ export default function Navigationbar({currentUser}) {
                 <SearchBar />
                   <span style={{
                     marginRight: '3%',
-                }}>
+                
+                    }}
+                  >
                   <Button
                     style={{
                       width: '3rem',
@@ -199,7 +201,7 @@ export default function Navigationbar({currentUser}) {
                           </div>
                         </Col>
                         <Col xs={6} style={{padding: '5px 5px 0 0'}}>
-                        {currentProduct.name}
+                        <span onClick={() => console.log(currentProduct)}>{currentProduct.name}</span>
                         </Col>
                         <Col xs={2} style={{padding: '0', alignContent: 'center', justifyContent: 'space-between'}}>
                           <div style={{display: 'flex', alignContent: 'center', marginTop: '15%'}}>
