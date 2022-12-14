@@ -21,6 +21,7 @@ import StarIcon from '@mui/icons-material/Star';
           <br/>
           <span className='feedback'>"{feedback}"</span>
         </Row>
+        <hr/>
       </div>
     </Container>
   )

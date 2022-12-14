@@ -123,7 +123,7 @@ export default function ItemDetails(props) {
             </div>
           </Row>
         </Col> */}
-          <Col sm={6} lg={7} md={7} xl={7}>
+          <Col sm={12} lg={7} md={7} xl={7}>
             {/* <div className='imagesContain'> */}
           <div 
           className='activeImage'
@@ -148,10 +148,13 @@ export default function ItemDetails(props) {
                 </span>
             </div>
           </Row>
+          <Row>
+          
+          </Row>
           {/* </div> */}
           </Col>
 
-        <Col sm={6} md={5} lg={5} xl={5}>
+        <Col sm={12} md={5} lg={5} xl={5}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
             <span id="priceContainer">
               <h3>${price}</h3>
@@ -172,12 +175,7 @@ export default function ItemDetails(props) {
                 null
               }
             </div>
-            
-            <div style={{ textAlign: 'left', marginTop: '-3%'}}>
-              <Accordion desc={desc} details={detailList} reviews={reviews}/>              
-            </div>
-          <br/>
-          <span style={{
+            <span style={{
               fontSize: '12px', 
               fontWeight: 600
             }}
@@ -214,6 +212,12 @@ export default function ItemDetails(props) {
             }
 
           </div>
+            
+            <div style={{ textAlign: 'left', marginTop: '-3%'}}>
+              <Accordion desc={desc} details={detailList} reviews={reviews}/>              
+            </div>
+          <br/>
+          
           <div style={{ height: '35px'}}>
 
           {
