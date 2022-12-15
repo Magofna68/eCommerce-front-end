@@ -694,7 +694,7 @@ const SHOP_DATA = [
             rating: 5,
           },
         ],
-        desc: 'The “God Is A Designer” is an Arkadia1981 x Futur limited edition snapback cap. It\’s a 6-panel cap with a wide flat brim, fitted with an adjustable snap on the back of the hat, which makes it one size fits all. Woven Arkadia1981 & Futur sewn in back center with custom blue taping inside.',
+        desc: 'The “God Is A Designer” is an Arkadia1981 x Futur limited edition snapback cap. It’s a 6-panel cap with a wide flat brim, fitted with an adjustable snap on the back of the hat, which makes it one size fits all. Woven Arkadia1981 & Futur sewn in back center with custom blue taping inside.',
         detail: ['Sleek fit', 'Custom blue taping in interior', '6-pannel cap', 'Classic Raised Embroidery', 'Weight:	8 oz',]
       },
       {
@@ -2304,7 +2304,7 @@ export const WOMENS_SHOP_DATA = [
             rating: 5,
           },
         ],
-        desc: 'The “God Is A Designer” is an Arkadia1981 x Futur limited edition snapback cap. It\’s a 6-panel cap with a wide flat brim, fitted with an adjustable snap on the back of the hat, which makes it one size fits all. Woven Arkadia1981 & Futur sewn in back center with custom blue taping inside.',
+        desc: 'The “God Is A Designer” is an Arkadia1981 x Futur limited edition snapback cap. It’s a 6-panel cap with a wide flat brim, fitted with an adjustable snap on the back of the hat, which makes it one size fits all. Woven Arkadia1981 & Futur sewn in back center with custom blue taping inside.',
         detail: ['Sleek fit', 'Custom blue taping in interior', '6-pannel cap', 'Classic Raised Embroidery', 'Weight:	8 oz',]
       },
       {
@@ -3049,7 +3049,7 @@ export const WOMENS_SHOP_DATA = [
           rating: 5,
         },
       ],
-      desc: 'The “God Is A Designer” is an Arkadia1981 x Futur limited edition snapback cap. It\’s a 6-panel cap with a wide flat brim, fitted with an adjustable snap on the back of the hat, which makes it one size fits all. Woven Arkadia1981 & Futur sewn in back center with custom blue taping inside.',
+      desc: 'The “God Is A Designer” is an Arkadia1981 x Futur limited edition snapback cap. It’s a 6-panel cap with a wide flat brim, fitted with an adjustable snap on the back of the hat, which makes it one size fits all. Woven Arkadia1981 & Futur sewn in back center with custom blue taping inside.',
       detail: ['Sleek fit', 'Custom blue taping in interior', '6-pannel cap', 'Classic Raised Embroidery', 'Weight:	8 oz',]
     },
     {

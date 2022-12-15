@@ -4,10 +4,11 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 // import SizeList from '../../components/utility/sizeList/SizeList';
 import SizeList from '../../../components/utility/sizeList/SizeList';
-import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping';
 import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext';
 import Accordion from '../../../components/utility/accordion/Accordion';
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
@@ -22,6 +23,7 @@ export default function ItemDetails(props) {
   const [ isActive, setIsActive ] = useState(false);
   const [ value, setValue ] = useState('');
   const [ selectedImg, setSelectedImg ] = useState('img')
+  // const [ reviewAvg, setReviewAvg ] = useState([]);
   const [activeImg, setActiveImg ] = useState({
     img: [ {img}, {img2}, {img3}, {img4} ] })
 
@@ -55,14 +57,24 @@ export default function ItemDetails(props) {
   
   
   function handleSizeSelect(id, value) {
-    console.log("ID", selectedSize)
-    console.log("Active", isActive)
     setValue(value)
     setSelectedSize(id)
   }
 
   function handleDelete() {
     setSelectedSize('');
+  }
+
+  function handleAvgRating() {
+      let tempRating1 = reviews[0].rating
+      let tempRating2 = reviews[1].rating
+      let tempRating3 = reviews[2].rating
+      let totalRating = tempRating1 + tempRating2 + tempRating3;
+      let averageRating = totalRating / 3;
+
+    return (
+      averageRating
+    )
   }
 
   useEffect(() => {
@@ -94,6 +106,29 @@ export default function ItemDetails(props) {
         setActiveImg(img)
     }
   console.log(activeImg)}, [selectedImg])
+
+
+  function reviewStars(num) {
+    let stars = [];
+    let value = Math.trunc(num);
+
+    for (let i = 0; i < value; i++) {
+      stars.push(<StarIcon fontSize="small" />)
+    }
+
+    return (
+      <span onClick={() => console.log({stars})}>
+        {
+          // BUG: pushes numerical value into array or is posting it to the DOM
+          value < num ?
+          stars.push(<StarHalfIcon fontSize='small' />)
+          :
+          null
+        }
+      {stars}
+      </span>
+    );
+  };
 
   return (
     <>
@@ -130,7 +165,18 @@ export default function ItemDetails(props) {
           </Col>
 
         <Col sm={12} md={6} lg={5} xl={5}>
-          <span className='itemName'><h2><strong>{name}</strong></h2></span>
+          <span className='itemName' onClick={() => handleAvgRating()}>
+            <h2><strong>{name}</strong></h2>
+          </span>
+            <span 
+              style={{
+                display: 'flex', 
+                justifyContent: 'center', 
+                marginBottom: '2%'
+              }}
+            >
+              {reviewStars(handleAvgRating())}
+            </span>
             <span id="priceContainer">
               <h3>${price}</h3>
             </span>
@@ -189,7 +235,13 @@ export default function ItemDetails(props) {
           </div>
             
             <div style={{ textAlign: 'left', marginTop: '-3%'}}>
-              <Accordion desc={desc} details={detailList} reviews={reviews}/>              
+              <Accordion 
+                desc={desc} 
+                details={detailList} 
+                reviews={reviews}
+                reviewStars={reviewStars}
+                onAvgRating={handleAvgRating()}
+              />              
             </div>
           <br/>
           

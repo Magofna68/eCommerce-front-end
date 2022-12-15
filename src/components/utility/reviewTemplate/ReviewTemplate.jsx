@@ -1,7 +1,6 @@
 import './reviewTemplate.styles.scss';
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import StarIcon from '@mui/icons-material/Star';
+import { Container, Row } from 'react-bootstrap'
 
  const ReviewTemplate = (props)  => {
   const { key, id, date, feedback, title, rating, username, reviewStars } = props;
@@ -9,10 +8,10 @@ import StarIcon from '@mui/icons-material/Star';
   
   return (
     <Container fluid className="reviewContainer">
-      <div className='review'>
+      <div className='review' key={key} id={id}>
         <Row>
           <div className="upperReviewContainer">
-            <span className='rating'>{reviewStars(rating)}({rating}</span>
+            <span className='rating'>{reviewStars(rating)}({rating})</span>
             <span className="date">{date}</span>
             <span className='username'>{username}</span>
           </div>
