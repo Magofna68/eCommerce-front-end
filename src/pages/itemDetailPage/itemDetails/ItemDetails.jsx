@@ -102,32 +102,8 @@ export default function ItemDetails(props) {
       </span>
       <Container fluid="md">
       <Row>
-
-        {/* <Col sm={6} lg={7} md={7} xl={7}>
-          <div 
-          className='activeImage'
-          >
-              <img src={img} alt="test" width="100%"></img>
-          </div>
-          <Row sm={4} xs={3} style={{marginTop: '10px'}}>
-            <div className='imgPreviewContainer'>
-                <span className='img'>
-                  <img src={img2} alt="" width="50px"></img>
-                </span>
-                <span className="img">
-                  <img src={img3} alt="" width="50px"></img>
-                </span>
-                <span className="img">
-                  <img src={img4} alt="" width="50px"></img>
-                </span>
-            </div>
-          </Row>
-        </Col> */}
-          <Col sm={12} lg={7} md={7} xl={7}>
-            {/* <div className='imagesContain'> */}
-          <div 
-          className='activeImage'
-          >
+          <Col sm={12} lg={7} md={6} xl={7}>
+          <div className='activeImage'>
               <img src={activeImg} alt="test" width="100%"></img>
           </div>
           <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
@@ -151,10 +127,9 @@ export default function ItemDetails(props) {
           <Row>
           
           </Row>
-          {/* </div> */}
           </Col>
 
-        <Col sm={12} md={5} lg={5} xl={5}>
+        <Col sm={12} md={6} lg={5} xl={5}>
           <span className='itemName'><h2><strong>{name}</strong></h2></span>
             <span id="priceContainer">
               <h3>${price}</h3>

@@ -4,6 +4,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import {Link} from 'react-router-dom';
 import ReviewTemplate from '../reviewTemplate/ReviewTemplate';
 import StarIcon from '@mui/icons-material/Star';
+import './accordion.styles.scss';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
 
 const AccordionComponent = (props) => {
   const { details, desc, reviews } = props;
@@ -26,32 +28,47 @@ const AccordionComponent = (props) => {
 
 function reviewStars(num) {
   let stars = [];
-  for (let i = 0; i < num; i++) {
-    stars.push(<StarIcon fontSize="small" />)
+  let value = Math.trunc(num);
+  // console.log(num)
+  // console.log({stars})
+  for (let i = 0; i < value; i++) {
+      stars.push(<StarIcon fontSize="small" />)
   }
   return (
-    <span>{stars}</span>
+    <span onClick={() => console.log({stars})}>
+      {
+        value < num ?
+          stars.push(<StarHalfIcon fontSize='small' />)
+        :
+          null
+      }
+    {stars}
+    </span>
   );
 };
 
   return (
     <Accordion defaultActiveKey="0" flush style={{marginTop: '3%'}}>
-      <Accordion.Item eventKey="0">
+      
+      <Accordion.Item eventKey="0" className="accordionItem">
         <Accordion.Header>Description:</Accordion.Header>
         <Accordion.Body>{desc}</Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="1">
+
+      <Accordion.Item eventKey="1" className="accordionItem">
         <Accordion.Header>Details:</Accordion.Header>
         <Accordion.Body>{details}</Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="2">
+
+      <Accordion.Item eventKey="2" className="accordionItem">
         <Accordion.Header>Shipping:</Accordion.Header>
         <Accordion.Body>
           Free standard shipping and free 60-day returns for Members.<br/> <br/>
           Check out our Return Policy <span><Link to='/returnpolicy'>Here</Link></span>.
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="3">
+
+      <Accordion.Item eventKey="3" className="accordionItem">
         <Accordion.Header>Rating:</Accordion.Header>
         <Accordion.Body onClick={()=> console.log({reviews})} style={{padding: 0}}>
         <br/>
@@ -74,6 +91,7 @@ function reviewStars(num) {
           }
         </Accordion.Body>
       </Accordion.Item>
+
     </Accordion>
   );
 };

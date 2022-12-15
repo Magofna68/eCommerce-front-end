@@ -14,7 +14,7 @@ const SHOP_DATA = [
         img3: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/fb2a01fe-2d3f-4c84-8ca6-b3fb15e6e886/dunk-high-retro-mens-shoe-dTVTCk.png',
         img4: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/329146ed-226c-47d0-bc20-88b380598f46/dunk-high-retro-mens-shoe-dTVTCk.png',
         price: '125',
-        // productRating: ,
+        // productRating: 4,
         reviews: [
           {
             id: 0,
@@ -54,7 +54,7 @@ const SHOP_DATA = [
         img3: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/72cecc94-7710-4251-beb1-cb88f21d7f2a/air-jordan-6-retro-low-mens-shoes-MPwhfh.png',
         img4: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/bd5328dd-45b8-46b0-ba12-ff4473819a36/air-jordan-6-retro-low-mens-shoes-MPwhfh.png',
         price: '200',
-        // productRating: ,
+        // productRating: 4.33,
         reviews: [
           {
             id: 0,
