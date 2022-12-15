@@ -1,30 +1,12 @@
-import React, { Component } from 'react';
-import './shopPage.styles.scss';
-// import { Container, Row, Col } from 'react-bootstrap';
-import  { SHOP_DATA }  from '../../data';
-import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview';
+import './shopPage.styles.scss'
+import Directory from '../../components/directory/Directory';
 
-class ShopPage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      collections: SHOP_DATA
-    };
-  }
-
-  render() {
-    const { collections } = this.state;
+import React from 'react';
+  
+  export default function ShopPage() {
     return (
-      <div fluid="true" className='shopPage'>
-        {
-            collections?.map(({id, ...otherCollectionProps})=> (
-            <CollectionPreview key={id} {...otherCollectionProps} />
-          ))
-        }
+      <div className='homepage'>
+        <Directory />
       </div>
-    );
+    )
   }
-}
-
-export default ShopPage;

@@ -16,9 +16,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 
 import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
-import ShopPage from '../../pages/shopPage/ShopPage';
-import ContactPage from '../../pages/contactPage/ContactPage';
 import HomePage from '../../pages/homePage/HomePage';
+import ContactPage from '../../pages/contactPage/ContactPage';
+import ShopPage from '../../pages/shopPage/ShopPage';
 import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
 import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
 

@@ -1,12 +1,30 @@
-import './homePage.styles.scss'
-import Directory from '../../components/directory/Directory';
+import React, { Component } from 'react';
+import './homePage.styles.scss';
+// import { Container, Row, Col } from 'react-bootstrap';
+import  { SHOP_DATA }  from '../../data';
+import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview';
 
-import React from 'react';
-  
-  export default function HomePage() {
-    return (
-      <div className='homepage'>
-        <Directory />
-      </div>
-    )
+class ShopPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      collections: SHOP_DATA
+    };
   }
+
+  render() {
+    const { collections } = this.state;
+    return (
+      <div fluid="true" className='shopPage'>
+        {
+            collections?.map(({id, ...otherCollectionProps})=> (
+            <CollectionPreview key={id} {...otherCollectionProps} />
+          ))
+        }
+      </div>
+    );
+  }
+}
+
+export default ShopPage;
