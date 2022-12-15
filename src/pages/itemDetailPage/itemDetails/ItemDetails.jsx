@@ -9,6 +9,7 @@ import { ShoppingCartContext } from '../../../components/context/ShoppingCartCon
 import Accordion from '../../../components/utility/accordion/Accordion';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
+import CheckIcon from '@mui/icons-material/Check';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
@@ -265,20 +266,26 @@ export default function ItemDetails(props) {
               : 
               <>
                 <div 
-                  className='d-flex align-items-center flex-column' 
+                  className='d-flex align-items-center flex-column fade-in-chip' 
                   style={{gap: '.5rem'}}
                   >
                   <div 
                     className='d-flex align-items-center justify-content-center'
                     style={{gap: '.5rem'}}
                     >
-                    <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
-                    <div>
+                    {/* <div>
                       <span className='fs-3'>{productQuantity}</span> in cart
+                    </div> */}
+                    <div style={{color: 'gray'}}>
+                    {/* <span style={{fontSize: '12px'}}>Added to Cart:</span><br/> */}
+                    <CheckIcon />
+                    <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
+                    {/* <br/><span style={{ fontSize: '10px', marginTop: '-5%'}}>Remove from Cart</span> */}
                     </div>
-                    <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
+                    {/* <Button onClick={() => cart.addOneItemToCart(id)}>+</Button> */}
                   </div>
-                    <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
+                   {/* <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button> */}
+                    {/* <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button> */}
                 </div>
               </>
             }
