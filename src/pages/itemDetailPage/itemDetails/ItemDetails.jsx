@@ -253,7 +253,7 @@ export default function ItemDetails(props) {
             {
               productQuantity === 0 ? (
                 <Button 
-                onClick={() => cart.addOneItemToCart(id, name, price, img)}
+                onClick={() => cart.addOneItemToCart(id, name, price, img, value)}
                 variant="outline-primary" 
                 className="w-100"
                 style={{

@@ -162,8 +162,9 @@ export default function Navigationbar({currentUser}) {
                   <h4 style={{marginBottom: '10%'}}>Items In Cart: {productCount}</h4>
                     <Container style={{marginBottom: '5%'}}>
                       <Row style={{marginBottom: '1%'}}>
-                        <Col><h6>Item:</h6></Col>
-                        <Col xs={6} style={{textAlign: 'left'}}><h6>Name:</h6></Col>
+                        <Col xs={2} style={{marginLeft: '-3%'}}><h6>Item:</h6></Col>
+                        <Col style={{marginLeft: '-2%'}}><h6>Size:</h6></Col>
+                        <Col xs={5} style={{textAlign: 'left', marginLeft: '-3%'}}><h6>Name:</h6></Col>
                         <Col><h6>Quantity:</h6></Col>
                         <Col style={{ textAlign: 'right'}}><h6>Price:</h6></Col>
                       </Row>
@@ -179,7 +180,7 @@ export default function Navigationbar({currentUser}) {
                               maxWidth: '50px',
                               height: '65px'
                             }}
-                          >
+                            >
                             <img 
                               key={idx}
                               src={currentProduct.img}
@@ -187,7 +188,7 @@ export default function Navigationbar({currentUser}) {
                               height="100%"
                               alt="Cart Preview"
                               id="img"
-                            />
+                              />
                             <ClearIcon 
                               fontSize="sm" 
                               id="clearItemFromCart"
@@ -197,11 +198,14 @@ export default function Navigationbar({currentUser}) {
                                 position: 'absolute', 
                                 cursor: 'pointer'
                               }}
-                            />
+                              />
                           </div>
                         </Col>
-                        <Col xs={6} style={{padding: '5px 5px 0 0'}}>
-                        <span onClick={() => console.log(currentProduct)}>{currentProduct.name}</span>
+                        <Col style={{marginLeft:'-2%', marginTop: '4%', textAlign: 'left'}}>
+                          <strong>{currentProduct.size}</strong>
+                        </Col>
+                        <Col xs={5} style={{padding: '5px 5px 0 0'}}>
+                          <span>{currentProduct.name}</span>
                         </Col>
                         <Col xs={2} style={{padding: '0', alignContent: 'center', justifyContent: 'space-between'}}>
                           <div style={{display: 'flex', alignContent: 'center', marginTop: '15%'}}>
@@ -210,7 +214,9 @@ export default function Navigationbar({currentUser}) {
                                   fontSize='large' 
                                   onClick={()=> cart.removeOneItemFromCart(currentProduct.id)}
                                   className="cartQuantityArrow"
-                                />
+                                  />
+                              </Col>
+                              <Col>
                               </Col>
                               <Col style={{paddingTop: '8%',}}>
                                 <h6 style={{marginTop: '0%'}}>{currentProduct.quantity}</h6>

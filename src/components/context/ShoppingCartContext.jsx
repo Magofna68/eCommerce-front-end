@@ -43,7 +43,7 @@ export function CartProvider({children}) {
   }
 
 
-  function addOneItemToCart(id, name, price, img,) {
+  function addOneItemToCart(id, name, price, img, value) {
     const quantity = getProductQuantity(id);
     showSuccessAlert()
 
@@ -56,6 +56,7 @@ export function CartProvider({children}) {
             name: name,
             price: price,
             img: img,
+            size: value,
             quantity: 1    // add new item to cart w/ quantity of 1
           }
         ]
