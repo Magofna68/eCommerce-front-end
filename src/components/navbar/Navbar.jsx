@@ -115,7 +115,7 @@ export default function Navigationbar({currentUser}) {
                   Women's
                 </NavDropdown.Item> */}
                 </NavDropdown>
-               <Link className="nav-link" to="/" onClick={clearState}>Shop</Link>
+               <Link className="nav-link" to="/shop" onClick={clearState}>Shop</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
@@ -277,7 +277,7 @@ export default function Navigationbar({currentUser}) {
             <Route path="/" exact element={<HomePage />}>
             </Route>
             <Route path='login'  element={<SignInAndSignUpPage />}></Route>
-            <Route path='shop' element={<ShopPage/>}></Route>
+            <Route path='#/shop' element={<ShopPage/>}></Route>
             <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
             <Route path='contact' element={<ContactPage />}></Route>

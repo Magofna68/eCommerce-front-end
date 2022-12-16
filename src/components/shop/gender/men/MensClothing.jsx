@@ -9,6 +9,8 @@ import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import Sneakers from '../../category/sneakers/Sneakers';
+import Hats from '../../category/hats/Hats';
+import Jackets from '../../category/jackets/Jackets';
 
 class MensClothing extends Component {
   constructor(props) {
@@ -19,7 +21,15 @@ class MensClothing extends Component {
       selectedCategory: "",
     }
   }
-  
+
+  categoryRedirect = async (clickedCategoryTitle) => {
+    console.log(clickedCategoryTitle);
+    const categoryToAssign = clickedCategoryTitle
+    await this.setState({
+      selectedCategory: categoryToAssign
+    })
+    // console.log(this.state.currentView)
+  }
 
   handleClick = (e) => {
     if (this.state.selectedItem != null) {
@@ -60,14 +70,25 @@ class MensClothing extends Component {
         onClearItemStateClick={this.handleClearItemStateClick} 
       />
       buttonText = "Back to Items"
-    } else if (this.state.selectedCategory === "sneakers") {
+    } else if (this.state.selectedCategory === "SNEAKERS") {
       <Sneakers 
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick}
+      />
+    }  else if (this.state.selectedCategory === "HATS") {
+      <Hats 
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick}
+      />
+    } else if (this.state.selectedCategory === "JACKETS") {
+      <Jackets 
         itemToShow={this.state.selectedItem}
         onClearItemStateClick={this.handleClearItemStateClick}
       />
     } else { 
       currentlyVisibleState = 
       <ItemList 
+        categoryRedirect={this.categoryRedirect}
         itemCollection={this.state.itemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
