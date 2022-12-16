@@ -136,13 +136,13 @@ export default function ItemDetails(props) {
       <span id="returnIcon" onClick={handleClearItemStateClick}>
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
       </span>
-      <Container fluid="md">
+      <Container fluid style={{padding: 0}}>
       <Row>
-          <Col sm={12} lg={7} md={6} xl={7}>
+          <Col sm={12} lg={7} md={6} xl={7} style={{padding: 0}}>
           <div className='activeImage'>
               <img src={activeImg} alt="test" width="100%"></img>
           </div>
-          <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
+          
             <div 
               className='imgPreviewContainer'
             >
@@ -159,13 +159,13 @@ export default function ItemDetails(props) {
                   <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
                 </span>
             </div>
-          </Row>
+          
           <Row>
           
           </Row>
           </Col>
 
-        <Col sm={12} md={6} lg={5} xl={5}>
+        <Col sm={12} md={6} lg={5} xl={5} style={{padding: 0}}>
           <span className='itemName' onClick={() => handleAvgRating()}>
             <h2><strong>{name}</strong></h2>
           </span>

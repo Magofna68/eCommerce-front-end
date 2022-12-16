@@ -81,7 +81,7 @@ class WomensClothing extends Component {
           <div className='backdropMobile'>
             <h1>Women's</h1><h1>Clothing</h1>
           </div>
-            <img src={Queen} alt="Queen" width="150px" style={{zIndex: -1}}/>
+            <img src={Queen} alt="Queen" width="150px" />
         </div>
         :
         null

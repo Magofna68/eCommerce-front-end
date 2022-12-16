@@ -10,12 +10,11 @@ export default function Sneakers(props) {
 
   return (
     <div className='sneakerComponent'>
-      Sneakers Component
-      {/* {
+      {
         sneakerCollection.map(({id, ...otherCollectionProps}) => (
           <RenderFullCollection key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
         ))
-      } */}
+      }
     </div>
   )
 }

@@ -1,5 +1,5 @@
 .navbar{
-  width: 92vw;
+  // width: 92vw;
   margin-bottom: 3%;
   // margin-right: 3%;
 
@@ -9,6 +9,9 @@ max-width: 5%;
 // min-width: 50px;
 height: auto;
   // font-size: 30px;
+}
+nav.border.navbar.navbar{
+  width:90%;
 }
 
 .ml-auto {

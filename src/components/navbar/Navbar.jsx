@@ -104,18 +104,10 @@ export default function Navigationbar({currentUser}) {
                   <NavDropdown.Item href="#/shop/womens">Apparel</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Men's" id="basic-nav-dropdown">
-                {/* <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item> */}
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
-                {/* <NavDropdown.Item href="#/shop/mens">
-                  Men's
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/womens">
-                  Women's
-                </NavDropdown.Item> */}
                 </NavDropdown>
-               <Link className="nav-link" to="/shop" onClick={clearState}>Shop</Link>
+               <Link className="nav-link" to="/shop" >Shop</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
@@ -277,7 +269,7 @@ export default function Navigationbar({currentUser}) {
             <Route path="/" exact element={<HomePage />}>
             </Route>
             <Route path='login'  element={<SignInAndSignUpPage />}></Route>
-            <Route path='#/shop' element={<ShopPage/>}></Route>
+            <Route path='/shop' element={<ShopPage/>}></Route>
             <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
             <Route path='contact' element={<ContactPage />}></Route>
