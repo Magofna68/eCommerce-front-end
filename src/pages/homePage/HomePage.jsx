@@ -4,27 +4,12 @@ import './homePage.styles.scss';
 import  { SHOP_DATA }  from '../../data';
 import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview';
 
-class ShopPage extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      collections: SHOP_DATA
-    };
-  }
-
-  render() {
-    const { collections } = this.state;
-    return (
-      <div fluid="true" className='shopPage'>
-        {
-            collections?.map(({id, ...otherCollectionProps})=> (
-            <CollectionPreview key={id} {...otherCollectionProps} />
-          ))
-        }
-      </div>
-    );
-  }
+export default function HomePage() {
+  return (
+    <div>This is the HOMEPAGE</div>
+  )
 }
 
-export default ShopPage;
+
+// export default HomePage;

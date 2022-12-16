@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
-
+import Row from 'react-bootstrap/Row'
 
 export default function ItemList(props) {
   const { itemCollection, onItemSelection } = props;
@@ -23,11 +23,13 @@ export default function ItemList(props) {
     }
     return array;
   }
+
+  const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
   return (
     <>
     <Breadcrumb />
         <Container fluid="true" className='collectionPreview'>
-          <h1 style={{ marginLeft: '2%'}}>Shop</h1>
+          <h1 id="title">Shop</h1>
           {/* <div className='titleContainer'> */}
           {/* <h2>
             <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
@@ -35,6 +37,15 @@ export default function ItemList(props) {
             </Link>
           <hr />
           </h2> */}
+            <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
+              <ul className='titleContainer'>
+                {
+                  categoryTitles.map(title => (
+                    <li className="categoryTitle">{title}</li>
+                  ))
+                }
+              </ul>
+            </Row>
           <div 
             className='preview'
             style={{ 
@@ -42,7 +53,7 @@ export default function ItemList(props) {
               display: 'flex',
               alignContent: 'space-between',
               justifyContent: 'center',
-              marginTop: '10%',
+              marginTop: '3%',
             }}
           >
         {

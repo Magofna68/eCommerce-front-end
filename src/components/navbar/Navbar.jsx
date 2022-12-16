@@ -99,18 +99,22 @@ export default function Navigationbar({currentUser}) {
              <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
-              {/* <NavDropdown title="Shop" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/jackets">Jackets</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#/shop/mens">
+                <NavDropdown title="Women's" id="basic-nav-dropdown">
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#/shop/womens">Apparel</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Men's" id="basic-nav-dropdown">
+                {/* <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
+                <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item> */}
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
+                {/* <NavDropdown.Item href="#/shop/mens">
                   Men's
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#/shop/womens">
                   Women's
-                </NavDropdown.Item>
-              </NavDropdown> */}
+                </NavDropdown.Item> */}
+                </NavDropdown>
                <Link className="nav-link" to="/" onClick={clearState}>Shop</Link>
 
                <Link className='nav-link' to='/contact'>contact</Link>

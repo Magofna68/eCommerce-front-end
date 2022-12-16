@@ -8,6 +8,7 @@ import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';
 import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
+import Sneakers from '../../category/sneakers/Sneakers';
 
 class MensClothing extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class MensClothing extends Component {
     this.state = {
       selectedItem: null,
       itemList:  MENS_SHOP_LIST ,
+      selectedCategory: "",
     }
   }
   
@@ -58,6 +60,11 @@ class MensClothing extends Component {
         onClearItemStateClick={this.handleClearItemStateClick} 
       />
       buttonText = "Back to Items"
+    } else if (this.state.selectedCategory === "sneakers") {
+      <Sneakers 
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick}
+      />
     } else { 
       currentlyVisibleState = 
       <ItemList 
@@ -66,6 +73,25 @@ class MensClothing extends Component {
       />
       buttonText = "Home"
     }
+
+    // switch(currentView) {
+    //   case 'hats':
+    //     currentlyVisibleState = <Hats onItemSelection={this.handleChangingSelectedItem} />
+    //     buttonText = "Return to Categories"
+    //     buttonDisplayed = true;
+      
+    //   break;
+    //   case 'jackets':
+    //     currentlyVisibleState = <Jackets onItemSelection={this.handleChangingSelectedItem} />
+    //     buttonText = "Return to Categories"
+    //     buttonDisplayed = true;
+    //   break;
+    //   case 'sneakers':
+    //     currentlyVisibleState = <Sneakers onItemSelection={this.handleChangingSelectedItem} />
+    //     buttonText = "Return to Categories"
+    //     buttonDisplayed = true;
+    //   break;
+    // }
 
 
     return (

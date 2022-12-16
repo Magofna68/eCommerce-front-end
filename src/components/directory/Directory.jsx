@@ -82,7 +82,7 @@ export default class Directory extends React.Component {
     await this.setState({
       currentView: categoryToAssign
     })
-    console.log(this.state.currentView)
+    // console.log(this.state.currentView)
   }
   
   render() {
