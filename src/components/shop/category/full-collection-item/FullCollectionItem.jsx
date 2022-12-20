@@ -34,11 +34,12 @@ export default function FullCollectionItem(props) {
   //   })
   // }
 
-  const goToSelectedItem = (e) => {
+  const goToSelectedItem = async (e) => {
     const selectedItem = [props][0];
     // console.log(selectedItem)
     console.log({selectedItem})
-    handleItemSelection(selectedItem);
+    await handleItemSelection(selectedItem);
+    // console.log(selectedItem)
     // this.setState({selectedItem: selectedItem})
   }
 

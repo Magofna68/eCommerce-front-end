@@ -12,6 +12,7 @@ import Sneakers from '../../category/sneakers/Sneakers';
 import Hats from '../../category/hats/Hats';
 import Jackets from '../../category/jackets/Jackets';
 import Shirts from '../../category/shirts/Shirts';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 class MensClothing extends Component {
@@ -72,6 +73,7 @@ class MensClothing extends Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+    const { selectedCategory } = this.state;
 
     if (this.state.selectedItem != null) {
       currentlyVisibleState = 
@@ -80,23 +82,25 @@ class MensClothing extends Component {
         itemToShow={this.state.selectedItem}
         onClearItemStateClick={this.handleClearItemStateClick} 
       />
-      buttonText = "Back to Items"
+      buttonText = selectedCategory
     } else if (this.state.selectedCategory === "SNEAKERS") {
         currentlyVisibleState = 
         <Sneakers 
+          onItemSelection={this.handleChangingSelectedItem} 
           mensFilteredSneakers={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
-        buttonText = "Back to Categories"
+        // buttonText = 
     }  else if (this.state.selectedCategory === "SHIRTS") {
       currentlyVisibleState = 
-      <Shirts 
+      <Shirts
+        onItemSelection={this.handleChangingSelectedItem} 
         mensFilteredShirts={this.state.mensFilteredList}
         itemToShow={this.state.selectedItem}
         onClearItemStateClick={this.handleClearItemStateClick}
       />
-      buttonText = "Back to Categories"
+      // buttonText = selectedCategory
   } else if (this.state.selectedCategory === "HATS") {
         currentlyVisibleState =  
         <Hats 
@@ -105,15 +109,16 @@ class MensClothing extends Component {
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
-        buttonText = "Back to Categories"
+        // buttonText = selectedCategory
     } else if (this.state.selectedCategory === "JACKETS") {
         currentlyVisibleState = 
         <Jackets 
+          onItemSelection={this.handleChangingSelectedItem} 
           mensFilteredJackets={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
-        buttonText = "Back to Categories"
+        // buttonText = selectedCategory
     } else { 
       currentlyVisibleState = 
       <ItemList 
@@ -163,7 +168,7 @@ class MensClothing extends Component {
           buttonText === "Home" ? 
           <Button onClick={this.handleHomeClick}>{buttonText}</Button>
           :
-          <Button onClick={this.handleClick}>{buttonText}</Button>
+          <Button onClick={this.handleClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }
       </div>
     );

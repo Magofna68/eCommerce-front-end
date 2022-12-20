@@ -19,14 +19,14 @@ export default function Hats(props) {
     >
       <h1>{hatCollection.title}</h1>
       {
-        // mensFilteredHats !== [] ?
         hatCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection filteredList={mensFilteredHats} id={id} key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
+          <RenderFullCollection 
+            key={id} 
+            filteredList={mensFilteredHats} 
+            id={id} 
+            onItemSelection={onItemSelection} 
+            {...otherCollectionProps} />
         ))
-        // :
-        // hatCollection.map(({id, ...otherCollectionProps}) => (
-        //   <RenderFullCollection id={id} key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
-        // ))
       };
     </div>
 
