@@ -4,7 +4,7 @@ import RenderFullCollection from '../render-full-collection/RenderFullCollection
 import { SHOP_DATA } from '../../../../data';
 
 export default function Shirts(props) {
-  const { onItemSelection, mensFilteredShirts, itemToShow } = props;
+  const { onItemSelection, filteredShirts, itemToShow } = props;
   const shirtCollection = [];
   shirtCollection.push(SHOP_DATA[3]);
 
@@ -18,7 +18,7 @@ export default function Shirts(props) {
       {
         // mensFilteredList !== [] ?
         shirtCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection filteredList={mensFilteredShirts} id={id} key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
+          <RenderFullCollection filteredList={filteredShirts} id={id} key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
         ))
       }
     </div>

@@ -99,16 +99,17 @@ export default function Navigationbar({currentUser}) {
              <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
              <NavbarCollapse className='justify-content-end navbar-toggle'>
                <Nav className='ml-auto'>
-                <NavDropdown title="Women's" id="basic-nav-dropdown">
+                {/* <NavDropdown title="Women's" id="basic-nav-dropdown">
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#/shop/womens">Apparel</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Men's" id="basic-nav-dropdown">
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
                <Link className="nav-link" to="/shop" >Shop</Link>
-
+              <Link className='nav-link' to="/shop/mens">Mens</Link>
+              <Link className='nav-link' to="/shop/womens">Womens</Link>
                <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
                   <span style={{

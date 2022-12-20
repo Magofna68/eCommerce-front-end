@@ -4,7 +4,7 @@ import RenderFullCollection from '../render-full-collection/RenderFullCollection
 
 
 export default function Sneakers(props) {
-  const { onItemSelection, itemToShow, mensFilteredSneakers } = props
+  const { onItemSelection, itemToShow, filteredSneakers,  } = props
   const sneakerCollection = [];
     sneakerCollection.push(SHOP_DATA[0])
 
@@ -17,7 +17,7 @@ export default function Sneakers(props) {
           <RenderFullCollection 
             key={id} 
             id={id}
-            filteredList={mensFilteredSneakers} 
+            filteredList={filteredSneakers} 
             onItemSelection={onItemSelection} 
             {...otherCollectionProps} 
           />

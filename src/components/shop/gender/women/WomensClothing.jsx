@@ -8,6 +8,10 @@ import ItemList from '../itemList/ItemList';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
+import Sneakers from '../../category/sneakers/Sneakers';
+import Jackets from '../../category/jackets/Jackets';
+import Hats from '../../category/hats/Hats';
+import Shirts from '../../category/shirts/Shirts';
 
 
 class WomensClothing extends Component {
@@ -16,13 +20,30 @@ class WomensClothing extends Component {
     this.state = {
       selectedItem: null,
       itemList:  WOMENS_SHOP_LIST ,
+      selectedCategory: "",
+      womensFilteredList: [],
     }
   }
   
+  categoryRedirect = async (clickedCategoryTitle) => {
+    const categoryToAssign = clickedCategoryTitle
+    console.log("WOMENSCATEGORYREDIRECT", categoryToAssign);
+    const womensTempFilteredList = this.state.itemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+    // console.log("MENSCLOTHING -- Before state Update", mensTempFilteredList)
+    await this.setState({
+      // mensFilteredlist: mensTempFilteredList,
+      selectedCategory: categoryToAssign,
+    })
+    await this.setState({ womensFilteredList: womensTempFilteredList})
+    console.log("after state update", this.state.womensFilteredList)
+    // return mensTempFilteredList;
+  }
 
   handleClick = (e) => {
     if (this.state.selectedItem != null) {
       this.setState({selectedItem: null})
+    } else if (this.state.selectedCategory != null) {
+      this.setState({selectedCategory: ""})
     }
   }
 
@@ -54,23 +75,61 @@ class WomensClothing extends Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+    const { selectedCategory } = this.state;
     // let { itemList, selectedItem, handleChangingSelectedItem} = this.state;
 
     if (this.state.selectedItem != null) {
       currentlyVisibleState = 
-      <ItemDetail 
-        itemToShow={this.state.selectedItem} 
-        onClearItemStateClick={this.handleClearItemStateClick}
-      />
-      buttonText = "Back to Items"
-    } else { 
+        <ItemDetail 
+          itemToShow={this.state.selectedItem} 
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        buttonText = selectedCategory
+    } else if (this.state.selectedCategory === "SNEAKERS") {
       currentlyVisibleState = 
-      <ItemList 
-        itemCollection={this.state.itemList} 
-        onItemSelection={this.handleChangingSelectedItem} 
-      />
-      buttonText = "Home"
-    }
+        <Sneakers 
+          onItemSelection={this.handleChangingSelectedItem} 
+          filteredSneakers={this.state.womensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+      // buttonText = 
+      }  else if (this.state.selectedCategory === "SHIRTS") {
+        currentlyVisibleState = 
+          <Shirts
+            onItemSelection={this.handleChangingSelectedItem} 
+            filteredShirts={this.state.womensFilteredList}
+            itemToShow={this.state.selectedItem}
+            onClearItemStateClick={this.handleClearItemStateClick}
+          />
+        // buttonText = selectedCategory
+        } else if (this.state.selectedCategory === "HATS") {
+          currentlyVisibleState =  
+            <Hats 
+              onItemSelection={this.handleChangingSelectedItem} 
+              filteredHats={this.state.womensFilteredList}
+              itemToShow={this.state.selectedItem}
+              onClearItemStateClick={this.handleClearItemStateClick}
+            />
+          // buttonText = selectedCategory
+        } else if (this.state.selectedCategory === "JACKETS") {
+          currentlyVisibleState = 
+            <Jackets 
+              onItemSelection={this.handleChangingSelectedItem} 
+              filteredJackets={this.state.womensFilteredList}
+              itemToShow={this.state.selectedItem}
+              onClearItemStateClick={this.handleClearItemStateClick}
+            />
+      // buttonText = selectedCategory
+        } else { 
+            currentlyVisibleState = 
+            <ItemList 
+              categoryRedirect={this.categoryRedirect}
+              itemCollection={this.state.itemList} 
+              onItemSelection={this.handleChangingSelectedItem} 
+            />
+            buttonText = "Home"
+          }
 
 
     return (

@@ -87,7 +87,7 @@ class MensClothing extends Component {
         currentlyVisibleState = 
         <Sneakers 
           onItemSelection={this.handleChangingSelectedItem} 
-          mensFilteredSneakers={this.state.mensFilteredList}
+          filteredSneakers={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
@@ -96,7 +96,7 @@ class MensClothing extends Component {
       currentlyVisibleState = 
       <Shirts
         onItemSelection={this.handleChangingSelectedItem} 
-        mensFilteredShirts={this.state.mensFilteredList}
+        filteredShirts={this.state.mensFilteredList}
         itemToShow={this.state.selectedItem}
         onClearItemStateClick={this.handleClearItemStateClick}
       />
@@ -105,7 +105,7 @@ class MensClothing extends Component {
         currentlyVisibleState =  
         <Hats 
           onItemSelection={this.handleChangingSelectedItem} 
-          mensFilteredHats={this.state.mensFilteredList}
+          filteredHats={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
@@ -114,7 +114,7 @@ class MensClothing extends Component {
         currentlyVisibleState = 
         <Jackets 
           onItemSelection={this.handleChangingSelectedItem} 
-          mensFilteredJackets={this.state.mensFilteredList}
+          filteredJackets={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
