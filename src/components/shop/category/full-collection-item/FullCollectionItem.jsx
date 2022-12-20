@@ -14,12 +14,12 @@ import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 
 export default function FullCollectionItem(props) {
-  const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, onItemSelection} = props;
+  const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, handleItemSelection} = props;
   
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
   // const navigate = useNavigate();
-
+  // console.log(items)
   // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
   // const toItemDetail = (id, name, price, img, desc, img2) => {
   //   navigate(path, {
@@ -37,8 +37,8 @@ export default function FullCollectionItem(props) {
   const goToSelectedItem = (e) => {
     const selectedItem = [props][0];
     // console.log(selectedItem)
-    // console.log({selectedItem})
-    onItemSelection(selectedItem);
+    console.log({selectedItem})
+    handleItemSelection(selectedItem);
     // this.setState({selectedItem: selectedItem})
   }
 

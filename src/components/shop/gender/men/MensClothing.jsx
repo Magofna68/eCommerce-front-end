@@ -19,21 +19,29 @@ class MensClothing extends Component {
       selectedItem: null,
       itemList:  MENS_SHOP_LIST ,
       selectedCategory: "",
+      mensFilteredList: [],
     }
   }
 
   categoryRedirect = async (clickedCategoryTitle) => {
-    console.log(clickedCategoryTitle);
     const categoryToAssign = clickedCategoryTitle
+    console.log("CATEGORY REDIRECT", categoryToAssign);
+    const mensTempFilteredList = this.state.itemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+    // console.log("MENSCLOTHING -- Before state Update", mensTempFilteredList)
     await this.setState({
-      selectedCategory: categoryToAssign
+      // mensFilteredlist: mensTempFilteredList,
+      selectedCategory: categoryToAssign,
     })
-    // console.log(this.state.currentView)
+    await this.setState({ mensFilteredList: mensTempFilteredList})
+    console.log("after state update", this.state.mensFilteredList)
+    // return mensTempFilteredList;
   }
 
   handleClick = (e) => {
     if (this.state.selectedItem != null) {
       this.setState({selectedItem: null})
+    } else if (this.state.selectedCategory != null) {
+      this.setState({selectedCategory: ""})
     }
   }
 
@@ -66,25 +74,36 @@ class MensClothing extends Component {
     if (this.state.selectedItem != null) {
       currentlyVisibleState = 
       <ItemDetail 
+        // mensFilteredList={this.state.mensFilteredList}
         itemToShow={this.state.selectedItem}
         onClearItemStateClick={this.handleClearItemStateClick} 
       />
       buttonText = "Back to Items"
     } else if (this.state.selectedCategory === "SNEAKERS") {
-      <Sneakers 
-        itemToShow={this.state.selectedItem}
-        onClearItemStateClick={this.handleClearItemStateClick}
-      />
+        currentlyVisibleState = 
+        <Sneakers 
+          mensFilteredList={this.state.mensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        buttonText = "Back to Categories"
     }  else if (this.state.selectedCategory === "HATS") {
-      <Hats 
-        itemToShow={this.state.selectedItem}
-        onClearItemStateClick={this.handleClearItemStateClick}
-      />
+        currentlyVisibleState =  
+        <Hats 
+          onItemSelection={this.handleChangingSelectedItem} 
+          mensFilteredList={this.state.mensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        buttonText = "Back to Categories"
     } else if (this.state.selectedCategory === "JACKETS") {
-      <Jackets 
-        itemToShow={this.state.selectedItem}
-        onClearItemStateClick={this.handleClearItemStateClick}
-      />
+        currentlyVisibleState = 
+        <Jackets 
+          mensFilteredList={this.state.mensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        buttonText = "Back to Categories"
     } else { 
       currentlyVisibleState = 
       <ItemList 

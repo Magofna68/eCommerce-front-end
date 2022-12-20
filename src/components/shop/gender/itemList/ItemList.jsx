@@ -40,14 +40,13 @@ export default function ItemList(props) {
             <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
               <ul className='titleContainer'>
                 {
-                  categoryTitles.map(title => (
-                    <li className="categoryTitle" onClick={()=> categoryRedirect(title)}>{title}</li>
+                  categoryTitles.map((title, index) => (
+                    <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
                   ))
                 }
               </ul>
             </Row>
-          <div 
-            className='preview'
+          <div className='preview'
             style={{ 
               flexWrap: 'wrap',
               display: 'flex',

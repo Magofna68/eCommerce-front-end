@@ -4,6 +4,8 @@ import {Card, Button } from 'react-bootstrap/'
 import { ShoppingCartContext } from '../../context/ShoppingCartContext';
 import { PropTypes } from 'prop-types';
 
+
+// Being fed from ITEMLIST
 export function CollectionItem (props) {
 const { id, name, alt, desc, details, price, img, img2, img3, img4, handleItemSelection} = props;
 
