@@ -11,6 +11,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import Sneakers from '../../category/sneakers/Sneakers';
 import Hats from '../../category/hats/Hats';
 import Jackets from '../../category/jackets/Jackets';
+import Shirts from '../../category/shirts/Shirts';
+
 
 class MensClothing extends Component {
   constructor(props) {
@@ -82,16 +84,24 @@ class MensClothing extends Component {
     } else if (this.state.selectedCategory === "SNEAKERS") {
         currentlyVisibleState = 
         <Sneakers 
-          mensFilteredList={this.state.mensFilteredList}
+          mensFilteredSneakers={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
         buttonText = "Back to Categories"
-    }  else if (this.state.selectedCategory === "HATS") {
+    }  else if (this.state.selectedCategory === "SHIRTS") {
+      currentlyVisibleState = 
+      <Shirts 
+        mensFilteredShirts={this.state.mensFilteredList}
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick}
+      />
+      buttonText = "Back to Categories"
+  } else if (this.state.selectedCategory === "HATS") {
         currentlyVisibleState =  
         <Hats 
           onItemSelection={this.handleChangingSelectedItem} 
-          mensFilteredList={this.state.mensFilteredList}
+          mensFilteredHats={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
@@ -99,7 +109,7 @@ class MensClothing extends Component {
     } else if (this.state.selectedCategory === "JACKETS") {
         currentlyVisibleState = 
         <Jackets 
-          mensFilteredList={this.state.mensFilteredList}
+          mensFilteredJackets={this.state.mensFilteredList}
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
