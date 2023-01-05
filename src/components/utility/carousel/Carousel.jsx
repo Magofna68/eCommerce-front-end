@@ -13,16 +13,30 @@ export default function CarouselComponent({dataSet}) {
     <Carousel activeIndex={index} onSelect={handleSelect} fade>
       {dataSet.map((slide, i) => {
         return (
-          <Carousel.Item interval={3500}>        
-            <img
-              className="d-block w-100"
-              src={slide.img}
-              alt={slide.alt}
-            />
-            <Carousel.Caption>
-              <h3>{slide.title}</h3>
-              <p>{slide.text}</p>
-            </Carousel.Caption>
+          <Carousel.Item 
+          // interval={3500}
+          >
+            <div className='imgContainer'>
+              <img
+                height="400px"
+                className='carouselImg'
+                // className="d-block w-80"
+                src={slide.img}
+                alt={slide.alt}
+              />
+              <img 
+                height="400px"
+                className='carouselImg'
+                src={slide.img2}
+                alt={slide.alt2}
+              />
+            </div>        
+            {/* <Carousel.Caption>
+              <div className='textBox'>
+                <h3>{slide.title}</h3>
+                <p>{slide.text}</p>
+              </div>
+            </Carousel.Caption> */}
           </Carousel.Item>
         )
       })}

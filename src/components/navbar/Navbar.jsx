@@ -107,6 +107,7 @@ export default function Navigationbar({currentUser}) {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
                 </NavDropdown> */}
+              <Link className="nav-link" to="/">HOME</Link>
                <Link className="nav-link" to="/shop" >Shop</Link>
               <Link className='nav-link' to="/shop/mens">Mens</Link>
               <Link className='nav-link' to="/shop/womens">Womens</Link>
