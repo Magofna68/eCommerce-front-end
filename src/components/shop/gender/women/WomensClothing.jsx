@@ -3,7 +3,7 @@ import { WOMENS_SHOP_LIST } from '../../../../data';
 import CollectionPreview from '../../preview-collection/CollectionPreview';
 import Queen from '../../../../assets/Queen.png';
 import './womensClothing.styles.scss';
-import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetailPage';
+import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetails';
 import ItemList from '../itemList/ItemList';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';

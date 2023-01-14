@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
-import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetailPage';
+import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetails';
 
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';

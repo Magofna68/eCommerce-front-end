@@ -67,7 +67,7 @@ export default function HomePage() {
           })
         }
         </div>
-      <div className='carouselContaner'>
+      <div className='carouselContainer'>
         <Carousel  dataSet={carouselImages}/>
         {/* <h3>ROYALTY FOR A REASON</h3> */}
       </div>

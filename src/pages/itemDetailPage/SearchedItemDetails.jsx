@@ -10,7 +10,7 @@ import SizeList from'../../components/utility/sizeList/SizeList';
 import Accordion from '../../components/utility/accordion/Accordion';;
 
 
-export default function ItemDetailPage(props) {
+export default function SearchedItemDetails(props) {
   const location = useLocation();
   const cart = useContext(ShoppingCartContext);
   const navigate = useNavigate(-1);

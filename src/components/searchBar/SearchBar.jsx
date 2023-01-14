@@ -44,8 +44,9 @@ export default function SearchBar() {
     // Save the ID into variable and filter through array of obj to find selected item
     const savedId = e.target.id;
     const savedItem = itemObj.filter(item => item.id === savedId)[0]
-    console.log("Saved Item:", savedItem)
+    console.log("Saved Item from #SearchBar:", savedItem)
     let path = 'shop/'.concat(savedItem.title).concat('/', savedId)
+    console.log("path", path)
     navigate(path, {
       state:  {
         id: savedId, 

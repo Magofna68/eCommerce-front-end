@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
-import { Route, Routes,} from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
+
 
 import './App.scss';
 import Jackets from './components/shop/category/jackets/Jackets';
@@ -8,7 +9,8 @@ import Hats from './components/shop/category/hats/Hats';
 import Sneakers from './components/shop/category/sneakers/Sneakers';
 import MensClothing from './components/shop/gender/men/MensClothing';
 import WomensClothing from './components/shop/gender/women/WomensClothing';
-import ItemDetailPage from './pages/itemDetailPage/SearchedItemDetailPage';
+import SearchedItemDetails from './pages/itemDetailPage/SearchedItemDetails';
+import ItemDetails from './pages/itemDetailPage/itemDetails/ItemDetails'
 import { Header } from './components/utility/header/Header';
 import NotFound from './pages/notFound/NotFound';
 
@@ -83,17 +85,18 @@ componentWillUnmount() {
             <Route path='shop/hats' element={<Hats/>}/>
             <Route path="/pageNotAvailable" element={<UnderConstruction />} />
             <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
+            <Route element={<NotFound />} />
+            {/* <Route path='shop/jackets/:id' element={<ItemDetail />} /> */}
 
             {/* pathway for itemDetails */}
-            <Route path='/shop/jackets/:id' element={<ItemDetailPage />} /> 
-            <Route path='shop/hats/:id' element={<ItemDetailPage />} /> 
-            <Route path='/shop/sneakers/:id' element={<ItemDetailPage />} /> 
+            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} /> 
+            <Route path='shop/hats/:id' element={<SearchedItemDetails />} /> 
+          </Routes>
+            {/* <Route path='/shop/sneakers/:id' element={<ItemDetailPage />} /> 
             <Route path='shop/shirts/:id' element={<ItemDetailPage />} />
             <Route path='shop/mens/:id' element={<ItemDetailPage />} /> 
-            <Route path='shop/womens/:id' element={<ItemDetailPage />} /> 
+            <Route path='shop/womens/:id' element={<ItemDetailPage />} />  */}
             {/* <Route path='shop/womens/womens' element={<HomePage />} /> */}
-            <Route element={<NotFound />} />
-          </Routes>
         </Router>
       </CartProvider>
     )
