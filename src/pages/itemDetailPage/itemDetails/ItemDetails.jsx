@@ -3,10 +3,10 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 // import SizeList from '../../components/utility/sizeList/SizeList';
-import SizeList from '../../../components/utility/sizeList/SizeList';
-import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping';
-import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext';
-import Accordion from '../../../components/utility/accordion/Accordion';
+import SizeList from '../../../components/utility/sizeList/SizeList.jsx';
+import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping.jsx';
+import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext.jsx';
+import Accordion from '../../../components/utility/accordion/Accordion.jsx';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import CheckIcon from '@mui/icons-material/Check';

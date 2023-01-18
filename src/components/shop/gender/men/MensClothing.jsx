@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { MENS_SHOP_LIST } from '../../../../data';
+import { MENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
 import './mensClothing.styles.scss';
-import ItemList from '../itemList/ItemList';
+import ItemList from '../itemList/ItemList.jsx';
 import Button from 'react-bootstrap/Button';
-import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';
-import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb';
+import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
+import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
-import Sneakers from '../../category/sneakers/Sneakers';
-import Hats from '../../category/hats/Hats';
-import Jackets from '../../category/jackets/Jackets';
-import Shirts from '../../category/shirts/Shirts';
+import Sneakers from '../../category/sneakers/Sneakers.jsx';
+import Hats from '../../category/hats/Hats.jsx';
+import Jackets from '../../category/jackets/Jackets.jsx';
+import Shirts from '../../category/shirts/Shirts.jsx';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 

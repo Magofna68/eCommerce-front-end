@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import './searchBar.styles.scss';
-import {SHOP_DATA} from '../../data';
+import {SHOP_DATA} from '../../data.jsx';
 import Crown from '../../assets/crown.png';
 
 import Container from 'react-bootstrap/Container';
@@ -59,6 +59,8 @@ export default function SearchBar() {
         img4: savedItem.img4,
         desc: savedItem.desc,
         detail: savedItem.detail,
+        reviewStars: savedItem.reviewStars,
+        onAvgRating: savedItem.onAvgRating,
       }
     })
     handleClose()

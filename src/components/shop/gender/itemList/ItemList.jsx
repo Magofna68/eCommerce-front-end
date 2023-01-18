@@ -1,13 +1,13 @@
 import React from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
-import CollectionItem from '../../collection-item/CollectionItem';
-import CollectionPreview from '../../preview-collection/CollectionPreview';
+import CollectionItem from '../../collection-item/CollectionItem.jsx';
+import CollectionPreview from '../../preview-collection/CollectionPreview.jsx';
 import { PropTypes } from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
-import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Row from 'react-bootstrap/Row'
 
 export default function ItemList(props) {

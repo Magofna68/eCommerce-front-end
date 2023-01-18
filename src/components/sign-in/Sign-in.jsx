@@ -1,7 +1,7 @@
 import React, { Component, setState } from 'react'
 import './sign-in.styles.scss';
-import FormInput from '../form-input/Form-input';
-import CustomButton from '../utility/custom-button/Custom-button';
+import FormInput from '../form-input/Form-input.jsx';
+import CustomButton from '../utility/custom-button/Custom-button.jsx';
 import { auth, signInWithGoogle } from '../../firebase/Firebase.utils';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';

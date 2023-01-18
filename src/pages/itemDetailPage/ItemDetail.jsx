@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemDetails from './itemDetails/ItemDetails';
+import ItemDetails from './itemDetails/ItemDetails.jsx';
 
 export default function ItemDetail(props) {
   const { itemToShow, onClearItemStateClick } = props;

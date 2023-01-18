@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 // import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
-import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetails';
+import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetails.jsx';
 
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { Route, Routes,} from 'react-router-dom';
 
 
 import './fullCollectionItem.styles.scss';
-import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
+import { ShoppingCartContext } from '../../../context/ShoppingCartContext.jsx';
 
 
 export default function FullCollectionItem(props) {

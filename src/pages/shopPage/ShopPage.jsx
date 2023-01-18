@@ -1,5 +1,5 @@
 import './shopPage.styles.scss'
-import Directory from './directory/Directory';
+import Directory from './directory/Directory.jsx';
 import React from 'react';
   
   export default function ShopPage() {

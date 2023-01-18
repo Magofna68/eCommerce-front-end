@@ -1,7 +1,7 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import {Link} from 'react-router-dom';
-import ReviewTemplate from '../reviewTemplate/ReviewTemplate';
+import ReviewTemplate from '../reviewTemplate/ReviewTemplate.jsx';
 import './accordion.styles.scss';
 
 

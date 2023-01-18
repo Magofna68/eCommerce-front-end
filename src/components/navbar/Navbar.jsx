@@ -16,15 +16,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 
 import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
-import HomePage from '../../pages/homePage/HomePage';
-import ContactPage from '../../pages/contactPage/ContactPage';
-import ShopPage from '../../pages/shopPage/ShopPage';
-import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
-import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
+import HomePage from '../../pages/homePage/HomePage.jsx';
+import ContactPage from '../../pages/contactPage/ContactPage.jsx';
+import ShopPage from '../../pages/shopPage/ShopPage.jsx';
+import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage.jsx';
+import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage.jsx';
 
 import Logo from '../../assets/crown.png'
-import { ShoppingCartContext } from '../context/ShoppingCartContext';
-import SearchBar from '../searchBar/SearchBar';
+import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
+import SearchBar from '../searchBar/SearchBar.jsx';
 
 import { Route, Link, Routes, } from 'react-router-dom';
 
@@ -107,7 +107,8 @@ export default function Navigationbar({currentUser}) {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
                 </NavDropdown> */}
-              <Link className="nav-link" to="/">HOME</Link>
+              
+              <Link className="nav-link" to="/#">HOME</Link>
                <Link className="nav-link" to="/shop" >Shop</Link>
               <Link className='nav-link' to="/shop/mens">Mens</Link>
               <Link className='nav-link' to="/shop/womens">Womens</Link>
@@ -267,7 +268,7 @@ export default function Navigationbar({currentUser}) {
               </Modal.Body>
           </Modal>
 
-          <Routes>
+          {/* <Routes>
             <Route path="/" exact element={<HomePage />}>
             </Route>
             <Route path='login'  element={<SignInAndSignUpPage />}></Route>
@@ -275,7 +276,7 @@ export default function Navigationbar({currentUser}) {
             <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
             <Route path='contact' element={<ContactPage />}></Route>
-          </Routes>
+          </Routes> */}
         </Container> 
   )
 }

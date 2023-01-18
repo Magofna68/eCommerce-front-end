@@ -4,10 +4,10 @@ import './searchedItemDetailPage.styles.scss';
 import {useLocation } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
 import { Container, Row, Col, Button, } from 'react-bootstrap';
-import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb';
-import { ShoppingCartContext } from '../../components/context/ShoppingCartContext';
-import SizeList from'../../components/utility/sizeList/SizeList';
-import Accordion from '../../components/utility/accordion/Accordion';;
+import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
+import { ShoppingCartContext } from '../../components/context/ShoppingCartContext.jsx';
+import SizeList from'../../components/utility/sizeList/SizeList.jsx';
+import Accordion from '../../components/utility/accordion/Accordion.jsx';;
 
 
 export default function SearchedItemDetails(props) {

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { getProductData } from '../../data';
+import { getProductData } from '../../data.jsx';
 import { Notyf } from 'notyf';
 
 export const ShoppingCartContext = createContext({

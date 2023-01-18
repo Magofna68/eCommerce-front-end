@@ -2,14 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import Header from './components/common/Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
+// import CartProvider from './components/context/ShoppingCartContext';
+import CartProvider from './components/context/ShoppingCartContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Header /> */}
-      <App />
+    <HashRouter hashType="slash" basename='/'>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </HashRouter>
   </React.StrictMode>
 );

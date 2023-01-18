@@ -1,7 +1,7 @@
 import './collectionItem.styles.scss';
 import React, { useContext } from 'react';
 import {Card, Button } from 'react-bootstrap/'
-import { ShoppingCartContext } from '../../context/ShoppingCartContext';
+import { ShoppingCartContext } from '../../context/ShoppingCartContext.jsx';
 import { PropTypes } from 'prop-types';
 
 

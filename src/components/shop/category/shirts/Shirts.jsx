@@ -1,7 +1,7 @@
 import React from 'react'
 import './shirts.styles.scss';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection';
-import { SHOP_DATA } from '../../../../data';
+import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
+import { SHOP_DATA } from '../../../../data.jsx';
 
 export default function Shirts(props) {
   const { onItemSelection, filteredShirts, itemToShow } = props;

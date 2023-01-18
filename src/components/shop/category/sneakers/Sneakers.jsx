@@ -1,6 +1,6 @@
 import React from 'react'
-import {SHOP_DATA} from '../../../../data';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection';
+import {SHOP_DATA} from '../../../../data.jsx';
+import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
 
 
 export default function Sneakers(props) {

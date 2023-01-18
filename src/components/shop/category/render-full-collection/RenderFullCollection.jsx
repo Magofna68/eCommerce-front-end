@@ -1,10 +1,10 @@
 import React from 'react'
-import FullCollectionItem from '../full-collection-item/FullCollectionItem';
-import CollectionItem from '../../collection-item/CollectionItem';
+import FullCollectionItem from '../full-collection-item/FullCollectionItem.jsx';
+import CollectionItem from '../../collection-item/CollectionItem.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 
 
 export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (

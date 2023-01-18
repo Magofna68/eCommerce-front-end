@@ -6,8 +6,8 @@ import Col from 'react-bootstrap/Col';
 
 import './sign-in-sign-up.syles.scss';
 
-import SignIn from '../../components/sign-in/Sign-in';
-import SignUp from '../../components/sign-up/Sign-up'
+import SignIn from '../../components/sign-in/Sign-in.jsx';
+import SignUp from '../../components/sign-up/Sign-up.jsx'
 
 const SignInAndSignUpPage = () => {
   

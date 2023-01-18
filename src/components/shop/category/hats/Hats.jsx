@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import {SHOP_DATA} from '../../../../data'
+import {SHOP_DATA} from '../../../../data.jsx'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection';
+import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
 
 export default function Hats(props) {
   const { onItemSelection, filteredHats, itemToShow } = props;

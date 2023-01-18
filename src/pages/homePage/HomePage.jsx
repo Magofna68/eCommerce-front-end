@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './homePage.styles.scss';
 // import { Container, Row, Col } from 'react-bootstrap';
-import  { SHOP_DATA }  from '../../data';
-import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview';
-import Carousel from '../../components/utility/carousel/Carousel';
+import  { SHOP_DATA }  from '../../data.jsx';
+import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview.jsx';
+import Carousel from '../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
@@ -35,8 +35,10 @@ export default function HomePage() {
       text: '',
     }
   ]
-
+  
+ 
   const categories = ['shirts', 'jackets', 'footwear', 'hats']
+  
   return (
     <Container fluid>
       <h1 className="headerUnderground">UNDERGROUND</h1>
