@@ -136,8 +136,8 @@ class WomensClothing extends Component {
       <div>
         {
           buttonText === "Home" ?
-        <div className="backdropContain">
-          <div className='backdropMobile'>
+        <div className="womensBackdropContain">
+          <div className='womensBackdropMobile'>
             <h1>Women's</h1><h1>Clothing</h1>
           </div>
             <img src={Queen} alt="Queen" width="150px" />

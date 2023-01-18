@@ -44,10 +44,7 @@ export default function HomePage() {
       <h1 className="headerUnderground">UNDERGROUND</h1>
       <h1 className='headerRoyalty'>ROYALTY</h1>
       <img 
-        style={{
-          marginTop: '-75px', 
-          zIndex: '-1'
-        }} 
+        className='homePageImg'
         width="600px" 
         alt="five people jumping" 
         src="https://media.istockphoto.com/id/511794734/photo/five-happy-friends-jumping-on-the-beach-for-summer.jpg?s=170667a&w=0&k=20&c=BWwtojl4AQT3AiEg5kmZx2pSinmkUBHKZB6Yo1CbY_M="></img>

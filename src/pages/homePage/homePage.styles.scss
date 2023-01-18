@@ -18,9 +18,23 @@
   }
 }
 
+.homePageImg{
+  z-index: -1;
+  margin-top: -75px;
+
+  @media only screen and (max-width: 420px) {
+    width: 350px;
+    margin-top: -75px;
+  }
+}
+
 .headerUnderground {
   font-family: 'Oswald', sans-serif;
   font-size: 90px;
+
+  @media only screen and (max-width: 420px) {
+    font-size: 50px;
+  }
 }
 
 .headerRoyalty{
@@ -28,4 +42,8 @@
   font-family: 'East Sea Dokdo', cursive;
   font-size: 75px;
   margin-top: -5%;
+
+  @media only screen and (max-width: 420px) {
+    margin-top: -11%;
+  }
 }

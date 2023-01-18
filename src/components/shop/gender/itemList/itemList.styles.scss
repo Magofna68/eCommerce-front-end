@@ -13,11 +13,16 @@ div.collectionPreview.container-true {
 }
 
 #title{
-  margin-left: 2%;
-  margin-bottom: 7%;
+  width: 100px;
+  padding: 3% 0 7% 5%;
+  justify-content: left;
+  align-items: left;
+  display: flex;
 
   @media only screen and (max-width: 500px) {
-    margin-bottom: 10%;
+    font-size: 1.1rem;
+    // margin-bottom: 6%;
+    padding: 2% 0 20% 7%;
   }
 }
 

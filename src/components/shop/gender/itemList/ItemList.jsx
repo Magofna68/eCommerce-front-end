@@ -29,7 +29,7 @@ export default function ItemList(props) {
     <>
     <Breadcrumb />
         <Container fluid="true" className='collectionPreview'>
-          <h1 id="title">Shop</h1>
+          <h1 id="title">SHOP</h1>
           {/* <div className='titleContainer'> */}
           {/* <h2>
             <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
