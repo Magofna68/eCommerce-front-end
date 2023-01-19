@@ -56,8 +56,8 @@ handleChange = (e) => {
 
   render() {
     return (
-      <div className='sign-in'>
-        <Container fluid>
+      // <div className='sign-in'>
+        <Container fluid className="sign-in">
           <h2>I already have an account</h2>
           <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
@@ -93,7 +93,7 @@ handleChange = (e) => {
           </div>
         </form>
         </Container>
-      </div>
+      // </div>
     )
   }
 }

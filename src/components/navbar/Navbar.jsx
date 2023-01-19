@@ -95,9 +95,11 @@ export default function Navigationbar({currentUser}) {
                   alt='logo'>
                 </img>
              </Navbar.Brand>
-             <h2 className='w3-monospace'>Underground ROYALTY</h2>
+             <div styles={{ display: 'flex', flexDirection: 'row'}}><h4 className='w3-monospace'>Underground ROYALTY
+                 </h4>
+                 </div>
              <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
-             <NavbarCollapse className='justify-content-end navbar-toggle'>
+             <NavbarCollapse className='justify-content-center navbar-toggle'>
                <Nav className='ml-auto'>
                 {/* <NavDropdown title="Women's" id="basic-nav-dropdown">
                   <NavDropdown.Divider />
@@ -109,25 +111,21 @@ export default function Navigationbar({currentUser}) {
                 </NavDropdown> */}
               
               <Link className="nav-link" to="/#">HOME</Link>
-               <Link className="nav-link" to="/shop" >Shop</Link>
+              <Link className="nav-link" to="/shop" >Shop</Link>
               <Link className='nav-link' to="/shop/mens">Mens</Link>
               <Link className='nav-link' to="/shop/womens">Womens</Link>
-               <Link className='nav-link' to='/contact'>contact</Link>
+              <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
-                  <span style={{
-                    marginRight: '3%',
-                
-                    }}
-                  >
-                  <Button
-                    style={{
-                      width: '3rem',
-                      height: '3rem',
-                      position: 'relative',
-                    }}
-                    variant="outline-primary"
-                    className="rounded-circle"
-                    onClick={handleShow}
+                  <span className='cartIcon'>
+                    <Button
+                      style={{
+                        width: '3rem',
+                        height: '3rem',
+                        position: 'relative',
+                      }}
+                      variant="outline-primary"
+                      className="rounded-circle"
+                      onClick={handleShow}
                     >
                     <ShoppingCartOutlinedIcon fontSize="medium" style={{ marginRight: '3%'}}/>
                     <div 
@@ -141,11 +139,10 @@ export default function Navigationbar({currentUser}) {
                         width: '1.5rem',
                         height: '1.5rem',
                         position: 'absolute',
-                      }}
-                      >
+                    }}>
                       {productCount}
                     </div>
-                  </Button>
+                    </Button>
                   </span>
               </Nav>
             </NavbarCollapse>
