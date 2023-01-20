@@ -47,13 +47,13 @@ export default function ItemDetails(props) {
   ]
   
   const clothesSize = [
-    {id: 0, value: 'XS'},
-    {id: 1, value: 'S'},
-    {id: 2, value: 'M'},
-    {id: 3, value: 'L'},
-    {id: 4, value: 'XL'},
-    {id: 5, value: 'XXL'},
-    {id: 6, value: '3XL'},
+    {id: 1, value: 'XS'},
+    {id: 2, value: 'S'},
+    {id: 3, value: 'M'},
+    {id: 4, value: 'L'},
+    {id: 5, value: 'XL'},
+    {id: 6, value: 'XXL'},
+    {id: 7, value: '3XL'},
   ]
   
   
@@ -149,35 +149,45 @@ export default function ItemDetails(props) {
               <span className='img' >
                 <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
               </span>
-              <span className="img" >
-                <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
-              </span>
-              <span className="img" >
-                <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
-              </span>
+              {
+                img3 ?
+                <span className="img" >
+                  <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
+                </span>
+                :
+                null
+              }
+              {
+                img4 ?
+                  <span className="img" >
+                    <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
+                  </span>
+                : 
+                  null
+              }
             </div>
-          
-          <Row>
-          
-          </Row>
           </Col>
 
-        <Col sm={12} md={6} lg={5} xl={5} style={{padding: 0}}>
-          <span className='itemName' onClick={() => handleAvgRating()}>
-            <h2><strong>{name}</strong></h2>
-          </span>
+          <Col sm={12} md={6} lg={5} xl={5} style={{padding: 0}}>
+            <span className='itemName'>
+              <h2>
+                <strong>{name}</strong>
+              </h2>
+            </span>
+
             <span 
               style={{
                 display: 'flex', 
                 justifyContent: 'center', 
                 marginBottom: '2%'
-              }}
-            >
+            }}>
               {reviewStars(handleAvgRating())}
             </span>
+
             <span id="priceContainer">
               <h3>${price}</h3>
             </span>
+
           <div className='chipContainer'>
             {
               selectedSize ?
@@ -194,6 +204,7 @@ export default function ItemDetails(props) {
                 null
               }
             </div>
+
             <span style={{
               fontSize: '12px', 
               fontWeight: 600
@@ -247,48 +258,42 @@ export default function ItemDetails(props) {
 
           {
             selectedSize ?
-            <div className='w-100 fade-in-chip'>
-            {
-              productQuantity === 0 ? (
-                <Button 
-                onClick={() => cart.addOneItemToCart(id, name, price, img, value)}
-                variant="outline-primary" 
-                className="w-100"
-                style={{
-                  border: 'none',
-                }}>
-                    + Add to Cart
-                </Button>
-              ) 
-              : 
+              <div className='w-100 fade-in-chip'>
+                {
+                  productQuantity === 0 ? 
+                  (
+                    <Button 
+                      onClick={() => cart.addOneItemToCart(id, name, price, img, value)}
+                      variant="outline-primary" 
+                      className="w-100"
+                      style={{
+                        border: 'none',
+                    }}>
+                        + Add to Cart
+                    </Button>
+                  ) 
+            : 
               <>
-                <div 
-                  className='d-flex align-items-center flex-column fade-in-chip' 
-                  style={{gap: '.5rem'}}
-                  >
                   <div 
-                    className='d-flex align-items-center justify-content-center'
+                    className='d-flex align-items-center flex-column fade-in-chip' 
                     style={{gap: '.5rem'}}
+                  >
+                    <div 
+                      className='d-flex align-items-center justify-content-center'
+                      style={{gap: '.5rem'}}
                     >
-                    {/* <div>
-                      <span className='fs-3'>{productQuantity}</span> in cart
-                    </div> */}
-                    <div style={{color: 'gray'}}>
-                    {/* <span style={{fontSize: '12px'}}>Added to Cart:</span><br/> */}
-                    <CheckIcon />
-                    <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
-                    {/* <br/><span style={{ fontSize: '10px', marginTop: '-5%'}}>Remove from Cart</span> */}
+                      <div style={{color: 'gray'}}>
+                        <CheckIcon />
+                        <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
                     </div>
-                    {/* <Button onClick={() => cart.addOneItemToCart(id)}>+</Button> */}
                   </div>
-                   {/* <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button> */}
-                    {/* <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button> */}
                 </div>
               </>
             }
-          </div>
-          : null
-        }
+            </div>
+            : 
+            null
+          }
         </div>
         </Col>
       </Row>

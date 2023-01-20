@@ -16,11 +16,7 @@ export default function SearchedItemDetails(props) {
   const cart = useContext(ShoppingCartContext);
   const navigate = useNavigate(-1);
   const location = useLocation();
-  
-  useEffect(()=> {
-    console.log(location)
-  }, [location]);
-
+  // coming from searchBar
     let name = location.state.name;
     let id= location.state.id
     let price = location.state.price;
@@ -31,13 +27,9 @@ export default function SearchedItemDetails(props) {
     let desc = location.state.desc;
     let detail = location.state.detail;
     let alt = location.state.detail;
-    // let reviewStars = location.state.reviewStars;
     let reviews = location.state.reviews;
-    console.log(reviews)
-
 
   function handleAvgRating() {
-    console.log({reviews})
     let tempRating1 = reviews[0].rating
     let tempRating2 = reviews[1].rating
     let tempRating3 = reviews[2].rating
@@ -77,13 +69,13 @@ export default function SearchedItemDetails(props) {
     ]
     
     const clothesSize = [
-      {id: 0, value: 'XS'},
-      {id: 1, value: 'S'},
-      {id: 2, value: 'M'},
-      {id: 3, value: 'L'},
-      {id: 4, value: 'XL'},
-      {id: 5, value: 'XXL'},
-      {id: 6, value: '3XL'},
+      {id: 1, value: 'XS'},
+      {id: 2, value: 'S'},
+      {id: 3, value: 'M'},
+      {id: 4, value: 'L'},
+      {id: 5, value: 'XL'},
+      {id: 6, value: 'XXL'},
+      {id: 7, value: '3XL'},
     ]
     
     
@@ -167,9 +159,14 @@ export default function SearchedItemDetails(props) {
               <span className='img' >
                 <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
               </span>
-              <span className="img" >
-                <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
-              </span>
+              {
+                img3 ?
+                <span className="img" >
+                  <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
+                </span>
+                :
+                null
+              }
               {
                 img4 ?
                   <span className="img" >
@@ -182,24 +179,13 @@ export default function SearchedItemDetails(props) {
           {/* </Row> */}
         </Col>
 
-      <Col sm={6} md={5} lg={5} xl={5}>
-        <span className='itemName'><h2><strong>{name}</strong></h2></span>
-                <div className='chipContainer'>
-                  {
-                    selectedSize ?
-                    <span className='fade-in-chip'>
-                      <Chip  
-                        variant="outlined" 
-                        color="success" 
-                        size="small"
-                        label={chip}
-                        onDelete={handleDelete} 
-                        />
-                    </span>
-                      :
-                      null
-                    }
-                  </div>
+      <Col sm={12} md={6} lg={5} xl={5} style={{padding: 0}}>
+        <span className='itemName'>
+          <h2>
+            <strong>{name}</strong>
+          </h2>
+        </span>
+
         <span 
           style={{
             display: 'flex', 
@@ -208,20 +194,36 @@ export default function SearchedItemDetails(props) {
           }}>
               {reviewStars(handleAvgRating())}
             </span>
+
           <span id="priceContainer">
             <h3>${price}</h3>
           </span>
+
+            <div className='chipContainer'>
+              {
+                selectedSize ?
+                <span className='fade-in-chip'>
+                  <Chip  
+                    variant="outlined" 
+                    color="success" 
+                    size="small"
+                    label={chip}
+                    onDelete={handleDelete} 
+                    />
+                </span>
+                  :
+                  null
+                }
+              </div>
+
         <span style={{
             fontSize: '12px', 
             fontWeight: 600
           }}
           >
-            <br/>
           Select Size:
         </span>
-        {/* {
 
-        } */}
         <div className='sizeContainer'>
           {
             props.title === 'sneakers' ?
@@ -240,170 +242,67 @@ export default function SearchedItemDetails(props) {
                   key={id}
                   id={id}
                   value={value}
-                  onClick={() => console.log(id)}
+                  onClick={() => console.log(selectedSize)}
                   onSizeSelect={handleSizeSelect}
                   active={selectedSize === id}
                 />
               )
             }
         </div>
+
         <div style={{ textAlign: 'left', marginTop: '-3%'}}>
           <Accordion 
             desc={desc} 
             details={detailList}
             reviews={reviews} 
             onAvgRating={handleAvgRating()}
-            reviewStars={reviewStars}/>              
+            reviewStars={reviewStars}
+          />              
         </div>
-        <div style={{ height: '35px'}}>
 
+        <div style={{ height: '35px'}}>
         {
           selectedSize ?
           <div className='w-100 fade-in-chip'>
-          {
-            productQuantity === 0 ? (
-              <Button 
-              onClick={() => cart.addOneItemToCart(id, name, price, img)}
-              variant="outline-primary" 
-              className="w-100"
-              style={{
-                border: 'none',
-              }}>
-                  + Add to Cart
-              </Button>
-            ) 
-            : 
-            <>
+            {
+              productQuantity === 0 ? 
+                (
+                <Button 
+                  onClick={() => cart.addOneItemToCart(id, name, price, img)}
+                  variant="outline-primary" 
+                  className="w-100"
+                  style={{
+                    border: 'none',
+                }}>
+                    + Add to Cart
+                </Button>
+                ) 
+              : 
+              <>
                 <div 
                   className='d-flex align-items-center flex-column fade-in-chip' 
                   style={{gap: '.5rem'}}
-                  >
+                >
                   <div 
                     className='d-flex align-items-center justify-content-center'
                     style={{gap: '.5rem'}}
-                    >
-                    {/* <div>
-                      <span className='fs-3'>{productQuantity}</span> in cart
-                    </div> */}
+                  >
                     <div style={{color: 'gray'}}>
-                    {/* <span style={{fontSize: '12px'}}>Added to Cart:</span><br/> */}
-                    <CheckIcon />
-                    <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
-                    {/* <br/><span style={{ fontSize: '10px', marginTop: '-5%'}}>Remove from Cart</span> */}
+                      <CheckIcon />
+                      <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
                     </div>
-                    {/* <Button onClick={() => cart.addOneItemToCart(id)}>+</Button> */}
                   </div>
-                   {/* <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button> */}
-                    {/* <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button> */}
                 </div>
               </>
-            // <>
-            //   <div 
-            //     className='d-flex align-items-center flex-column' 
-            //     style={{gap: '.5rem'}}
-            //     >
-            //     <div 
-            //       className='d-flex align-items-center justify-content-center'
-            //       style={{gap: '.5rem'}}
-            //       >
-            //       <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
-            //       <div>
-            //         <span className='fs-3'>{productQuantity}</span> in cart
-            //       </div>
-            //       <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
-            //     </div>
-            //       <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
-            //   </div>
-            // </>
-          }
-        </div>
-        : null
-      }
+            }
+          </div>
+          : 
+          null
+        }
       </div>
       </Col>
     </Row>
   </Container>
   </>
-
-    // <Container fluid="md">
-    //   <Row>
-    //     <Col sm={8}>
-    //       <div 
-    //         styles={{
-    //           width: '90vw',
-
-    //         }}>
-    //           <img src={img} alt="test" width="100%"></img></div></Col>
-    //     <Col sm={4}>
-    //       <span className='itemName'><h2><strong>{name}</strong></h2></span>
-    //       <span style={{ 
-    //           fontSize: '25px',
-    //           fontWeight: 500,
-    //           display: 'flex', 
-    //           justifyContent: 'center',
-    //       }}>${price}</span><br/>
-    //       <span style={{
-    //           fontSize: '12px', 
-    //           fontWeight: 600
-    //         }}>Select Size:</span>
-    //       <div className='sizeContainer'>
-    //         {
-    //           shoeSize.map((size) => 
-    //           <li className="shoeSize">{size}</li>
-    //           )
-    //         }
-    //       </div>
-    //       <div className='w-100'>
-    //         {productQuantity === 0 ? (
-    //           <Button 
-    //             onClick={() => cart.addOneItemToCart(id, name, price, img)}
-    //             variant="outline-primary" 
-    //             className="w-100"
-    //             style={{
-    //             border: 'none',
-    //             //  marginBottom: '1px',
-    //             }}
-    //           >+ Add to Cart
-    //             {/* <AddShoppingCartSharpIcon 
-    //               font="large"  
-    //               variant="outline-primary"
-    //               className="rounded-circle"
-    //             /> */}
-    //           </Button>
-    //         ) : <>
-    //           <div 
-    //             className='d-flex align-items-center flex-column' 
-    //             style={{gap: '.5rem'}}
-    //           >
-    //             <div 
-    //               className='d-flex align-items-center justify-content-center'
-    //               style={{gap: '.5rem'}}
-    //             >
-    //               <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
-    //               <div>
-    //                 <span className='fs-3'>{productQuantity}</span> in cart
-    //               </div>
-    //               <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
-    //             </div>
-    //             <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
-    //           </div>
-    //           </>}
-    //       </div>
-    //     </Col>
-    //   </Row>
-    //   <Row>
-    //     {/* <Col>${price}</Col> */}
-    //     <Col><img src={img2} alt="" width="80px"></img></Col>
-    //   </Row>
-    //   {/* <Row>
-    //   </Row> */}
-    // </Container>
-    )
-  }
-  
-  // <div>
-  // <h2>ItemDetailPage</h2>
-  // <h4>{name}</h4>
-  // <h5>{name}</h5>
-  // <button onClick={()=>console.log(name)}>Try Me</button>
-  // </div>
+  )
+}
