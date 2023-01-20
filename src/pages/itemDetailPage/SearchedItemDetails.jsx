@@ -1,5 +1,8 @@
-import { useNavigate } from 'react-router';
 import React, {useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router';
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import CheckIcon from '@mui/icons-material/Check';
 import './searchedItemDetailPage.styles.scss';
 import {useLocation } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
@@ -9,120 +12,155 @@ import { ShoppingCartContext } from '../../components/context/ShoppingCartContex
 import SizeList from'../../components/utility/sizeList/SizeList.jsx';
 import Accordion from '../../components/utility/accordion/Accordion.jsx';;
 
-
 export default function SearchedItemDetails(props) {
-  const location = useLocation();
   const cart = useContext(ShoppingCartContext);
   const navigate = useNavigate(-1);
+  const location = useLocation();
   
-  let name = location.state.name;
-  let id= location.state.id
-  let price = location.state.price;
-  let img = location.state.img;
-  let img2 = location.state.img2;
-  let img3 = location.state.img3;
-  let img4 = location.state.img4;
-  let desc = location.state.desc;
-  let detail = location.state.detail;
+  useEffect(()=> {
+    console.log(location)
+  }, [location]);
+
+    let name = location.state.name;
+    let id= location.state.id
+    let price = location.state.price;
+    let img = location.state.img;
+    let img2 = location.state.img2;
+    let img3 = location.state.img3;
+    let img4 = location.state.img4;
+    let desc = location.state.desc;
+    let detail = location.state.detail;
+    let alt = location.state.detail;
+    // let reviewStars = location.state.reviewStars;
+    let reviews = location.state.reviews;
+    console.log(reviews)
+
+
+  function handleAvgRating() {
+    console.log({reviews})
+    let tempRating1 = reviews[0].rating
+    let tempRating2 = reviews[1].rating
+    let tempRating3 = reviews[2].rating
+    let totalRating = tempRating1 + tempRating2 + tempRating3;
+    let averageRating = totalRating / 3;
+    return (
+      averageRating
+    )
+  }
+
   
   const productQuantity = cart.getProductQuantity(id);
-
+  
   const [ selectedSize, setSelectedSize ] = useState('');
   const [ isActive, setIsActive ] = useState(false);
   const [ value, setValue ] = useState('');
   const [ selectedImg, setSelectedImg ] = useState('img')
   const [activeImg, setActiveImg ] = useState({
     img: [ {img}, {img2}, {img3}, {img4} ] })
-
-  const sneakers = [
-    { id: 6, value: 6 },
-    { id: 6.5, value: 6.5 },
-    { id: 7, value: 7 },
-    { id: 7.5, value: 7.5 },
-    { id: 8, value: 8 },
-    { id: 8.5, value: 8.5 },
-    { id: 9, value: 9 },
-    { id: 9.5, value: 9.5 },
-    { id: 10, value: 10 },
-    { id: 10.5, value: 10.5 },
-    { id: 11, value: 11 },
-    { id: 11.5, value: 11.5 },
-    { id: 12, value: 12 },
-    { id: 12.5, value: 12.5 },
-    { id: 13, value: 13 },
-  ]
-  
-  const clothesSize = [
-    {id: 0, value: 'XS'},
-    {id: 1, value: 'S'},
-    {id: 2, value: 'M'},
-    {id: 3, value: 'L'},
-    {id: 4, value: 'XL'},
-    {id: 5, value: 'XXL'},
-    {id: 6, value: '3XL'},
-  ]
-  
-  
-  function handleSizeSelect(id, value) {
-    console.log("ID", selectedSize)
-    console.log("Active", isActive)
-    setValue(value)
-    setSelectedSize(id)
-  }
-
-  function handleDelete() {
-    setSelectedSize('');
-  }
-
-  useEffect(() => {
-    setIsActive(current => !current)
-   }, [ selectedSize]);
-
-  let chip = `Size ${value}`
-
-  const details = detail;
-  const detailList = details.map((detail) => 
-    <li className='detailItem'>{detail}</li>
-  );
-
-  useEffect(() => {
-    switch(selectedImg) {
-      case "img": 
-        setActiveImg(img);
-      break;
-      case "img2": 
-        setActiveImg(img2);
-      break;
-      case "img3": 
-        setActiveImg(img3);
-      break;
-      case "img4": 
-        setActiveImg(img4);
-      break;
-      default:
-        setActiveImg(img)
+    
+    const sneakers = [
+      { id: 6, value: 6 },
+      { id: 6.5, value: 6.5 },
+      { id: 7, value: 7 },
+      { id: 7.5, value: 7.5 },
+      { id: 8, value: 8 },
+      { id: 8.5, value: 8.5 },
+      { id: 9, value: 9 },
+      { id: 9.5, value: 9.5 },
+      { id: 10, value: 10 },
+      { id: 10.5, value: 10.5 },
+      { id: 11, value: 11 },
+      { id: 11.5, value: 11.5 },
+      { id: 12, value: 12 },
+      { id: 12.5, value: 12.5 },
+      { id: 13, value: 13 },
+    ]
+    
+    const clothesSize = [
+      {id: 0, value: 'XS'},
+      {id: 1, value: 'S'},
+      {id: 2, value: 'M'},
+      {id: 3, value: 'L'},
+      {id: 4, value: 'XL'},
+      {id: 5, value: 'XXL'},
+      {id: 6, value: '3XL'},
+    ]
+    
+    
+    function handleSizeSelect(id, value) {
+      setValue(value)
+      setSelectedSize(id)
     }
-  console.log(activeImg)}, [selectedImg])
+    
+    function handleDelete() {
+      setSelectedSize('');
+    }
+    
+    useEffect(() => {
+      setIsActive(current => !current)
+    }, [ selectedSize]);
+    
+    let chip = `Size ${value}`
+    
+    const details = detail;
+    const detailList = details.map((detail) => 
+    <li className='detailItem'>{detail}</li>
+    );
+    
+    useEffect(() => {
+      switch(selectedImg) {
+        case "img": 
+        setActiveImg(img);
+        break;
+        case "img2": 
+        setActiveImg(img2);
+        break;
+        case "img3": 
+        setActiveImg(img3);
+        break;
+        case "img4": 
+        setActiveImg(img4);
+        break;
+        default:
+          setActiveImg(img)
+        }
+        console.log(activeImg)}, [selectedImg])
 
-  
+
+    function reviewStars(num) {
+    // BUG: pushes numerical value into array or is posting it to the DOM
+      let stars = [];
+      let value = Math.trunc(num);
+
+      for (let i=0; i<value; i++) {
+        stars.push(<StarIcon fontSize="small" />)
+      }
+      return (
+        <span onClick={() => console.log({stars})}>
+          {
+            value < num ?
+            stars.push(<StarHalfIcon fontSize="small" />)
+            :
+            null
+          }
+          {stars}
+        </span>
+      );
+    };
+        
   return (
     <>
     <span id="returnIcon" onClick={navigate}>
       <Breadcrumb />
     </span>
-    <Container fluid="md">
-    <Row>
-        <Col sm={6} lg={7} md={7} xl={7}>
-          {/* <div className='imagesContain'> */}
-        <div 
-        className='activeImage'
-        >
-            <img src={activeImg} alt="test" width="100%"></img>
-        </div>
-        <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
-          <div 
-            className='imgPreviewContainer'
-          >
+    <Container fluid style={{padding: 0}}>
+      <Row>
+        <Col sm={12} lg={7} md={6} xl={7} style={{padding: 0}}>
+          <div className='activeImage'>
+            <img src={activeImg} alt={alt} width="100%"></img>
+          </div>
+          {/* <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}> */}
+            <div className='imgPreviewContainer'>
               <span className='img'>
                 <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
               </span>
@@ -140,72 +178,82 @@ export default function SearchedItemDetails(props) {
                 : 
                   null
               }
-          </div>
-        </Row>
+            </div>
+          {/* </Row> */}
         </Col>
 
       <Col sm={6} md={5} lg={5} xl={5}>
         <span className='itemName'><h2><strong>{name}</strong></h2></span>
+                <div className='chipContainer'>
+                  {
+                    selectedSize ?
+                    <span className='fade-in-chip'>
+                      <Chip  
+                        variant="outlined" 
+                        color="success" 
+                        size="small"
+                        label={chip}
+                        onDelete={handleDelete} 
+                        />
+                    </span>
+                      :
+                      null
+                    }
+                  </div>
+        <span 
+          style={{
+            display: 'flex', 
+            justifyContent: 'center', 
+            marginBottom: '2%'
+          }}>
+              {reviewStars(handleAvgRating())}
+            </span>
           <span id="priceContainer">
             <h3>${price}</h3>
           </span>
-        <div className='chipContainer'>
-          {
-            selectedSize ?
-            <span className='fade-in-chip'>
-              <Chip  
-                variant="outlined" 
-                color="success" 
-                size="small"
-                label={chip}
-                onDelete={handleDelete} 
-                />
-            </span>
-              :
-              null
-            }
-          </div>
-          
-          <div style={{ textAlign: 'left', marginTop: '-3%'}}>
-            <Accordion desc={desc} details={detailList} />              
-          </div>
-        {/* <br/> */}
         <span style={{
             fontSize: '12px', 
             fontWeight: 600
           }}
-        >
+          >
+            <br/>
           Select Size:
         </span>
         {/* {
 
         } */}
         <div className='sizeContainer'>
-
-        {
-          props.title === 'sneakers' ?
-            sneakers.map(({ id, value }) => (
-              <SizeList
-                key={id}
-                id={id}
-                value={value}
-                onSizeSelect={handleSizeSelect}
-                active={selectedSize === id}
-              />
-            ))
-         : 
-            clothesSize.map(({id, value}) => 
-              <SizeList 
-                key={id}
-                id={id}
-                value={value}
-                onClick={() => console.log(id)}
-                onSizeSelect={handleSizeSelect}
-                active={selectedSize === id}
-              />
-            )
-          }
-
+          {
+            props.title === 'sneakers' ?
+              sneakers.map(({ id, value }) => (
+                <SizeList
+                  key={id}
+                  id={id}
+                  value={value}
+                  onSizeSelect={handleSizeSelect}
+                  active={selectedSize === id}
+                />
+              ))
+          : 
+              clothesSize.map(({id, value}) => 
+                <SizeList 
+                  key={id}
+                  id={id}
+                  value={value}
+                  onClick={() => console.log(id)}
+                  onSizeSelect={handleSizeSelect}
+                  active={selectedSize === id}
+                />
+              )
+            }
+        </div>
+        <div style={{ textAlign: 'left', marginTop: '-3%'}}>
+          <Accordion 
+            desc={desc} 
+            details={detailList}
+            reviews={reviews} 
+            onAvgRating={handleAvgRating()}
+            reviewStars={reviewStars}/>              
         </div>
         <div style={{ height: '35px'}}>
 
@@ -226,23 +274,47 @@ export default function SearchedItemDetails(props) {
             ) 
             : 
             <>
-              <div 
-                className='d-flex align-items-center flex-column' 
-                style={{gap: '.5rem'}}
-                >
                 <div 
-                  className='d-flex align-items-center justify-content-center'
+                  className='d-flex align-items-center flex-column fade-in-chip' 
                   style={{gap: '.5rem'}}
                   >
-                  <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
-                  <div>
-                    <span className='fs-3'>{productQuantity}</span> in cart
+                  <div 
+                    className='d-flex align-items-center justify-content-center'
+                    style={{gap: '.5rem'}}
+                    >
+                    {/* <div>
+                      <span className='fs-3'>{productQuantity}</span> in cart
+                    </div> */}
+                    <div style={{color: 'gray'}}>
+                    {/* <span style={{fontSize: '12px'}}>Added to Cart:</span><br/> */}
+                    <CheckIcon />
+                    <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
+                    {/* <br/><span style={{ fontSize: '10px', marginTop: '-5%'}}>Remove from Cart</span> */}
+                    </div>
+                    {/* <Button onClick={() => cart.addOneItemToCart(id)}>+</Button> */}
                   </div>
-                  <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
+                   {/* <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button> */}
+                    {/* <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button> */}
                 </div>
-                  <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
-              </div>
-            </>
+              </>
+            // <>
+            //   <div 
+            //     className='d-flex align-items-center flex-column' 
+            //     style={{gap: '.5rem'}}
+            //     >
+            //     <div 
+            //       className='d-flex align-items-center justify-content-center'
+            //       style={{gap: '.5rem'}}
+            //       >
+            //       <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
+            //       <div>
+            //         <span className='fs-3'>{productQuantity}</span> in cart
+            //       </div>
+            //       <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
+            //     </div>
+            //       <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
+            //   </div>
+            // </>
           }
         </div>
         : null

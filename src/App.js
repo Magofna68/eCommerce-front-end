@@ -1,9 +1,6 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
-// import {Switch} from 'react-router-dom';
-
 import './App.scss';
-import { Route, Switch, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Jackets from '../src/components/shop/category/jackets/Jackets.jsx';
 import Hats from './components/shop/category/hats/Hats.jsx';
 import Sneakers from './components/shop/category/sneakers/Sneakers.jsx';
@@ -47,7 +44,6 @@ class App extends React.Component {
 }
 
 unsubscribeFromAuth = null
-
 
 
 componentDidMount() {
@@ -109,13 +105,13 @@ componentWillUnmount() {
 
             {/* pathway for itemDetails */}
             <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/shirts/:id' element={<ItemDetails />} />
-            <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/womens/:id' element={<ItemDetails />} />
+            <Route path='/shop/sneakers/:id' element={<SearchedItemDetails />} /> 
+            <Route path='/shop/shirts/:id' element={<SearchedItemDetails />} />
+            <Route path='/shop/mens/:id' element={<SearchedItemDetails />} /> 
+            <Route path='/shop/womens/:id' element={<SearchedItemDetails />} />
             <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} /> 
 
-            <Route component={<NotFound />} />
+            <Route path="*" component={<NotFound />} />
         </Routes>
         </div>
       </>

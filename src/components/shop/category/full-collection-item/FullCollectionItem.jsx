@@ -1,17 +1,7 @@
 import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-// import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
-import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetails.jsx';
-
-import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
-import { Route, Routes,} from 'react-router-dom';
-
-
 import './fullCollectionItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext.jsx';
-
 
 export default function FullCollectionItem(props) {
   const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, handleItemSelection} = props;
@@ -57,7 +47,7 @@ return (
       style={{
         height: '75%',
       }}/>
-    {/* </Link> */}
+    {/* add multiple photo options w/ slider maybe to advertise product */}
     <Card.Body 
       style={{
         height: '15%',

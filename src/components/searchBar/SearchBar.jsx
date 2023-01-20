@@ -59,8 +59,9 @@ export default function SearchBar() {
         img4: savedItem.img4,
         desc: savedItem.desc,
         detail: savedItem.detail,
-        reviewStars: savedItem.reviewStars,
-        onAvgRating: savedItem.onAvgRating,
+        reviews: savedItem.reviews
+        // reviewStars: savedItem.reviewStars,
+        // onAvgRating: savedItem.onAvgRating,
       }
     })
     handleClose()

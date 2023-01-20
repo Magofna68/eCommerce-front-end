@@ -137,27 +137,24 @@ export default function ItemDetails(props) {
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
       </span>
       <Container fluid style={{padding: 0}}>
-      <Row>
+        <Row>
           <Col sm={12} lg={7} md={6} xl={7} style={{padding: 0}}>
-          <div className='activeImage'>
-              <img src={activeImg} alt="test" width="100%"></img>
-          </div>
-          
-            <div 
-              className='imgPreviewContainer'
-            >
-                <span className='img'>
-                  <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
-                </span>
-                <span className='img' >
-                  <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
-                </span>
-                <span className="img" >
-                  <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
-                </span>
-                <span className="img" >
-                  <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
-                </span>
+            <div className='activeImage'>
+                <img src={activeImg} alt={alt} width="100%"></img>
+            </div>
+            <div className='imgPreviewContainer'>
+              <span className='img'>
+                <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
+              </span>
+              <span className='img' >
+                <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
+              </span>
+              <span className="img" >
+                <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
+              </span>
+              <span className="img" >
+                <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
+              </span>
             </div>
           
           <Row>

@@ -8,11 +8,11 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 
 
 export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
-  <Container fluid="true"
-      className='collection'
-    >
+  <Container fluid="true" className='collection'>
+    <Row>
       <Breadcrumb />
-      
+      {/* <p>womens</p> */}
+    </Row>
       <Row>
         <h1 
           className='title'
@@ -21,6 +21,8 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
             marginBottom: '25px',
             marginTop: '25px',
             fontWeight: '700',
+            textAlign: 'left',
+            marginLeft: '8%'
           }}
         >
           {title.toUpperCase()}
