@@ -3,6 +3,7 @@ import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import Jackets from '../src/components/shop/category/jackets/Jackets.jsx';
 import Hats from './components/shop/category/hats/Hats.jsx';
+import Shirts from './components/shop/category/shirts/Shirts.jsx';
 import Sneakers from './components/shop/category/sneakers/Sneakers.jsx';
 import MensClothing from './components/shop/gender/men/MensClothing.jsx';
 import WomensClothing from './components/shop/gender/women/WomensClothing.jsx';
@@ -18,14 +19,6 @@ import PaymentCompletePage from './pages/paymentCompletePage/PaymentCompletePage
 import PaymentFailedPage from './pages/paymentCompletePage/PaymentFailedPage.jsx';
 import UnderConstruction from './pages/underConstruction/UnderConstruction.jsx';
 import ReturnPolicyPage from './pages/returnPolicyPage/ReturnPolicyPage.jsx';
-// import Jackets from './components/shop/category/jackets/Jackets';
-// import Hats from './components/shop/category/hats/Hats';
-// import Sneakers from './components/shop/category/sneakers/Sneakers';
-// import MensClothing from './components/shop/gender/men/MensClothing';
-// import WomensClothing from './components/shop/gender/women/WomensClothing';
-// import SearchedItemDetails from './pages/itemDetailPage/SearchedItemDetails';
-// import ItemDetails from './pages/itemDetailPage/itemDetails/ItemDetails'
-// import NotFound from './pages/notFound/NotFound';
 
 import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
 
@@ -90,11 +83,15 @@ componentWillUnmount() {
         <Routes>
             {/* pathway for categories */}
             <Route exact path='/' element={<HomePage />} />
+
+            <Route path='/shop/hats' element={<Hats/>}/>
             <Route path='/shop/jackets' element={<Jackets />}/>
             <Route path='/shop/sneakers' element={<Sneakers/>}/>
+            <Route path='/shop/shirts' element={<Shirts/>}/>
+
             <Route exact path='/shop/mens' element={<MensClothing />}/>
             <Route exact path='/shop/womens' element={<WomensClothing/>}/>
-            <Route path='/shop/hats' element={<Hats/>}/>
+
             <Route path="/pageNotAvailable" element={<UnderConstruction />} />
             <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
             <Route path='login'  element={<SignInAndSignUpPage />}></Route>

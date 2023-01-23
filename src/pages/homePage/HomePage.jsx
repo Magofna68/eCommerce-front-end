@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './homePage.styles.scss';
 // import { Container, Row, Col } from 'react-bootstrap';
 import  { SHOP_DATA }  from '../../data.jsx';
@@ -6,16 +6,51 @@ import CollectionPreview from '../../components/shop/preview-collection/Collecti
 import Carousel from '../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import {useNavigate} from 'react-router-dom';
+import { stringify } from 'uuid';
 
 
 export default function HomePage() {
+  const [ clickedTitle, setClickedTitle ] = useState("");
+ const navigate = useNavigate();
+
+//  function NavigateToCategory(e) {
+//   const clickedCategory = e;
+//   // const savedItem = itemObj.filter(item => item.id === savedId)[0]
+//   console.log("Saved Item from #SearchBar:", e)
+//   let path = '/shop/'.concat(clickedCategory)
+//   console.log("path:", path)
+//  }
+ const handleHomePageCategoryClick = (e) => {
+  let categoryTitle = e;
+  console.log(e.target.title)
+  let test = categoryTitle.toString()
+  setClickedTitle(categoryTitle);
+  console.log("handleHomePageClick", categoryTitle)
+  let path = '/shop/'.concat(categoryTitle)
+  // navigate('/shop/'.concat({e}), {});
+  // console.log("Path:", path)
+}
+
+const categoryRedirect = async (clickedCategoryTitle) => {
+  const categoryToAssign = clickedCategoryTitle;
+  console.log("HomePageRedirect", categoryToAssign);
+  const stringifiedCategory = categoryToAssign.toString();
+  // setClickedTitle({
+  //   clickedTitle: categoryToAssign
+  // })
+  let path = '/shop/'.concat(categoryToAssign)
+  navigate(path)
+  console.log("clickedTitle:", stringifiedCategory)
+}
+
   const carouselImages = [
     {
       id: 0,
-      title: "test",
+      title: "Elegant Night Out",
       img: 'https://img.ltwebstatic.com/images3_pi/2022/04/26/16509410621ce21a0f1297302307bcfe4e7f4c7590_thumbnail_600x.webp',
       img2: 'https://img.ltwebstatic.com/images3_pi/2022/04/26/1650941068cd0cce154a16bc6787e4d712adf8453e_thumbnail_600x.webp',
-      alt: "test",
+      alt: "black semi formal gown",
       text: "test",
     },
     {
@@ -37,7 +72,7 @@ export default function HomePage() {
   ]
   
  
-  const categories = ['shirts', 'jackets', 'footwear', 'hats']
+  const categories = ['shirts', 'sneakers','jackets', 'hats']
   
   return (
     <Container fluid>
@@ -57,13 +92,23 @@ export default function HomePage() {
           justifyContent: 'space-between',
           marginBottom: '3%'
       }}>
-      {
+      {/* {
         categories.map((category) => {
           return(
-              <h3><strong>{category.toUpperCase()}</strong></h3>
+            // <Link className="nav-link" to= >{category}</Link>
+              <li key={category.id} value={category.title} onClick={(e) => categoryRedirect(e)}>{category.title.toUpperCase()}</li>
             )
           })
-        }
+        } */}
+            <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
+              <ul className='titleContainer'>
+                {
+                  categories.map((title, index) => (
+                    <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title.toUpperCase()}</li>
+                  ))
+                }
+              </ul>
+            </Row>
         </div>
       <div className='carouselContainer'>
         <Carousel  dataSet={carouselImages}/>
