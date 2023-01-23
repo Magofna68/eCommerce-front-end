@@ -21,6 +21,7 @@ function showSuccessAlert() {
   window.location.href = 'https://magofna68.github.io/eCommerce-front-end/#/'
 };
 
+
 export const Header = ({currentUser}) => (
     <section className='header'>
       <section className='header-top'>

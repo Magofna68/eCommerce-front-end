@@ -1,8 +1,9 @@
-import FormInput from '../form-input/Form-input';
-import CustomButton from "../utility/custom-button/Custom-button";
+import FormInput from '../form-input/Form-input.jsx';
+import CustomButton from "../utility/custom-button/Custom-button.jsx";
 import { auth, createUserProfileDocument } from '../../firebase/Firebase.utils';
 import React, { Component } from 'react'
 import './sign-up.styles.scss';
+import Container from 'react-bootstrap/Container';
 
 export default class SignUp extends React.Component {
   constructor() {
@@ -50,10 +51,10 @@ export default class SignUp extends React.Component {
     // destructure properties
     const { displayName, email, password, confirmPassword } = this.state
     return (
-      <div className='sign-up'>
+        <Container fluid>
         <h2 className='title'>Don't have an account?</h2>
         <span>Create an Account below:</span>
-        <form className='sign-up-form' onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
             name='displayName'
@@ -88,7 +89,7 @@ export default class SignUp extends React.Component {
           />
           <CustomButton type='submit'>Sign Up</CustomButton>
         </form>
-      </div>
+        </Container>
     )
   }
 }

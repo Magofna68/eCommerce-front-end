@@ -1,12 +1,22 @@
-.sign-up {
-  display: flex;
-  flex-direction: column;
-  width: 380px;
-  min-width: fit-content;
-  margin: auto;
-  margin-top: 5%;
+// .sign-up {
+//   display: flex;
+//   flex-direction: column;
+//   width: 380px;
+//   min-width: fit-content;
+//   margin: auto;
+//   margin-top: 5%;
 
-  .title {
-    margin: 10px 0;
-  }
+//   .title {
+//     margin: 10px 0;
+//   }
+// }
+
+.container-fluid {
+  display:flex;
+  color: black;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3% 0 10% 0;
 }

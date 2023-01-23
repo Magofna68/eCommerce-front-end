@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuItem from '../../../menu-item/Menu-item';
+import MenuItem from '../../../menu-item/Menu-item.jsx';
 import { PropTypes } from 'prop-types';
 
 export default function CategoryControl(props) {

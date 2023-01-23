@@ -1,7 +1,7 @@
 import React, { Component, setState } from 'react'
 import './sign-in.styles.scss';
-import FormInput from '../form-input/Form-input';
-import CustomButton from '../utility/custom-button/Custom-button';
+import FormInput from '../form-input/Form-input.jsx';
+import CustomButton from '../utility/custom-button/Custom-button.jsx';
 import { auth, signInWithGoogle } from '../../firebase/Firebase.utils';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
@@ -56,8 +56,8 @@ handleChange = (e) => {
 
   render() {
     return (
-      <div className='sign-in'>
-        <Container fluid>
+      // <div className='sign-in'>
+        <Container fluid className="sign-in">
           <h2>I already have an account</h2>
           <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
@@ -93,7 +93,7 @@ handleChange = (e) => {
           </div>
         </form>
         </Container>
-      </div>
+      // </div>
     )
   }
 }

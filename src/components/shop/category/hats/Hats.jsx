@@ -1,14 +1,15 @@
-import React from 'react'
-import {SHOP_DATA} from '../../../../data'
+import React, { useState } from 'react'
+import {SHOP_DATA} from '../../../../data.jsx'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection';
+import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
 
 export default function Hats(props) {
-  const { onItemSelection } = props;
+  const { onItemSelection, filteredHats, itemToShow } = props;
   const hatCollection = [];
   hatCollection.push(SHOP_DATA[2]);
-  // console.log({hatCollection})
-
+  // const [ filteredList, setFilteredList ] = useState({...mensFilteredHats})
+  // console.log("FilteredList", filteredList);
+  console.log("mensFilteredHats being passed from MensClothing", filteredHats)
 
   return (
     <div
@@ -19,7 +20,12 @@ export default function Hats(props) {
       <h1>{hatCollection.title}</h1>
       {
         hatCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection id={id} key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
+          <RenderFullCollection 
+            key={id} 
+            filteredList={filteredHats} 
+            id={id} 
+            onItemSelection={onItemSelection} 
+            {...otherCollectionProps} />
         ))
       };
     </div>

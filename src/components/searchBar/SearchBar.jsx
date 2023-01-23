@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import './searchBar.styles.scss';
-import {SHOP_DATA} from '../../data';
+import {SHOP_DATA} from '../../data.jsx';
 import Crown from '../../assets/crown.png';
 
 import Container from 'react-bootstrap/Container';
@@ -44,8 +44,9 @@ export default function SearchBar() {
     // Save the ID into variable and filter through array of obj to find selected item
     const savedId = e.target.id;
     const savedItem = itemObj.filter(item => item.id === savedId)[0]
-    console.log("Saved Item:", savedItem)
+    console.log("Saved Item from #SearchBar:", savedItem)
     let path = 'shop/'.concat(savedItem.title).concat('/', savedId)
+    console.log("path", path)
     navigate(path, {
       state:  {
         id: savedId, 
@@ -58,6 +59,9 @@ export default function SearchBar() {
         img4: savedItem.img4,
         desc: savedItem.desc,
         detail: savedItem.detail,
+        reviews: savedItem.reviews
+        // reviewStars: savedItem.reviewStars,
+        // onAvgRating: savedItem.onAvgRating,
       }
     })
     handleClose()

@@ -1,17 +1,17 @@
 import React from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
-import CollectionItem from '../../collection-item/CollectionItem';
-import CollectionPreview from '../../preview-collection/CollectionPreview';
+import CollectionItem from '../../collection-item/CollectionItem.jsx';
+import CollectionPreview from '../../preview-collection/CollectionPreview.jsx';
 import { PropTypes } from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
-import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
-
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
+import Row from 'react-bootstrap/Row'
 
 export default function ItemList(props) {
-  const { itemCollection, onItemSelection } = props;
+  const { itemCollection, onItemSelection, categoryRedirect } = props;
 
   function getRandom(array) {
     let i = array.length -1;
@@ -23,11 +23,13 @@ export default function ItemList(props) {
     }
     return array;
   }
+
+  const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
   return (
     <>
     <Breadcrumb />
         <Container fluid="true" className='collectionPreview'>
-          <h1 style={{ marginLeft: '2%'}}>Shop</h1>
+          <h1 id="title">SHOP</h1>
           {/* <div className='titleContainer'> */}
           {/* <h2>
             <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
@@ -35,14 +37,22 @@ export default function ItemList(props) {
             </Link>
           <hr />
           </h2> */}
-          <div 
-            className='preview'
+            <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
+              <ul className='titleContainer'>
+                {
+                  categoryTitles.map((title, index) => (
+                    <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
+                  ))
+                }
+              </ul>
+            </Row>
+          <div className='preview'
             style={{ 
               flexWrap: 'wrap',
               display: 'flex',
               alignContent: 'space-between',
               justifyContent: 'center',
-              marginTop: '10%',
+              marginTop: '3%',
             }}
           >
         {

@@ -1,10 +1,99 @@
-.homepage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  // padding: 20px 80px;
+// .shopPage {
+//   display: flex;
+//   padding-right: 10px;
+//   flex-direction: column;
+// }
+// .container{
+//   margin: 0;
+//   padding: 0;
+// }
 
-  @media screen and (max-width: 664px) {
-    padding: 20px 0;
+.carouselContainer{
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h3{
+    margin: 0 0 50px 0;
+  }
+}
+
+.homePageGraphic{
+  background-image: url('https://media.istockphoto.com/id/511794734/photo/five-happy-friends-jumping-on-the-beach-for-summer.jpg?s=170667a&w=0&k=20&c=BWwtojl4AQT3AiEg5kmZx2pSinmkUBHKZB6Yo1CbY_M=');
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: center;
+  // width: 90vw;
+  width: 55vw;
+  z-index: 1;
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+  margin: 8% 0 5% 0;
+
+  @media only screen and (max-width: 420px) {
+    height: 250px;
+    margin: 30% 0 0 0;
+    
+  }
+}
+
+// .homePageImg{
+//   display: flex;
+//   // position: relative;
+//   // justify-self: center;
+//   width: 600px; 
+//   margin-top: -75px;
+//   // margin-left: auto;
+//   // margin-right: auto;
+
+//   @media only screen and (max-width: 420px) {
+//     width: 350px;
+//     margin-top: -75px;
+//   }
+// }
+
+.headerUnderground {
+  font-family: 'Oswald', sans-serif;
+  font-size: 90px;
+  // display: flex;
+  z-index: 1;
+  // justify-content: start;
+  margin-top: -95px; 
+  
+
+  @media only screen and (max-width: 420px) {
+    font-size: 50px;
+  }
+}
+
+.subtext{
+  margin-top: 250px;
+  z-index: 1;
+  color: white;
+
+  @media only screen and (max-width: 420px) {
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
+
+.headerRoyalty{
+  font-family: 'Oswald', sans-serif;
+  font-family: 'East Sea Dokdo', cursive;
+  font-size: 75px;
+  // position: relative;
+  // top: 23%;
+  margin-top: -40px;
+  z-index: 1;
+
+  @media only screen and (max-width: 420px) {
+    margin-top: -30px;
+    font-size: 50px;
+    margin-bottom: -50px;
   }
 }

@@ -3,11 +3,13 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 // import SizeList from '../../components/utility/sizeList/SizeList';
-import SizeList from '../../../components/utility/sizeList/SizeList';
-import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping';
-import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext';
-import Accordion from '../../../components/utility/accordion/Accordion';
+import SizeList from '../../../components/utility/sizeList/SizeList.jsx';
+import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping.jsx';
+import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext.jsx';
+import Accordion from '../../../components/utility/accordion/Accordion.jsx';
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import CheckIcon from '@mui/icons-material/Check';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
@@ -22,6 +24,7 @@ export default function ItemDetails(props) {
   const [ isActive, setIsActive ] = useState(false);
   const [ value, setValue ] = useState('');
   const [ selectedImg, setSelectedImg ] = useState('img')
+  // const [ reviewAvg, setReviewAvg ] = useState([]);
   const [activeImg, setActiveImg ] = useState({
     img: [ {img}, {img2}, {img3}, {img4} ] })
 
@@ -44,25 +47,35 @@ export default function ItemDetails(props) {
   ]
   
   const clothesSize = [
-    {id: 0, value: 'XS'},
-    {id: 1, value: 'S'},
-    {id: 2, value: 'M'},
-    {id: 3, value: 'L'},
-    {id: 4, value: 'XL'},
-    {id: 5, value: 'XXL'},
-    {id: 6, value: '3XL'},
+    {id: 1, value: 'XS'},
+    {id: 2, value: 'S'},
+    {id: 3, value: 'M'},
+    {id: 4, value: 'L'},
+    {id: 5, value: 'XL'},
+    {id: 6, value: 'XXL'},
+    {id: 7, value: '3XL'},
   ]
   
   
   function handleSizeSelect(id, value) {
-    console.log("ID", selectedSize)
-    console.log("Active", isActive)
     setValue(value)
     setSelectedSize(id)
   }
 
   function handleDelete() {
     setSelectedSize('');
+  }
+
+  function handleAvgRating() {
+      let tempRating1 = reviews[0].rating
+      let tempRating2 = reviews[1].rating
+      let tempRating3 = reviews[2].rating
+      let totalRating = tempRating1 + tempRating2 + tempRating3;
+      let averageRating = totalRating / 3;
+
+    return (
+      averageRating
+    )
   }
 
   useEffect(() => {
@@ -95,70 +108,86 @@ export default function ItemDetails(props) {
     }
   console.log(activeImg)}, [selectedImg])
 
+
+  function reviewStars(num) {
+    let stars = [];
+    let value = Math.trunc(num);
+
+    for (let i = 0; i < value; i++) {
+      stars.push(<StarIcon fontSize="small" />)
+    }
+
+    return (
+      <span onClick={() => console.log({stars})}>
+        {
+          // BUG: pushes numerical value into array or is posting it to the DOM
+          value < num ?
+          stars.push(<StarHalfIcon fontSize='small' />)
+          :
+          null
+        }
+      {stars}
+      </span>
+    );
+  };
+
   return (
     <>
       <span id="returnIcon" onClick={handleClearItemStateClick}>
         <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
       </span>
-      <Container fluid="md">
-      <Row>
-
-        {/* <Col sm={6} lg={7} md={7} xl={7}>
-          <div 
-          className='activeImage'
-          >
-              <img src={img} alt="test" width="100%"></img>
-          </div>
-          <Row sm={4} xs={3} style={{marginTop: '10px'}}>
-            <div className='imgPreviewContainer'>
-                <span className='img'>
-                  <img src={img2} alt="" width="50px"></img>
-                </span>
-                <span className="img">
-                  <img src={img3} alt="" width="50px"></img>
-                </span>
-                <span className="img">
-                  <img src={img4} alt="" width="50px"></img>
-                </span>
+      <Container fluid style={{padding: 0}}>
+        <Row>
+          <Col sm={12} lg={7} md={6} xl={7} style={{padding: 0}}>
+            <div className='activeImage'>
+                <img src={activeImg} alt={alt} width="100%"></img>
             </div>
-          </Row>
-        </Col> */}
-          <Col sm={12} lg={7} md={7} xl={7}>
-            {/* <div className='imagesContain'> */}
-          <div 
-          className='activeImage'
-          >
-              <img src={activeImg} alt="test" width="100%"></img>
-          </div>
-          <Row style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
-            <div 
-              className='imgPreviewContainer'
-            >
-                <span className='img'>
-                  <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
-                </span>
-                <span className='img' >
-                  <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
-                </span>
+            <div className='imgPreviewContainer'>
+              <span className='img'>
+                <img src={img} alt="" width="50px" onClick={()=> setSelectedImg('img')}></img>
+              </span>
+              <span className='img' >
+                <img src={img2} alt="" width="50px" onClick={()=> setSelectedImg('img2')}></img>
+              </span>
+              {
+                img3 ?
                 <span className="img" >
                   <img src={img3} alt="" width="50px" onClick={()=> setSelectedImg('img3')}></img>
                 </span>
-                <span className="img" >
-                  <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
-                </span>
+                :
+                null
+              }
+              {
+                img4 ?
+                  <span className="img" >
+                    <img src={img4} alt="" width="50px" onClick={()=> setSelectedImg('img4')}></img>
+                  </span>
+                : 
+                  null
+              }
             </div>
-          </Row>
-          <Row>
-          
-          </Row>
-          {/* </div> */}
           </Col>
 
-        <Col sm={12} md={5} lg={5} xl={5}>
-          <span className='itemName'><h2><strong>{name}</strong></h2></span>
+          <Col sm={12} md={6} lg={5} xl={5} style={{padding: 0}}>
+            <span className='itemName'>
+              <h2>
+                <strong>{name}</strong>
+              </h2>
+            </span>
+
+            <span 
+              style={{
+                display: 'flex', 
+                justifyContent: 'center', 
+                marginBottom: '2%'
+            }}>
+              {reviewStars(handleAvgRating())}
+            </span>
+
             <span id="priceContainer">
               <h3>${price}</h3>
             </span>
+
           <div className='chipContainer'>
             {
               selectedSize ?
@@ -175,6 +204,7 @@ export default function ItemDetails(props) {
                 null
               }
             </div>
+
             <span style={{
               fontSize: '12px', 
               fontWeight: 600
@@ -214,7 +244,13 @@ export default function ItemDetails(props) {
           </div>
             
             <div style={{ textAlign: 'left', marginTop: '-3%'}}>
-              <Accordion desc={desc} details={detailList} reviews={reviews}/>              
+              <Accordion 
+                desc={desc} 
+                details={detailList} 
+                reviews={reviews}
+                reviewStars={reviewStars}
+                onAvgRating={handleAvgRating()}
+              />              
             </div>
           <br/>
           
@@ -222,42 +258,42 @@ export default function ItemDetails(props) {
 
           {
             selectedSize ?
-            <div className='w-100 fade-in-chip'>
-            {
-              productQuantity === 0 ? (
-                <Button 
-                onClick={() => cart.addOneItemToCart(id, name, price, img)}
-                variant="outline-primary" 
-                className="w-100"
-                style={{
-                  border: 'none',
-                }}>
-                    + Add to Cart
-                </Button>
-              ) 
-              : 
+              <div className='w-100 fade-in-chip'>
+                {
+                  productQuantity === 0 ? 
+                  (
+                    <Button 
+                      onClick={() => cart.addOneItemToCart(id, name, price, img, value)}
+                      variant="outline-primary" 
+                      className="w-100"
+                      style={{
+                        border: 'none',
+                    }}>
+                        + Add to Cart
+                    </Button>
+                  ) 
+            : 
               <>
-                <div 
-                  className='d-flex align-items-center flex-column' 
-                  style={{gap: '.5rem'}}
-                  >
                   <div 
-                    className='d-flex align-items-center justify-content-center'
+                    className='d-flex align-items-center flex-column fade-in-chip' 
                     style={{gap: '.5rem'}}
+                  >
+                    <div 
+                      className='d-flex align-items-center justify-content-center'
+                      style={{gap: '.5rem'}}
                     >
-                    <Button onClick={() => cart.removeOneItemFromCart(id)}>-</Button>
-                    <div>
-                      <span className='fs-3'>{productQuantity}</span> in cart
+                      <div style={{color: 'gray'}}>
+                        <CheckIcon />
+                        <span style={{fontSize: '12px', marginBottom: '5%'}}>{name}</span>
                     </div>
-                    <Button onClick={() => cart.addOneItemToCart(id)}>+</Button>
                   </div>
-                    <Button variant="danger" size="sm" onClick={() => cart.deleteItemFromCart(id)}>Remove</Button>
                 </div>
               </>
             }
-          </div>
-          : null
-        }
+            </div>
+            : 
+            null
+          }
         </div>
         </Col>
       </Row>

@@ -16,15 +16,15 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 
 import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
-import ShopPage from '../../pages/shopPage/ShopPage';
-import ContactPage from '../../pages/contactPage/ContactPage';
-import HomePage from '../../pages/homePage/HomePage';
-import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage';
-import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage';
+import HomePage from '../../pages/homePage/HomePage.jsx';
+import ContactPage from '../../pages/contactPage/ContactPage.jsx';
+import ShopPage from '../../pages/shopPage/ShopPage.jsx';
+import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage.jsx';
+import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage.jsx';
 
 import Logo from '../../assets/crown.png'
-import { ShoppingCartContext } from '../context/ShoppingCartContext';
-import SearchBar from '../searchBar/SearchBar';
+import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
+import SearchBar from '../searchBar/SearchBar.jsx';
 
 import { Route, Link, Routes, } from 'react-router-dom';
 
@@ -95,40 +95,37 @@ export default function Navigationbar({currentUser}) {
                   alt='logo'>
                 </img>
              </Navbar.Brand>
-             <h2 className='w3-monospace'>Underground ROYALTY</h2>
+             <div styles={{ display: 'flex', flexDirection: 'row'}}><h4 className='w3-monospace'>Underground ROYALTY
+                 </h4>
+                 </div>
              <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
-             <NavbarCollapse className='justify-content-end navbar-toggle'>
+             <NavbarCollapse className='justify-content-center navbar-toggle'>
                <Nav className='ml-auto'>
-              {/* <NavDropdown title="Shop" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#/shop/sneakers">Sneakers</NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/hats">Hats</NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/jackets">Jackets</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#/shop/mens">
-                  Men's
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#/shop/womens">
-                  Women's
-                </NavDropdown.Item>
-              </NavDropdown> */}
-               <Link className="nav-link" to="/" onClick={clearState}>Shop</Link>
-
-               <Link className='nav-link' to='/contact'>contact</Link>
+                {/* <NavDropdown title="Women's" id="basic-nav-dropdown">
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#/shop/womens">Apparel</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="Men's" id="basic-nav-dropdown">
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
+                </NavDropdown> */}
+              
+              <Link className="nav-link" to="/#">HOME</Link>
+              <Link className="nav-link" to="/shop" >Shop</Link>
+              <Link className='nav-link' to="/shop/mens">Mens</Link>
+              <Link className='nav-link' to="/shop/womens">Womens</Link>
+              <Link className='nav-link' to='/contact'>contact</Link>
                 <SearchBar />
-                  <span style={{
-                    marginRight: '3%',
-                
-                    }}
-                  >
-                  <Button
-                    style={{
-                      width: '3rem',
-                      height: '3rem',
-                      position: 'relative',
-                    }}
-                    variant="outline-primary"
-                    className="rounded-circle"
-                    onClick={handleShow}
+                  <span className='cartIcon'>
+                    <Button
+                      style={{
+                        width: '3rem',
+                        height: '3rem',
+                        position: 'relative',
+                      }}
+                      variant="outline-primary"
+                      className="rounded-circle"
+                      onClick={handleShow}
                     >
                     <ShoppingCartOutlinedIcon fontSize="medium" style={{ marginRight: '3%'}}/>
                     <div 
@@ -142,11 +139,10 @@ export default function Navigationbar({currentUser}) {
                         width: '1.5rem',
                         height: '1.5rem',
                         position: 'absolute',
-                      }}
-                      >
+                    }}>
                       {productCount}
                     </div>
-                  </Button>
+                    </Button>
                   </span>
               </Nav>
             </NavbarCollapse>
@@ -162,8 +158,9 @@ export default function Navigationbar({currentUser}) {
                   <h4 style={{marginBottom: '10%'}}>Items In Cart: {productCount}</h4>
                     <Container style={{marginBottom: '5%'}}>
                       <Row style={{marginBottom: '1%'}}>
-                        <Col><h6>Item:</h6></Col>
-                        <Col xs={6} style={{textAlign: 'left'}}><h6>Name:</h6></Col>
+                        <Col xs={2} style={{marginLeft: '-3%'}}><h6>Item:</h6></Col>
+                        <Col style={{marginLeft: '-2%'}}><h6>Size:</h6></Col>
+                        <Col xs={5} style={{textAlign: 'left', marginLeft: '-3%'}}><h6>Name:</h6></Col>
                         <Col><h6>Quantity:</h6></Col>
                         <Col style={{ textAlign: 'right'}}><h6>Price:</h6></Col>
                       </Row>
@@ -179,7 +176,7 @@ export default function Navigationbar({currentUser}) {
                               maxWidth: '50px',
                               height: '65px'
                             }}
-                          >
+                            >
                             <img 
                               key={idx}
                               src={currentProduct.img}
@@ -187,7 +184,7 @@ export default function Navigationbar({currentUser}) {
                               height="100%"
                               alt="Cart Preview"
                               id="img"
-                            />
+                              />
                             <ClearIcon 
                               fontSize="sm" 
                               id="clearItemFromCart"
@@ -197,11 +194,14 @@ export default function Navigationbar({currentUser}) {
                                 position: 'absolute', 
                                 cursor: 'pointer'
                               }}
-                            />
+                              />
                           </div>
                         </Col>
-                        <Col xs={6} style={{padding: '5px 5px 0 0'}}>
-                        <span onClick={() => console.log(currentProduct)}>{currentProduct.name}</span>
+                        <Col style={{marginLeft:'-2%', marginTop: '4%', textAlign: 'left'}}>
+                          <strong>{currentProduct.size}</strong>
+                        </Col>
+                        <Col xs={5} style={{padding: '5px 5px 0 0'}}>
+                          <span>{currentProduct.name}</span>
                         </Col>
                         <Col xs={2} style={{padding: '0', alignContent: 'center', justifyContent: 'space-between'}}>
                           <div style={{display: 'flex', alignContent: 'center', marginTop: '15%'}}>
@@ -210,7 +210,9 @@ export default function Navigationbar({currentUser}) {
                                   fontSize='large' 
                                   onClick={()=> cart.removeOneItemFromCart(currentProduct.id)}
                                   className="cartQuantityArrow"
-                                />
+                                  />
+                              </Col>
+                              <Col>
                               </Col>
                               <Col style={{paddingTop: '8%',}}>
                                 <h6 style={{marginTop: '0%'}}>{currentProduct.quantity}</h6>
@@ -263,15 +265,15 @@ export default function Navigationbar({currentUser}) {
               </Modal.Body>
           </Modal>
 
-          <Routes>
+          {/* <Routes>
             <Route path="/" exact element={<HomePage />}>
             </Route>
             <Route path='login'  element={<SignInAndSignUpPage />}></Route>
-            <Route path='shop' element={<ShopPage/>}></Route>
+            <Route path='/shop' element={<ShopPage/>}></Route>
             <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
             <Route path='contact' element={<ContactPage />}></Route>
-          </Routes>
+          </Routes> */}
         </Container> 
   )
 }

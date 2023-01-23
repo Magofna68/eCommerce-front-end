@@ -17,9 +17,11 @@
   justify-content: space-between;
 }
 
-.rating{
-  margin-right: 5%;
+span.rating{
+  // margin-right: 5%;
+  margin-left: 30%;
   font-size: .8em;
+  margin: 0 5% 10px 0;
 }
 
 .username{
@@ -35,13 +37,14 @@
   padding: 1px;
 }
 
-.title{
-  margin: 0 0 0 -2%;
+span.title{
   font-weight: 600;
   font-size: 15px;
+  margin-bottom: 1%;
+  margin-top: 1%;
 }
 
-.feedback{
-  width: 90%;
-  font-size: 12px;
+span.feedback{
+  margin: 0 0 3% 0;
+  font-size: 13px;
 }

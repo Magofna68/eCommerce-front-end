@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import { MENS_SHOP_LIST } from '../../../../data';
+import { MENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
 import './mensClothing.styles.scss';
-import ItemList from '../itemList/ItemList';
+import ItemList from '../itemList/ItemList.jsx';
 import Button from 'react-bootstrap/Button';
-import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail';
-import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb';
+import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
+import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
+import Sneakers from '../../category/sneakers/Sneakers.jsx';
+import Hats from '../../category/hats/Hats.jsx';
+import Jackets from '../../category/jackets/Jackets.jsx';
+import Shirts from '../../category/shirts/Shirts.jsx';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 class MensClothing extends Component {
   constructor(props) {
@@ -15,13 +21,30 @@ class MensClothing extends Component {
     this.state = {
       selectedItem: null,
       itemList:  MENS_SHOP_LIST ,
+      selectedCategory: "",
+      mensFilteredList: [],
     }
   }
-  
+
+  categoryRedirect = async (clickedCategoryTitle) => {
+    const categoryToAssign = clickedCategoryTitle
+    console.log("CATEGORY REDIRECT", categoryToAssign);
+    const mensTempFilteredList = this.state.itemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+    // console.log("MENSCLOTHING -- Before state Update", mensTempFilteredList)
+    await this.setState({
+      // mensFilteredlist: mensTempFilteredList,
+      selectedCategory: categoryToAssign,
+    })
+    await this.setState({ mensFilteredList: mensTempFilteredList})
+    console.log("after state update", this.state.mensFilteredList)
+    // return mensTempFilteredList;
+  }
 
   handleClick = (e) => {
     if (this.state.selectedItem != null) {
       this.setState({selectedItem: null})
+    } else if (this.state.selectedCategory != null) {
+      this.setState({selectedCategory: ""})
     }
   }
 
@@ -50,22 +73,80 @@ class MensClothing extends Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+    const { selectedCategory } = this.state;
 
     if (this.state.selectedItem != null) {
       currentlyVisibleState = 
       <ItemDetail 
+        // mensFilteredList={this.state.mensFilteredList}
         itemToShow={this.state.selectedItem}
         onClearItemStateClick={this.handleClearItemStateClick} 
       />
-      buttonText = "Back to Items"
+      buttonText = selectedCategory
+    } else if (this.state.selectedCategory === "SNEAKERS") {
+        currentlyVisibleState = 
+        <Sneakers 
+          onItemSelection={this.handleChangingSelectedItem} 
+          filteredSneakers={this.state.mensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        // buttonText = 
+    }  else if (this.state.selectedCategory === "SHIRTS") {
+      currentlyVisibleState = 
+      <Shirts
+        onItemSelection={this.handleChangingSelectedItem} 
+        filteredShirts={this.state.mensFilteredList}
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick}
+      />
+      // buttonText = selectedCategory
+  } else if (this.state.selectedCategory === "HATS") {
+        currentlyVisibleState =  
+        <Hats 
+          onItemSelection={this.handleChangingSelectedItem} 
+          filteredHats={this.state.mensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        // buttonText = selectedCategory
+    } else if (this.state.selectedCategory === "JACKETS") {
+        currentlyVisibleState = 
+        <Jackets 
+          onItemSelection={this.handleChangingSelectedItem} 
+          filteredJackets={this.state.mensFilteredList}
+          itemToShow={this.state.selectedItem}
+          onClearItemStateClick={this.handleClearItemStateClick}
+        />
+        // buttonText = selectedCategory
     } else { 
       currentlyVisibleState = 
       <ItemList 
+        categoryRedirect={this.categoryRedirect}
         itemCollection={this.state.itemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
       buttonText = "Home"
     }
+
+    // switch(currentView) {
+    //   case 'hats':
+    //     currentlyVisibleState = <Hats onItemSelection={this.handleChangingSelectedItem} />
+    //     buttonText = "Return to Categories"
+    //     buttonDisplayed = true;
+      
+    //   break;
+    //   case 'jackets':
+    //     currentlyVisibleState = <Jackets onItemSelection={this.handleChangingSelectedItem} />
+    //     buttonText = "Return to Categories"
+    //     buttonDisplayed = true;
+    //   break;
+    //   case 'sneakers':
+    //     currentlyVisibleState = <Sneakers onItemSelection={this.handleChangingSelectedItem} />
+    //     buttonText = "Return to Categories"
+    //     buttonDisplayed = true;
+    //   break;
+    // }
 
 
     return (
@@ -87,7 +168,7 @@ class MensClothing extends Component {
           buttonText === "Home" ? 
           <Button onClick={this.handleHomeClick}>{buttonText}</Button>
           :
-          <Button onClick={this.handleClick}>{buttonText}</Button>
+          <Button onClick={this.handleClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }
       </div>
     );

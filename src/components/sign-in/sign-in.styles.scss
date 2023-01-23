@@ -1,16 +1,3 @@
-.sign-in {
-  display: flex;
-  width: 380px;
-  // max-width: 380px;
-  margin: auto;
-  margin-top: 5%;
-  flex-direction: column;
-  min-width: fit-content;
-  // background-color: blue;
-
-  .title{
-    margin: 10px 0;
-  }
 
   .button-container {
     // width: 100%;
@@ -18,10 +5,11 @@
     display: flex;
     justify-content: space-between;
   }
-}
 
 .container-fluid {
   display:flex;
+  color: black;
+  background-color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;

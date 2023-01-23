@@ -1,16 +1,18 @@
 import React from 'react'
-import FullCollectionItem from '../full-collection-item/FullCollectionItem';
+import FullCollectionItem from '../full-collection-item/FullCollectionItem.jsx';
+import CollectionItem from '../../collection-item/CollectionItem.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb';
+import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 
 
-export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection}) => (
-  <Container fluid="true"
-      className='collection'
-    >
+export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
+  <Container fluid="true" className='collection'>
+    <Row>
       <Breadcrumb />
+      {/* <p>womens</p> */}
+    </Row>
       <Row>
         <h1 
           className='title'
@@ -19,6 +21,8 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
             marginBottom: '25px',
             marginTop: '25px',
             fontWeight: '700',
+            textAlign: 'left',
+            marginLeft: '8%'
           }}
         >
           {title.toUpperCase()}
@@ -35,8 +39,13 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
             }}
             >
             {
+              filteredList !== undefined ?
+              filteredList.map(({id, ...otherItemProps}) => (
+                <FullCollectionItem key={id} title={title} id={id} handleItemSelection={onItemSelection} {...otherItemProps} />
+                ))
+              :
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} title={title} id={id} onItemSelection={onItemSelection} {...otherItemProps} />
+                <FullCollectionItem key={id} title={title} id={id} handleItemSelection={onItemSelection} {...otherItemProps} />
                 ))
               };
           </div>

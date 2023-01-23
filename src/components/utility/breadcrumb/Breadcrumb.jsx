@@ -12,7 +12,7 @@ export default function Breadcrumb() {
         underline="hover"
         sx={{ display: 'flex', alignItems: 'center' }}
         color="inherit"
-        href="http://localhost:3000/"
+        href="http://localhost:3000/shop"
         // href='https://magofna68.github.io/eCommerce-front-end/#/'
         >
         <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />

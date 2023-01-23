@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Hats from '../shop/category/hats/Hats';
-import Jackets from '../shop/category/jackets/Jackets';
-import Sneakers from '../shop/category/sneakers/Sneakers';
-import ItemDetail from '../../pages/itemDetailPage/ItemDetail';
-import CategoryControl from '../shop/category/categoryControl/CategoryControl';
+import Hats from '../../../components/shop/category/hats/Hats.jsx';
+import Jackets from '../../../components/shop/category/jackets/Jackets.jsx';
+import Sneakers from '../../../components/shop/category/sneakers/Sneakers.jsx';
+import ItemDetail from '../../itemDetailPage/ItemDetail.jsx';
+import CategoryControl from '../../../components/shop/category/categoryControl/CategoryControl.jsx';
 
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -82,7 +82,7 @@ export default class Directory extends React.Component {
     await this.setState({
       currentView: categoryToAssign
     })
-    console.log(this.state.currentView)
+    // console.log(this.state.currentView)
   }
   
   render() {
