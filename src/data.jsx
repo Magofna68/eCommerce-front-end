@@ -1435,7 +1435,51 @@ const SHOP_DATA = [
   }
 ]
 
+// -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+
+
 export const MENS_SHOP_LIST = [
+      {
+        id: 'price_1MTZmwKFRYyirzJ3uGUrqi2v',
+        title: 'sale',
+        name: 'Mens Louis Vuitton Varsity Jacket',
+        alt: 'Black and Yellow Lettermans Jacket',
+        img: 'https://thegenuineleather.com/wp-content/uploads/2022/02/Mens-Louis-Vuitton-Logo-Yellow-Jacket.webp',
+        img2: 'https://thegenuineleather.com/wp-content/uploads/2022/02/Mens-Louis-Vuitton-Logo-Yellow-Varsity-Jacket.webp',
+        img3: 'https://thegenuineleather.com/wp-content/uploads/2022/02/Mens-Louis-Vuitton-Jacket.webp',
+        img4: 'https://thegenuineleather.com/wp-content/uploads/2022/02/Mens-Louis-Vuitton-Logo-Jacket.jpg',
+        price: '139',
+        // productRating: ,
+        reviews: [
+          {
+            id: 0,
+            username: 'MikeSawItFirst',
+            date: '03/01/2021',
+            title: 'Great Jacket, high quality item',
+            feedback: 'Fit is a bit snug, would recommend buying a larger size',
+            rating: 4.5,
+          },
+          {
+            id: 1,
+            username: 'ReligiousFanatic',
+            date: '09/30/2020',
+            title: 'Seams Didnt Hold up Very Long',
+            feedback: 'Looks very well made, but within a month it started showing signs of wear.',
+            rating: 3.5,
+          },
+          {
+            id: 2,
+            username: 'BoyGenius230',
+            date: '01/02/2023',
+            title: 'Simply Perfect',
+            feedback: 'Not much to say here; if there was I would have said so.',
+            rating: 5,
+          },
+        ],
+        desc: 'Mens Louis Vuitton Varsity Jacket is not just an ordinary letterman jacket, it is filled with fashionable entails in terms of soothing color contrast and creative embezzlements. So what are you waiting for? Grab them right now and make yourself the best-looking man in the room.',
+        detail: ['Material: Fleece with Leather Sleeves', 'Color: Yellow And Black', 'Front: Snap-Tab Button', 'Sleeves: Long Rib Knitted Sleeves', 'Inner: Viscose Lining',]
+      },
       {
         id:'price_1MB4NnKFRYyirzJ3bD3a66D9',
         title: 'hats',
@@ -2079,6 +2123,10 @@ export const MENS_SHOP_LIST = [
    
 ]
 
+// ----------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+
+
 export const MENS_SHOP_DATA = [
   {
     id: 1,
@@ -2306,6 +2354,8 @@ export const MENS_SHOP_DATA = [
     ]
   }
 ]
+
+// -----------------------------------------------------------------------------------------
 
 
 export const WOMENS_SHOP_DATA = [
@@ -3057,6 +3107,10 @@ export const WOMENS_SHOP_DATA = [
     ]
   }
 ]
+
+// -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+
 
   export const WOMENS_SHOP_LIST = [
     {
