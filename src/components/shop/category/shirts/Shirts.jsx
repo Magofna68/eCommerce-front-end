@@ -18,7 +18,12 @@ export default function Shirts(props) {
       {
         // mensFilteredList !== [] ?
         shirtCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection filteredList={filteredShirts} id={id} key={id} onItemSelection={onItemSelection} {...otherCollectionProps} />
+          <RenderFullCollection 
+            filteredList={filteredShirts} 
+            id={id} 
+            key={id} 
+            onItemSelection={onItemSelection} 
+            {...otherCollectionProps} />
         ))
       }
     </div>

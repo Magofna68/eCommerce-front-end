@@ -5,6 +5,7 @@ import Jackets from '../src/components/shop/category/jackets/Jackets.jsx';
 import Hats from './components/shop/category/hats/Hats.jsx';
 import Shirts from './components/shop/category/shirts/Shirts.jsx';
 import Sneakers from './components/shop/category/sneakers/Sneakers.jsx';
+import Sale from './components/shop/category/sale/Sale.jsx';
 import MensClothing from './components/shop/gender/men/MensClothing.jsx';
 import WomensClothing from './components/shop/gender/women/WomensClothing.jsx';
 import SearchedItemDetails from './pages/itemDetailPage/SearchedItemDetails.jsx';
@@ -88,6 +89,7 @@ componentWillUnmount() {
             <Route path='/shop/jackets' element={<Jackets />}/>
             <Route path='/shop/sneakers' element={<Sneakers/>}/>
             <Route path='/shop/shirts' element={<Shirts/>}/>
+            <Route path='/shop/sale' element={<Sale />} />
 
             <Route exact path='/shop/mens' element={<MensClothing />}/>
             <Route exact path='/shop/womens' element={<WomensClothing/>}/>

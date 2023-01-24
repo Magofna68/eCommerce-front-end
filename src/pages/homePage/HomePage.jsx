@@ -14,13 +14,6 @@ export default function HomePage() {
   const [ clickedTitle, setClickedTitle ] = useState("");
  const navigate = useNavigate();
 
-//  function NavigateToCategory(e) {
-//   const clickedCategory = e;
-//   // const savedItem = itemObj.filter(item => item.id === savedId)[0]
-//   console.log("Saved Item from #SearchBar:", e)
-//   let path = '/shop/'.concat(clickedCategory)
-//   console.log("path:", path)
-//  }
  const handleHomePageCategoryClick = (e) => {
   let categoryTitle = e;
   console.log(e.target.title)
@@ -32,16 +25,12 @@ export default function HomePage() {
   // console.log("Path:", path)
 }
 
+// breakout categoryRedirect into separate component and render component rather than hardcode
 const categoryRedirect = async (clickedCategoryTitle) => {
   const categoryToAssign = clickedCategoryTitle;
   console.log("HomePageRedirect", categoryToAssign);
-  const stringifiedCategory = categoryToAssign.toString();
-  // setClickedTitle({
-  //   clickedTitle: categoryToAssign
-  // })
   let path = '/shop/'.concat(categoryToAssign)
   navigate(path)
-  console.log("clickedTitle:", stringifiedCategory)
 }
 
   const carouselImages = [
@@ -72,7 +61,7 @@ const categoryRedirect = async (clickedCategoryTitle) => {
   ]
   
  
-  const categories = ['shirts', 'sneakers','jackets', 'hats']
+  const categories = ['shirts', 'sneakers','jackets', 'hats', 'sale']
   
   return (
     <Container fluid>
@@ -92,23 +81,15 @@ const categoryRedirect = async (clickedCategoryTitle) => {
           justifyContent: 'space-between',
           marginBottom: '3%'
       }}>
-      {/* {
-        categories.map((category) => {
-          return(
-            // <Link className="nav-link" to= >{category}</Link>
-              <li key={category.id} value={category.title} onClick={(e) => categoryRedirect(e)}>{category.title.toUpperCase()}</li>
-            )
-          })
-        } */}
-            <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
-              <ul className='titleContainer'>
-                {
-                  categories.map((title, index) => (
-                    <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title.toUpperCase()}</li>
-                  ))
-                }
-              </ul>
-            </Row>
+        <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
+          <ul className='titleContainer'>
+            {
+              categories.map((title, index) => (
+                <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title.toUpperCase()}</li>
+              ))
+            }
+          </ul>
+        </Row>
         </div>
       <div className='carouselContainer'>
         <Carousel  dataSet={carouselImages}/>
