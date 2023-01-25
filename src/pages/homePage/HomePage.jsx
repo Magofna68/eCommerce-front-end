@@ -27,44 +27,29 @@ class HomePage extends Component {
     filteredHomepageList: {},
   }
 }
-// // breakout categoryRedirect into separate component and render component rather than hardcode
-// CategoryRedirect = async (e) => {
-  //   console.log(e)
-  //   // const categoryToAssign = clickedCategoryTitle.value.toString().toUpperCase();
-  //   // const category = categoryToAssign.toUpperCase();
-  //   // console.log("HomePageRedirect", categoryToAssign);
-  //   const filteredList = this.state.shopData.filter(item => item.title.includes(e))
-  //   console.log(filteredList)
-  //   this.setState({filteredHomepageList: filteredList})
-  //   console.log(this.filteredHomepageList)
-  
-  //   // handleClick = () => {
     
-    //     // }
-    //   }
-    
-    categoryRedirect = async (clickedCategoryTitle) => {
-      // create list of mens and womens shop data
-      let ShopData = WOMENS_SHOP_LIST;
-      let ShopData2 = MENS_SHOP_LIST
-      let categoryToAssign = clickedCategoryTitle.toUpperCase();
-      // let ShopData3 = [...ShopData, ...ShopData2];
-      await this.setState({ categoryItems: [...ShopData, ...ShopData2]})
-      console.log("categoryItems:", this.state.categoryItems)
-      const filteredList = this.state.categoryItems.filter((item) => item.title.includes(clickedCategoryTitle))
-      console.log("FilteredList", filteredList)
-      await this.setState({ filteredHomePageList: filteredList, clickedCategory: categoryToAssign })
-      console.log("FILTEREDHOMEPAGELIST:", this.state.filteredHomePageList)
-      // await this.setState({ clickedCategory: categoryToAssign })
-      console.log(this.state.clickedCategory)
-      // await this.renderSwitch(categoryToAssign)
-    }
+  categoryRedirect = async (clickedCategoryTitle) => {
+    // create list of mens and womens shop data
+    let ShopData = WOMENS_SHOP_LIST;
+    let ShopData2 = MENS_SHOP_LIST
+    let categoryToAssign = clickedCategoryTitle.toUpperCase();
+    // let ShopData3 = [...ShopData, ...ShopData2];
+    await this.setState({ categoryItems: [...ShopData, ...ShopData2]})
+    console.log("categoryItems:", this.state.categoryItems)
+    const filteredList = this.state.categoryItems.filter((item) => item.title.includes(clickedCategoryTitle))
+    console.log("FilteredList", filteredList)
+    await this.setState({ filteredHomePageList: filteredList, clickedCategory: categoryToAssign })
+    console.log("FILTEREDHOMEPAGELIST:", this.state.filteredHomePageList)
+    // await this.setState({ clickedCategory: categoryToAssign })
+    console.log(this.state.clickedCategory)
+    // await this.renderSwitch(categoryToAssign)
+  }
 
-    handleItemClick = (id) => {
-      let clickedItem = id;
-      console.log(clickedItem)
-      this.setState({ selectedItem: clickedItem })
-    }
+  handleItemClick = (id) => {
+    let clickedItem = id;
+    console.log(clickedItem)
+    this.setState({ selectedItem: clickedItem })
+  }
         
       render() {
           
@@ -85,22 +70,22 @@ class HomePage extends Component {
           } else if (this.state.clickedCategory === "SHIRTS") {
             currentlyVisibleState = 
             <Shirts 
-              itemToShow={this.handleItemClick}/>
+              onItemSelection={this.handleItemClick}/>
             buttonText = "Home"
           } else if (this.state.clickedCategory === "JACKETS") {
             currentlyVisibleState = 
             <Jackets 
-              itemToShow={this.handleItemClick}/>
+              onItemSelection={this.handleItemClick}/>
             buttonText= "Home"
           } else if (this.state.clickedCategory === "HATS") {
             currentlyVisibleState = 
             <Hats 
-              itemToShow={this.handleItemClick}/>
+              onItemSelection={this.handleItemClick}/>
             buttonText="Home"
           } else if (this.state.clickedCategory === "SALE") {
             currentlyVisibleState = 
             <Sale 
-              itemToShow={this.handleItemClick}/>
+              onItemSelection={this.handleItemClick}/>
             buttonText="Home"
           } else {
             currentlyVisibleState = 

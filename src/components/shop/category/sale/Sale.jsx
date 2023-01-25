@@ -31,7 +31,7 @@ export default function Sale(props) {
             filteredList={filteredSale} 
             key={id} 
             id={id} 
-            // onItemSelection={handleChangingSelectedItem} 
+            onItemSelection={onItemSelection} 
             {...otherCollectionProps} />
         ))
       }
