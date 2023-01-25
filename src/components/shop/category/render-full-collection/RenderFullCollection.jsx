@@ -41,11 +41,23 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
             {
               filteredList !== undefined ?
               filteredList.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} title={title} id={id} handleItemSelection={onItemSelection} {...otherItemProps} />
+                <FullCollectionItem 
+                  key={id} 
+                  title={title} 
+                  id={id} 
+                  handleItemSelection={onItemSelection} 
+                  {...otherItemProps} 
+                />
                 ))
               :
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem key={id} title={title} id={id} handleItemSelection={onItemSelection} {...otherItemProps} />
+                <FullCollectionItem 
+                  key={id} 
+                  title={title} 
+                  id={id} 
+                  handleItemSelection={onItemSelection} 
+                  {...otherItemProps} 
+                />
                 ))
               };
           </div>
