@@ -10,7 +10,12 @@ export default function Jackets(props) {
     <div>
       {
         jacketCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection key={id} filteredList={filteredJackets} onItemSelection={onItemSelection} {...otherCollectionProps} />
+          <RenderFullCollection 
+            key={id} 
+            filteredList={filteredJackets} 
+            onItemSelection={onItemSelection} 
+            {...otherCollectionProps} 
+          />
         ))
       }
     </div>

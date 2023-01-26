@@ -12,6 +12,7 @@ import Sneakers from '../../category/sneakers/Sneakers.jsx';
 import Hats from '../../category/hats/Hats.jsx';
 import Jackets from '../../category/jackets/Jackets.jsx';
 import Shirts from '../../category/shirts/Shirts.jsx';
+import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
@@ -119,6 +120,14 @@ class MensClothing extends Component {
           onClearItemStateClick={this.handleClearItemStateClick}
         />
         // buttonText = selectedCategory
+    } else if (this.state.selectedCategory === "SALE") {
+      currentlyVisibleState = 
+      <Sale 
+        onItemSelection={this.handleChangingSelectedItem} 
+        filteredSale={this.state.mensFilteredList}
+        itemToShow={this.state.selectedItem}
+        onClearItemStateClick={this.handleClearItemStateClick}
+      />
     } else { 
       currentlyVisibleState = 
       <ItemList 

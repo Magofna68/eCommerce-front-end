@@ -22,6 +22,7 @@ export default function SearchBar() {
   const categoryItems = []
   for (let i = 0; i < SHOP_DATA.length; i++) {
     categoryItems.push(SHOP_DATA[i].items)
+    // console.log("CATEGORYITEMS:", categoryItems)
   };
   
   // Loop through category items and create array for all itemObj & itemNames
@@ -30,6 +31,7 @@ export default function SearchBar() {
     for (let j = 0; j < categoryItems[i].length; j++) {
       itemObj.push(categoryItems[i][j])
     }
+    // console.log("ItemObj:", itemObj)
   }
 
   const handleKeyDown = (event) => {
@@ -60,8 +62,6 @@ export default function SearchBar() {
         desc: savedItem.desc,
         detail: savedItem.detail,
         reviews: savedItem.reviews
-        // reviewStars: savedItem.reviewStars,
-        // onAvgRating: savedItem.onAvgRating,
       }
     })
     handleClose()
@@ -74,11 +74,21 @@ export default function SearchBar() {
     e.preventDefault();
 
     const searchedTerm = e.target.value
-    const newTerm = searchedTerm.toString()
+    const newTerm = searchedTerm.toString().toLowerCase();
     setSearchTerm(newTerm);
-
-    setSearchResults(itemObj.filter(item =>
-    item.name.toLowerCase().includes(searchTerm)))
+    // bug: only includes search queries relating to title
+    const itemTitleResults = itemObj.filter(item => item.title.toLowerCase().includes(searchTerm))
+    const itemNameResults = itemObj.filter(item => item.name.toLowerCase().includes(searchTerm))
+    const resultsTest = [...itemTitleResults, ...itemNameResults];
+    resultsTest.push(itemTitleResults && itemNameResults)
+    // itemTitleResults.concat(itemNameResults)
+    // itemNameResults.concat(itemTitleResults);
+    console.log("ItemTitleResults:", itemTitleResults)
+    console.log("ItemNAME:", itemNameResults)
+    // const finalResults = Array.from(new Set(resultsTest))
+    // console.log("FinalResults:", finalResults)
+    setSearchResults(itemTitleResults);
+    // setSearchResults(resultsTest)
   }
 
   return (

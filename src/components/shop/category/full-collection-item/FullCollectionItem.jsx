@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
 import './fullCollectionItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext.jsx';
@@ -8,26 +9,28 @@ export default function FullCollectionItem(props) {
   
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
-  // const navigate = useNavigate();
+
+  const navigate = useNavigate();
   // console.log(items)
-  // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
-  // const toItemDetail = (id, name, price, img, desc, img2) => {
-  //   navigate(path, {
-  //     state:  {
-  //       id: id, 
-  //       name: name, 
-  //       price: price, 
-  //       img: img,
-  //       img2: img2,
-  //       desc: desc,
-  //     }
-  //   })
-  // }
+  let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
+  const toItemDetail = (id, name, price, img, desc, img2) => {
+    navigate(path, {
+      state:  {
+        id: id, 
+        name: name, 
+        price: price, 
+        img: img,
+        img2: img2,
+        desc: desc,
+      }
+    })
+  }
 
   const goToSelectedItem = async (e) => {
     const selectedItem = [props][0];
     // console.log(selectedItem)
     console.log({selectedItem})
+    // toItemDetail()
     await handleItemSelection(selectedItem);
     // console.log(selectedItem)
     // this.setState({selectedItem: selectedItem})
