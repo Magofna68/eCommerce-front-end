@@ -34,6 +34,7 @@ class App extends React.Component {
     this.state = {
       currentUser: null,
       currentView: null,
+      viewPort: window.innerWidth,
     }
 }
 
@@ -77,6 +78,7 @@ componentWillUnmount() {
   render() {
   // const { currentUser } = this.state;
   // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
+  const { viewPort } = this.state;
     return (
       <>
         <Header currentUser={this.state.currentUser}/>
@@ -100,7 +102,7 @@ componentWillUnmount() {
             <Route path='/shop' element={<ShopPage/>}></Route>
             <Route path='success' element={<PaymentCompletePage />}></Route>
             <Route path='cancel' element={<PaymentFailedPage />}></Route>
-            <Route path='contact' element={<ContactPage />}></Route>
+            <Route path='contact' element={<ContactPage viewPort={viewPort} />}></Route>
 
             {/* pathway for itemDetails */}
             <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
