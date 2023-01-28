@@ -1,33 +1,31 @@
 import React, { Component, useState } from 'react';
-import './homePage.styles.scss';
+// import './homePage.styles.scss';
 // import { Container, Row, Col } from 'react-bootstrap';
 import  { MENS_SHOP_LIST, SHOP_DATA, WOMENS_SHOP_LIST }  from '../../data.jsx';
 import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview.jsx';
 import Carousel from '../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import HomeLayout from './HomeLayout';
+import HomeLayout from './homeLayout/HomeLayout';
 import ItemDetail from '../itemDetailPage/ItemDetail.jsx';
 import Jackets from '../../components/shop/category/jackets/Jackets.jsx';
 import Shirts from '../../components/shop/category/shirts/Shirts.jsx';
 import Sneakers from '../../components/shop/category/sneakers/Sneakers.jsx';
 import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
-import {Link} from 'react-router-dom';
-
 
 class HomePage extends Component {
   constructor() {
-  super(); 
-  this.state = {
-    clickedCategory: "",
-    selectedItem: null,
-    ShopData: [],
-    categoryItems: [],
-    filteredHomepageList: {},
+    super(); 
+    this.state = {
+      clickedCategory: "",
+      selectedItem: null,
+      ShopData: [],
+      categoryItems: [],
+      filteredHomepageList: {},
+    }
   }
-}
-    
+  
   categoryRedirect = async (clickedCategoryTitle) => {
     // create list of mens and womens shop data
     let ShopData = WOMENS_SHOP_LIST;
@@ -44,19 +42,19 @@ class HomePage extends Component {
     console.log(this.state.clickedCategory)
     // await this.renderSwitch(categoryToAssign)
   }
-
+  
   handleItemClick = (id) => {
     let clickedItem = id;
     console.log(clickedItem)
     this.setState({ selectedItem: clickedItem })
   }
-        
-      render() {
-          
-          let currentlyVisibleState = null;
-          let buttonText = null;
-          const { clickedCategory, selectedItem } = this.state;
-
+  
+  render() {
+    
+    let currentlyVisibleState = null;
+    let buttonText = null;
+    const { clickedCategory, selectedItem } = this.state;
+    
           if (this.state.selectedItem !== null) {
             currentlyVisibleState = 
             <ItemDetail 
