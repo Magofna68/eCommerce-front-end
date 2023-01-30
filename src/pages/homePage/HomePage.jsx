@@ -92,7 +92,7 @@ class HomePage extends Component {
           }
 
     return (
-    <Container fluid>
+    <Container fluid style={{ margin: 0, padding: 0}}>
       {currentlyVisibleState}
     </Container>
     )

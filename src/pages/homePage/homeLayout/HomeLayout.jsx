@@ -43,7 +43,7 @@ export default function HomeLayout(props) {
     const categories = ['shirts', 'sneakers','jackets', 'hats', 'sale']
     
     return (
-      <Container fluid>
+      <Container fluid style={{ padding: 0, margin: 0, paddingTop: '5px'}}>
       <div className="underGroundRoyalty">
         <Typography
             variant='h2'
@@ -66,6 +66,7 @@ export default function HomeLayout(props) {
             Underground
           </Typography>
           <Typography
+          className='typographyText'
             variant='h1'
             sx={{
               fontWeight: 'bolder',

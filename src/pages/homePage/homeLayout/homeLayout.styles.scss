@@ -22,8 +22,15 @@
   }
 }
 
+.typographyText{
+  
+  @media only screen and (max-width: 420px) {
+    font-size: 2rem;
+  }
+}
+
 .underGroundRoyalty{
-  width: 99vw;
+  width: 100%;
   height: 55vh;
   background-image: 
   linear-gradient(rgba(0, 0, 0, 1), rgba(192,192,192,.3), rgba(255, 255, 255, 1)),
@@ -123,6 +130,14 @@
     display: flex;
     // margin: 0;
     margin-top: 52%;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  @media only screen and (max-width: 375px) {
+    display: flex;
+    // margin: 0;
+    margin-top: 35%;
     font-size: 15px;
     font-weight: 600;
   }
