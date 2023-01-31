@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import { MENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
 import './mensClothing.styles.scss';
@@ -14,6 +14,7 @@ import Jackets from '../../category/jackets/Jackets.jsx';
 import Shirts from '../../category/shirts/Shirts.jsx';
 import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
 
 
 class MensClothing extends Component {
@@ -24,8 +25,10 @@ class MensClothing extends Component {
       itemList:  MENS_SHOP_LIST ,
       selectedCategory: "",
       mensFilteredList: [],
+      cart: [],
     }
   }
+   cart = createContext(ShoppingCartContext);
 
   categoryRedirect = async (clickedCategoryTitle) => {
     const categoryToAssign = clickedCategoryTitle
