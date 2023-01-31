@@ -12,9 +12,13 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
+
 import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 
+import Bag from '../../assets/bag.png';
 import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
 import HomePage from '../../pages/homePage/HomePage.jsx';
 import ContactPage from '../../pages/contactPage/ContactPage.jsx';
@@ -84,50 +88,36 @@ export default function Navigationbar({currentUser}) {
 
   return (
           <Container className='p-0' fluid="true">
-            <Navbar className='border' bg="transparent" expand="md" >
+            <Navbar 
+              className=''
+              style={{ display: 'flex', justifyContent: 'space-between'}} 
+              // variant="dark"
+              // bg="transparent" 
+              // bg="dark"
+              expand="lg" 
+            >
              <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
-                <img 
-                  src={Logo} 
-                  style={{
-                    borderRadius: '5px'
-                  }}
-                  width='100%' 
-                  alt='logo'>
-                </img>
+                <img src={Logo} width='50px' alt='logo' style={{ borderRadius: '5px',}} />
              </Navbar.Brand>
-             <div styles={{ display: 'flex', flexDirection: 'row'}}><h4 className='w3-monospace'>Underground ROYALTY
-                 </h4>
-                 </div>
-             <NavbarToggle className='border-0' aria-controls="navbar-toggle" />
-             <NavbarCollapse className='justify-content-center navbar-toggle'>
-               <Nav className='ml-auto'>
-                {/* <NavDropdown title="Women's" id="basic-nav-dropdown">
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#/shop/womens">Apparel</NavDropdown.Item>
-                </NavDropdown>
-                <NavDropdown title="Men's" id="basic-nav-dropdown">
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#/shop/mens">Apparel</NavDropdown.Item>
-                </NavDropdown> */}
-              
-              <Link className="nav-link" to="/#">HOME</Link>
-              <Link className="nav-link" to="/shop" >Shop</Link>
-              <Link className='nav-link' to="/shop/mens">Mens</Link>
-              <Link className='nav-link' to="/shop/womens">Womens</Link>
-              <Link className='nav-link' to='/contact'>contact</Link>
-                <SearchBar />
-                  <span className='cartIcon'>
-                    <Button
-                      style={{
-                        width: '3rem',
-                        height: '3rem',
-                        position: 'relative',
-                      }}
-                      variant="outline-primary"
-                      className="rounded-circle"
-                      onClick={handleShow}
-                    >
-                    <ShoppingCartOutlinedIcon fontSize="medium" style={{ marginRight: '3%'}}/>
+                <span className='cartIcon'>
+                  <Button
+                    variant="outline-primary"
+                    className="rounded-square"
+                    onClick={handleShow}
+                    style={{
+                      width: '3.3rem',
+                      height: '3.3rem',
+                      position: 'relative',
+                      opacity: '80%'
+                    }}
+                  >
+                    <span>
+                      <img 
+                        src={Bag}  
+                        alt="shopping bag"  
+                        width="50px" 
+                        style={{ position: 'absolute', top: 0, right: 5}} />
+                    </span>
                     <div 
                       className='rounded-circle bg-danger d-flex 
                       justify-content-center align-items-center'
@@ -135,18 +125,37 @@ export default function Navigationbar({currentUser}) {
                         color: 'white',
                         bottom: 0,
                         right: 0,
-                        transform: 'translate(35%, 35%)',
-                        width: '1.5rem',
-                        height: '1.5rem',
+                        transform: 'translate(-25%, -15%)',
+                        width: '1.25rem',
+                        height: '1.25rem',
                         position: 'absolute',
-                    }}>
+                      }}
+                    >
                       {productCount}
                     </div>
-                    </Button>
-                  </span>
-              </Nav>
-            </NavbarCollapse>
-          </Navbar>
+                  </Button>
+                </span>
+
+                {/* <div styles={{ position: 'absolute', top: 0, right: 0}}>
+                    <SearchBar />
+                </div> */}
+                  <div 
+                  // styles={{ display: 'flex', justifySelf: 'right'}}
+                  >
+                    <SearchBar />
+                </div>
+                <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
+                  <NavbarCollapse className='navbar-toggle'>
+                    <Nav className='justify-content-center margin-left-auto'>            
+                      <Link className="nav-link" to="/#">HOME</Link>
+                      <Link className="nav-link" to="/shop" >Shop</Link>
+                      <Link className='nav-link' to="/shop/mens">Mens</Link>
+                      <Link className='nav-link' to="/shop/womens">Womens</Link>
+                      <Link className='nav-link' to='/contact'>contact</Link>
+                      {/* <div style={{width: '225px', backgroundColor: 'black'}}></div> */}
+                    </Nav>
+                  </NavbarCollapse>
+            </Navbar>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title><span id="modalTitle">UNDERGROUND ROYALTY</span></Modal.Title>
@@ -222,7 +231,7 @@ export default function Navigationbar({currentUser}) {
                                   fontSize='large' 
                                   onClick={()=> cart.addOneItemToCart(currentProduct.id)}
                                   className="cartQuantityArrow"
-                                />
+                                  />
                               </Col>
                           </div>
                         </Col>

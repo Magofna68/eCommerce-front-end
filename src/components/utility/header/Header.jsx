@@ -27,7 +27,7 @@ export const Header = ({currentUser}) => (
       <section className='header-top'>
         </section>
           <section className='header-bottom '>
-            <div className='slogan'>Find Your Style</div>
+            <div className='slogan'>Created by: <span style={{ fontWeight: 600}}>Brandon Magofna</span></div>
             <section className='header-bottom_phone'>
               503-269-2656
             </section>

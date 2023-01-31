@@ -73,10 +73,19 @@ h4 {
 }
 
 .cartIcon{
-  display: flex;
-  justify-content: center;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  justify-content: right;
+  margin: 0 10px 0 0;
 }
 
 .border{
   width: 100%;
+}
+
+.navbar-toggle{
+//  position: absolute;
+//  top: 15;
+//  right: 28vw;
 }
