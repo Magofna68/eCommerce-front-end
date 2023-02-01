@@ -8,6 +8,7 @@ import transparentCrown from '../../../assets/transparentCrown.png';
 import Row from 'react-bootstrap/Row';
 
 import { Typography } from "@mui/material";
+import Directory from '../../shopPage/directory/Directory.jsx';
 
 export default function HomeLayout(props) {
   const { categoryRedirect } = props;
@@ -105,6 +106,7 @@ export default function HomeLayout(props) {
           justifyContent: 'space-between',
           marginBottom: '3%'
         }}>
+        {/* <Directory /> */}
         <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
           <ul className='titleContainer'>
             {
