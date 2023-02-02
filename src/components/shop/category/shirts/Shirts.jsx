@@ -1,6 +1,6 @@
 import React from 'react'
 import './shirts.styles.scss';
-import FullItemCollection from '../../fullCollection/itemCollection/ItemCollection.jsx';
+import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx';
 import { SHOP_DATA } from '../../../../data.jsx';
 
 export default function Shirts(props) {

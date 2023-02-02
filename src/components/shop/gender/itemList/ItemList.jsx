@@ -11,7 +11,7 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Row from 'react-bootstrap/Row'
 
 export default function ItemList(props) {
-  const { FullItemList, onItemSelection, categoryRedirect } = props;
+  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle } = props;
 
   function getRandom(array) {
     let i = array.length -1;
@@ -29,23 +29,26 @@ export default function ItemList(props) {
     <>
     <Breadcrumb />
         <Container fluid="true" className='collectionPreview'>
-          <h1 id="title">SHOP</h1>
-          {/* <div className='titleContainer'> */}
-          {/* <h2>
-            <Link className="nav-link" to={'/shop/'+ mensCollection.title}>
-              {mensCollection.title.toUpperCase()}
-            </Link>
-          <hr />
-          </h2> */}
-            <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
-              <ul className='titleContainer'>
-                {
-                  categoryTitles.map((title, index) => (
-                    <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
-                  ))
-                }
-              </ul>
-            </Row>
+          {
+            priceFilterTitle ?
+            <h1 id="title">{priceFilterTitle}</h1>
+            :
+            <h1 id="title">SHOP</h1>
+          }
+            {
+              priceFilterData ?
+              null
+              :
+              <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
+                <ul className='titleContainer'>
+                  {
+                    categoryTitles.map((title, index) => (
+                      <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
+                      ))
+                  }
+                </ul>
+              </Row>
+                  }
           <div className='preview'
             style={{ 
               flexWrap: 'wrap',
@@ -56,6 +59,15 @@ export default function ItemList(props) {
             }}
           >
         {
+          priceFilterData ? 
+          getRandom(priceFilterData).map(({id, ...props}) => (
+            <CollectionItem
+              key={id}
+              handleItemSelection={onItemSelection}
+              {...props}
+            />
+          ))
+          :
           getRandom(FullItemList).map(({id, ...props}) => (
             <CollectionItem
               key={id}

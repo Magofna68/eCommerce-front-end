@@ -1,6 +1,6 @@
 import React from 'react'
 import {SHOP_DATA} from '../../../../data.jsx';
-import FullItemCollection from '../../fullCollection/itemCollection/ItemCollection.jsx'
+import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Jackets(props) {
   const {onItemSelection, filteredJackets} = props;

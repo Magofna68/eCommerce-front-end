@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import {SHOP_DATA} from '../../../../data.jsx';
-import FullItemCollection from '../../fullCollection/itemCollection/ItemCollection.jsx';
+import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx';
 
 export default function Sneakers(props) {
   const { onItemSelection, itemToShow, filteredSneakers,  } = props
