@@ -33,14 +33,29 @@ class HomePage extends Component {
     let categoryToAssign = clickedCategoryTitle.toUpperCase();
     // let ShopData3 = [...ShopData, ...ShopData2];
     await this.setState({ categoryItems: [...ShopData, ...ShopData2]})
-    console.log("categoryItems:", this.state.categoryItems)
+    // console.log("categoryItems:", this.state.categoryItems)
     const filteredList = this.state.categoryItems.filter((item) => item.title.includes(clickedCategoryTitle))
-    console.log("FilteredList", filteredList)
+    // console.log("FilteredList", filteredList)
     await this.setState({ filteredHomePageList: filteredList, clickedCategory: categoryToAssign })
-    console.log("FILTEREDHOMEPAGELIST:", this.state.filteredHomePageList)
+    // console.log("FILTEREDHOMEPAGELIST:", this.state.filteredHomePageList)
     // await this.setState({ clickedCategory: categoryToAssign })
-    console.log(this.state.clickedCategory)
+    // console.log(this.state.clickedCategory)
     // await this.renderSwitch(categoryToAssign)
+  }
+
+  priceFilterRedirect = async (price) => {
+    let data = [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST];
+    // console.log("filteredData", data)
+    if (price === 100) {
+      const filteredData = data.filter((item)=> item.price < price)
+      console.log("UnderData", filteredData)
+    } else if (price === 'sale') {
+      const filteredData = data.filter((item) => item.title.includes('sale'))
+      console.log("SaleData", filteredData)
+    } else {
+      const filteredData = data.filter((item)=> item.price > price)
+      console.log("LuxuryData", filteredData)
+    }
   }
   
   handleItemClick = (id) => {
@@ -53,7 +68,7 @@ class HomePage extends Component {
     
     let currentlyVisibleState = null;
     let buttonText = null;
-    const { clickedCategory, selectedItem } = this.state;
+    const { clickedCategory, selectedItem,  } = this.state;
     
           if (this.state.selectedItem !== null) {
             currentlyVisibleState = 
@@ -88,6 +103,7 @@ class HomePage extends Component {
           } else {
             currentlyVisibleState = 
             <HomeLayout 
+              priceFilterRedirect={this.priceFilterRedirect}
               categoryRedirect={this.categoryRedirect} />
           }
 

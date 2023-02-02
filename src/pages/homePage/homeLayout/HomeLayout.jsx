@@ -6,12 +6,13 @@ import Carousel from '../../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import transparentCrown from '../../../assets/transparentCrown.png';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import { Typography } from "@mui/material";
 import Directory from '../../shopPage/directory/Directory.jsx';
 
 export default function HomeLayout(props) {
-  const { categoryRedirect } = props;
+  const { categoryRedirect, priceFilterRedirect } = props;
 
   const carouselImages = 
     [
@@ -41,7 +42,7 @@ export default function HomeLayout(props) {
       }
     ]
     
-    const categories = ['shirts', 'sneakers','jackets', 'hats', 'sale']
+    const categories = ['shirts', 'sneakers','jackets', 'hats',]
     
     return (
       <Container fluid style={{ padding: 0, margin: 0, paddingTop: '5px'}}>
@@ -117,9 +118,34 @@ export default function HomeLayout(props) {
           </ul>
         </Row>
         </div>
+          <div style={{ flexDirection: 'row', display: 'flex', width: '100%'}}>
+
+          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)}>
+            <div className="under100img" style={{ backgroundImage: `url('https://ak.picdn.net/shutterstock/videos/8335927/thumb/1.jpg?ip=x480')`}}/>
+            <div className="content" >
+             <span>UNDER</span><h1>$100</h1>
+            </div>
+          </div>
+
+          <div onClick={() => priceFilterRedirect('sale')} className="itemFilterContainer" style={{ justifyContent: 'space-around', background: 'black', padding: '3px'}}>
+          <div className="under100img" style={{ backgroundPosition: 'bottom 20% right 30%', zIndex: 1, marginRight: '2%', marginBottom: ''  , width: '75%', height: '100%', backgroundImage: `url('https://culturedvultures.com/wp-content/uploads/2016/10/lookbook-modmedia-3313-page-34521.jpg')`}}/>
+          <div className="under100img" style={{ zIndex: 2, marginRight: '2%', paddingBottom: '5%', backgroundPosition: 'bottom 0% right 50%', width: '60%', height: '100%', backgroundImage: `url('https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2021/02/Types-of-Mens-Hats-Banner.jpg')`}}/>
+          <div className="under100img" style={{ zIndex: 0, marginTop: '', backgroundPositionY: '90%', width: '75%', height: '100%', backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
+            <div className="content" style={{ zIndex: 3, border: '2px solid black', color: 'red'}}>
+             <span>ON</span><h1>SALE</h1>
+            </div>
+          </div>
+
+          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)}>
+            <div className="under100img"  style={{ backgroundImage: `url('https://cdn.shopify.com/s/files/1/0182/8937/files/Blog1-FN-1_1024x1024.jpg?v=1507218406')`}}/>
+            <div className="content" >
+             <span>Luxury</span><h1>ITEMS</h1>
+            </div>
+          </div>
+          </div>
+        <br/><br/>
       <div className='carouselContainer'>
         <Carousel  dataSet={carouselImages}/>
-        {/* <h3>ROYALTY FOR A REASON</h3> */}
       </div>
     </Container>
   )
