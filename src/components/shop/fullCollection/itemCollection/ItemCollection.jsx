@@ -1,13 +1,12 @@
 import React from 'react'
-import FullCollectionItem from '../full-collection-item/FullCollectionItem.jsx';
-import CollectionItem from '../../collection-item/CollectionItem.jsx';
+import SingleItem from '../singleItem/SingleItem.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 
 
-export const RenderFullCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
+ export const FullItemCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
   <Container fluid="true" className='collection'>
     <Row>
       <Breadcrumb />
@@ -41,7 +40,7 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
             {
               filteredList !== undefined ?
               filteredList.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem 
+                <SingleItem 
                   key={id} 
                   title={title} 
                   id={id} 
@@ -51,7 +50,7 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
                 ))
               :
               items.map(({id, ...otherItemProps}) => (
-                <FullCollectionItem 
+                <SingleItem 
                   key={id} 
                   title={title} 
                   id={id} 
@@ -64,5 +63,5 @@ export const RenderFullCollection = ({title, items, routeName, selectedItem, onI
   </Container>
 )
 
-export default RenderFullCollection;
+export default FullItemCollection;
 

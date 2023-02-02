@@ -11,7 +11,7 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Row from 'react-bootstrap/Row'
 
 export default function ItemList(props) {
-  const { itemCollection, onItemSelection, categoryRedirect } = props;
+  const { FullItemList, onItemSelection, categoryRedirect } = props;
 
   function getRandom(array) {
     let i = array.length -1;
@@ -56,7 +56,7 @@ export default function ItemList(props) {
             }}
           >
         {
-          getRandom(itemCollection).map(({id, ...props}) => (
+          getRandom(FullItemList).map(({id, ...props}) => (
             <CollectionItem
               key={id}
               handleItemSelection={onItemSelection}

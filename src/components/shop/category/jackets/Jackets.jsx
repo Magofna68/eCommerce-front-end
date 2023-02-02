@@ -1,6 +1,6 @@
 import React from 'react'
 import {SHOP_DATA} from '../../../../data.jsx';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
+import FullItemCollection from '../../fullCollection/itemCollection/ItemCollection.jsx'
 
 export default function Jackets(props) {
   const {onItemSelection, filteredJackets} = props;
@@ -10,7 +10,7 @@ export default function Jackets(props) {
     <div>
       {
         jacketCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection 
+          <FullItemCollection 
             key={id} 
             filteredList={filteredJackets} 
             onItemSelection={onItemSelection} 

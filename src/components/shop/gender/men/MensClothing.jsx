@@ -135,7 +135,7 @@ class MensClothing extends Component {
       currentlyVisibleState = 
       <ItemList 
         categoryRedirect={this.categoryRedirect}
-        itemCollection={this.state.itemList} 
+        FullItemList={this.state.itemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
       buttonText = "Home"

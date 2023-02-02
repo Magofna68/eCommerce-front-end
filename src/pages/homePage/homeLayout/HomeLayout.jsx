@@ -120,7 +120,7 @@ export default function HomeLayout(props) {
         </div>
           <div style={{ flexDirection: 'row', display: 'flex', width: '100%'}}>
 
-          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)}>
+          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)} style={{ background: 'black'}}>
             <div className="under100img" style={{ backgroundImage: `url('https://ak.picdn.net/shutterstock/videos/8335927/thumb/1.jpg?ip=x480')`}}/>
             <div className="content" >
              <span>UNDER</span><h1>$100</h1>
@@ -136,7 +136,7 @@ export default function HomeLayout(props) {
             </div>
           </div>
 
-          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)}>
+          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)} style={{ background: 'black'}}>
             <div className="under100img"  style={{ backgroundImage: `url('https://cdn.shopify.com/s/files/1/0182/8937/files/Blog1-FN-1_1024x1024.jpg?v=1507218406')`}}/>
             <div className="content" >
              <span>Luxury</span><h1>ITEMS</h1>
