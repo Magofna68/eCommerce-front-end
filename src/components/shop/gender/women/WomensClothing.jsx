@@ -136,77 +136,29 @@ class WomensClothing extends Component {
       <div>
         {
           buttonText === "Home" ?
-        <div className="womensBackdropContain">
-          <div className='womensBackdropMobile'>
-            <h1>Women's</h1><h1>Clothing</h1>
-          </div>
-            <img src={Queen} alt="Queen" width="150px" />
-        </div>
-        :
-        null
-        }
-        {currentlyVisibleState}
-        <hr/>
-        {
-          buttonText === "Home" ? 
-          <Button onClick={this.handleHomeClick}>{buttonText}</Button>
+            <div className="womensBackdropContain">
+              <div className='womensBackdropMobile'>
+                <h1>Women's</h1><h1>Clothing</h1>
+              </div>
+                <img src={Queen} alt="Queen" width="150px" />
+            </div>
           :
-          <Button onClick={this.handleClick}>{buttonText}</Button>
+            null
         }
+
+        {currentlyVisibleState}
+        
+        <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
+          {
+            buttonText === "Home" ? 
+            <Button onClick={this.handleHomeClick}>{buttonText}</Button>
+            :
+            <Button onClick={this.handleClick}>{buttonText}</Button>
+          }
+        </div>
       </div>
     );
   }
 }
 
 export default WomensClothing;
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import { WOMENS_SHOP_DATA } from '../../../../data'
-// import CollectionPreview from '../../preview-collection/CollectionPreview'
-// import Queen from '../../../../assets/Queen.png';
-// import './womensClothing.styles.scss';
-
-// export default function WomensClothing() {
-//   return (
-//     <div>
-//         <div className='backdropLogo'
-//         // style={{
-//         //   display: 'flex',
-//         //   width: '96vw',
-//         //   position: 'fixed',       
-//         //   color: 'grey',
-//         //   justifyContent: 'center',
-//         //   alignItems: 'center',
-//         //   zIndex: -1,
-//         //   flexDirection: 'column'
-//         // }}
-//         >
-//           <div className='backdropMobile'
-//           // style={{
-//           //   display: 'flex', 
-//           //   justifyContent: 'space-around', 
-//           //   width: '600px', 
-//           //   marginBottom: '-15%', 
-//           //   marginTop: '5%'
-//           //   }}
-//           >
-//             <h1>Women's</h1><h1>Clothing</h1>
-//           </div>
-//             <img src={Queen} alt="Queens" width="150px" style={{zIndex: -1}}/>
-//         </div>
-
-//       {
-//         WOMENS_SHOP_DATA.map(({id, ...otherCollectionProps}) => (
-//           <CollectionPreview key={id} {...otherCollectionProps} />
-//         ))
-//       }
-//     </div>
-//   )
-// }

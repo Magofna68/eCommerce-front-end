@@ -1,6 +1,6 @@
 div.container-fluid{
   padding: 0 0 0 0;
-  margin: 3% 0 0 0;
+  margin: 3% 0 0% 0 ;
 }
 
 .footerTitle{
@@ -37,7 +37,13 @@ div.container-fluid{
 }
 
 // .footerTitles{
+//   font-weight: 600;
+//   width: 50%;
 //   text-transform: capitalize;
+//   display: flex;
+//   justify-content: left;
+//   align-items: left;
+//   align-self: left;
 // }
 
 .footerBottom{
@@ -51,8 +57,19 @@ div.container-fluid{
 
 .connectTypography{
   font-size: 13px;
+  color: black;
 
   &:hover{
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
+
+.footerListItem{
+  font-size: 14px;
+
+  &:hover{
+    transform: scale(1.01);
     cursor: pointer;
     font-weight: 600;
   }
