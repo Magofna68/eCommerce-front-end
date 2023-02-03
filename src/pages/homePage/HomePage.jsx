@@ -14,6 +14,7 @@ import Sneakers from '../../components/shop/category/sneakers/Sneakers.jsx';
 import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
 import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
+import Footer from '../../components/footer/Footer.jsx';
 
 class HomePage extends Component {
   constructor() {
@@ -124,9 +125,12 @@ class HomePage extends Component {
           }
 
     return (
+      <>
     <Container fluid style={{ margin: 0, padding: 0}}>
       {currentlyVisibleState}
+    <Footer />
     </Container>
+    </>
     )
   }
 }
