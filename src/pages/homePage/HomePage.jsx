@@ -128,7 +128,6 @@ class HomePage extends Component {
       <>
     <Container fluid style={{ margin: 0, padding: 0}}>
       {currentlyVisibleState}
-    <Footer />
     </Container>
     </>
     )

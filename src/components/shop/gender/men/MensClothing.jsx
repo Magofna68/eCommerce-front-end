@@ -14,7 +14,6 @@ import Jackets from '../../category/jackets/Jackets.jsx';
 import Shirts from '../../category/shirts/Shirts.jsx';
 import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-// import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
 
 
 class MensClothing extends Component {
@@ -25,10 +24,8 @@ class MensClothing extends Component {
       itemList:  MENS_SHOP_LIST ,
       selectedCategory: "",
       mensFilteredList: [],
-      // cart: [],
     }
   }
-  //  cart = createContext(ShoppingCartContext);
 
   categoryRedirect = async (clickedCategoryTitle) => {
     const categoryToAssign = clickedCategoryTitle
@@ -175,13 +172,14 @@ class MensClothing extends Component {
           null
         }
         {currentlyVisibleState}
-        <hr/>
+        <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
         {
           buttonText === "Home" ? 
           <Button onClick={this.handleHomeClick}>{buttonText}</Button>
           :
           <Button onClick={this.handleClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }
+        </div>
       </div>
     );
   }

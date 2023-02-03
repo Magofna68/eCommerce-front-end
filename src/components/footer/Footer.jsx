@@ -146,7 +146,7 @@ export default function Footer() {
           justifyContent: 'space-between',
           fontSize: '12px', 
           color: 'silver', 
-          width: '100vw',
+          width: '100%',
           fontWeight: '600',
           height: '20px'
         }}
