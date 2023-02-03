@@ -1,8 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import {SHOP_DATA} from '../../../../data.jsx';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
-
+import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx';
 
 export default function Sneakers(props) {
   const { onItemSelection, itemToShow, filteredSneakers,  } = props
@@ -31,7 +30,7 @@ export default function Sneakers(props) {
 
       {
         sneakerCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection 
+          <FullItemCollection 
             key={id} 
             id={id}
             filteredList={filteredSneakers} 

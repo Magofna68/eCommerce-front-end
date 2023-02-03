@@ -13,6 +13,8 @@ import Shirts from '../../components/shop/category/shirts/Shirts.jsx';
 import Sneakers from '../../components/shop/category/sneakers/Sneakers.jsx';
 import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
+import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
+import Footer from '../../components/footer/Footer.jsx';
 
 class HomePage extends Component {
   constructor() {
@@ -23,6 +25,8 @@ class HomePage extends Component {
       ShopData: [],
       categoryItems: [],
       filteredHomepageList: {},
+      priceFilterData: [],
+      priceFilterTitle: "",
     }
   }
   
@@ -31,16 +35,37 @@ class HomePage extends Component {
     let ShopData = WOMENS_SHOP_LIST;
     let ShopData2 = MENS_SHOP_LIST
     let categoryToAssign = clickedCategoryTitle.toUpperCase();
-    // let ShopData3 = [...ShopData, ...ShopData2];
     await this.setState({ categoryItems: [...ShopData, ...ShopData2]})
-    console.log("categoryItems:", this.state.categoryItems)
     const filteredList = this.state.categoryItems.filter((item) => item.title.includes(clickedCategoryTitle))
-    console.log("FilteredList", filteredList)
     await this.setState({ filteredHomePageList: filteredList, clickedCategory: categoryToAssign })
-    console.log("FILTEREDHOMEPAGELIST:", this.state.filteredHomePageList)
-    // await this.setState({ clickedCategory: categoryToAssign })
-    console.log(this.state.clickedCategory)
-    // await this.renderSwitch(categoryToAssign)
+
+  }
+
+  priceFilterRedirect = async (price) => {
+    let data = [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST];
+
+    if (price === 100) {
+      const filteredData = data.filter((item)=> item.price < price)
+      await this.setState({ 
+        priceFilterData: filteredData,
+        priceFilterTitle: "Under $100"
+      });
+    } else if (price === 'sale') {
+      const filteredData = data.filter((item) => item.title.includes('sale'))
+      await this.setState({ 
+        priceFilterData: filteredData,
+        priceFilterTitle: "Sale"
+      });
+    } else {
+      const filteredData = data.filter((item)=> item.price > price)
+      await this.setState({ 
+        priceFilterData: filteredData,
+        priceFilterTitle: "Luxury Items",
+      });
+    }
+    await this.setState({ clickedCategory: "FILTER"})
+    console.log("AfterStateUpdate:", this.state.priceFilterData)
+
   }
   
   handleItemClick = (id) => {
@@ -53,7 +78,7 @@ class HomePage extends Component {
     
     let currentlyVisibleState = null;
     let buttonText = null;
-    const { clickedCategory, selectedItem } = this.state;
+    const { clickedCategory, selectedItem, priceFilterData, priceFilterTitle } = this.state;
     
           if (this.state.selectedItem !== null) {
             currentlyVisibleState = 
@@ -85,16 +110,26 @@ class HomePage extends Component {
             <Sale 
               onItemSelection={this.handleItemClick}/>
             buttonText="Home"
+          } else if (this.state.clickedCategory === 'FILTER') {
+            currentlyVisibleState =
+            <ItemList 
+              onItemSelection={this.handleItemClick} 
+              priceFilterData={priceFilterData}
+              priceFilterTitle={priceFilterTitle}
+            />
           } else {
             currentlyVisibleState = 
             <HomeLayout 
+              priceFilterRedirect={this.priceFilterRedirect}
               categoryRedirect={this.categoryRedirect} />
           }
 
     return (
-    <Container fluid>
+      <>
+    <Container fluid style={{ margin: 0, padding: 0}}>
       {currentlyVisibleState}
     </Container>
+    </>
     )
   }
 }

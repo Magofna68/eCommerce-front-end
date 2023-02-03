@@ -1,5 +1,7 @@
 import React from 'react'
 import './contactPage.styles.scss';
+import Footer from '../../components/footer/Footer.jsx';
+
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -7,7 +9,6 @@ import Col from 'react-bootstrap/Col';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-
 
 export default function ContactPage(props) {
   const { viewPort } = props;

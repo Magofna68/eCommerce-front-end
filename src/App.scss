@@ -10,11 +10,16 @@
 
 #root {
   font-family: 'Roboto Condensed', sans-serif;
-  padding: 20px 20px;
+  padding: 2px 2px 0px 2px;
+  border: 5px solid rgb(51, 51, 51);
+  margin: 0 2px 0 2px;
+  border-top: none;
+  // background-color: rgb(71, 60, 60);
+  // color: white;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2b2b2b;
   // min-height: 100vh;
   display: flex;
   flex-direction: column;

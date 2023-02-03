@@ -5,8 +5,6 @@ import './menu-item.scss';
 
  const MenuItem = (props) => {
   const { title, imageUrl, size, linkUrl, categoryRedirect } = props;
-  // const navigate = useNavigate();
-  // let path = navigate('shop/'.concat(title.toLowerCase()).concat('/', linkUrl))
 
   function goToCategory() {
     window.location.assign('https://magofna68.github.io/eCommerce-front-end/#/shop/' + linkUrl)
@@ -18,21 +16,11 @@ import './menu-item.scss';
     console.log(clickedTitle)
     categoryRedirect(clickedTitle)
   }
-  const info = (e) => {
-    console.log([props.title])
-  }
 
  return (
   
-  <div 
-    className={`${size} menu-item`} 
-    // onClick={() => navigate('shop/' + linkUrl)}
-    // onClick={(id) => categoryRedirect(id)}
-    onClick={() => RedirectToCategory()}
-    // onClick={(e) => info(e)}
-  >
-    <div 
-      className="background-image"
+  <div className={`${size} menu-item`} onClick={() => RedirectToCategory()}>
+    <div className="background-image"
       style={{
         backgroundImage: `url(${imageUrl})`,
       }}

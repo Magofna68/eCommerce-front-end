@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import {SHOP_DATA} from '../../../../data.jsx'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
+// import FullItemCollection from '../fullCollection/FullItemCollection/FullItemCollection.jsx'
+import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Hats(props) {
   const { onItemSelection, filteredHats, itemToShow } = props;
@@ -20,7 +21,7 @@ export default function Hats(props) {
       <h1>{hatCollection.title}</h1>
       {
         hatCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection 
+          <FullItemCollection 
             key={id} 
             filteredList={filteredHats} 
             id={id} 

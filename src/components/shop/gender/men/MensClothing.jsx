@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { MENS_SHOP_LIST } from '../../../../data.jsx';
+import React, { Component, createContext } from 'react';
+import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
 import './mensClothing.styles.scss';
 import ItemList from '../itemList/ItemList.jsx';
@@ -21,16 +21,18 @@ class MensClothing extends Component {
     super(props);
     this.state = {
       selectedItem: null,
-      itemList:  MENS_SHOP_LIST ,
+      mensItemList:  MENS_SHOP_LIST ,
+      womensItemList: WOMENS_SHOP_LIST,
       selectedCategory: "",
       mensFilteredList: [],
+      womensFilteredList: [],
     }
   }
 
   categoryRedirect = async (clickedCategoryTitle) => {
     const categoryToAssign = clickedCategoryTitle
-    console.log("CATEGORY REDIRECT", categoryToAssign);
-    const mensTempFilteredList = this.state.itemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+    // console.log("CATEGORY REDIRECT", categoryToAssign);
+    const mensTempFilteredList = this.state.mensItemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
     // console.log("MENSCLOTHING -- Before state Update", mensTempFilteredList)
     await this.setState({
       // mensFilteredlist: mensTempFilteredList,
@@ -61,7 +63,7 @@ class MensClothing extends Component {
       selectedItem: selectedItem
     })
 
-    console.log(this.state.itemList)
+    console.log(this.state.mensItemList)
   }
 
   handleClearItemStateClick = (e) => {
@@ -132,7 +134,7 @@ class MensClothing extends Component {
       currentlyVisibleState = 
       <ItemList 
         categoryRedirect={this.categoryRedirect}
-        itemCollection={this.state.itemList} 
+        FullItemList={this.state.mensItemList} 
         onItemSelection={this.handleChangingSelectedItem} 
       />
       buttonText = "Home"
@@ -172,13 +174,14 @@ class MensClothing extends Component {
           null
         }
         {currentlyVisibleState}
-        <hr/>
+        <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
         {
           buttonText === "Home" ? 
           <Button onClick={this.handleHomeClick}>{buttonText}</Button>
           :
           <Button onClick={this.handleClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }
+        </div>
       </div>
     );
   }

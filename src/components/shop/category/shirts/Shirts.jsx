@@ -1,6 +1,6 @@
 import React from 'react'
 import './shirts.styles.scss';
-import RenderFullCollection from '../render-full-collection/RenderFullCollection.jsx';
+import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx';
 import { SHOP_DATA } from '../../../../data.jsx';
 
 export default function Shirts(props) {
@@ -18,7 +18,7 @@ export default function Shirts(props) {
       {
         // mensFilteredList !== [] ?
         shirtCollection.map(({id, ...otherCollectionProps}) => (
-          <RenderFullCollection 
+          <FullItemCollection 
             filteredList={filteredShirts} 
             id={id} 
             key={id} 

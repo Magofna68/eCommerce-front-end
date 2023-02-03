@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card'
-import './fullCollectionItem.styles.scss';
-import { ShoppingCartContext } from '../../../context/ShoppingCartContext.jsx';
+import './singleItem.styles.scss';
+// import { ShoppingCartContext } from '../../../../context/ShoppingCartContext.jsx';
+import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
-export default function FullCollectionItem(props) {
+export default function SingleItem(props) {
   const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, handleItemSelection} = props;
   
   const cart = useContext(ShoppingCartContext);
@@ -39,12 +40,12 @@ export default function FullCollectionItem(props) {
 return (
 <>
   <Card 
-    className='fullCollectionItem'
+    className='SingleItem'
     onClick={(e)=> goToSelectedItem(e)}
     // onClick={() => toItemDetail(id, name, price, img, img2, desc,)}
     >
     <Card.Img 
-      className="fullCollectionImg"
+      className="singleItemImg"
       variant='top' 
       src={img} 
       style={{

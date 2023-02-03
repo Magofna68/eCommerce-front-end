@@ -49,6 +49,20 @@ export default class Directory extends React.Component {
           id: 5,
           linkUrl: 'womens'
         },
+        // {
+        //   title: 'kids',
+        //   imageUrl: '',
+        //   size: 'large',
+        //   id: 6,
+        //   linkUrl: 'kids'
+        // },
+                // {
+        //   title: 'sale',
+        //   imageUrl: '',
+        //   size: 'large',
+        //   id: 6,
+        //   linkUrl: 'sale'
+        // }
       ]
     }
 
@@ -104,17 +118,19 @@ export default class Directory extends React.Component {
         currentlyVisibleState = <Hats onItemSelection={this.handleChangingSelectedItem} />
         buttonText = "Return to Categories"
         buttonDisplayed = true;
-      
+        // window.location.assign('#/shop/hats')
       break;
       case 'jackets':
         currentlyVisibleState = <Jackets onItemSelection={this.handleChangingSelectedItem} />
         buttonText = "Return to Categories"
         buttonDisplayed = true;
+        // window.location.assign('#/shop/jackets')
       break;
       case 'sneakers':
         currentlyVisibleState = <Sneakers onItemSelection={this.handleChangingSelectedItem} />
         buttonText = "Return to Categories"
         buttonDisplayed = true;
+        // window.location.assign('#/shop/sneakers')
       break;
       case 'mens':
         window.location.assign('#/shop/mens')

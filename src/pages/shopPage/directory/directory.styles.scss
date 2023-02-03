@@ -1,7 +1,17 @@
-.directory-menu {
-  width: 100%;
+
+.container-fluid{
+  width: 100vw;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
+
+// directory-menu coming from categoryControl component
+  .directory-menu {
+    // width: 100vw;
+    display: flex;
+    // justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    cursor: pointer;
+  }

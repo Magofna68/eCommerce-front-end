@@ -23,18 +23,12 @@ function showSuccessAlert() {
 
 
 export const Header = ({currentUser}) => (
-    <section className='header'>
-      <section className='header-top'>
-        </section>
-          <section className='header-bottom '>
-            <div className='slogan'>Find Your Style</div>
-            <section className='header-bottom_phone'>
-              503-269-2656
-            </section>
-            <section className='header-bottom_email'>
-              Magofna68@gmail.com
-            </section>
-          </section>
+    <div className='header'>
+      <div className="contactInfo">
+        <span>503-269-2656</span>
+        <span>Brandon Magofna</span>
+        <span>Magofna68@gmail.com</span>
+      </div>
           <div className='signIn'>
             <div className='labelContain'>
               {
@@ -54,5 +48,5 @@ export const Header = ({currentUser}) => (
             </div>
           </div>
           <Navigationbar currentUser = {currentUser} />
-        </section>
+        </div>
     );
