@@ -48,10 +48,10 @@ export default function Footer() {
   ];
 
   const connect = [
-    <FacebookIcon fontSize="large" />,
-    <InstagramIcon fontSize="large" />,
-    <LinkedInIcon fontSize="large" />,
-    <GitHubIcon fontSize='large' />,
+    <a href="https://www.facebook.com/brandon.magofna.5" target="_blank" rel="noreferrer"><FacebookIcon fontSize="large" /></a>,
+    <a href="https://www.instagram.com/bmagofna68/?hl=en" target="_blank" rel="noreferrer"><InstagramIcon fontSize="large" /></a>,
+    <a href="https://www.linkedin.com/in/magofna" target="_blank" rel="noreferrer"><LinkedInIcon fontSize="large" /></a>,
+    <a href="https://github.com/Magofna68" target="_blank" rel="noreferrer"><GitHubIcon fontSize='large' /></a>,
   ]
 
   return (
