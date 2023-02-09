@@ -56,7 +56,7 @@ export default function Footer() {
   return (
   <Container fluid>
     <div className='footerTitle'>
-      <div className='footerBlackbar' />
+      {/* <div className='footerBlackbar' /> */}
         <span className='typographyContainer'>
           <Typography
             className='typographyText'

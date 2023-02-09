@@ -9,7 +9,7 @@ import Link from 'react-dom';
 import './itemList.styles.scss';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Row from 'react-bootstrap/Row'
-import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
+// import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
   const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle } = props;

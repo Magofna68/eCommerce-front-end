@@ -4,8 +4,9 @@ div.container-fluid{
 }
 
 .footerTitle{
-  width: 100%;
-  height: 90px;
+  width: 100vw;
+  // padding: 5px 10px 0 10px;
+  height: 80px;
   background-color: rgb(63, 63, 63);
   z-index: 0;
   padding-top: 5px;
@@ -13,52 +14,62 @@ div.container-fluid{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin: 0;
   padding: 0 0 0 0;
-  // margin-top: 3%;
-  // background-image: url('../../assets/transparentCrown.png');
 
-  // @media only screen and (max-width: '420px') {
-  //   display: flex;
-  // }
+  @media only screen and (max-width: '420px') {
+    height: 60px;
+    padding-top: 12px;
+  }
 }
 
-.footerBlackbar {
-  flex-direction: row;
-  width: 100%;
-  height: 30px;
-  background: black;
-  z-index: 1;
-  margin-top: 0.5%;
-}
+// .footerBlackbar {
+//   flex-direction: row;
+//   width: 100%;
+//   height: 30px;
+//   background: black;
+//   z-index: 1;
+//   margin-top: 0.5%;
+
+//   @media screen and (max-width: 420px) {
+//     display: none;
+//   }
+// }
 
 .typographyContainer {
   flex-direction: row;
   display: flex;
   justify-content: center;
   align-items: center;
-  // margin: 0;
-
-  // @media only mobile and (max-width: '420px') {
-  //   flex-direction: column;
-  //   display: flex;
-  // }
+  background-color: black;    
+  width: 100%;
+  height: 60px;
+  // border-top: double 1px white;
+  border-bottom: solid 1px white;
+  
+  @media screen and (max-width: '420px') {
+    
+    height: 50px;
+    border-bottom: solid 0.5px white;
+    border-top: solid 0.25px white;
+    opacity: .8;
+  }
 
   .typographyText{
-    display: flex;
-    flex-direction: column;
+    display:inline;
+    justify-content: space-evenly;
+    align-items: center;
+    
+  }
+  // typography text
+  .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
+    font-size: 50px;
+    @media screen and (max-width: 420px) {
+    
+    font-size: 25px;
+    }
   }
 }
 
-// .footerTitles{
-//   font-weight: 600;
-//   width: 50%;
-//   text-transform: capitalize;
-//   display: flex;
-//   justify-content: left;
-//   align-items: left;
-//   align-self: left;
-// }
 
 .footerBottomContainer{
   display: flex;
