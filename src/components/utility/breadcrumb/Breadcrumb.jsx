@@ -6,7 +6,7 @@ import './breadcrumbGrouping.styles.scss';
 
 export default function Breadcrumb() {
   return (
-    <div className='breadcrumb' style={{}}>
+    <div className='breadcrumb'>
     <Breadcrumbs aria-label="breadcrumb">
       <Link
         underline="hover"

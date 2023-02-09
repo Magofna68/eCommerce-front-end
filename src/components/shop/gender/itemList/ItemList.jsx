@@ -9,6 +9,7 @@ import Link from 'react-dom';
 import './itemList.styles.scss';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Row from 'react-bootstrap/Row'
+import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
   const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle } = props;
@@ -25,16 +26,30 @@ export default function ItemList(props) {
   }
 
   const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
+
   return (
     <>
-    <Breadcrumb />
+    <span 
+      style={{ 
+        margin: '0', 
+        height: '30px', 
+        width: '100%', 
+        display: 'flex', 
+        justifyContent: 'left', 
+        alignContent: 'left', 
+        alignItems: 'left'
+    }}>
+      <Breadcrumb />
+    </span>
+    {/* <div> */}
+      {
+        priceFilterTitle ?
+        <span className="title"><h1>{priceFilterTitle}</h1></span>
+        :
+        <span className="title"><h1>SHOP</h1></span>
+      }
+    {/* </div> */}
         <Container fluid="true" className='collectionPreview'>
-          {
-            priceFilterTitle ?
-            <h1 id="title">{priceFilterTitle}</h1>
-            :
-            <h1 id="title">SHOP</h1>
-          }
             {
               priceFilterData ?
               null
@@ -60,22 +75,22 @@ export default function ItemList(props) {
           >
         {
           priceFilterData ? 
-          getRandom(priceFilterData).map(({id, ...props}) => (
-            <CollectionItem
-              key={id}
-              handleItemSelection={onItemSelection}
-              {...props}
-            />
-          ))
+            getRandom(priceFilterData).map(({id, ...props}) => (
+              <CollectionItem
+                key={id}
+                handleItemSelection={onItemSelection}
+                {...props}
+                />
+            ))
           :
-          getRandom(FullItemList).map(({id, ...props}) => (
-            <CollectionItem
-              key={id}
-              handleItemSelection={onItemSelection}
-              {...props}
-            />
+            getRandom(FullItemList).map(({id, ...props}) => (
+              <CollectionItem
+                key={id}
+                handleItemSelection={onItemSelection}
+                {...props}
+              />
+              )
             )
-          )
         }
       </div>
   </Container>

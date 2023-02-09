@@ -1,6 +1,5 @@
 import React from 'react'
 import './footer.styles.scss';
-
 import { Typography } from "@mui/material";
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -40,10 +39,10 @@ export default function Footer() {
 
 
   const footerBottom = [
-    <span><CopyrightIcon fontSize="small" style={{color: 'white'}} />
-    2023 Underground ROYALTY</span>,
+    // <span style={{padding: '0 0 0 0', margin: '0 0 0 0',}}><CopyrightIcon fontSize="small" style={{color: 'white'}} />2023</span>,
+    "Underground ROYALTY",
     'Privacy Policy',
-    'Terms & Conditions',
+    'Terms and Conditions',
     ' Site Map',
   ];
 
@@ -60,6 +59,7 @@ export default function Footer() {
       <div className='footerBlackbar' />
         <span className='typographyContainer'>
           <Typography
+            className='typographyText'
             variant='h4'
             sx={{
               fontWeight: 'bold',
@@ -113,11 +113,10 @@ export default function Footer() {
           width: '95%'
         }}
       >
-        <Col style={{ paddingRight: '8%'}}>Need Help?</Col>
-        <Col style={{ }}>Explore</Col>
+        {/* <Col style={{ }}>Explore</Col>
         <Col style={{ marginRight: '-2%', color: 'white'}}>PlaceHolder</Col>
         <Col style={{ display: 'flex', justifyContent: 'left'}}>Lorum Ipsum</Col>
-        <Col style={{ justifyContent: 'center', display: 'flex' }}>Connect</Col>
+        <Col style={{ justifyContent: 'center', display: 'flex' }}>Connect</Col> */}
       </Row>
       <Row 
         className="backdrop" 
@@ -130,11 +129,13 @@ export default function Footer() {
           alignContent: 'left'
         }}
       >
-        <Col style={{paddingRight: '7%'}}>{services.map((service) => <li className="footerListItem">{service}</li>)}</Col>
-        <Col style={{ marginLeft: '1%'}}>{explore.map((category) => <li className="footerListItem">{category}</li>)}</Col>
-        <Col style={{ padding: 0, margin: 0}}></Col>
-        <Col style={{ marginLeft: '1%'}}>{explore.map((category) => <li className="footerListItem">{category}</li>)}</Col>
-        <Col style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column'}}>
+        <Col style={{paddingRight: '5%'}}><h5 style={{fontWeight: 600,}}>Need Help?</h5>{services.map((service) => <li className="footerListItem">{service}</li>)}</Col>
+        <Col style={{ marginLeft: '2%', padding: 0}}><h5 style={{fontWeight: 600,}}>Explore</h5>{explore.map((category) => <li className="footerListItem">{category}</li>)}</Col>
+        {/* <Col style={{ padding: 0, margin: 0, paddingRight: '3%'}}></Col> */}
+        <div  className="middleFooterCol" style={{ width: '18%', padding: 0}}></div>
+        <Col style={{ marginLeft: '1%'}}><h5 style={{fontWeight: 600,}}>Opportunities</h5>{explore.map((category) => <li className="footerListItem">{category}</li>)}</Col>
+        <Col style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', padding: 0}}>
+          <h5 className="middleFooterCol" style={{fontWeight: 600,}}>Connect</h5><br/>
           Underground
           <Typography
             className='typographyText'
@@ -167,26 +168,15 @@ export default function Footer() {
             }}
           >
             {connect.map((icon) => <li style={{ }}>{icon}</li>)}
-          </ul>
+          </ul><br/><br/><br/>
         </Col>
       </Row>
 
-      <div 
-        className='footerBlackbar' 
-        style={{ 
-          display: 'flex',
-          justifyContent: 'space-between',
-          fontSize: '12px', 
-          color: 'silver', 
-          width: '100%',
-          fontWeight: '600',
-          height: '20px',
-          marginTop: '2.5%'
-        }}
-      > 
+      <div className='footerBottomContainer'> 
+        <CopyrightIcon fontSize="small" style={{color: 'white', marginTop: '2%', marginLeft: '1%'}} />
         {footerBottom.map((text) =>
           <p className="footerBottom">
-            <span className="line">|&nbsp;&nbsp;</span>{text}<span className="line">&nbsp;&nbsp;|</span>
+            {text}
           </p>
         )}
       </div>
