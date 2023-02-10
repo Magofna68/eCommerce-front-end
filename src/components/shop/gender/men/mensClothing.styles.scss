@@ -1,19 +1,34 @@
 .backdropContain{
   display: flex;
-  width: 96vw;
+  width: 100%;
   position: fixed;
   justify-content: center;
   align-items: center;
   z-index: -1;
   flex-direction: column;
-  margin: -2% 0 0 0;
+  margin: -8% 0 0 0;
+
+  img{
+    margin: -5% 0 0% 0;
+  }
 
   @media only screen and (max-width: 420px) {
     align-items: center;
-    margin: 5% 0 0 0;
+    margin: -10% 0 0 0;
     img{
-      margin: -8% -4% 0% 0;
-      width: 125px;
+      margin: -8% % 0% 0;
+      // width: 125px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (min-width: 815px) {
+    margin: -10% 0 0 0;
+
+    img{
+      margin: -8% % 0% 0;
+      width: 200px;
       justify-content: center;
       align-items: center;
     }
@@ -23,21 +38,35 @@
 div.backdropMobile{
   display: flex;
   align-items: center;
-  
+  // background-color: black;
+  // color: white;
   justify-content: space-around;
-  margin: 5% 0 0 0;
+  margin: 10% 0 0 0;
   padding: 0 0 0 0%;
   width: 550px;
   font-weight: 600;
   color: rgb(91, 89, 89);
-  // background: yellow;
   
+  h1{
+    font-size: 2.5em;
+  }
 
   @media only screen and (max-width: 420px) {
     width: 375px;
     h1{
       font-size: 2em;
       margin: 8% 0 0 5%;
+    }
+  }
+
+  @media only screen and (min-width: 815px) {
+    width: 450px;
+    margin: 8% 0 0 0;
+
+    h1{
+      width: 60%;
+      // font-size: 3em;
+      margin: 10% 0 0 0;
     }
   }
 }

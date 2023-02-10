@@ -59,7 +59,7 @@ export default function ItemList(props) {
           priceFilterData ?
           null
           :
-          <Row style={{width: '90%', margin: 'auto',}}>
+          <Row style={{width: '90%', margin: 'auto', marginTop: '20%'}}>
             <ul className='titleContainer'>
               {
                 categoryTitles.map((title, index) => (
@@ -75,7 +75,6 @@ export default function ItemList(props) {
               display: 'flex',
               alignContent: 'space-between',
               justifyContent: 'center',
-              marginTop: '3%',
             }}
           >
         {
