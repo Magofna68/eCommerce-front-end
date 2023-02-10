@@ -120,6 +120,8 @@ export default function HomeLayout(props) {
         </div>
           <div style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', display: 'flex', width: '100%',}}>
 
+
+{/* Filter Function */}
           <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)} style={{ background: 'black'}}>
             <div className="under100img" style={{ backgroundImage: `url('https://ak.picdn.net/shutterstock/videos/8335927/thumb/1.jpg?ip=x480')`}}/>
             <div className="content" >

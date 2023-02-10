@@ -9,12 +9,9 @@ export default function Shirts(props) {
   shirtCollection.push(SHOP_DATA[3]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
-      <h1>{shirtCollection.title}</h1>
+    <div style={{ display: 'flex',}}>
+      <div></div>
+      {/* {shirtCollection.title} */}
       {
         // mensFilteredList !== [] ?
         shirtCollection.map(({id, ...otherCollectionProps}) => (

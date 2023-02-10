@@ -1,4 +1,6 @@
 div.collectionPreview.container-true {
+margin: 0 0 10% 0;
+
   h1{
     margin: 0 0 0 0;
     // padding-top: 5%;
@@ -20,9 +22,29 @@ div.collectionPreview.container-true {
 //   align-items: left;
 // }
 
+.priceFilterTitle{
+    // margin: 0% 0 5% 0;
+    // justify-content: left;
+    // align-items: left;
+    // display: flex;
+  
+    // h1{
+    //   display: flex;
+    //   align-items: left;
+    //   align-self: left;
+    //   align-content: left;
+    // }
+  
+    @media only screen and (max-width: 420px) {
+      font-size: 3em;
+      // margin-bottom: 6%;
+      // padding: 0% 0 20% 7%;
+    }
+  }
+
 .title{
   // width: 10%;
-  margin: 0 0 5% 0;
+  margin: 0% 0 5% 0;
   // padding: 3% 0 3% 3%;
   justify-content: left;
   align-items: left;
@@ -38,7 +60,7 @@ div.collectionPreview.container-true {
   @media only screen and (max-width: 500px) {
     font-size: 1.1rem;
     // margin-bottom: 6%;
-    padding: 2% 0 20% 7%;
+    padding: 0% 0 20% 7%;
   }
 }
 

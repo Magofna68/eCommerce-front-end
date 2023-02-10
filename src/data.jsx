@@ -1388,7 +1388,7 @@ const SHOP_DATA = [
   },
   {
     id: 4,
-    title: 'Sale',
+    title: 'sale',
     routeName: 'sale',
     items: [
       {

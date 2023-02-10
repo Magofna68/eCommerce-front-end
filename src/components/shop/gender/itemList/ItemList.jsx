@@ -2,7 +2,6 @@ import React from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
 import CollectionItem from '../../collection-item/CollectionItem.jsx';
-import CollectionPreview from '../../preview-collection/CollectionPreview.jsx';
 import { PropTypes } from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
@@ -29,41 +28,47 @@ export default function ItemList(props) {
 
   return (
     <>
-    <span 
-      style={{ 
-        margin: '0', 
-        height: '30px', 
-        width: '100%', 
-        display: 'flex', 
-        justifyContent: 'left', 
-        alignContent: 'left', 
-        alignItems: 'left'
-    }}>
-      <Breadcrumb />
-    </span>
-    {/* <div> */}
-      {
-        priceFilterTitle ?
-        <span className="title"><h1>{priceFilterTitle}</h1></span>
-        :
-        <span className="title"><h1>SHOP</h1></span>
-      }
-    {/* </div> */}
-        <Container fluid="true" className='collectionPreview'>
-            {
-              priceFilterData ?
-              null
-              :
-              <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
-                <ul className='titleContainer'>
-                  {
-                    categoryTitles.map((title, index) => (
-                      <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
-                      ))
-                  }
-                </ul>
-              </Row>
-                  }
+      <Container fluid="true" className='collectionPreview'>
+        <div 
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'left', 
+            alignContent: 'left', 
+            alignItems: 'left', 
+            width: '100%' }}
+        >
+        </div>
+
+        {
+          priceFilterTitle ?
+          <span  
+            style={{ 
+              color: 'black', 
+              fontSize: '2em',
+              marginBottom: '.75em',
+              marginTop: '1em',
+              fontWeight: '700',
+              textAlign: 'center',
+            }}>
+              {priceFilterTitle}
+          </span>
+          :
+          <span className="title"><h1>SHOP</h1></span>
+        }
+        {
+          priceFilterData ?
+          null
+          :
+          <Row style={{width: '90%', margin: 'auto',}}>
+            <ul className='titleContainer'>
+              {
+                categoryTitles.map((title, index) => (
+                  <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
+                ))
+              }
+            </ul>
+          </Row>
+        }
           <div className='preview'
             style={{ 
               flexWrap: 'wrap',

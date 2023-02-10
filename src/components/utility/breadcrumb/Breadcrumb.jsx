@@ -6,11 +6,11 @@ import './breadcrumbGrouping.styles.scss';
 
 export default function Breadcrumb() {
   return (
-    <div className='breadcrumb'>
-    <Breadcrumbs aria-label="breadcrumb">
+    <div style={{ margin: '0 0 0 0'}}>
+    <Breadcrumbs aria-label="breadcrumb" style={{ margin: '0 0 0 0'}}>
       <Link
         underline="hover"
-        sx={{ display: 'flex', alignItems: 'center' }}
+        sx={{ display: 'flex', alignItems: 'center', margin: '0 0 0 0' }}
         color="inherit"
         href="http://localhost:3000/shop"
         // href='https://magofna68.github.io/eCommerce-front-end/#/'
