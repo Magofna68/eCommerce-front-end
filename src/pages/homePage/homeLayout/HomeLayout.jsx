@@ -89,25 +89,20 @@ export default function HomeLayout(props) {
           >
             ROYALTY
           </Typography>
-          {/* <div className='bottomGraphic'> */}
             <h4 className="subtext">ROYALTY FOR A REASON.</h4><br/>
-
             <div className='crownIcon'>
               <img src={transparentCrown} width="75px" alt="crown icon"/>
             </div>
-          {/* </div> */}
       </div>
       <div 
         style={{
-          // marginTop: '10%',
           display: 'flex', 
-          // position: 'absolute',
           flexDirection: 'row', 
           width: '90vw', 
           justifyContent: 'space-between',
           marginBottom: '3%'
         }}>
-        {/* <Directory /> */}
+{/* <Directory /> */}
         <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
           <ul className='titleContainer'>
             {
@@ -147,6 +142,7 @@ export default function HomeLayout(props) {
           </div>
         <br/><br/>
       <div className='carouselContainer'>
+        <h1>Newest Arrivals</h1>
         <Carousel  dataSet={carouselImages}/>
       </div>
     </Container>

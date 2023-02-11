@@ -18,6 +18,7 @@
 
 .imgContainer{
   display: flex;
+  width: 100%;
   background-color: white;
   // color: black;
   justify-content:space-between;
@@ -33,7 +34,6 @@
   z-index: 1;
   display: inline-flex;
   justify-content: space-around;
-
 }
 // .carousel-caption{
 //   position: absolute;
@@ -62,3 +62,18 @@
   background-color: black !important;
 }
 
+@media screen and (max-width: 1200px) {
+  .carouselImg{
+    display: none;
+  }
+
+  .textBox{
+    display: none;
+  }
+ }
+
+ @media screen and (min-width: 1201px) {
+  div.carousel-caption{
+    // width: 20%;
+  }
+ }

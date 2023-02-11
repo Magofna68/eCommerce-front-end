@@ -14,7 +14,6 @@ export default function CarouselComponent({dataSet}) {
       {dataSet.map((slide, i) => {
         return (
           <Carousel.Item 
-          // interval={3500}
           >
             <div className='imgContainer'>
               <img
@@ -31,12 +30,12 @@ export default function CarouselComponent({dataSet}) {
                 alt={slide.alt2}
               />
             </div>        
-            {/* <Carousel.Caption>
+            <Carousel.Caption>
               <div className='textBox'>
                 <h3>{slide.title}</h3>
                 <p>{slide.text}</p>
               </div>
-            </Carousel.Caption> */}
+            </Carousel.Caption>
           </Carousel.Item>
         )
       })}

@@ -102,10 +102,11 @@ export default function Navigationbar({currentUser}) {
         expand="lg" 
         >
         <div className="navbarLeft">
+  {/* CROWN LOGO */}
           <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
             <img src={Logo} width='100%' alt='logo' />
           </Navbar.Brand>
-
+  {/* SEARCH ICON */}
           <div className='searchBarContainer'>
               {
                 openSearch ?
