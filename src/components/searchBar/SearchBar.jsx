@@ -22,7 +22,6 @@ export default function SearchBar() {
   const categoryItems = []
   for (let i = 0; i < SHOP_DATA.length; i++) {
     categoryItems.push(SHOP_DATA[i].items)
-    // console.log("CATEGORYITEMS:", categoryItems)
   };
   
   // Loop through category items and create array for all itemObj & itemNames
@@ -31,7 +30,6 @@ export default function SearchBar() {
     for (let j = 0; j < categoryItems[i].length; j++) {
       itemObj.push(categoryItems[i][j])
     }
-    // console.log("ItemObj:", itemObj)
   }
 
   const handleKeyDown = (event) => {
@@ -91,6 +89,10 @@ export default function SearchBar() {
     // setSearchResults(resultsTest)
   }
 
+  function getFocus() {
+    document.getElementById("searchBar").focus();
+  }
+
   return (
     <Container fluid className='searchBarContain'>
       <div className='searchBar'>
@@ -103,10 +105,12 @@ export default function SearchBar() {
         <input 
           placeholder='Search..' 
           type="text"
+          id="searchBar"
           name="search" 
           defaultValue={searchTerm}
           onChange={e => handleChange(e)}
           onKeyDown={handleKeyDown}
+          // onClick={getFocus()}
         />
       </div>
       <div className='searchResultsContainer'>

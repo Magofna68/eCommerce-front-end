@@ -8,9 +8,6 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 
  export const FullItemCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
     <Container fluid="true" className='collection'>
-      {/* <Row style={{ margin: '0 0 0 0'}}>
-        <Breadcrumb />
-      </Row> */}
       <Row style={{ margin: '0 0 0 0'}}>
         <h1 
           style={{
@@ -55,7 +52,7 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
               {...otherItemProps} 
             />
             ))
-          };
+          }
       </div>
     </Container>
   )

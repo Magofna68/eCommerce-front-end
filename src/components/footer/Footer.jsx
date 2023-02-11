@@ -1,7 +1,6 @@
 import React from 'react'
 import './footer.styles.scss';
 import { Typography } from "@mui/material";
-import CopyrightIcon from '@mui/icons-material/Copyright';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -39,8 +38,7 @@ export default function Footer() {
 
 
   const footerBottom = [
-    // <span style={{padding: '0 0 0 0', margin: '0 0 0 0',}}><CopyrightIcon fontSize="small" style={{color: 'white'}} />2023</span>,
-    "Underground ROYALTY",
+    " © 2023 Underground ROYALTY",
     'Privacy Policy',
     'Terms and Conditions',
     ' Site Map',
@@ -172,7 +170,6 @@ export default function Footer() {
       </Row>
 
       <div className='footerBottomContainer'> 
-        <CopyrightIcon fontSize="small" style={{color: 'white', marginTop: '2%', marginLeft: '1%'}} />
         {footerBottom.map((text) =>
           <p className="footerBottom">
             {text}
