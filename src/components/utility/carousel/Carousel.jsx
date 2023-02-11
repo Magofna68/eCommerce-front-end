@@ -3,6 +3,8 @@ import './carousel.styles.scss';
 import { React, useState } from 'react'
 import { Carousel } from 'react-bootstrap';
 
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+
 export default function CarouselComponent({dataSet}) {
   const [index, setIndex ] = useState(0);
   const handleSelect = (selectedIndex, e) => {
@@ -10,32 +12,40 @@ export default function CarouselComponent({dataSet}) {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} fade>
+    <Carousel activeIndex={index} onSelect={handleSelect} >
       {dataSet.map((slide, i) => {
         return (
           <Carousel.Item 
           >
             <div className='imgContainer'>
-              <img
-                height="400px"
-                className='carouselImg'
-                // className="d-block w-80"
-                src={slide.img}
-                alt={slide.alt}
-              />
-              <img 
-                height="400px"
-                className='carouselImg'
-                src={slide.img2}
-                alt={slide.alt2}
-              />
-            </div>        
+              <div className="carouselImg">
+                <img
+                  height="400px"
+                  width="300px"
+                  src={slide.img}
+                  alt={slide.alt}
+                />
+              </div>
             <Carousel.Caption>
               <div className='textBox'>
-                <h3>{slide.title}</h3>
+                <span>{slide.title}</span>
+                <div>
+                  <FormatQuoteIcon />
+                  {slide.quote}
+                  <FormatQuoteIcon />
+                </div>
                 <p>{slide.text}</p>
               </div>
             </Carousel.Caption>
+              <div className="carouselImg">
+                <img 
+                  height="400px"
+                  width="300px"
+                  src={slide.img2}
+                  alt={slide.alt2}
+                />
+              </div>
+            </div>        
           </Carousel.Item>
         )
       })}
