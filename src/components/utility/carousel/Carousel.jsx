@@ -1,7 +1,7 @@
 import './carousel.styles.scss';
 
 import { React, useState } from 'react'
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
 
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
@@ -17,35 +17,58 @@ export default function CarouselComponent({dataSet}) {
         return (
           <Carousel.Item 
           >
-            <div className='imgContainer'>
+            {
+              window.innerWidth > 1000 ?
+              <div className='imgContainer'>
               <div className="carouselImg">
                 <img
-                  height="400px"
-                  width="300px"
+                  height="100%"
+                  width="100%"
                   src={slide.img}
                   alt={slide.alt}
-                />
+                  />
               </div>
-            <Carousel.Caption>
               <div className='textBox'>
                 <span>{slide.title}</span>
                 <div>
                   <FormatQuoteIcon />
-                  {slide.quote}
+                    {slide.quote}
                   <FormatQuoteIcon />
                 </div>
-                <p>{slide.text}</p>
+                <br/>
+                <Button>{slide.text}</Button>
               </div>
-            </Carousel.Caption>
               <div className="carouselImg">
                 <img 
-                  height="400px"
-                  width="300px"
+                  height="100%"
+                  width="100%"
                   src={slide.img2}
                   alt={slide.alt2}
-                />
+                  />
               </div>
-            </div>        
+            </div>
+            :
+            <div className='imgContainer'>
+            <div className="carouselImg">
+              <img
+                height="100%"
+                width="100%"
+                src={slide.img}
+                alt={slide.alt}
+                />
+            </div>
+            <div className='textBox'>
+              <span className='slideTitle'>{slide.title}</span>
+              <div className="quoteContainer">
+                <FormatQuoteIcon />
+                  {slide.quote}
+                <FormatQuoteIcon />
+              </div>
+              <br/>
+              <Button>{slide.text}</Button>
+            </div> 
+            </div>
+            }
           </Carousel.Item>
         )
       })}

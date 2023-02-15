@@ -1,3 +1,145 @@
+
+// ======================== Mobile Display ========================
+@media only screen and (min-width: 200px) and (max-width: 420px) {
+  
+  .footerTitle{
+    height: 60px;
+    padding-top: 12px;
+    
+    .typographyContainer{
+      
+      height: 50px;
+      border-bottom: solid 0.5px white;
+      border-top: solid 0.25px white;
+      opacity: .8;
+      
+      .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
+        font-size: 28px;
+      }
+    }
+  }
+  
+  .middleFooterCol{
+    display: none;
+  }
+  
+  div.footerBottomContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding-bottom: 1%;
+    font-weight: 600;
+    height: 35px;
+    min-height: 35px;
+    max-height: 40px;
+    color: white;
+    
+    .footerBottom{
+      position: relative;
+      padding: 2%;
+      border-right: 1px solid white;
+      height: 100%;
+      font-size: 12px;
+      text-align: center;
+      align-items: center;
+      
+      &:last-child{
+        border-right: none;
+      }
+    }
+  }
+  .connectCol {
+    margin-top: 8%;
+  }
+}
+
+// ==================== Tablet Display =======================
+@media only screen and (min-width: 421px) and (max-width:660px) {
+    .footerTitle{
+      height: 70px;
+      padding-top: 12px;
+      
+      .typographyContainer{
+        
+        height: 60px;
+        border-bottom: solid 0.5px white;
+        border-top: solid 0.25px white;
+        opacity: .8;
+        
+        .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
+          // font-size: 32px;
+          font-size: 2em;
+        }
+      }
+    }
+    
+    
+    div.footerBottomContainer{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      align-content: center;
+      align-self: center;
+      padding-bottom: 3%;
+      // font-weight: 600;
+      height: 40px;
+      min-height: 35px;
+      max-height: 50px;
+      color: white;
+      margin: 0;
+      
+      .footerBottom{
+        display: flex;
+        padding-top: 2%;
+        padding-right: 2%;
+        border-right: 1px solid white;
+        height: 100%;
+        font-size: 12px;
+        text-align: center;
+        align-items: center;
+        
+        &:last-child{
+          border-right: none;
+        }
+      }
+    }
+    .backdrop{
+      margin-bottom: 5%;
+      
+      div.needHelpCol.col{
+        order: 2;
+        padding-right: 0;
+      }
+
+      .middleFooterCol{
+        display: none;
+        order: 2;
+        width: 50%;
+      }
+
+      .exploreCol{
+        display: none;
+        order: 1;
+        height: 50%;
+      }
+
+      .connectCol{
+        margin-right: 3%;
+        flex: 2;
+        justify-content:flex-start !important;
+      }
+
+      .opportunitiesCol{
+        order: 0;
+        margin-right: 3%;
+      }
+    }
+  }
+  
+  // ======================= Desktop View ==========================
+
 div.container-fluid{
   padding: 0 0 0 0;
   margin: 3% 0 0% 0 ;
@@ -5,7 +147,6 @@ div.container-fluid{
 
 .footerTitle{
   width: 100vw;
-  // padding: 5px 10px 0 10px;
   height: 80px;
   background-color: rgb(63, 63, 63);
   z-index: 0;
@@ -19,31 +160,10 @@ div.container-fluid{
   background-size: 200%;
   transition: all 1.5s ease;
 
-
-  @media only screen and (max-width: '420px') {
-    height: 60px;
-    padding-top: 12px;
-  }
-
   &:hover {
-    // background-color: white;
-    // border-bottom: double 1px black;
     background-position: left;
   }
 }
-
-// .footerBlackbar {
-//   flex-direction: row;
-//   width: 100%;
-//   height: 30px;
-//   background: black;
-//   z-index: 1;
-//   margin-top: 0.5%;
-
-//   @media screen and (max-width: 420px) {
-//     display: none;
-//   }
-// }
 
 .typographyContainer {
   flex-direction: row;
@@ -53,16 +173,8 @@ div.container-fluid{
   background-color: black;    
   width: 100%;
   height: 60px;
-  // border-top: double 1px white;
   border-bottom: solid 1px white;
   
-  @media screen and (max-width: '420px') {
-    
-    height: 50px;
-    border-bottom: solid 0.5px white;
-    border-top: solid 0.25px white;
-    opacity: .8;
-  }
 
   .typographyText{
     display:inline;
@@ -73,10 +185,6 @@ div.container-fluid{
   // typography text
   .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
     font-size: 50px;
-    @media screen and (max-width: 420px) {
-    
-    font-size: 25px;
-    }
   }
 }
 
@@ -91,19 +199,12 @@ div.container-fluid{
   flex-direction: row;
   background-color: black;
   padding-bottom: 1%;
-  
   width: 100vw;
   font-weight: 600;
   height: 30px;
   max-height: 50px;
   margin-bottom: -3%;
   color: white;
-
-  @media only screen and (max-width: 420px) {
-    height: 40px;
-    padding: 1% 1%;
-    margin: 0;
-  }
 }
 
 .footerBottom{
@@ -121,16 +222,6 @@ div.container-fluid{
     color: rgb(163, 157, 157);
   }
   
-  @media only screen and (max-width: 420px) {
-    margin: auto;
-    // margin: 0 0 0 0;
-    padding: 2%;
-    flex-direction: column;
-    border-right: 1px solid white;
-    height: 90%;
-    font-size: 12px;
-
-  }
   &:last-child{
     border-right: 1px solid black;
   }
@@ -151,13 +242,6 @@ div.container-fluid{
   }
 }
 
-.middleFooterCol{
-
-  @media only screen and (max-width: 420px) {
-    display: none;
-  }
-}
-
 .footerListItem{
   font-size: 14px;
 
@@ -175,7 +259,18 @@ div.container-fluid{
   background-position-y: top;
   background-size: 150px;
 
-  @media only screen and (max-width: 420px) {
+  width:95%;
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  align-content: left;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+
+// background crown img
+  @media only screen and (max-width: 660px) {
     background-position-y: bottom;
     background-size: 100px;
   }

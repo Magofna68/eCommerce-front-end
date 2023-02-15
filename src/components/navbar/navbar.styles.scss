@@ -1,3 +1,44 @@
+
+// =================== Mobile View 420px ==================
+@media screen and (max-width: 420px) {
+
+  nav.navbar.navbar {
+    margin: 0 0 0 0;
+  }
+
+    div.navbarLeft{
+      width: 82%;
+      justify-content: space-evenly;
+
+      .searchBarContainer{
+        display: flex;
+        padding: 0 0 0 0;
+        margin: 0;
+        align-self: center;
+        align-content: center;
+        
+      }
+    }
+
+    div.modalCol{
+      font-size: 12px;
+    }
+
+    .modalItemText{
+      padding: 0;
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      // text-align: left;
+    }
+
+    .col{
+      padding: 0;
+    }
+}
+
+// =============== Desktop View ================
+
 nav.navbar{
   margin: 0 10px 1% 10px;
   padding: 0 0 2% 0;
@@ -100,9 +141,6 @@ div.modalCol{
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: 420px) {
-    font-size: 12px;
-  }
 }
 
   .modalItemText{
@@ -110,17 +148,6 @@ div.modalCol{
     display: flex;
     justify-content: left;
 
-    @media only screen and (max-width: 420px){
-      padding: 0;
-      display: flex;
-      justify-content: left;
-      align-items: left;
-      // text-align: left;
-    }
-
-    .col{
-      padding: 0;
-    }
   }
 
   a.logo.navbar-brand{

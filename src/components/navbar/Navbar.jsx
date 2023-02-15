@@ -99,7 +99,7 @@ export default function Navigationbar({currentUser}) {
       <Navbar 
         className=''
         style={{ display: 'flex', justifyContent: 'space-between'}} 
-        expand="lg" 
+        expand="md" 
         >
         <div className="navbarLeft">
   {/* CROWN LOGO */}

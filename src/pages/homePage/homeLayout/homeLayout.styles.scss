@@ -1,213 +1,161 @@
-// .shopPage {
-//   display: flex;
-//   padding-right: 10px;
-//   flex-direction: column;
-// }
-// .container{
-//   margin: 0;
-//   padding: 0;
-// }
-.container-fluid{
-  padding: 0;
-  margin: 0;
-}
 
-.carouselContainer{
-  flex-direction: column;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    // ====================== Mobile Views ==========================
 
-  h1{
-    margin: 2% 0 -3% 0;
-    z-index: 2;
+  @media only screen and (min-width: 100px) and (max-width: 376px) {
+    .underGroundRoyalty{
+
+      h4.subtext{
+        display: flex;
+        margin-top: 35%;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
   }
+  // ============================= 420px ======================================
+@media only screen and (max-width: 420px) {
+  .underGroundRoyalty{
 
-  h3{
-    margin: 0 0 20% 0;
-  }
-}
+    .typographyText{
+      font-size: 2rem;
+    }
 
-.typographyText{
-  
-  @media only screen and (max-width: 420px) {
-    font-size: 2rem;
-  }
-}
+    div.content{
+      width: 100%;
+      padding: 0 0 0 0;
 
-.underGroundRoyalty{
-  width: 100%;
-  height: 55vh;
-  background-image: 
-  linear-gradient(rgba(0, 0, 0, 1), rgba(192,192,192,.3), rgba(255, 255, 255, 1)),
-  url('https://cdn.pixabay.com/photo/2016/12/24/11/48/lost-places-1928728_960_720.jpg');
-  // url('https://cdn.pixabay.com/photo/2018/08/25/11/03/lost-places-3629816_960_720.jpg');
-  // background-image: linear-gradient(rgba(255,155,0,.5), rbga(0, 0, 0, .5)), url('https://cdn.pixabay.com/photo/2018/08/25/11/03/lost-places-3629816_960_720.jpg');
-  // background: url('https://cdn.pixabay.com/photo/2019/11/02/13/52/lost-places-4596469_960_720.jpg');
-  // background: url('https://cdn.pixabay.com/photo/2016/12/24/11/48/lost-places-1928728_960_720.jpg');
-  display: flex;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: center;
-  margin: -3% 0 10% 0;
+      h1{
+        margin: 0% 0 0 0;
+      }
+    }
 
-  justify-content: baseline;
-  align-items: center;
-  flex-direction: column;
-  // margin: -6.5% 0 0 0;
-
-  .css-17lrfl-MuiTypography-root{
-    @media only screen and (max-width: 420px) {
-      font-size: xxx-large;
+    .css-17lrfl-MuiTypography-root{
+        font-size: xxx-large;
+        margin-top: 5%;
+      }
+    
+    .css-9tj72r-MuiTypography-root{
+        font-size: 75px;
+    }
+    
+    .subtext{
+      display: flex;
+      margin-top: 55%;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    
+    .crownIcon{
+      display: flex;
+      justify-content: space-between;
       margin-top: 5%;
     }
   }
-  .css-9tj72r-MuiTypography-root{
-    @media only screen and (max-width: 420px) {
-      font-size: 75px;
+
+  .content{
+    max-width: 100px;
+  }
+}
+
+// ====================== Desktop View =========================
+
+  .container-fluid{
+    padding: 0;
+    margin: 0;
+  }
+
+  .carouselContainer{
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    h1{
+      margin: 2% 0 3% 0;
+      z-index: 2;
+    }
+
+    h3{
+      margin: 0 0 20% 0;
     }
   }
-}
 
-.crownIcon{
-  opacity: 50%;
-  
-  &:hover {
-    opacity: 1;
-  }
-
-  @media only screen and (max-width: 420px) {
+  .underGroundRoyalty{
+    width: 100%;
+    height: 55vh;
+    background-image: 
+    linear-gradient(rgba(0, 0, 0, 1), rgba(192,192,192,.3), rgba(255, 255, 255, 1)),
+    url('https://cdn.pixabay.com/photo/2016/12/24/11/48/lost-places-1928728_960_720.jpg');
     display: flex;
-    justify-content: space-between;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    margin: -3% 0 10% 0;
+
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column;
   }
-}
 
-
-.homePageGraphic{
-  background-image: url('https://media.istockphoto.com/id/511794734/photo/five-happy-friends-jumping-on-the-beach-for-summer.jpg?s=170667a&w=0&k=20&c=BWwtojl4AQT3AiEg5kmZx2pSinmkUBHKZB6Yo1CbY_M=');
-  height: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: center;
-  // width: 90vw;
-  width: 55vw;
-  z-index: 1;
-  display: flex;
-  justify-content: top;
-  align-items: center;
-  flex-direction: column;
-  margin: 8% 0 5% 0;
-
-  @media only screen and (max-width: 420px) {
-    height: 250px;
-    margin: 30% 0 0 0;
+  .crownIcon{
+    opacity: 50%;
     
-  }
-}
-
-.headerUnderground {
-  font-family: 'Oswald', sans-serif;
-  font-size: 90px;
-  // display: flex;
-  z-index: 1;
-  // justify-content: start;
-  margin-top: -95px; 
-  
-
-  @media only screen and (max-width: 420px) {
-    font-size: 50px;
-  }
-}
-
-.subtext{
-  margin-top: 250px;
-  z-index: 1;
-  color: white;
-  transition: 1s ease-in-out;
-  // font-weight: bold;
-  &:hover{
-    color:rgba(0, 0, 0, 1);
-  }
-
-
-  @media only screen and (max-width: 420px) {
-    display: flex;
-    // margin: 0;
-    margin-top: 52%;
-    font-size: 15px;
-    font-weight: 600;
-  }
-
-  @media only screen and (max-width: 375px) {
-    display: flex;
-    // margin: 0;
-    margin-top: 35%;
-    font-size: 15px;
-    font-weight: 600;
-  }
-}
-
-
-.headerRoyalty{
-  font-family: 'Oswald', sans-serif;
-  font-family: 'East Sea Dokdo', cursive;
-  font-size: 75px;
-  // position: relative;
-  // top: 23%;
-  margin-top: -40px;
-  z-index: 1;
-
-  @media only screen and (max-width: 420px) {
-    margin-top: -30px;
-    font-size: 50px;
-    margin-bottom: -50px;
-  }
-}
-
-
-.itemFilterContainer{
-  min-width: 30%;
-  height: 240px;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  margin: 0 7.5px 15px;
-  overflow: hidden;
-  // background-image: linear-gradient(rgba(217, 68, 68, 0.5), rgba(73, 85, 44, 0.5));
-
-  &:hover {
-    cursor: pointer;
-
-    & .under100img {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    &:hover {
+      opacity: 1;
     }
-
-    &.content {
-      opacity: 0.9;
-    }
-
   }
-}
-.under100img{
-  // background-image: url('https://ak.picdn.net/shutterstock/videos/8335927/thumb/1.jpg?ip=x480');
-  width: 100%;
-  height: 100%;
-  opacity: .9;
-  background-position-x: center;
-  background-size: cover;
+      
+  .subtext{
+    margin-top: 250px;
+    z-index: 1;
+    color: white;
+    transition: 1s ease-in-out;
+    
+    &:hover{
+      color:rgba(0, 0, 0, 1);
+    }
+  }
+
+  .itemFilterContainer{
+    min-width: 30%;
+    height: 240px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 0 7.5px 15px;
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+
+      & .under100img {
+        transform: scale(1.1);
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+
+      &.content {
+        opacity: 0.9;
+      }
+
+    }
+  }
+
+  .filterCategoryItem{
+    width: 100%;
+    height: 100%;
+    opacity: .9;
+    background-position-x: center;
+    background-size: cover;
   }
 
   .content{
     height: 90px;
     min-width: 105px;
     padding: 10px 25px 0 25px;
-    // margin: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -220,13 +168,7 @@
     opacity: 70%;
     position: absolute;
 
-    @media only screen and (max-width: '420px') {
-      max-width: 105px;
-    }
-    
-
     h1{
-      margin-top: -20px;
       font-weight: 500;
     }
   }
