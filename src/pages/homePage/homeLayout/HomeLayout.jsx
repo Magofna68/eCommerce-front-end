@@ -52,6 +52,7 @@ export default function HomeLayout(props) {
       <div className="underGroundRoyalty">
         <Typography
             variant='h2'
+            className='typographyText'
             sx={{
               fontWeight: 'bold',
               color: 'rgb(0,255,255,0%)',
@@ -94,9 +95,11 @@ export default function HomeLayout(props) {
           </Typography>
             <h4 className="subtext">ROYALTY FOR A REASON.</h4>
             <div className='crownIcon'>
-              <img src={transparentCrown} width="75px" alt="crown icon"/>
+              <img src={transparentCrown} width="100%" height="100%" alt="crown icon"/>
             </div>
       </div>
+
+{/* <Directory /> */}
       <div style={{
           display: 'flex', 
           flexDirection: 'row', 
@@ -104,18 +107,20 @@ export default function HomeLayout(props) {
           justifyContent: 'space-between',
           marginBottom: '3%'
       }}>
-{/* <Directory /> */}
-        <Row style={{width: '90%', margin: 'auto', marginTop: '-2%'}}>
+        <Row style={{width: '90%', margin: 'auto', marginTop: '-2%',}}>
           <ul className='titleContainer'>
             {
               categories.map((title, index) => (
-                <li className="categoryTitle" onClick={() => categoryRedirect(title)} key={index}>{title.toUpperCase()}</li>
+                <li className="categoryTitle" onClick={() => categoryRedirect(title)} key={index}>
+                  {title.toUpperCase()}
+                </li>
               ))
             }
           </ul>
         </Row>
-        </div>
-        <div style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', display: 'flex', width: '100%',}}>
+      </div>
+
+      <div style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', display: 'flex', width: '100%',}}>
 
 
 {/* Filter Function rendered based on Screen size*/}

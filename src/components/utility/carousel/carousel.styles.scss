@@ -129,74 +129,177 @@
 
     .imgContainer{
       width: 100%;
-      justify-content: space-evenly;
+      justify-content: space-between;
       padding: 0 5% 5% 5%;
 
       .carouselImg{
         margin: 0 5%;
         max-height: 500px;
-        min-height: 400px;
+        min-height: 450px !important;
         max-width: 350px;
-        min-width: 300px;
+        min-width: 350px !important;
       }
 
       .textBox{
         max-width: 400px;
-        min-width: 300px;
+        min-width: 400px !important;
+        min-height: 300px;
         flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
 
         .quoteContainer{
           width: 80%;
           margin: auto;
           margin-top: 3%;
-          font-size: 20px;
+          font-size: 1.5em;
 
           .css-i4bv87-MuiSvgIcon-root{
             margin-bottom: 15px;
           }
         }
-        p{
-          margin-top: 5%;
-          font-size: 20px;
+        button{
+          width: 50%;
+          margin: 5% auto 0% auto;
         }
       }
       
       span.slideTitle{
-        font-size: 50px;
+        font-size: 2em !important;
         font-weight: lighter;
+        margin-bottom: 10%;
       }
+  }
+}
+// ========================= 1200px ======================
+
+@media only screen and (min-width: 1200px) {
+  .carouselContainer {
+    display: flex;
+    // width: 70%;
+    margin: auto;
+    margin-bottom: 3%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  
+    div.imgContainer{
+      display: flex;
+      min-width: 1100px;
+      max-width: 1300px !important;
+      margin: auto;
+      background-color: white;
+      z-index: -1;
+      justify-content:space-around !important;
+      align-items: center;
+      
+      .carouselImg{
+        margin: auto;
+        overflow: hidden;
+        // max-height: 580px !important;
+        // min-height: 550px;
+        // max-width: 500px !important;
+        // min-width: 450px;
+        // margin: 10px;
+        border-radius: 10px;
+        border: 2px solid gray;
+        box-shadow: 5px 5px 5px gray;
+      }
+    }
+
+    // .textBox{
+    //   max-width: 550px;
+    //   min-width: 450px;
+    //   flex-wrap: wrap;
+
+    //   .quoteContainer{
+    //     width: 80%;
+    //     margin: auto;
+    //     margin-top: 3%;
+    //     font-size: 20px;
+    //   }
+    // }
+    
+  }
+  
+}
+
+@media only screen and (min-width: 1300px) {
+
+  .imgContainer{
+
+    .carouselImg{
+      margin: auto;
+      overflow: hidden;
+      max-height: 580px !important;
+      min-height: 550px;
+      max-width: 400px !important;
+      min-width: 375px;
+      // margin: 10px;
+      border-radius: 10px;
+      border: 2px solid gray;
+      box-shadow: 5px 5px 5px gray;
+    }
+    
+    div.textBox{
+      // max-width: 550px;
+      // min-width: 450px;
+      flex-wrap: wrap;
+      height: 500px !important;
+      display: flex;
+      justify-content: space-evenly;
+
+      
+      .quoteContainer{
+        width: 80%;
+        margin-left: 0% auto  5% auto !important;
+        font-size: 1.5em !important;
+      }
+      
+      span.slideTitle{
+        font-size: 3em !important;
+        margin-bottom: 10% !important;
+      }
+
+      button{
+        width: 50%;
+        font-size: 1.5em;
+        margin: auto;
+      }
+    }
   }
 }
 // ================== Desktop View ==================
 
 
 .carousel {
-  // border: 2px solid;
   display: flex;
   width: 96%;
-  // display: cover;
   margin: 2%;
-  // display: flex;
+  margin-bottom: 5%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  // width: 80%;
   background-color: white;
-  // border-radius: 5px;
-  // float: left;
-  // margin-left: 3%;
   
   .imgContainer{
     display: flex;
     width: 100%;
+    // min-width: 1200px;
+    // max-width: 1300px;
+    margin: auto;
     background-color: white;
-    // padding-top: 3%;
-    // margin: 2%;
     z-index: -1;
     justify-content:space-between;
     align-items: center;
     
     .carouselImg{
+      overflow: hidden;
+      max-height: 430px;
+      min-height: 425px;
+      max-width: 325px;
+      min-width: 325px;
       margin: 10px;
       border-radius: 10px;
       border: 2px solid gray;
@@ -228,7 +331,6 @@
           font-size: 20px;
         }
       }
-    // }
   }
   
   .carousel-indicators button{
@@ -237,7 +339,6 @@
   }
 
   a.carousel-control-next, a.carousel-control-prev{
-    // background-color: white;
   display: none;
   }
 }
@@ -245,34 +346,3 @@
 .active {
   background: white;
 }
-
-
-
-// @media screen and (max-width: 1200px) {
-//   .carouselImg{
-//     display: none;
-//   }
-
-//   .textBox{
-//     display: none;
-//   }
-//  }
-
-//  @media screen and (min-width: 1201px) {
-//   div.carousel-caption{
-//     width: 100%;
-//     display: flex;
-//     // justify-content: center;
-//     // align-items: center;
-//     // z-index: 2;
-//   }
-
-//   .textBox{
-//     width: 100%;
-//     justify-content: center;
-//     align-items: center;
-//     display: flex;
-//   }
-
-
-//  }

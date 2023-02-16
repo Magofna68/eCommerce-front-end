@@ -29,8 +29,8 @@ export default function CarouselComponent({dataSet}) {
                   />
               </div>
               <div className='textBox'>
-                <span>{slide.title}</span>
-                <div>
+                <span className='slideTitle'>{slide.title}</span>
+                <div className="quoteContainer">
                   <FormatQuoteIcon />
                     {slide.quote}
                   <FormatQuoteIcon />

@@ -60,7 +60,7 @@ export default function ItemList(props) {
           null
           :
           <Row style={{width: '90%', margin: 'auto', marginTop: '20%'}}>
-            <ul className='titleContainer'>
+            <ul className='titleListContainer'>
               {
                 categoryTitles.map((title, index) => (
                   <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
