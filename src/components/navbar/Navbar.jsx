@@ -97,14 +97,26 @@ export default function Navigationbar({currentUser}) {
           </Navbar.Brand>
   {/* SEARCH ICON */}
           <div className='searchBarContainer'>
-              {
-                openSearch ?
+            {/* {
+              window.innerWidth > 767 ?
+
+              // {
+              //   openSearch ?
                 <SearchBar />
-                :
-                  <span onClick={handleOpenSearch} className="searchIcon"> 
-                    <SearchIcon  />
-                  </span>
-              }
+              //   :
+              // }
+              :
+                  null
+            } */}
+            {
+              window.innerWidth < 767 && openSearch ?
+                <SearchBar/>
+              : window.innerWidth < 767 && !openSearch ?
+                <span onClick={handleOpenSearch} className="searchIcon"> 
+                  <SearchIcon  />
+                </span>
+              : <SearchBar />
+            }
           </div>
         </div>
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
