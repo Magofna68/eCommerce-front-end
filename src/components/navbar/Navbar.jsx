@@ -13,9 +13,6 @@ import { Typography } from '@mui/material';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
@@ -85,14 +82,6 @@ export default function Navigationbar({currentUser}) {
         }
     })
   }
-
-  // const clearState = () => {
-  //   window.location.reload(true);
-  //   window.location.assign('/')
-  //   // console.log("ClearState REACHED");
-  // }
-
-  // const viewPort = window.innerWidth;
 
   return (
     <Container className='p-0' fluid="true">
@@ -279,32 +268,18 @@ export default function Navigationbar({currentUser}) {
                   className="rounded-square"
                   onClick={handleShow}
                   style={{
-                    width: '3.3rem',
-                    height: '3.3rem',
-                    position: 'relative',
-                    opacity: '80%'
+                    width: '100%',
+                    height: '100%',
                   }}
                 >
-                <span>
+                <span className="shoppingBagContainer">
                   <img 
                     src={Bag}  
                     alt="shopping bag"  
-                    width="50px" 
-                    style={{ position: 'absolute', top: 0, right: 5}} />
+                    width="100%" 
+                  />
                 </span>
-                <div 
-                  className='rounded-circle bg-danger d-flex 
-                  justify-content-center align-items-center'
-                  style={{
-                    color: 'white',
-                    bottom: 0,
-                    right: 0,
-                    transform: 'translate(-25%, -15%)',
-                    width: '1.25rem',
-                    height: '1.25rem',
-                    position: 'absolute',
-                  }}
-                >
+                <div className="cartProductCount rounded-circle bg-danger d-flex justify-content-center align-items-center">
                   {productCount}
                 </div>
               </Button>

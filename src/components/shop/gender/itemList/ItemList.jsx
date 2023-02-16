@@ -28,7 +28,7 @@ export default function ItemList(props) {
 
   return (
     <>
-      <Container fluid="true" className='collectionPreview'>
+      <Container fluid="true" className='itemListPreview'>
         <div 
           style={{ 
             display: 'flex', 
@@ -57,17 +57,19 @@ export default function ItemList(props) {
         }
         {
           priceFilterData ?
-          null
+            null
           :
-          <Row style={{width: '90%', margin: 'auto', marginTop: '20%'}}>
-            <ul className='titleListContainer'>
-              {
-                categoryTitles.map((title, index) => (
-                  <li className="categoryTitle" key={index} onClick={()=> categoryRedirect(title)}>{title}</li>
-                ))
-              }
-            </ul>
-          </Row>
+            <div style={{ display: 'flex', justifyContent: 'center'}}>
+              <ul className='titleListContainer'>
+                {
+                  categoryTitles.map((title, index) => (
+                    <li className="categoryTitle" onClick={() => categoryRedirect(title)} key={index}>
+                      {title.toUpperCase()}
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
         }
           <div className='preview'
             style={{ 

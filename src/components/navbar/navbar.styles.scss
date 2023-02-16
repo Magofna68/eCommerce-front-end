@@ -37,6 +37,38 @@
     }
 }
 
+@media only screen and (min-width: 1000px) {
+  .cartIcon{
+    width: 4.5rem;
+    height: 4.5rem;
+    // position: relative;
+    opacity: 80%;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    // justify-content: right;
+    margin: 0 10px 0 0;
+    z-index: 3;
+  
+    .shoppingBagContainer{
+      position: absolute;
+      top: 0;
+      width: 4.5rem;
+      right: 10%;
+    }
+  
+    .cartProductCount{
+      color: white;
+      bottom: -15%;
+      right: 0;
+      transform: translate(-25%, -15%);
+      width: 1.75rem;
+      height: 1.75rem;
+      position: absolute;
+    }
+  }
+}
+
 // =============== Desktop View ================
 
 nav.navbar{
@@ -106,13 +138,45 @@ h4 {
 }
 }
 
+// .cartIcon{
+//   width: 4.5rem;
+//   height: 4.5rem;
+//   // position: relative;
+//   opacity: 80%;
+//   position: fixed;
+//   right: 0;
+//   top: 50%;
+//   // justify-content: right;
+//   margin: 0 10px 0 0;
+//   z-index: 3;
 .cartIcon{
+  width: 3.3rem;
+  height: 3.3rem;
+  // position: relative;
+  opacity: 80%;
   position: fixed;
   right: 0;
   top: 50%;
   justify-content: right;
   margin: 0 10px 0 0;
   z-index: 3;
+  
+  .shoppingBagContainer{
+    position: absolute;
+    top: -5%;
+    width: 3.5rem;
+    right: 5%;
+  }
+
+  .cartProductCount{
+    color: white;
+    bottom: -1%;
+    right: 0;
+    transform: translate(-25%, -15%);
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+  }
 }
 
 .border{

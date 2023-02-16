@@ -93,6 +93,42 @@
   }
 
 }
+
+// ===================== 1300 + ======================
+
+@media screen and (min-width: 1301px) {
+  .underGroundRoyalty{
+    
+    .css-17lrfl-MuiTypography-root{
+        font-size: 100px;
+        // margin-top: 5%;
+      }
+    
+    .css-9tj72r-MuiTypography-root{
+        font-size: 95px;
+    }
+
+    
+  }
+
+  .crownIcon{
+    // display: flex;
+    // justify-content: space-between;
+    // margin-bottom: 10% !important;
+    width: 175px !important;
+    position: absolute;
+    top: 61%;
+    
+  }
+  .subtext{
+    // display: flex;
+    position: absolute;
+    // margin-top: 18% !important;
+    font-size: 1.75em;
+    // margin-bottom: 10%;
+    // font-weight: 600;
+  }
+}
 // ====================== Desktop View =========================
 
   .container-fluid{
