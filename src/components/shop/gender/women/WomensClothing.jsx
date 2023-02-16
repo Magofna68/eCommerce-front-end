@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { WOMENS_SHOP_LIST } from '../../../../data.jsx';
-// import CollectionPreview from '../../preview-collection/CollectionPreview.jsx';
 import Queen from '../../../../assets/Queen.png';
 import './womensClothing.styles.scss';
-// import ItemDetailPage from '../../../../pages/itemDetailPage/SearchedItemDetails.jsx';
 import ItemList from '../itemList/ItemList.jsx';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
-// import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 import Sneakers from '../../category/sneakers/Sneakers.jsx';
 import Jackets from '../../category/jackets/Jackets.jsx';
 import Hats from '../../category/hats/Hats.jsx';
@@ -61,10 +58,7 @@ class WomensClothing extends Component {
   handleChangingSelectedItem = (id) => {
     console.log(id)
     const selectedItem = id;
-    // const selectedItem = this.state.itemList.filter(item => item.id.includes(id));
-    // const selectedItem = this.state.itemList.filter(item => item.id === id[0])
     console.log(selectedItem)
-    // const selectedItem = props;
     this.setState({
       selectedItem: selectedItem
     })
@@ -76,7 +70,6 @@ class WomensClothing extends Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     const { selectedCategory } = this.state;
-    // let { itemList, selectedItem, handleChangingSelectedItem} = this.state;
 
     if (this.state.selectedItem != null) {
       currentlyVisibleState = 
@@ -93,7 +86,7 @@ class WomensClothing extends Component {
           itemToShow={this.state.selectedItem}
           onClearItemStateClick={this.handleClearItemStateClick}
         />
-      // buttonText = 
+
       }  else if (this.state.selectedCategory === "SHIRTS") {
         currentlyVisibleState = 
           <Shirts
@@ -102,7 +95,6 @@ class WomensClothing extends Component {
             itemToShow={this.state.selectedItem}
             onClearItemStateClick={this.handleClearItemStateClick}
           />
-        // buttonText = selectedCategory
         } else if (this.state.selectedCategory === "HATS") {
           currentlyVisibleState =  
             <Hats 
@@ -111,7 +103,6 @@ class WomensClothing extends Component {
               itemToShow={this.state.selectedItem}
               onClearItemStateClick={this.handleClearItemStateClick}
             />
-          // buttonText = selectedCategory
         } else if (this.state.selectedCategory === "JACKETS") {
           currentlyVisibleState = 
             <Jackets 
@@ -120,7 +111,6 @@ class WomensClothing extends Component {
               itemToShow={this.state.selectedItem}
               onClearItemStateClick={this.handleClearItemStateClick}
             />
-      // buttonText = selectedCategory
         } else { 
             currentlyVisibleState = 
             <ItemList 
@@ -140,7 +130,9 @@ class WomensClothing extends Component {
               <div className='womensBackdropMobile'>
                 <h1>Women's</h1><h1>Clothing</h1>
               </div>
-                <img src={Queen} alt="Queen" width="150px" />
+              <span className="queenIconContainer">
+                <img src={Queen} alt="Queen" width="100%" />
+              </span>
             </div>
           :
             null
