@@ -1,22 +1,27 @@
 .contactPage {
-  // display: flex;
-  margin-top: 3%;
+  margin: 0% 0 0 3%;
+
+  .contactHeader{
+    text-align: left;
+  }
 
   h4{
     font-weight: 600;
     font-family: open;
     font-size: 20px;
     text-align: left;
-    margin-top: 15px;
+    margin-top: 10%;
+  }
+
+  h5{
+    font-weight: 600;
   }
 
 
   .customerService{
-    // border-right: .5px solid black;
     height: 320px;
     text-decoration: none;
     text-align: left;
-    // margin: 20px 0 0px 5px;
 
       li {
         cursor: pointer;
@@ -78,8 +83,6 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  // justify-content: left;
-  // align-items: left;
 
   span{
     font-size: 13px;
@@ -99,7 +102,7 @@
   .mobileLeftPannel{
     width: 50%;
     padding: 0;
-    margin: 0;
+    padding-left: 3%;
     p{
       margin: -8px 0 0 3px;
     }
@@ -109,4 +112,95 @@
 div.col-6{
   margin: 0;
   padding: 0;
+}
+
+// ==========================  ========================
+@media only screen and (min-width: 420px) and (max-width: 560px) {
+
+  .mobilePannel{
+    h6{
+      font-size: 1.25rem;
+    }
+    span{
+      font-size: 1rem;
+    }
+    .serviceList{
+      font-size: 1.1rem;
+    }
+
+    .mobileLeftPannel{
+
+      p{
+        font-size: .9rem;
+      }
+    }
+
+  }
+}
+// ==================== 560+ ========================
+
+@media only screen and (min-width: 561px) {
+  .contactPage{
+
+    .customerService{
+      
+      .serviceItem{
+        padding: 3px 0;
+      }
+    }
+
+    .contactPannel{
+      .pannelItem{
+        p{
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+// ================== 1000 + =====================
+@media only screen and (min-width: 1200px) {
+  .contactPage{
+    max-width: 1200px;
+    margin: auto;
+
+    h2{
+      font-size: 2.25rem;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 4px;
+    }
+
+    .quickLinks{
+      font-size: 1.25rem;
+    }
+
+    .customerService{
+      font-size: 1rem;
+      
+      .serviceItem{
+        font-size: 1.25rem;
+        padding: 3px 0;
+      }
+    }
+
+    .contactPannel{
+      .pannelItem{
+        h5{
+          letter-spacing: 3px;
+          font-size: 1.6rem;
+        }
+
+        h6{
+          font-size: 1.4rem;
+          letter-spacing: 1px;
+        }
+
+        p{
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
 }

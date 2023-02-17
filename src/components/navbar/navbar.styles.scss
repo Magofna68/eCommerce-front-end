@@ -1,16 +1,81 @@
-.navbar{
-  // width: 92vw;
-  margin-bottom: 2%;
-  padding: 0;
-  // margin-right: 3%;
 
-.navbar-brand {
-margin-left: 10px;
-max-width: 5%;
-// min-width: 50px;
-height: auto;
-  // font-size: 30px;
+// =================== Mobile View 420px ==================
+@media screen and (max-width: 420px) {
+
+  nav.navbar.navbar {
+    margin: 0 0 0 0;
+  }
+
+    div.navbarLeft{
+      width: 82%;
+      justify-content: space-evenly;
+
+      .searchBarContainer{
+        display: flex;
+        padding: 0 0 0 0;
+        margin: 0;
+        align-self: center;
+        align-content: center;
+        
+      }
+    }
+
+    div.modalCol{
+      font-size: 12px;
+    }
+
+    .modalItemText{
+      padding: 0;
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      // text-align: left;
+    }
+
+    .col{
+      padding: 0;
+    }
 }
+
+@media only screen and (min-width: 1000px) {
+  .cartIcon{
+    width: 4.5rem;
+    height: 4.5rem;
+    // position: relative;
+    opacity: 80%;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    // justify-content: right;
+    margin: 0 10px 0 0;
+    z-index: 3;
+  
+    .shoppingBagContainer{
+      position: absolute;
+      top: 0;
+      width: 4.5rem;
+      right: 10%;
+    }
+  
+    .cartProductCount{
+      color: white;
+      bottom: -15%;
+      right: 0;
+      transform: translate(-25%, -15%);
+      width: 1.75rem;
+      height: 1.75rem;
+      position: absolute;
+    }
+  }
+}
+
+// =============== Desktop View ================
+
+nav.navbar{
+  margin: 0 10px 1% 10px;
+  padding: 0 0 2% 0;
+
+
 nav.border.navbar.navbar{
   width:90%;
 }
@@ -73,13 +138,45 @@ h4 {
 }
 }
 
+// .cartIcon{
+//   width: 4.5rem;
+//   height: 4.5rem;
+//   // position: relative;
+//   opacity: 80%;
+//   position: fixed;
+//   right: 0;
+//   top: 50%;
+//   // justify-content: right;
+//   margin: 0 10px 0 0;
+//   z-index: 3;
 .cartIcon{
+  width: 3.3rem;
+  height: 3.3rem;
+  // position: relative;
+  opacity: 80%;
   position: fixed;
   right: 0;
   top: 50%;
   justify-content: right;
   margin: 0 10px 0 0;
   z-index: 3;
+  
+  .shoppingBagContainer{
+    position: absolute;
+    top: -5%;
+    width: 3.5rem;
+    right: 5%;
+  }
+
+  .cartProductCount{
+    color: white;
+    bottom: -1%;
+    right: 0;
+    transform: translate(-25%, -15%);
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+  }
 }
 
 .border{
@@ -108,29 +205,59 @@ div.modalCol{
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: 420px) {
-    font-size: 12px;
-  }
 }
-
-  span{
-    margin-bottom: .8rem;
-  }
 
   .modalItemText{
     font-size: 12px;
     display: flex;
     justify-content: left;
 
-    @media only screen and (max-width: 420px){
-      padding: 0;
-      display: flex;
-      justify-content: left;
-      align-items: left;
-      // text-align: left;
+  }
+
+  a.logo.navbar-brand{
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+.navbarLeft{
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .navbar-brand {
+    max-width: 60px;
+    // padding: 0 0 5% 0;
+    height: auto;
+
     }
 
-    .col{
-      padding: 0;
+  .searchBarContainer{
+    width: 100%;
+    // display: flex;
+    justify-content: center;
+    margin: 0 0 % 0;
+    
+    .searchIcon {
+      width: 30px;
+      // height: 150px;
+      // display: flex;
+      // justify-content: center;
+      margin: 0 10% 0 10%;
+      padding: 0 0 0 0;
+      
+      &:hover{
+        transition: ease 1s;
+        color: gray;
+      }
+
+      .MuiSvgIcon-root {
+        font-size: 30px;
+      }
+      
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
+}

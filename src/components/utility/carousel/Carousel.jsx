@@ -1,7 +1,9 @@
 import './carousel.styles.scss';
 
 import { React, useState } from 'react'
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
+
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 export default function CarouselComponent({dataSet}) {
   const [index, setIndex ] = useState(0);
@@ -10,33 +12,63 @@ export default function CarouselComponent({dataSet}) {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} fade>
+    <Carousel activeIndex={index} onSelect={handleSelect} >
       {dataSet.map((slide, i) => {
         return (
           <Carousel.Item 
-          // interval={3500}
           >
+            {
+              window.innerWidth > 1000 ?
+              <div className='imgContainer'>
+              <div className="carouselImg">
+                <img
+                  height="100%"
+                  width="100%"
+                  src={slide.img}
+                  alt={slide.alt}
+                  />
+              </div>
+              <div className='textBox'>
+                <span className='slideTitle'>{slide.title}</span>
+                <div className="quoteContainer">
+                  <FormatQuoteIcon />
+                    {slide.quote}
+                  <FormatQuoteIcon />
+                </div>
+                <br/>
+                <Button>{slide.text}</Button>
+              </div>
+              <div className="carouselImg">
+                <img 
+                  height="100%"
+                  width="100%"
+                  src={slide.img2}
+                  alt={slide.alt2}
+                  />
+              </div>
+            </div>
+            :
             <div className='imgContainer'>
+            <div className="carouselImg">
               <img
-                height="400px"
-                className='carouselImg'
-                // className="d-block w-80"
+                height="100%"
+                width="100%"
                 src={slide.img}
                 alt={slide.alt}
-              />
-              <img 
-                height="400px"
-                className='carouselImg'
-                src={slide.img2}
-                alt={slide.alt2}
-              />
-            </div>        
-            {/* <Carousel.Caption>
-              <div className='textBox'>
-                <h3>{slide.title}</h3>
-                <p>{slide.text}</p>
+                />
+            </div>
+            <div className='textBox'>
+              <span className='slideTitle'>{slide.title}</span>
+              <div className="quoteContainer">
+                <FormatQuoteIcon />
+                  {slide.quote}
+                <FormatQuoteIcon />
               </div>
-            </Carousel.Caption> */}
+              <br/>
+              <Button>{slide.text}</Button>
+            </div> 
+            </div>
+            }
           </Carousel.Item>
         )
       })}

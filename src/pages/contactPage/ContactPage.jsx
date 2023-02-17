@@ -37,39 +37,38 @@ export default function ContactPage(props) {
   return (
     <Container className='contactPage' fluid="true">
       { // for web consumption
-        viewPort > 420 ?
-        <Row>
-          <Col sm={4}>
-            <br/><br/>
-            <h4>Customer Service</h4>
-            <div className='customerService'>
-              {services.map((service) =>
-                <li className='serviceItem'>{service}</li>
-                )}
-            </div>
-            <br/>
-            <br/>
+        viewPort > 560 ?
+
+        <Row style={{ margin: 0,}}>
+          <Col sm={4} xs={4} md={3}>
             <h4>Quick Links</h4>
             <div className='quickLinks'>
               {quickLinks.map((link) => 
                 <li className='serviceItem'>{link}</li>
                 )}
             </div>
+            <br/>
+            <h4>Customer Service</h4>
+            <div className='customerService'>
+              {services.map((service) =>
+                <li className='serviceItem'>{service}</li>
+                )}
+            </div>
+
           </Col>
-          <Col sm={8}>
+          <Col sm={8} xs={8} md={9}>
+            <hr/>
+              <span className="contactHeader"><h2>Contact Us</h2></span>
+            <hr/>
             <div className='contactPannel'>
-              <hr/>
-              <h2>Contact Us</h2>
-              <hr/>
               <div className='pannelItem'>
                 <Row>
                   <Col xs={12}>
-                    <h5>Customer Care</h5>
+                    <h5>Consumer Care</h5>
                     <p>If you are contacting us about an order, please have your order number readily available so that we may assist you in a prompt and timely manner.</p>
                   </Col>
-
                   <Col>
-                    <h6><MailOutlineIcon /> Mail Address</h6>
+                    <h6><MailOutlineIcon /> Mail Address:</h6>
                     <p>
                       Underground Royalty LLC<br/>
                       111 Maid-Up Ave. N <br/>
@@ -98,6 +97,7 @@ export default function ContactPage(props) {
             </div>
           </Col>
         </Row>
+
       : 
           // for mobile devices
         <>
@@ -137,19 +137,17 @@ export default function ContactPage(props) {
                 <h5 style={{ fontWeight: 600, marginLeft: '5%'}}>Customer Service</h5>
                 <div style={{ marginBottom: '20%'}}>
                   {services.map((service) =>
-                    <li style={{ fontSize: '13px', marginLeft: '10%'}}>{service}</li>
+                    <li className="serviceList">{service}</li>
                     )}
                 </div>
-                  {/* <br/>
-                  <br/> */}
-                  <h6 style={{ marginLeft: '20%'}}>Quick Links</h6>
-                  <div>
-                    {quickLinks.map((link) => 
-                      <li style={{ display: 'flex', fontSize: '15px', marginLeft: '25%'}}>{link}</li>
-                    )}
-                  </div>
               </Col>
             </Row>
+            <h6 style={{ }}>Quick Links</h6>
+            <div>
+              {quickLinks.map((link) => 
+                <li style={{ display: 'flex', flexDirection: 'row', fontSize: '15px',}}>{link}</li>
+              )}
+            </div>
           </div>
         </>
       }

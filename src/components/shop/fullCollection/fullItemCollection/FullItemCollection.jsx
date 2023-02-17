@@ -7,61 +7,55 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 
 
  export const FullItemCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
-  <Container fluid="true" className='collection'>
-    <Row>
-      <Breadcrumb />
-      {/* <p>womens</p> */}
-    </Row>
-      <Row>
+    <Container fluid="true" className='collection'>
+      <Row style={{ margin: '0 0 0 0'}}>
         <h1 
-          className='title'
           style={{
-            fontSize: '28px',
-            marginBottom: '25px',
-            marginTop: '25px',
+            fontSize: '2em',
+            marginBottom: '1em',
+            marginTop: '.75em',
             fontWeight: '700',
-            textAlign: 'left',
-            marginLeft: '8%'
+            textAlign: 'center',
           }}
         >
           {title.toUpperCase()}
         </h1>
       </Row>
-          <div 
-            className='preview'
-            style={{ 
-              flexWrap: 'wrap',
-              display: 'flex',
-              alignContent: 'center',
-              justifyContent: 'center',
-              width: '100%'
-            }}
-            >
-            {
-              filteredList !== undefined ?
-              filteredList.map(({id, ...otherItemProps}) => (
-                <SingleItem 
-                  key={id} 
-                  title={title} 
-                  id={id} 
-                  handleItemSelection={onItemSelection} 
-                  {...otherItemProps} 
-                />
-                ))
-              :
-              items.map(({id, ...otherItemProps}) => (
-                <SingleItem 
-                  key={id} 
-                  title={title} 
-                  id={id} 
-                  handleItemSelection={onItemSelection} 
-                  {...otherItemProps} 
-                />
-                ))
-              };
-          </div>
-  </Container>
-)
+      <div 
+        // className='preview'
+        style={{ 
+          flexWrap: 'wrap',
+          display: 'flex',
+          alignContent: 'center',
+          justifyContent: 'center',
+          width: '100%'
+        }}
+      >
+        {
+          filteredList !== undefined ?
+          filteredList.map(({id, ...otherItemProps}) => (
+            <SingleItem 
+              key={id} 
+              title={title} 
+              id={id} 
+              handleItemSelection={onItemSelection} 
+              {...otherItemProps} 
+            />
+            ))
+          :
+          items.map(({id, ...otherItemProps}) => (
+            <SingleItem 
+              key={id} 
+              title={title} 
+              id={id} 
+              handleItemSelection={onItemSelection} 
+              {...otherItemProps} 
+            />
+            ))
+          }
+      </div>
+    </Container>
+  )
 
 export default FullItemCollection;
 

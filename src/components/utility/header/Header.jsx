@@ -47,6 +47,7 @@ export const Header = ({currentUser}) => (
               }
             </div>
           </div>
+          
           <Navigationbar currentUser = {currentUser} />
         </div>
     );

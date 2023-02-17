@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react';
 // import './homePage.styles.scss';
 // import { Container, Row, Col } from 'react-bootstrap';
 import  { MENS_SHOP_LIST, SHOP_DATA, WOMENS_SHOP_LIST }  from '../../data.jsx';
-import CollectionPreview from '../../components/shop/preview-collection/CollectionPreview.jsx';
 import Carousel from '../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,6 +14,7 @@ import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
 import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
 import Footer from '../../components/footer/Footer.jsx';
+import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
 
 class HomePage extends Component {
   constructor() {
@@ -64,7 +64,7 @@ class HomePage extends Component {
       });
     }
     await this.setState({ clickedCategory: "FILTER"})
-    console.log("AfterStateUpdate:", this.state.priceFilterData)
+    // console.log("AfterStateUpdate:", this.state.priceFilterData)
 
   }
   
@@ -109,7 +109,7 @@ class HomePage extends Component {
             currentlyVisibleState = 
             <Sale 
               onItemSelection={this.handleItemClick}/>
-            buttonText="Home"
+              buttonText="Home"
           } else if (this.state.clickedCategory === 'FILTER') {
             currentlyVisibleState =
             <ItemList 
@@ -126,10 +126,22 @@ class HomePage extends Component {
 
     return (
       <>
-    <Container fluid style={{ margin: 0, padding: 0}}>
-      {currentlyVisibleState}
-    </Container>
-    </>
+      {
+        clickedCategory ?
+        <>
+          <div style={{ display: 'flex', justifyContent:'left', alignItems: 'left'}}>
+            <Breadcrumb />
+          </div>
+          <Container fluid style={{ margin: 0, padding: 0}}>
+            {currentlyVisibleState}
+          </Container>
+        </>
+        :
+        <Container fluid style={{ margin: 0, padding: 0}}>
+        {currentlyVisibleState}
+      </Container>
+      }
+      </>
     )
   }
 }

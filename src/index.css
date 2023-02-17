@@ -4,7 +4,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  min-height: -webkit-fill-available;
 }
+
+html, body {
+  height: 100%;
+  width: 100vw;
+}
+
+/* embed, object, img, video {
+  max-width: 100%;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
