@@ -7,7 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import {Row, Col} from 'react-bootstrap/';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Radio from '../../../utility/radioButton/RadioButton.jsx';
@@ -83,17 +84,23 @@ export default function ItemList(props) {
               </ul>
             </div>
         }
-        <br/>
-        <Button onClick={() => onSortClick("H2L")}>High 2 Low</Button>
-        <Button onClick={() => onSortClick("L2H")}>Low 2 High</Button><br/>
         
-
-        <Radio 
-          onClick={()=> onFilterClick({radioValue})} 
-          onFilterClick={onFilterClick}
-        />
-
-        <br/>
+        <div className='optionsContainer'>
+          <div>
+            <Radio 
+              onClick={()=> onFilterClick({radioValue})} 
+              onFilterClick={onFilterClick}
+            />
+          </div>
+          <div>
+            <span>Sort by Price: </span>
+            <div>
+              <input value="H2L" type="radio" name='sort' onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
+              <input value="L2H" type="radio" name='sort' onChange={() => onSortClick('L2H')}/> Low to High
+            </div>
+          </div>
+        </div>
+        
         <div className='preview'
           style={{ 
             flexWrap: 'wrap',

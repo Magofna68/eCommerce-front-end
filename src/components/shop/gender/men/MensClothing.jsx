@@ -57,8 +57,6 @@ class MensClothing extends Component {
     this.setState({
       selectedItem: selectedItem
     })
-
-    // console.log(this.state.mensItemList)
   }
 
   handleClearItemStateClick = (e) => {
@@ -68,14 +66,11 @@ class MensClothing extends Component {
     })
   }
   
-  compareNumbers(a, b) {
-    return a - b;
-  }
   
-  handleSortClick = async (string) => {
+  handleSortClick = async (term) => {
     let shopList = [...this.state.mensItemList]
-    switch(string) {
-      case "H2L":
+    switch(term) {
+      case 'H2L':
         shopList.sort((item1, item2) => 
         (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
         console.log("shopList", shopList.price)
