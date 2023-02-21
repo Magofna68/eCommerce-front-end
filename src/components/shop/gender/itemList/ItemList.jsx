@@ -19,12 +19,7 @@ export default function ItemList(props) {
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
 
-  const radios = [
-    { name: 'Under 25', value: '25' },
-    { name: 'Under 50', value: '50' },
-    { name: 'Under 75', value: '75' },
-    { name: 'Under 100', value: '100' },
-  ];
+
   function getRandom(array) {
     let i = array.length -1;
     for (; i > 0; i--) {
@@ -37,6 +32,9 @@ export default function ItemList(props) {
   }
 
   const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
+
+  // var checkedRadio = document.querySelector('input[name=sort]:checked');
+  // console.log("checkedRadio", checkedRadio)
 
   return (
     <>
@@ -94,10 +92,12 @@ export default function ItemList(props) {
           </div>
           <div>
             <span>Sort by Price: </span>
-            <div>
-              <input value="H2L" type="radio" name='sort' onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
-              <input value="L2H" type="radio" name='sort' onChange={() => onSortClick('L2H')}/> Low to High
-            </div>
+                <div>
+                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H')}/> Low to High
+                  {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
+                </div>
+
           </div>
         </div>
         
