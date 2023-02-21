@@ -19,7 +19,7 @@ export default function CarouselComponent({dataSet}) {
           >
             {
               window.innerWidth > 1000 ?
-              <div className='imgContainer'>
+              <div className='homepageCarousel'>
               <div className="carouselImg">
                 <img
                   height="100%"
@@ -48,21 +48,22 @@ export default function CarouselComponent({dataSet}) {
               </div>
             </div>
             :
-            <div className='imgContainer'>
-            <div className="carouselImg">
-              <img
-                height="100%"
-                width="100%"
-                src={slide.img}
-                alt={slide.alt}
-                />
-            </div>
+            <div className='homepageCarousel'>
+              <div className="carouselImg" >
+                <img
+                  height="100%"
+                  width="100%"
+                  src={slide.img}
+                  alt={slide.alt}
+                  />
+              </div>
             <div className='textBox'>
               <span className='slideTitle'>{slide.title}</span>
+              <br/>
               <div className="quoteContainer">
-                <FormatQuoteIcon />
+                {/* <FormatQuoteIcon /> */}
                   {slide.quote}
-                <FormatQuoteIcon />
+                {/* <FormatQuoteIcon /> */}
               </div>
               <br/>
               <Button>{slide.text}</Button>

@@ -23,7 +23,7 @@ export default function HomeLayout(props) {
         img2: 'https://img.ltwebstatic.com/images3_pi/2022/04/26/1650941068cd0cce154a16bc6787e4d712adf8453e_thumbnail_600x.webp',
         alt: "black semi formal gown",
         text: "Shop Sales Now",
-        quote: "UnderGround ROYALTY always has the best styles no matter what the occasion."
+        quote: "Own the Night"
       },
       {
         id: 1,
@@ -31,7 +31,7 @@ export default function HomeLayout(props) {
         img: 'https://assets.overland.com/is/image/overlandsheepskin/16107-pwb2-av22463?$style%2Dlg%2D2x$&id=GlIsL0&fmt=jpg&fit=constrain,1',
         img2: 'https://assets.overland.com/is/image/overlandsheepskin/16107-pwb2-av22365?$style%2Dlg%2D2x$',
         alt: "Womens lambskin leather jacket",
-        quote: "Great deals for an even better price!",
+        quote: "Explore Your Look",
         text: "Shop Womens Now",
       },
       {
@@ -40,7 +40,7 @@ export default function HomeLayout(props) {
         img: 'https://i.pinimg.com/736x/be/52/b0/be52b08a649518b42293921e2e45f85e.jpg',
         img2: 'https://i.pinimg.com/originals/dd/06/51/dd06512e03de63956c26366422d00ca0.jpg',
         alt: 'designer',
-        quote: "Unrivaled style's",
+        quote: "Find Your Style",
         text: 'Shop Mens Now',
       }
     ]
@@ -177,8 +177,8 @@ export default function HomeLayout(props) {
     {/* {
       window.innerWidth > 1000 ? */}
 
-      <div className='carouselContainer'>
         <h1>Newest Arrivals</h1>
+      <div className='carouselContainer'>
         <Carousel  dataSet={carouselImages}/>
       </div>
 

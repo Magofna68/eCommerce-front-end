@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
 import CollectionItem from '../../collection-item/CollectionItem.jsx';
@@ -7,12 +7,23 @@ import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
-import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import Radio from '../../../utility/radioButton/RadioButton.jsx';
 // import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
-  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle } = props;
+  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick } = props;
+  const [checked, setChecked] = useState(false);
+  const [radioValue, setRadioValue] = useState(null);
 
+  const radios = [
+    { name: 'Under 25', value: '25' },
+    { name: 'Under 50', value: '50' },
+    { name: 'Under 75', value: '75' },
+    { name: 'Under 100', value: '100' },
+  ];
   function getRandom(array) {
     let i = array.length -1;
     for (; i > 0; i--) {
@@ -56,6 +67,7 @@ export default function ItemList(props) {
           <span className="title"><h1>SHOP</h1></span>
         }
         {
+          // coming from homepagelayout
           priceFilterData ?
             null
           :
@@ -71,17 +83,29 @@ export default function ItemList(props) {
               </ul>
             </div>
         }
-          <div className='preview'
-            style={{ 
-              flexWrap: 'wrap',
-              display: 'flex',
-              alignContent: 'space-between',
-              justifyContent: 'center',
-            }}
-          >
+        <br/>
+        <Button onClick={() => onSortClick("H2L")}>High 2 Low</Button>
+        <Button onClick={() => onSortClick("L2H")}>Low 2 High</Button><br/>
+        
+
+        <Radio 
+          onClick={()=> onFilterClick({radioValue})} 
+          onFilterClick={onFilterClick}
+        />
+
+        <br/>
+        <div className='preview'
+          style={{ 
+            flexWrap: 'wrap',
+            display: 'flex',
+            alignContent: 'space-between',
+            justifyContent: 'center',
+          }}
+        >
         {
           priceFilterData ? 
-            getRandom(priceFilterData).map(({id, ...props}) => (
+            // getRandom(priceFilterData).map(({id, ...props}) => (
+            priceFilterData.map(({id, ...props}) => (
               <CollectionItem
                 key={id}
                 handleItemSelection={onItemSelection}
@@ -89,7 +113,8 @@ export default function ItemList(props) {
                 />
             ))
           :
-            getRandom(FullItemList).map(({id, ...props}) => (
+            // getRandom(FullItemList).map(({id, ...props}) => (
+            FullItemList.map(({id, ...props}) => (
               <CollectionItem
                 key={id}
                 handleItemSelection={onItemSelection}

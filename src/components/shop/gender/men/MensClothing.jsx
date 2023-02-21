@@ -36,7 +36,7 @@ class MensClothing extends Component {
       selectedCategory: categoryToAssign,
     })
     await this.setState({ mensFilteredList: mensTempFilteredList})
-    console.log("after state update", this.state.mensFilteredList)
+    // console.log("after state update", this.state.mensFilteredList)
   }
 
   handleClick = (e) => {
@@ -52,14 +52,13 @@ class MensClothing extends Component {
   }
 
   handleChangingSelectedItem = (id) => {
-    console.log(id)
     const selectedItem = id;
-    console.log(selectedItem)
+    // console.log(selectedItem)
     this.setState({
       selectedItem: selectedItem
     })
 
-    console.log(this.state.mensItemList)
+    // console.log(this.state.mensItemList)
   }
 
   handleClearItemStateClick = (e) => {
@@ -67,6 +66,66 @@ class MensClothing extends Component {
     this.setState({
       selectedItem: null,
     })
+  }
+  
+  compareNumbers(a, b) {
+    return a - b;
+  }
+  
+  handleSortClick = async (string) => {
+    let shopList = [...this.state.mensItemList]
+    switch(string) {
+      case "H2L":
+        shopList.sort((item1, item2) => 
+        (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+        console.log("shopList", shopList.price)
+        await this.setState({
+          mensItemList: [...shopList]
+        })
+        break;
+      case "L2H":
+        shopList.sort((item1, item2) => 
+          (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+        console.log("shopList", shopList.price)
+        await this.setState({
+          mensItemList: [...shopList]
+        });
+        break;
+      default:
+        return;
+    }
+  }
+
+
+  handleFilterClick = async (value) => {
+    let shopList = [...MENS_SHOP_LIST];
+
+    if (value === '25') {
+      const under25 = shopList.filter((item) => item.price < 25)
+      await this.setState({
+        mensItemList: under25,
+      });
+    } else if (value === '50') {
+      const under50 = shopList.filter((item) => item.price < 50)
+      await this.setState({
+        mensItemList: under50
+      });
+    } else if (value === '75') {
+      const under75 = shopList.filter((item) => item.price < 75)
+      await this.setState({
+        mensItemList: under75
+      });
+    } else if (value === '100') {
+      const under100 = shopList.filter((item) => item.price < 100)
+      await this.setState({
+        mensItemList: under100
+      })
+    } else {
+      const under150 = shopList.filter((item) => item.price < 150)
+      await this.setState({
+        mensItemList: under150
+      })
+    }
   }
 
   render() {
@@ -124,8 +183,10 @@ class MensClothing extends Component {
     } else { 
       currentlyVisibleState = 
       <ItemList 
+        onFilterClick={this.handleFilterClick}
         categoryRedirect={this.categoryRedirect}
         FullItemList={this.state.mensItemList} 
+        onSortClick={this.handleSortClick}
         onItemSelection={this.handleChangingSelectedItem} 
       />
       buttonText = "Home"
