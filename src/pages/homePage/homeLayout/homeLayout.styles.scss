@@ -65,6 +65,14 @@
       }
     }
   }
+
+  .priceFilterContainer{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%
+  }
   
   .itemFilterContainer{
     min-width: 30%;
@@ -91,6 +99,7 @@
 
     }
   }
+
   .filterCategoryItem{
     width: 100%;
     height: 100%;
@@ -242,6 +251,7 @@
   
   @media only screen and (min-width: 100px) and (max-width: 376px) {
     .underGroundRoyalty{
+
       
       .typographyText{
         font-size: 2rem;
@@ -267,7 +277,7 @@
       
       .subtext{
         display: flex;
-        margin-top: 55%;
+        margin-top: 35%;
         font-size: 15px;
         font-weight: 600;
       }
@@ -275,8 +285,11 @@
       .crownIcon{
         display: flex;
         justify-content: space-between;
-        margin-top: 5%;
+        margin-top: 0%;
       }
+    }
+    .priceFilterContainer{
+      margin: 3% 0 0 0;
     }
     
     .content{

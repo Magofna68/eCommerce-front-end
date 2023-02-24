@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { Typography } from "@mui/material";
+import  Banner from '../../../components/utility/banner/Banner.jsx';
 import Slider from 'react-touch-drag-slider'
 import Directory from '../../shopPage/directory/Directory.jsx';
 import MobileSlider from '../../../components/utility/mobileSlider/MobileSlider';
@@ -16,6 +17,12 @@ import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
 
 export default function HomeLayout(props) {
   const { categoryRedirect, priceFilterRedirect } = props;
+
+  const [ hide, setHide ] = useState(true)
+
+  const hideBanner = () => {
+    setHide(false)
+  }
 
   const carouselImages = 
     [
@@ -48,13 +55,13 @@ export default function HomeLayout(props) {
       }
     ]
     
-    const categories = ['shirts', 'sneakers','jackets', 'hats',]
+    // const categories = ['shirts', 'sneakers','jackets', 'hats',]
 
-    const mobileCategories = [
+    const mobileSlides = [
       {
         id: 0,
-        title: 'shirts',
-        img: 'https://media.istockphoto.com/id/1392944438/photo/portrait-of-handsome-attractive-positive-curly-haired-indian-or-arabian-guy-wearing-white.jpg?b=1&s=170667a&w=0&k=20&c=AuDfv9PdKqXO3nKHFc-uBZ1bt0SXXceqFLo-OhJnI6o=',
+        title: 'sneakers',
+        img: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&w=1000&q=80',
       },
       {
         id: 1,
@@ -68,32 +75,21 @@ export default function HomeLayout(props) {
       },
       {
         id: 3,
-        title: 'sneakers',
-        img: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&w=1000&q=80',
-      }
+        title: 'shirts',
+        img: 'https://media.istockphoto.com/id/1392944438/photo/portrait-of-handsome-attractive-positive-curly-haired-indian-or-arabian-guy-wearing-white.jpg?b=1&s=170667a&w=0&k=20&c=AuDfv9PdKqXO3nKHFc-uBZ1bt0SXXceqFLo-OhJnI6o=',
+      },
     ]
-
-    const [index, setIndex] = useState(0)
-
-    const setFinishedIndex = (i) => {
-      console.log("finished dragging on slide", i);
-      setIndex(i);
-    }
-
-    const next = () => {
-      if (index < mobileCategories.length - 1) setIndex(index + 1);
-    };
-
-    const previous = () => {
-      if (index > 0) setIndex(index - 1);
-    };
-
-    // const handleClick = (way) => {
-    //   way === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide -1 : 2) : 
-    //   setCurrentSlide(currentSlide < mobileCategories.length -1 ? currentSlide +1 : 0);
-    // };
     
     return (
+      <>
+      {
+        hide === true ? 
+        <div style={{width: '100%', height: '70px', }}>
+          <Banner hideBanner={hideBanner} />
+        </div>
+        :
+        null
+      }
       <Container fluid style={{ padding: 0, margin: 0, paddingTop: '5px'}}>
       <div className="underGroundRoyalty">
         <Typography
@@ -104,7 +100,6 @@ export default function HomeLayout(props) {
               color: 'rgb(0,255,255,0%)',
               WebkitTextStroke: '0.75px white',
               backgroundImage: `url('https://media2.giphy.com/media/xUA7aKCtqnlAzuIg8M/giphy.gif?cid=ecf05e47hqupws5gkavymjrlpl5ks9utklt5jyos4s5q9irm&rid=giphy.gif&ct=g')`,
-              // backgroundImage: `url('https://media1.giphy.com/media/5k00E7cigvvqnBYDdP/giphy.gif?cid=ecf05e47cde9hqvaqke38lehjfkc1r8hjs44rqvfdl6z49kb&rid=giphy.gif&ct=g')`,
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               transition: 'color 0.50s, -webkit-text-stroke 0.50s',
@@ -124,14 +119,12 @@ export default function HomeLayout(props) {
               fontWeight: 'bolder',
               color: 'rgb(192,192,192,25%)',
               WebkitTextStroke: '0.75px white',
-              // backgroundImage: `url('https://media1.giphy.com/media/5k00E7cigvvqnBYDdP/giphy.gif?cid=ecf05e47cde9hqvaqke38lehjfkc1r8hjs44rqvfdl6z49kb&rid=giphy.gif&ct=g')`,
               backgroundImage: `url('https://media2.giphy.com/media/xUA7aKCtqnlAzuIg8M/giphy.gif?cid=ecf05e47hqupws5gkavymjrlpl5ks9utklt5jyos4s5q9irm&rid=giphy.gif&ct=g')`,
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               transition: 'color 0.50s, -webkit-text-stroke 0.50s',
               '&: hover': {
                 color: 'rgb(255,155,0,50%)',
-                // color: 'rgb(192,192,192,50%)',
                 WebkitTextStroke: '0.5px silver',
                 cursor: 'arrow',
               }
@@ -148,30 +141,31 @@ export default function HomeLayout(props) {
 {/* Categories by Title || Mobile Slider */}
     {/* {window.innerWidth > 420 ?
       <div style={{
-          display: 'flex', 
-          flexDirection: 'row', 
-          width: '90vw', 
-          justifyContent: 'space-between',
-          marginBottom: '3%'
+        display: 'flex', 
+        flexDirection: 'row', 
+        width: '90vw', 
+        justifyContent: 'space-between',
+        marginBottom: '3%'
       }}>
-        <Row style={{width: '90%', margin: 'auto', marginTop: '-2%',}}>
-          <ul className='titleContainer'>
-            {
-              categories.map((title, index) => (
-                <li className="categoryTitle" onClick={() => categoryRedirect(title)} key={index}>
-                  {title.toUpperCase()}
-                </li>
-              ))
-            }
-          </ul>
+      <Row style={{width: '90%', margin: 'auto', marginTop: '-2%',}}>
+      <ul className='titleContainer'>
+      {
+        categories.map((title, index) => (
+          <li className="categoryTitle" onClick={() => categoryRedirect(title)} key={index}>
+          {title.toUpperCase()}
+          </li>
+          ))
+        }
+        </ul>
         </Row>
-      </div>
-    : */}
+        </div>
+      : */}
     <>
-<SlideShow categoryRedirect={categoryRedirect} />
+      <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} />
     </>
       {/* } */}
-      <div style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', display: 'flex', width: '100%',}}>
+  
+      <div className='priceFilterContainer'>
 
 
 {/* Filter Function rendered based on Screen size*/}
@@ -237,5 +231,6 @@ export default function HomeLayout(props) {
       "Window is less than 1000"
     } */}
     </Container>
+    </>
   )
 }
