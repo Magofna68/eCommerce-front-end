@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect, useRef } from "react";
 import './homeLayout.styles.scss';
 
@@ -9,7 +9,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { Typography } from "@mui/material";
+import Slider from 'react-touch-drag-slider'
 import Directory from '../../shopPage/directory/Directory.jsx';
+import MobileSlider from '../../../components/utility/mobileSlider/MobileSlider';
+import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
 
 export default function HomeLayout(props) {
   const { categoryRedirect, priceFilterRedirect } = props;
@@ -46,6 +49,49 @@ export default function HomeLayout(props) {
     ]
     
     const categories = ['shirts', 'sneakers','jackets', 'hats',]
+
+    const mobileCategories = [
+      {
+        id: 0,
+        title: 'shirts',
+        img: 'https://media.istockphoto.com/id/1392944438/photo/portrait-of-handsome-attractive-positive-curly-haired-indian-or-arabian-guy-wearing-white.jpg?b=1&s=170667a&w=0&k=20&c=AuDfv9PdKqXO3nKHFc-uBZ1bt0SXXceqFLo-OhJnI6o=',
+      },
+      {
+        id: 1,
+        title: 'jackets',
+        img: 'https://media.gq.com/photos/570d11e8c28126b633eff4e4/16:9/w_2560%2Cc_limit/jean-jackets-gq-0516-04.jpg',
+      },
+      {
+        id: 2,
+        title: 'hats',
+        img: 'https://img5.goodfon.com/wallpaper/nbig/b/45/dmitry-levykin-photographer-model-face-closed-eyes-mouth-lip.jpg',
+      },
+      {
+        id: 3,
+        title: 'sneakers',
+        img: 'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&w=1000&q=80',
+      }
+    ]
+
+    const [index, setIndex] = useState(0)
+
+    const setFinishedIndex = (i) => {
+      console.log("finished dragging on slide", i);
+      setIndex(i);
+    }
+
+    const next = () => {
+      if (index < mobileCategories.length - 1) setIndex(index + 1);
+    };
+
+    const previous = () => {
+      if (index > 0) setIndex(index - 1);
+    };
+
+    // const handleClick = (way) => {
+    //   way === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide -1 : 2) : 
+    //   setCurrentSlide(currentSlide < mobileCategories.length -1 ? currentSlide +1 : 0);
+    // };
     
     return (
       <Container fluid style={{ padding: 0, margin: 0, paddingTop: '5px'}}>
@@ -99,7 +145,8 @@ export default function HomeLayout(props) {
             </div>
       </div>
 
-{/* <Directory /> */}
+{/* Categories by Title || Mobile Slider */}
+    {/* {window.innerWidth > 420 ?
       <div style={{
           display: 'flex', 
           flexDirection: 'row', 
@@ -119,7 +166,11 @@ export default function HomeLayout(props) {
           </ul>
         </Row>
       </div>
-
+    : */}
+    <>
+<SlideShow categoryRedirect={categoryRedirect} />
+    </>
+      {/* } */}
       <div style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', display: 'flex', width: '100%',}}>
 
 

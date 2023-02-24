@@ -31,6 +31,7 @@ class HomePage extends Component {
   }
   
   categoryRedirect = async (clickedCategoryTitle) => {
+    console.log(clickedCategoryTitle)
     // create list of mens and womens shop data
     let ShopData = WOMENS_SHOP_LIST;
     let ShopData2 = MENS_SHOP_LIST
