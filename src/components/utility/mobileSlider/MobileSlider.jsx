@@ -36,7 +36,13 @@ function SlideShow(props) {
       {
         window.innerWidth > 420 ?
         <>
-          <span style={{ paddingBottom: '1%', textAlign: 'left', display: 'flex'}}>Shop by Category:</span>
+        {
+          window.innerWidth > 900 ?
+            <span style={{ marginLeft: '-3%', textAlign: 'left', display: 'flex', fontSize: '24px'}}>Shop by Category:</span>
+          :
+            <span style={{ paddingBottom: '1%', textAlign: 'left', display: 'flex'}}>Shop by Category:</span>
+        }
+
           <div className='max-w[1400px] h-[300px] w-full m-auto pb-10 mb-10 relative group cursor-pointer'>
             <div style={{ backgroundImage: `url(${slides[index].img})`}} 
               className='w-full h-full rounded-2xl bg-center bg-cover duration-1000 d-flex justify-center align-center'
@@ -115,7 +121,7 @@ function SlideShow(props) {
         </>
         :
         <>
-          <span style={{display: 'flex', margin: '0 0 -3% 3%'}}>Swipe by Category:</span>
+          <span style={{display: 'flex', justifyContent: 'center', margin: '0 0 -3% 0'}}>Swipe by Category:</span>
           <Slider
             style={{ zIndex: 0, width: '100%', paddingTop: 0}}
             onSlideComplete={setFinishedIndex}

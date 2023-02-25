@@ -82,155 +82,119 @@ export default function HomeLayout(props) {
     
     return (
       <>
-      {
-        hide === true ? 
-        <div style={{width: '100%', height: '70px', }}>
-          <Banner hideBanner={hideBanner} />
-        </div>
-        :
-        null
-      }
-      <Container fluid style={{ padding: 0, margin: 0, paddingTop: '5px'}}>
-      <div className="underGroundRoyalty">
-        <Typography
-            variant='h2'
+        {
+          hide === true ? 
+          <div className='bannerContainer'>
+            <Banner hideBanner={hideBanner} />
+          </div>
+          :
+          null
+        }
+        <Container fluid style={{ padding: 0, margin: 0, paddingTop: '5px'}}>
+          <div className="underGroundRoyalty">
+            <Typography
+              variant='h2'
+              className='typographyText'
+              sx={{
+                fontWeight: 'bold',
+                color: 'rgb(0,255,255,0%)',
+                WebkitTextStroke: '0.75px white',
+                backgroundImage: `url('https://media2.giphy.com/media/xUA7aKCtqnlAzuIg8M/giphy.gif?cid=ecf05e47hqupws5gkavymjrlpl5ks9utklt5jyos4s5q9irm&rid=giphy.gif&ct=g')`,
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                transition: 'color 0.50s, -webkit-text-stroke 0.50s',
+                '&: hover': {
+                  color: 'rgb(255,155,0,50%)',
+                  WebkitTextStroke: '0.5px gold',
+                  cursor: 'arrow',
+                }
+              }}
+            >
+              Underground
+            </Typography>
+            <Typography
             className='typographyText'
-            sx={{
-              fontWeight: 'bold',
-              color: 'rgb(0,255,255,0%)',
-              WebkitTextStroke: '0.75px white',
-              backgroundImage: `url('https://media2.giphy.com/media/xUA7aKCtqnlAzuIg8M/giphy.gif?cid=ecf05e47hqupws5gkavymjrlpl5ks9utklt5jyos4s5q9irm&rid=giphy.gif&ct=g')`,
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              transition: 'color 0.50s, -webkit-text-stroke 0.50s',
-              '&: hover': {
-                color: 'rgb(255,155,0,50%)',
-                WebkitTextStroke: '0.5px gold',
-                cursor: 'arrow',
-              }
-            }}
-          >
-            Underground
-          </Typography>
-          <Typography
-          className='typographyText'
-            variant='h1'
-            sx={{
-              fontWeight: 'bolder',
-              color: 'rgb(192,192,192,25%)',
-              WebkitTextStroke: '0.75px white',
-              backgroundImage: `url('https://media2.giphy.com/media/xUA7aKCtqnlAzuIg8M/giphy.gif?cid=ecf05e47hqupws5gkavymjrlpl5ks9utklt5jyos4s5q9irm&rid=giphy.gif&ct=g')`,
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              transition: 'color 0.50s, -webkit-text-stroke 0.50s',
-              '&: hover': {
-                color: 'rgb(255,155,0,50%)',
-                WebkitTextStroke: '0.5px silver',
-                cursor: 'arrow',
-              }
-            }}
-          >
-            ROYALTY
-          </Typography>
+              variant='h1'
+              sx={{
+                fontWeight: 'bolder',
+                color: 'rgb(192,192,192,25%)',
+                WebkitTextStroke: '0.75px white',
+                backgroundImage: `url('https://media2.giphy.com/media/xUA7aKCtqnlAzuIg8M/giphy.gif?cid=ecf05e47hqupws5gkavymjrlpl5ks9utklt5jyos4s5q9irm&rid=giphy.gif&ct=g')`,
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                transition: 'color 0.50s, -webkit-text-stroke 0.50s',
+                '&: hover': {
+                  color: 'rgb(255,155,0,50%)',
+                  WebkitTextStroke: '0.5px silver',
+                  cursor: 'arrow',
+                }
+              }}
+            >
+              ROYALTY
+            </Typography>
             <h4 className="subtext">ROYALTY FOR A REASON.</h4>
             <div className='crownIcon'>
               <img src={transparentCrown} width="100%" height="100%" alt="crown icon"/>
             </div>
-      </div>
+          </div>
 
-{/* Categories by Title || Mobile Slider */}
-    {/* {window.innerWidth > 420 ?
-      <div style={{
-        display: 'flex', 
-        flexDirection: 'row', 
-        width: '90vw', 
-        justifyContent: 'space-between',
-        marginBottom: '3%'
-      }}>
-      <Row style={{width: '90%', margin: 'auto', marginTop: '-2%',}}>
-      <ul className='titleContainer'>
-      {
-        categories.map((title, index) => (
-          <li className="categoryTitle" onClick={() => categoryRedirect(title)} key={index}>
-          {title.toUpperCase()}
-          </li>
-          ))
-        }
-        </ul>
-        </Row>
-        </div>
-      : */}
-    <>
-      <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} />
-    </>
-      {/* } */}
-  
-      <div className='priceFilterContainer'>
+          <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} />
 
+          {/* Filter Function rendered based on Screen size*/}
+            <div className='priceFilterContainer'>
+              {
+                window.innerWidth > 420 ?
+                <>
+                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)} style={{ background: 'black'}}>
+                    <div className="filterCategoryItem" style={{ backgroundImage: `url('https://ak.picdn.net/shutterstock/videos/8335927/thumb/1.jpg?ip=x480')`}}/>
+                    <div className="content" >
+                      <span>UNDER</span><h1>$100</h1>
+                    </div>
+                  </div>
 
-{/* Filter Function rendered based on Screen size*/}
+                  <div onClick={() => priceFilterRedirect('sale')} className="itemFilterContainer" style={{ justifyContent: 'space-around', background: 'black', padding: '3px'}}>
+                    <div className="filterCategoryItem" style={{ backgroundPosition: 'bottom 20% right 30%', zIndex: 1, marginRight: '2%', marginBottom: ''  , width: '75%', height: '100%', backgroundImage: `url('https://culturedvultures.com/wp-content/uploads/2016/10/lookbook-modmedia-3313-page-34521.jpg')`}}/>
+                    <div className="filterCategoryItem" style={{ zIndex: 2, marginRight: '2%', paddingBottom: '5%', backgroundPosition: 'bottom 0% right 50%', width: '60%', height: '100%', backgroundImage: `url('https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2021/02/Types-of-Mens-Hats-Banner.jpg')`}}/>
+                    <div className="filterCategoryItem" style={{ zIndex: 0, marginTop: '', backgroundPositionY: '90%', width: '75%', height: '100%', backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
+                    <div className="content" style={{ zIndex: 3, border: '2px solid black', color: 'red'}}>
+                      <span>ON</span><h1>SALE</h1>
+                    </div>
+                  </div>
+                </>
+              :
+                <>
+                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)} style={{ background: 'black'}}>
+                    <div className="filterCategoryItem" style={{ backgroundImage: `url('https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2021/02/Types-of-Mens-Hats-Banner.jpg')`}}/>
+                    <div className="content" >
+                      <span>UNDER</span><h1>$100</h1>
+                    </div>
+                  </div>
 
-          {
-            window.innerWidth > 420 ?
-            <>
-              <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)} style={{ background: 'black'}}>
-                <div className="filterCategoryItem" style={{ backgroundImage: `url('https://ak.picdn.net/shutterstock/videos/8335927/thumb/1.jpg?ip=x480')`}}/>
-                <div className="content" >
-                  <span>UNDER</span><h1>$100</h1>
-                </div>
-              </div>
-
-              <div onClick={() => priceFilterRedirect('sale')} className="itemFilterContainer" style={{ justifyContent: 'space-around', background: 'black', padding: '3px'}}>
-                <div className="filterCategoryItem" style={{ backgroundPosition: 'bottom 20% right 30%', zIndex: 1, marginRight: '2%', marginBottom: ''  , width: '75%', height: '100%', backgroundImage: `url('https://culturedvultures.com/wp-content/uploads/2016/10/lookbook-modmedia-3313-page-34521.jpg')`}}/>
-                <div className="filterCategoryItem" style={{ zIndex: 2, marginRight: '2%', paddingBottom: '5%', backgroundPosition: 'bottom 0% right 50%', width: '60%', height: '100%', backgroundImage: `url('https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2021/02/Types-of-Mens-Hats-Banner.jpg')`}}/>
-                <div className="filterCategoryItem" style={{ zIndex: 0, marginTop: '', backgroundPositionY: '90%', width: '75%', height: '100%', backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
-                <div className="content" style={{ zIndex: 3, border: '2px solid black', color: 'red'}}>
-                  <span>ON</span><h1>SALE</h1>
-                </div>
-              </div>
-            </>
-          :
-            <>
-              <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(100)} style={{ background: 'black'}}>
-                <div className="filterCategoryItem" style={{ backgroundImage: `url('https://flyingcdn-942385.b-cdn.net/wp-content/uploads/2021/02/Types-of-Mens-Hats-Banner.jpg')`}}/>
-                <div className="content" >
-                  <span>UNDER</span><h1>$100</h1>
-                </div>
-              </div>
+                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)} style={{ background: 'black'}}>
+                  <div className="filterCategoryItem"  style={{ backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
+                    <div className="content" >
+                      <span>ON</span><h1>SALE</h1>
+                    </div>
+                  </div>
+                </>
+              }
 
               <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)} style={{ background: 'black'}}>
-              <div className="filterCategoryItem"  style={{ backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
+                <div className="filterCategoryItem"  style={{ backgroundImage: `url('https://cdn.shopify.com/s/files/1/0182/8937/files/Blog1-FN-1_1024x1024.jpg?v=1507218406')`}}/>
                 <div className="content" >
-                  <span>ON</span><h1>SALE</h1>
+                  <span>Luxury</span><h1>ITEMS</h1>
                 </div>
               </div>
-            </>
-          }
-
-
-          <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)} style={{ background: 'black'}}>
-            <div className="filterCategoryItem"  style={{ backgroundImage: `url('https://cdn.shopify.com/s/files/1/0182/8937/files/Blog1-FN-1_1024x1024.jpg?v=1507218406')`}}/>
-            <div className="content" >
-             <span>Luxury</span><h1>ITEMS</h1>
             </div>
-          </div>
-          </div>
-        <br/>
+            <br/>
 
-{/* Carousel */}
-
-    {/* {
-      window.innerWidth > 1000 ? */}
-
-        <h1>Newest Arrivals</h1>
-      <div className='carouselContainer'>
-        <Carousel  dataSet={carouselImages}/>
-      </div>
-
-      {/* :
-      "Window is less than 1000"
-    } */}
-    </Container>
+            {/* Carousel */}
+            <br/>
+            <h1>Newest Arrivals</h1>
+            <div className='carouselContainer'>
+              <Carousel  dataSet={carouselImages}/>
+            </div>
+        </Container>
     </>
   )
 }

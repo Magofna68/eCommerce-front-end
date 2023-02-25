@@ -2,6 +2,11 @@
 div.itemListPreview.container-true {
   margin: 0 0 10% 0;
 
+  .categoryLabel{
+    width: 90%;
+    max-width: 1000px;
+  }
+
   .optionsContainer{
     display: flex;
     background-color: white;
@@ -14,9 +19,11 @@ div.itemListPreview.container-true {
     height: 100px;
   }
   
-  h1{
-    margin: 0 0 0 0;
+  span.title{
+    // font-size: 2em;
+    margin: 0 0 0 5%;
     padding: 0 0 5% 0;
+    letter-spacing: 3px;
   }
   
   .preview {
@@ -29,7 +36,8 @@ div.itemListPreview.container-true {
 ul.titleListContainer{
   background: black;
   color: white;
-  margin: 8rem 0 0 0;
+  // margin: 8rem 0 0 0;
+  margin: 0 0 0 0;
   opacity: .75;
   display: flex;
   align-self: center;
@@ -95,12 +103,6 @@ ul.titleListContainer{
       width: 85px;
       padding: 3px 8px 3px 8px;
       
-      @media screen and (max-width: 600px) {
-        font-size: 14px;
-        margin: 2%;
-        padding: 0;
-      }
-      
       &:hover{
         background-color: black;
         transform: scale(1.03);
@@ -108,30 +110,142 @@ ul.titleListContainer{
       }
     }
   }
+// ====================== 1400+ ======================
+@media only screen and (min-width: 1400px) {
+  .itemListPreview{
 
+    .categoryLabel{
+      padding: 0 0 0 0;
+      margin: 4rem 0 -1% 0;
+      text-align: left;
+    }
+    
+    ul.titleListContainer{
+      // margin: 8.5rem 0 0 0;
+      margin: 0 0 -3% 0;
+      height: 3.5rem;
+      max-width: 1000px;
+      
+      li{
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
 
-  // ===================== Mobile View ====================
-
-  @media only screen and (min-width: 200px) and (max-width: 420px) {
+  // ===================== 1000+ =======================
+  @media only screen and (min-width: 1000px) and (max-width: 1399px) {
     .itemListPreview{
+
+      span.title{
+        font-size: 3.5rem;
+        font-weight: 300;
+        // margin: 0 0 0 5%;
+      }
+
+      .categoryLabel{
+        padding: 0 0 0 0;
+        margin: 5rem 0 -2% 0;
+        text-align: left;
+      }
       
       ul.titleListContainer{
-        margin: 8rem 0 0 0;
-      
+        // margin: 8.5rem 0 0 0;
+        margin: 0 0 -2% 0;
+        height: 3.5rem;
+        max-width: 1000px;
+        
         li{
-          font-size: .90rem;
+          font-size: 1.25rem;
         }
       }
     }
   }
 
-    // ===================== 421+ ====================
-
-  @media only screen and (min-width: 421px) {
+  // ========================= 600 + ========================
+  
+  @media only screen and (min-width: 600px) and (max-width: 999px) {
     .itemListPreview{
+
+      span.title{
+        font-size: 3rem;
+        font-weight: 300;
+        // margin: 0 0 0% 5%;
+      }
+
+      .title{
+        margin: 0 0 0 5%;
+      }
+
+      .categoryLabel{
+        padding: 0 0 0 0;
+        margin: 7rem 0 -2.5% 5%;
+        text-align: left;
+      }
       
       ul.titleListContainer{
-        margin: 8.5rem 0 0 0;
+        // margin: 8.5rem 0 0 0;
+        margin: 0 0 0 0;
+        height: 3.5rem;
+        max-width: 1000px;
+        
+        li{
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+  // ===================== 421 - 599px ====================
+  
+  @media only screen and (min-width: 421px) and (max-width: 599px) {
+    .itemListPreview{
+
+      span.title{
+        font-size: 2.5rem;
+        font-weight: 300;
+        // margin: 0 0 0 5%;
+      }
+
+      .categoryLabel{
+        padding: 0 0 0 0;
+        margin: 7rem 0 -5% 2%;
+        text-align: left;
+      }
+      
+      ul.titleListContainer{
+        margin: 0 0 0 0;
+        
+        li{
+          font-size: 1rem;
+        }
+
+        .categoryTitle{
+          font-size: 14px;
+          margin: 2%;
+          padding: 0;
+        }
+      }
+    }
+  }
+  // ===================== Mobile View ====================
+
+  @media only screen and (min-width: 200px) and (max-width: 420px) {
+    .itemListPreview{
+
+      span.title{
+        font-size: 2rem;
+        font-weight: 300;
+        // margin: 0 0 0 5%;
+      }
+
+      .categoryLabel{
+        padding: 0 0 0 0;
+        margin: 8rem 0 -6% 5%;
+        text-align: left;
+      }
+      
+      ul.titleListContainer{
+        // margin: 8rem 0 0 0;
       
         li{
           font-size: 1rem;
@@ -139,20 +253,3 @@ ul.titleListContainer{
       }
     }
   }
-
-  // ========================= 500 + ========================
-
-  @media only screen and (min-width: 600px) {
-  .itemListPreview{
-      
-    ul.titleListContainer{
-      margin: 8.5rem 0 0 0;
-      height: 3.5rem;
-      max-width: 1000px;
-    
-      li{
-        font-size: 1.25rem;
-      }
-    }
-  }
-}

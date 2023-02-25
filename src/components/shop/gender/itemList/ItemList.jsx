@@ -33,9 +33,6 @@ export default function ItemList(props) {
 
   const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
 
-  // var checkedRadio = document.querySelector('input[name=sort]:checked');
-  // console.log("checkedRadio", checkedRadio)
-
   return (
     <>
       <Container fluid="true" className='itemListPreview'>
@@ -51,7 +48,7 @@ export default function ItemList(props) {
 
         {
           priceFilterTitle ?
-          <span  
+          <span  className="title"
             style={{ 
               color: 'black', 
               fontSize: '2em',
@@ -63,14 +60,15 @@ export default function ItemList(props) {
               {priceFilterTitle}
           </span>
           :
-          <span className="title"><h1>SHOP</h1></span>
+          <span className="title">SHOP</span>
         }
         {
           // coming from homepagelayout
           priceFilterData ?
             null
           :
-            <div style={{ display: 'flex', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+              <p className="categoryLabel"><strong>Select a Category:</strong></p><br/>
               <ul className='titleListContainer'>
                 {
                   categoryTitles.map((title, index) => (
@@ -82,7 +80,7 @@ export default function ItemList(props) {
               </ul>
             </div>
         }
-        
+        <br/>
         <div className='optionsContainer'>
           <div>
             <Radio 
@@ -90,6 +88,7 @@ export default function ItemList(props) {
               onFilterClick={onFilterClick}
             />
           </div>
+          <br/>
           <div>
             <span>Sort by Price: </span>
                 <div>
