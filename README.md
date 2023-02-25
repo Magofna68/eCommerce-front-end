@@ -70,7 +70,7 @@ _*This project mainly focused on utilizing the skills I have learned thus far an
 9. Notyf -- TOAST notifications
 
 # Known Bugs:
-- Currently utilizing useNavigate from gender to ItemDetail, but not capturing the state object as it navigates thus leaving the ItemDetail page empty.
+- Home breadcrumb is currently not redirecting back to homepage
 
 ## Support and contact details
 

@@ -97,17 +97,6 @@ export default function Navigationbar({currentUser}) {
           </Navbar.Brand>
   {/* SEARCH ICON */}
           <div className='searchBarContainer'>
-            {/* {
-              window.innerWidth > 767 ?
-
-              // {
-              //   openSearch ?
-                <SearchBar />
-              //   :
-              // }
-              :
-                  null
-            } */}
             {
               window.innerWidth < 767 && openSearch ?
                 <SearchBar/>

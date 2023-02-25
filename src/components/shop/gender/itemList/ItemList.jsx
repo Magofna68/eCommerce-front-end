@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
 import CollectionItem from '../../collection-item/CollectionItem.jsx';
@@ -7,11 +7,18 @@ import Container from 'react-bootstrap/Container';
 import Link from 'react-dom';
 import './itemList.styles.scss';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
-import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button';
+import {Row, Col} from 'react-bootstrap/';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import Radio from '../../../utility/radioButton/RadioButton.jsx';
 // import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
-  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle } = props;
+  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick } = props;
+  const [checked, setChecked] = useState(false);
+  const [radioValue, setRadioValue] = useState(null);
+
 
   function getRandom(array) {
     let i = array.length -1;
@@ -41,7 +48,7 @@ export default function ItemList(props) {
 
         {
           priceFilterTitle ?
-          <span  
+          <span  className="title"
             style={{ 
               color: 'black', 
               fontSize: '2em',
@@ -53,13 +60,15 @@ export default function ItemList(props) {
               {priceFilterTitle}
           </span>
           :
-          <span className="title"><h1>SHOP</h1></span>
+          <span className="title">SHOP</span>
         }
         {
+          // coming from homepagelayout
           priceFilterData ?
             null
           :
-            <div style={{ display: 'flex', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+              <p className="categoryLabel"><strong>Select a Category:</strong></p><br/>
               <ul className='titleListContainer'>
                 {
                   categoryTitles.map((title, index) => (
@@ -71,17 +80,38 @@ export default function ItemList(props) {
               </ul>
             </div>
         }
-          <div className='preview'
-            style={{ 
-              flexWrap: 'wrap',
-              display: 'flex',
-              alignContent: 'space-between',
-              justifyContent: 'center',
-            }}
-          >
+        <br/>
+        <div className='optionsContainer'>
+          <div>
+            <Radio 
+              onClick={()=> onFilterClick({radioValue})} 
+              onFilterClick={onFilterClick}
+            />
+          </div>
+          <br/>
+          <div>
+            <span>Sort by Price: </span>
+                <div>
+                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H')}/> Low to High
+                  {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
+                </div>
+
+          </div>
+        </div>
+        
+        <div className='preview'
+          style={{ 
+            flexWrap: 'wrap',
+            display: 'flex',
+            alignContent: 'space-between',
+            justifyContent: 'center',
+          }}
+        >
         {
           priceFilterData ? 
-            getRandom(priceFilterData).map(({id, ...props}) => (
+            // getRandom(priceFilterData).map(({id, ...props}) => (
+            priceFilterData.map(({id, ...props}) => (
               <CollectionItem
                 key={id}
                 handleItemSelection={onItemSelection}
@@ -89,7 +119,8 @@ export default function ItemList(props) {
                 />
             ))
           :
-            getRandom(FullItemList).map(({id, ...props}) => (
+            // getRandom(FullItemList).map(({id, ...props}) => (
+            FullItemList.map(({id, ...props}) => (
               <CollectionItem
                 key={id}
                 handleItemSelection={onItemSelection}

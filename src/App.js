@@ -76,8 +76,6 @@ componentWillUnmount() {
 
 
   render() {
-  // const { currentUser } = this.state;
-  // let path = '/shop/'.concat(title.toLowerCase()).concat('/', id)
   const { viewPort } = this.state;
     return (
       <>

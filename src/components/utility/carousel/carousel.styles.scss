@@ -1,61 +1,58 @@
-// ===================== Mobile View =======================
 
-@media only screen and (min-width: 200px) and (max-width: 420px) {
-  .imgContainer{
-    width: 40%;
-    justify-content: center;
-    margin-right: 3%;
+// ================== Desktop View ==================
+
+.carousel {
+  display: flex;
+  width: 96%;
+  margin: 2%;
+  margin-bottom: 5%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  
+  .homepageCarousel{
+    display: flex;
+    width: 100%;
+    // min-width: 1200px;
+    // max-width: 1300px;
+    margin: auto;
+    background-color: white;
+    z-index: -1;
+    justify-content:space-between;
+    align-items: center;
     
     .carouselImg{
       overflow: hidden;
-      margin: 3% 5% 0 5%;
-      max-height: 250px;
-      min-height: 150px;
-      max-width: 175px;
-      min-width: 125px;
-      // width: 150px;
-      // height: 200px;
-      order: 2;
-
-      // &:first-child {
-      //   order: 1;
-      // }
+      // max-height: 430px;
+      // min-height: 425px;
+      // max-width: 325px;
+      // min-width: 325px;
+      margin: 10px;
+      border-radius: 10px;
+      border: 2px solid gray;
+      box-shadow: 5px 5px 5px gray;
     }
     
     .textBox{
-      max-height: 100%;
-      min-height: 150px;
-      max-width: 250px;
-      min-width: 175px;
+      position: relative;
+      flex-direction: column;
+      color: black;
       flex-wrap: wrap;
-      margin: 0 0 0 0;
-      padding: 3% 0 0 0;
-      order: 1;
-
-      // &:first-child {
-      //   order: 2;
-      // }
-
-      span.slideTitle{
-        font-size: 16px !important;
-        margin-bottom: 5% !important;
-        font-weight: 600 !important;
-      }
       
-      div.quoteContainer{
-        width: 100% !important;
-        // margin-top: 3%;
-        margin: 3% 0 0 0 !important;
-        font-size: 14px;
-        // margin: 0 !important;
-        // display: flex;
+      div{
+        width: 70%;
         margin: auto;
-        justify-content: center;
-        align-items: center;
+        margin-top: 3%;
         
         .css-i4bv87-MuiSvgIcon-root{
           margin-bottom: 15px;
         }
+      }
+
+      span{
+        font-size: 25px;
+        font-weight: lighter;
       }
       p{
         margin-top: 5%;
@@ -63,15 +60,176 @@
       }
     }
   }
+    
   .carousel-indicators button{
+    color: black ;
+    background-color: black;
+  }
+  
+  a.carousel-control-next, a.carousel-control-prev{
     display: none;
   }
+  
+  .active {
+    background: white;
+  }
 }
+  
+// ========================== 1300+ =============================
+        
+  @media only screen and (min-width: 1300px) {
+          
+    .homepageCarousel{
+            
+      .carouselImg{
+        margin: auto;
+        overflow: hidden;
+        max-height: 580px;
+        min-height: 550px;
+        max-width: 400px;
+        min-width: 375px;
+        // margin: 10px;
+        border-radius: 10px;
+        border: 2px solid gray;
+        box-shadow: 5px 5px 5px gray;
+      }
+      
+      div.textBox{
+        // max-width: 550px;
+        // min-width: 450px;
+        flex-wrap: wrap;
+        height: 500px;
+        display: flex;
+        justify-content: space-evenly;
+        
+        
+        .quoteContainer{
+          width: 80%;
+          margin-left: 0% auto  5% auto;
+          font-size: 1.5em;
+        }
+        
+        span.slideTitle{
+          font-size: 3em;
+          margin-bottom: 10%;
+        }
+        
+        button{
+          width: 50%;
+          font-size: 1.5em;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+// ============================= 1200px ============================
+  
+  @media only screen and (min-width: 1200px) {
+    .homepageCarousel {
+      display: flex;
+      // width: 70%;
+      margin: auto;
+      margin-bottom: 3%;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      
+      div.homepageCarousel{
+        display: flex;
+        min-width: 1100px;
+        max-width: 1300px;
+        // max-height: 900px;
+        min-height: 850px;
+        margin: auto;
+        background-color: white;
+        z-index: -1;
+        justify-content:space-around;
+        align-items: center;
+        
+        .textBox{
+          
+          span.slideTitle{
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10%;
+          }
+        }
+      }    
+    }   
+    .carouselImg{
+      margin: auto;
+      overflow: hidden;
+      height: 100%;
+      max-height: 640px;
+      // min-height: 600px;
+      max-width: 450px;
+      width: 440px;
+      min-width: 430px;
+      // margin: 10px;
+      border-radius: 10px;
+      border: 2px solid gray;
+      box-shadow: 5px 5px 5px gray;
+
+    }
+  }
+  
+// ============================= 999px =============================
+    
+    @media only screen and (min-width: 691px) and (max-width: 999px) {
+      
+      .homepageCarousel{
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 5% 5% 5%;
+        
+        .carouselImg{
+            margin: 0 5%;
+            max-height: 500px;
+            min-height: 450px;
+            max-width: 350px;
+            min-width: 350px;
+          }
+          
+        .textBox{
+          max-width: 400px;
+          min-width: 400px;
+          min-height: 300px;
+          flex-wrap: wrap;
+          display: flex;
+          justify-content: space-between;
+          
+          button{
+            width: 50%;
+            margin: 5% auto 0% auto;
+          }
+
+          .quoteContainer{
+            width: 80%;
+            margin: auto;
+            margin-top: 3%;
+            font-size: 1.5em;
+            
+            .css-i4bv87-MuiSvgIcon-root{
+              margin-bottom: 15px;
+            }
+          }
+        }
+        
+        span.slideTitle{
+          font-size: 2em;
+          font-weight: lighter;
+          margin-bottom: 10%;
+        }
+        
+      }
+    }
 
 // ========================== Small Screen View ============================
 @media only screen and (min-width: 421px) and (max-width: 690px) {
   
-  .imgContainer{
+  .homepageCarousel{
     width: 40%;
     justify-content: center;
     margin-right: 3%;
@@ -92,7 +250,7 @@
       min-width: 150px;
       flex-wrap: wrap;
       order: 1;
-
+      
       span.slideTitle{
         font-size: 20px;
       }
@@ -102,7 +260,7 @@
         
         margin-top: 3%;
         font-size: 16px;
-        // margin: 0 !important;
+        // margin: 0;
         justify-content: center;
         align-items: center;
         
@@ -119,230 +277,60 @@
   .carousel-indicators button{
     display: none;
   }
-
-}
-
-// ================== 999px ==================
-
-
-@media only screen and (min-width: 691px) and (max-width: 999px) {
-
-    .imgContainer{
-      width: 100%;
-      justify-content: space-between;
-      padding: 0 5% 5% 5%;
-
-      .carouselImg{
-        margin: 0 5%;
-        max-height: 500px;
-        min-height: 450px !important;
-        max-width: 350px;
-        min-width: 350px !important;
-      }
-
-      .textBox{
-        max-width: 400px;
-        min-width: 400px !important;
-        min-height: 300px;
-        flex-wrap: wrap;
-        display: flex;
-        justify-content: space-between;
-
-        .quoteContainer{
-          width: 80%;
-          margin: auto;
-          margin-top: 3%;
-          font-size: 1.5em;
-
-          .css-i4bv87-MuiSvgIcon-root{
-            margin-bottom: 15px;
-          }
-        }
-        button{
-          width: 50%;
-          margin: 5% auto 0% auto;
-        }
-      }
-      
-      span.slideTitle{
-        font-size: 2em !important;
-        font-weight: lighter;
-        margin-bottom: 10%;
-      }
-  }
-}
-// ========================= 1200px ======================
-
-@media only screen and (min-width: 1200px) {
-  .carouselContainer {
-    display: flex;
-    // width: 70%;
-    margin: auto;
-    margin-bottom: 3%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-  
-    div.imgContainer{
-      display: flex;
-      min-width: 1100px;
-      max-width: 1300px !important;
-      margin: auto;
-      background-color: white;
-      z-index: -1;
-      justify-content:space-around !important;
-      align-items: center;
-      
-      .carouselImg{
-        margin: auto;
-        overflow: hidden;
-        // max-height: 580px !important;
-        // min-height: 550px;
-        // max-width: 500px !important;
-        // min-width: 450px;
-        // margin: 10px;
-        border-radius: 10px;
-        border: 2px solid gray;
-        box-shadow: 5px 5px 5px gray;
-      }
-    }
-
-    // .textBox{
-    //   max-width: 550px;
-    //   min-width: 450px;
-    //   flex-wrap: wrap;
-
-    //   .quoteContainer{
-    //     width: 80%;
-    //     margin: auto;
-    //     margin-top: 3%;
-    //     font-size: 20px;
-    //   }
-    // }
-    
-  }
   
 }
 
-@media only screen and (min-width: 1300px) {
+// ===================== Mobile View =======================
 
-  .imgContainer{
-
-    .carouselImg{
-      margin: auto;
-      overflow: hidden;
-      max-height: 580px !important;
-      min-height: 550px;
-      max-width: 400px !important;
-      min-width: 375px;
-      // margin: 10px;
-      border-radius: 10px;
-      border: 2px solid gray;
-      box-shadow: 5px 5px 5px gray;
-    }
-    
-    div.textBox{
-      // max-width: 550px;
-      // min-width: 450px;
-      flex-wrap: wrap;
-      height: 500px !important;
-      display: flex;
-      justify-content: space-evenly;
-
-      
-      .quoteContainer{
-        width: 80%;
-        margin-left: 0% auto  5% auto !important;
-        font-size: 1.5em !important;
-      }
-      
-      span.slideTitle{
-        font-size: 3em !important;
-        margin-bottom: 10% !important;
-      }
-
-      button{
-        width: 50%;
-        font-size: 1.5em;
-        margin: auto;
-      }
-    }
-  }
-}
-// ================== Desktop View ==================
-
-
-.carousel {
-  display: flex;
-  width: 96%;
-  margin: 2%;
-  margin-bottom: 5%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  
-  .imgContainer{
-    display: flex;
+@media only screen and (min-width: 200px) and (max-width: 420px) {
+  .homepageCarousel{
     width: 100%;
-    // min-width: 1200px;
-    // max-width: 1300px;
-    margin: auto;
-    background-color: white;
-    z-index: -1;
-    justify-content:space-between;
-    align-items: center;
+    min-height: 230px;
+    height: 230px;
+    justify-content: center;
     
     .carouselImg{
       overflow: hidden;
-      max-height: 430px;
-      min-height: 425px;
-      max-width: 325px;
-      min-width: 325px;
-      margin: 10px;
-      border-radius: 10px;
-      border: 2px solid gray;
-      box-shadow: 5px 5px 5px gray;
+      margin: 0;
+      width: 150px;
+      min-width: 135px;
+      order: 2;
     }
     
-      .textBox{
-        position: relative;
-        flex-direction: column;
-        color: black;
+    .textBox{
+      max-width: 250px;
+      min-width: 175px;
+      flex-wrap: wrap;
+      margin: 0 0 0 0;
+      padding: 3% 0 0 0;
+      order: 1;
+
+      span.slideTitle{
+        font-size: 16px;
+        margin-bottom: 5%;
+        font-weight: 600;
+      }
+      
+      div.quoteContainer{
+        width: 100%;
+        margin: 3% 0 0 0;
+        font-size: 14px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
         flex-wrap: wrap;
-
-        div{
-          width: 70%;
-          margin: auto;
-          margin-top: 3%;
-
-          .css-i4bv87-MuiSvgIcon-root{
-            margin-bottom: 15px;
-          }
-        }
-
-        span{
-          font-size: 25px;
-          font-weight: lighter;
-        }
-        p{
-          margin-top: 5%;
-          font-size: 20px;
+        
+        .css-i4bv87-MuiSvgIcon-root{
+          margin-bottom: 15px;
         }
       }
+      p{
+        margin-top: 5%;
+        font-size: 20px;
+      }
+    }
   }
-  
   .carousel-indicators button{
-    color: black ;
-    background-color: black !important;
+    display: none;
   }
-
-  a.carousel-control-next, a.carousel-control-prev{
-  display: none;
-  }
-}
-
-.active {
-  background: white;
 }
