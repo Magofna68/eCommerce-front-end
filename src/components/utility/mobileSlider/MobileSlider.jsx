@@ -3,6 +3,7 @@ import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx';
 import Slider from 'react-touch-drag-slider';
 import Container from 'react-bootstrap/Container';
+import './mobileSlider.styles.scss';
 
 function SlideShow(props) {
   const { categoryRedirect, slides } = props;
@@ -110,7 +111,8 @@ function SlideShow(props) {
               {slides.map((slide, slideIdx) => (
                 <div 
                   onClick={() => goToSlide(slideIdx)} 
-                  className='text-2xl cursor-pointer active:gray'
+                  className='text-2xl cursor-pointer'
+                  // style={{ color: 'black'}}
                   key={slideIdx}
                 >
                   <RxDotFilled />

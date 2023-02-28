@@ -83,6 +83,10 @@ export default function Navigationbar({currentUser}) {
     })
   }
 
+  const useClearState = () => {
+    useState(null)
+  }
+
   return (
     <Container className='p-0' fluid="true">
       <Navbar 
@@ -111,7 +115,7 @@ export default function Navigationbar({currentUser}) {
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
         <NavbarCollapse className='navbar-toggle justify-content-end'>
           <Nav className='justify-content-center margin-left-auto'>            
-            <Link className="nav-link" to="/#">HOME</Link>
+            <Link className="nav-link" to="/#" onClick={useClearState()}>HOME</Link>
             <Link className="nav-link" to="/shop" >Shop</Link>
             <Link className='nav-link' to="/shop/mens">Mens</Link>
             <Link className='nav-link' to="/shop/womens">Womens</Link>

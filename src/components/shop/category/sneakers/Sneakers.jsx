@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {SHOP_DATA} from '../../../../data.jsx';
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx';
@@ -24,6 +24,10 @@ export default function Sneakers(props) {
     //   }
     // })
     // }
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
   return (
     <div className='sneakerComponent'>
      <h1>{sneakerCollection.title}</h1>

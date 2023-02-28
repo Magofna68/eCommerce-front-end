@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 import King from '../../../../assets/King.png';
 import CollectionItem from '../../collection-item/CollectionItem.jsx';
@@ -15,7 +15,7 @@ import Radio from '../../../utility/radioButton/RadioButton.jsx';
 // import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
-  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick } = props;
+  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick, } = props;
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
 
@@ -31,8 +31,45 @@ export default function ItemList(props) {
     return array;
   }
 
+  // function onSortClickTest (term) {
+  //   let shopList = [];
+  //   {
+  //     priceFilterData ? 
+  //     shopList = [ ...priceFilterData ]
+  //     :
+  //     shopList = [ ...FullItemList ]
+  //   }
+  //   console.log("shopList", shopList)
+  //   console.log("term", term)
+  //   // let shopList = [...this.state.womensItemList]
+  //   switch(term) {
+  //     case "H2L":
+  //       shopList.sort((item1, item2) => 
+  //       (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+  //       console.log("shopList", shopList[1].price)
+  //       this.setState({
+  //         priceFilterData: [...shopList]
+  //       })
+  //       break;
+  //     case "L2H":
+  //       shopList.sort((item1, item2) => 
+  //         (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+  //       console.log("shopList", shopList.price)
+  //       // await this.setState({
+  //       //   womensItemList: [...shopList]
+  //       // });
+  //       break;
+  //     default:
+  //       return;
+  //   }
+  // }
+
   const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <>
       <Container fluid="true" className='itemListPreview'>
@@ -91,11 +128,20 @@ export default function ItemList(props) {
           <br/>
           <div>
             <span>Sort by Price: </span>
+            {
+              priceFilterData ?
                 <div>
                   <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
-                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H')}/> Low to High
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H', ...priceFilterData)}/> Low to High
                   {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
+              :
+                <div>
+                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L', ...FullItemList)}/> High to Low &nbsp;&nbsp;
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H', ...FullItemList)}/> Low to High
+                  {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
+                </div>
+            }
 
           </div>
         </div>

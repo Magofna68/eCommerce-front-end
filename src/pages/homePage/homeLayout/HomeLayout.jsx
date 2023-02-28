@@ -79,6 +79,10 @@ export default function HomeLayout(props) {
         img: 'https://media.istockphoto.com/id/1392944438/photo/portrait-of-handsome-attractive-positive-curly-haired-indian-or-arabian-guy-wearing-white.jpg?b=1&s=170667a&w=0&k=20&c=AuDfv9PdKqXO3nKHFc-uBZ1bt0SXXceqFLo-OhJnI6o=',
       },
     ]
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
     
     return (
       <>
@@ -170,7 +174,7 @@ export default function HomeLayout(props) {
                     </div>
                   </div>
 
-                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)} style={{ background: 'black'}}>
+                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect('sale')} style={{ background: 'black'}}>
                   <div className="filterCategoryItem"  style={{ backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
                     <div className="content" >
                       <span>ON</span><h1>SALE</h1>

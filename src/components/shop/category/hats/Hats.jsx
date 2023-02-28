@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import {SHOP_DATA} from '../../../../data.jsx'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 // import FullItemCollection from '../fullCollection/FullItemCollection/FullItemCollection.jsx'
@@ -12,6 +12,10 @@ export default function Hats(props) {
   // console.log("FilteredList", filteredList);
   console.log("mensFilteredHats being passed from MensClothing", filteredHats)
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <div
       style={{

@@ -27,6 +27,7 @@ class HomePage extends Component {
       filteredHomepageList: {},
       priceFilterData: [],
       priceFilterTitle: "",
+      sortResults: null,
     }
   }
   
@@ -74,12 +75,43 @@ class HomePage extends Component {
     console.log(clickedItem)
     this.setState({ selectedItem: clickedItem })
   }
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
+  onSortClick = async (term) => {
+    let shopList = [...this.state.priceFilterData];
+    console.log("shopList", shopList)
+    console.log("term", term)
+    switch(term) {
+      case "H2L":
+        shopList.sort((item1, item2) => 
+        (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+        console.log("shopList", shopList[1].price)
+        await this.setState({
+          priceFilterData: [...shopList]
+        })
+        break;
+      case "L2H":
+        shopList.sort((item1, item2) => 
+          (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+        console.log("shopList", shopList.price)
+        await this.setState({
+          priceFilterData: [...shopList]
+        });
+        break;
+      default:
+        return;
+    }
+    console.log("sortResults", this.state.priceFilterData)
+  }
   
   render() {
-    
+
     let currentlyVisibleState = null;
     let buttonText = null;
-    const { clickedCategory, selectedItem, priceFilterData, priceFilterTitle } = this.state;
+    const { clickedCategory, selectedItem, priceFilterData, priceFilterTitle, onSortClickTest } = this.state;
     
           if (this.state.selectedItem !== null) {
             currentlyVisibleState = 
@@ -114,6 +146,7 @@ class HomePage extends Component {
           } else if (this.state.clickedCategory === 'FILTER') {
             currentlyVisibleState =
             <ItemList 
+              onSortClick={this.onSortClick}
               onItemSelection={this.handleItemClick} 
               priceFilterData={priceFilterData}
               priceFilterTitle={priceFilterTitle}
