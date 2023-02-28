@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
+import { useNavigate } from 'react-router';
 import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
 import './mensClothing.styles.scss';
@@ -16,173 +17,199 @@ import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
-class MensClothing extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedItem: null,
-      mensItemList:  MENS_SHOP_LIST ,
-      womensItemList: WOMENS_SHOP_LIST,
-      selectedCategory: "",
-      mensFilteredList: [],
-      womensFilteredList: [],
-    }
-  }
+// class MensClothing extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       selectedItem: null,
+//       mensItemList:  MENS_SHOP_LIST ,
+//       womensItemList: WOMENS_SHOP_LIST,
+//       selectedCategory: "",
+//       mensFilteredList: [],
+//       womensFilteredList: [],
+//     }
+//   }
 
-  categoryRedirect = async (clickedCategoryTitle) => {
-    const categoryToAssign = clickedCategoryTitle
-    const mensTempFilteredList = this.state.mensItemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
-    await this.setState({
-      selectedCategory: categoryToAssign,
-    })
-    await this.setState({ mensFilteredList: mensTempFilteredList})
-    // console.log("after state update", this.state.mensFilteredList)
-  }
+export default function MensClothing(props) {
+  const { 
+    selectedCategory, 
+    mensItemList, 
+    mensFilteredList,
+    shopData,
+    filteredList, 
+    selectedItem, 
+    categoryRedirect, 
+    handleChangingSelectedItem,
+    handleFilterClick,
+    handleSortClick,
+    handleHomeClick,
+    handleBackClick,
+  } = props;
 
-  handleClick = (e) => {
-    if (this.state.selectedItem != null) {
-      this.setState({selectedItem: null})
-    } else if (this.state.selectedCategory != null) {
-      this.setState({selectedCategory: ""})
-    }
-  }
 
-  handleHomeClick = () => {
-    window.location.assign('#/')
-  }
+  // const navigate = useNavigate();
 
-  handleChangingSelectedItem = (id) => {
-    const selectedItem = id;
-    // console.log(selectedItem)
-    this.setState({
-      selectedItem: selectedItem
-    })
-  }
+  // const handleBackClick = () => {
+  //   this.setState({
+  //     selectedCategory: "",
+  //   })
+  // }
 
-  handleClearItemStateClick = (e) => {
-    console.log("HandleClear")
-    this.setState({
-      selectedItem: null,
-    })
-  }
+
+  // categoryRedirect = async (clickedCategoryTitle) => {
+  //   const categoryToAssign = clickedCategoryTitle
+  //   const mensTempFilteredList = this.state.mensItemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+  //   await this.setState({
+  //     selectedCategory: categoryToAssign,
+  //   })
+  //   await this.setState({ mensFilteredList: mensTempFilteredList})
+  //   // console.log("after state update", this.state.mensFilteredList)
+  // }
+
+  // handleClick = (e) => {
+  //   if (this.state.selectedItem != null) {
+  //     this.setState({selectedItem: null})
+  //   } else if (this.state.selectedCategory != null) {
+  //     this.setState({selectedCategory: ""})
+  //   }
+  // }
+
+  // handleHomeClick = () => {
+  //   window.location.assign('#/')
+  // }
+
+  // handleChangingSelectedItem = (id) => {
+  //   const selectedItem = id;
+  //   // console.log(selectedItem)
+  //   this.setState({
+  //     selectedItem: selectedItem
+  //   })
+  // }
+
+  // handleClearItemStateClick = (e) => {
+  //   console.log("HandleClear")
+  //   this.setState({
+  //     selectedItem: null,
+  //   })
+  // }
   
   
-  handleSortClick = async (term) => {
-    let shopList = [...this.state.mensItemList]
-    switch(term) {
-      case 'H2L':
-        shopList.sort((item1, item2) => 
-        (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
-        console.log("shopList", shopList.price)
-        await this.setState({
-          mensItemList: [...shopList]
-        })
-        break;
-      case "L2H":
-        shopList.sort((item1, item2) => 
-          (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
-        console.log("shopList", shopList.price)
-        await this.setState({
-          mensItemList: [...shopList]
-        });
-        break;
-      default:
-        return;
-    }
-  }
+  // handleSortClick = async (term) => {
+  //   let shopList = [...this.state.mensItemList]
+  //   switch(term) {
+  //     case 'H2L':
+  //       shopList.sort((item1, item2) => 
+  //       (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+  //       console.log("shopList", shopList.price)
+  //       await this.setState({
+  //         mensItemList: [...shopList]
+  //       })
+  //       break;
+  //     case "L2H":
+  //       shopList.sort((item1, item2) => 
+  //         (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+  //       console.log("shopList", shopList.price)
+  //       await this.setState({
+  //         mensItemList: [...shopList]
+  //       });
+  //       break;
+  //     default:
+  //       return;
+  //   }
+  // }
 
 
-  handleFilterClick = async (value) => {
-    let shopList = [...MENS_SHOP_LIST];
+  // handleFilterClick = async (value) => {
+  //   let shopList = [...MENS_SHOP_LIST];
 
-    if (value === '25') {
-      const under25 = shopList.filter((item) => item.price < 25)
-      await this.setState({
-        mensItemList: under25,
-      });
-    } else if (value === '50') {
-      const under50 = shopList.filter((item) => item.price < 50)
-      await this.setState({
-        mensItemList: under50
-      });
-    } else if (value === '75') {
-      const under75 = shopList.filter((item) => item.price < 75)
-      await this.setState({
-        mensItemList: under75
-      });
-    } else if (value === '100') {
-      const under100 = shopList.filter((item) => item.price < 100)
-      await this.setState({
-        mensItemList: under100
-      })
-    } else {
-      const under150 = shopList.filter((item) => item.price < 150)
-      await this.setState({
-        mensItemList: under150
-      })
-    }
-  }
+  //   if (value === '25') {
+  //     const under25 = shopList.filter((item) => item.price < 25)
+  //     await this.setState({
+  //       mensItemList: under25,
+  //     });
+  //   } else if (value === '50') {
+  //     const under50 = shopList.filter((item) => item.price < 50)
+  //     await this.setState({
+  //       mensItemList: under50
+  //     });
+  //   } else if (value === '75') {
+  //     const under75 = shopList.filter((item) => item.price < 75)
+  //     await this.setState({
+  //       mensItemList: under75
+  //     });
+  //   } else if (value === '100') {
+  //     const under100 = shopList.filter((item) => item.price < 100)
+  //     await this.setState({
+  //       mensItemList: under100
+  //     })
+  //   } else {
+  //     const under150 = shopList.filter((item) => item.price < 150)
+  //     await this.setState({
+  //       mensItemList: under150
+  //     })
+  //   }
+  // }
 
-  render() {
+  // render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    const { selectedCategory } = this.state;
+    // const { selectedCategory } = this.state;
 
-    if (this.state.selectedItem != null) {
+    if (selectedItem != null) {
       currentlyVisibleState = 
       <ItemDetail 
-        itemToShow={this.state.selectedItem}
-        onClearItemStateClick={this.handleClearItemStateClick} 
+        itemToShow={selectedItem}
+        handleHomeClick={handleHomeClick} 
       />
       buttonText = selectedCategory
-    } else if (this.state.selectedCategory === "SNEAKERS") {
+    } else if (selectedCategory === "SNEAKERS") {
         currentlyVisibleState = 
         <Sneakers 
-          onItemSelection={this.handleChangingSelectedItem} 
-          filteredSneakers={this.state.mensFilteredList}
-          itemToShow={this.state.selectedItem}
-          onClearItemStateClick={this.handleClearItemStateClick}
+          onItemSelection={handleChangingSelectedItem} 
+          filteredSneakers={filteredList}
+          itemToShow={selectedItem}
+          handleHomeClick={handleHomeClick}
         />
-    }  else if (this.state.selectedCategory === "SHIRTS") {
+    }  else if (selectedCategory === "SHIRTS") {
       currentlyVisibleState = 
       <Shirts
-        onItemSelection={this.handleChangingSelectedItem} 
-        filteredShirts={this.state.mensFilteredList}
-        itemToShow={this.state.selectedItem}
-        onClearItemStateClick={this.handleClearItemStateClick}
+        onItemSelection={handleChangingSelectedItem} 
+        filteredShirts={filteredList}
+        itemToShow={selectedItem}
+        handleHomeClick={handleHomeClick}
       />
-  } else if (this.state.selectedCategory === "HATS") {
+  } else if (selectedCategory === "HATS") {
         currentlyVisibleState =  
         <Hats 
-          onItemSelection={this.handleChangingSelectedItem} 
-          filteredHats={this.state.mensFilteredList}
-          itemToShow={this.state.selectedItem}
-          onClearItemStateClick={this.handleClearItemStateClick}
+          onItemSelection={handleChangingSelectedItem} 
+          filteredHats={filteredList}
+          itemToShow={selectedItem}
+          handleHomeClick={handleHomeClick}
         />
-    } else if (this.state.selectedCategory === "JACKETS") {
+    } else if (selectedCategory === "JACKETS") {
         currentlyVisibleState = 
         <Jackets 
-          onItemSelection={this.handleChangingSelectedItem} 
-          filteredJackets={this.state.mensFilteredList}
-          itemToShow={this.state.selectedItem}
-          onClearItemStateClick={this.handleClearItemStateClick}
+          onItemSelection={handleChangingSelectedItem} 
+          filteredJackets={filteredList}
+          itemToShow={selectedItem}
+          handleHomeClick={handleHomeClick}
         />
-    } else if (this.state.selectedCategory === "SALE") {
+    } else if (selectedCategory === "SALE") {
       currentlyVisibleState = 
       <Sale 
-        onItemSelection={this.handleChangingSelectedItem} 
-        filteredSale={this.state.mensFilteredList}
-        itemToShow={this.state.selectedItem}
-        onClearItemStateClick={this.handleClearItemStateClick}
+        onItemSelection={handleChangingSelectedItem} 
+        filteredSale={filteredList}
+        itemToShow={selectedItem}
+        handleHomeClick={handleHomeClick}
       />
     } else { 
       currentlyVisibleState = 
       <ItemList 
-        onFilterClick={this.handleFilterClick}
-        categoryRedirect={this.categoryRedirect}
-        FullItemList={this.state.mensItemList} 
-        onSortClick={this.handleSortClick}
-        onItemSelection={this.handleChangingSelectedItem} 
+        onFilterClick={handleFilterClick}
+        onSortClick={handleSortClick}
+        categoryRedirect={categoryRedirect}
+        fullItemList={shopData} 
+        onItemSelection={handleChangingSelectedItem} 
       />
       buttonText = "Home"
     }
@@ -207,14 +234,14 @@ class MensClothing extends Component {
         <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
         {
           buttonText === "Home" ? 
-          <Button onClick={this.handleHomeClick}>{buttonText}</Button>
+          <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
           :
-          <Button onClick={this.handleClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
+          <Button onClick={handleBackClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }
         </div>
       </div>
     );
   }
-}
+// }
 
-export default MensClothing;
+// export default MensClothing;

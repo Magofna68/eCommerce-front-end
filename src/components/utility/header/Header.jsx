@@ -22,7 +22,8 @@ function showSuccessAlert() {
 };
 
 
-export const Header = ({currentUser}) => (
+export const Header = ({currentUser, handleClearStateClick, handleGenderUpdate }) => (
+  // const {currentUser, handleClearStateClick, handleGenderUpdate } = props;
     <div className='header'>
       <div className="contactInfo">
         <span>503-269-2656</span>
@@ -48,6 +49,6 @@ export const Header = ({currentUser}) => (
             </div>
           </div>
           
-          <Navigationbar currentUser = {currentUser} />
+          <Navigationbar handleGenderUpdate={handleGenderUpdate} handleClearStateClick={handleClearStateClick} currentUser={currentUser} />
         </div>
-    );
+);

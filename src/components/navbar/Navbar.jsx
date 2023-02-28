@@ -34,7 +34,8 @@ import { Route, Link, Routes, } from 'react-router-dom';
 import React, { useState, useContext,  } from 'react';
 
 
-export default function Navigationbar({currentUser}) {
+export default function Navigationbar(props) {
+  const {currentUser, handleClearStateClick, handleGenderUpdate } = props;
   const cart = useContext(ShoppingCartContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -115,11 +116,11 @@ export default function Navigationbar({currentUser}) {
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
         <NavbarCollapse className='navbar-toggle justify-content-end'>
           <Nav className='justify-content-center margin-left-auto'>            
-            <Link className="nav-link" to="/#" onClick={useClearState()}>HOME</Link>
-            <Link className="nav-link" to="/shop" >Shop</Link>
-            <Link className='nav-link' to="/shop/mens">Mens</Link>
-            <Link className='nav-link' to="/shop/womens">Womens</Link>
-            <Link className='nav-link' to='/contact'>contact</Link>
+            <Link className="nav-link" to="/#" onClick={handleClearStateClick}>HOME</Link>
+            <Link className="nav-link" to="/shop" onClick={handleClearStateClick}>Shop</Link>
+            <Link className='nav-link' to="/shop/mens" onClick={() => handleGenderUpdate("MENS")}>Mens</Link>
+            <Link className='nav-link' to="/shop/womens" onClick={() => handleGenderUpdate("WOMENS")}>Womens</Link>
+            <Link className='nav-link' to='/contact' onClick={handleClearStateClick}>contact</Link>
           </Nav>
         </NavbarCollapse>
       </Navbar>

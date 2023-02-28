@@ -10,7 +10,8 @@ import MensClothing from './components/shop/gender/men/MensClothing.jsx';
 import WomensClothing from './components/shop/gender/women/WomensClothing.jsx';
 import SearchedItemDetails from './pages/itemDetailPage/SearchedItemDetails.jsx';
 import ItemDetails from './pages/itemDetailPage/itemDetails/ItemDetails.jsx'
-import { Header } from './components/utility/header/Header.jsx';
+import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from './data';
+import {Header} from './components/utility/header/Header.jsx';
 import HomePage from './pages/homePage/HomePage.jsx';
 import NotFound from './pages/notFound/NotFound.jsx';
 import SignInAndSignUpPage from '../src/pages/signinPage/Sign-in-sign-up';
@@ -35,11 +36,171 @@ class App extends React.Component {
       currentUser: null,
       currentView: null,
       viewPort: window.innerWidth,
+      // mensClothing REFACTORED
+      selectedItem: null,
+      // mensItemList:  MENS_SHOP_LIST ,
+      // womensItemList: WOMENS_SHOP_LIST,
+      filteredItemList: [],
+      shopData: [],
+      selectedCategory: "",
+      filteredList: [],
+      gender: "",
+      // mensFilteredList: [],
+      // womensFilteredList: [],
     }
 }
 
-unsubscribeFromAuth = null
 
+
+handleGenderUpdate = async (gender) => {
+  gender === 'MENS' ?
+    await this.setState({ 
+      shopData: MENS_SHOP_LIST,
+      gender: gender,
+      selectedCategory: "",
+      selectedItem: null
+    })
+  :
+    await this.setState({ 
+      shopData: WOMENS_SHOP_LIST,
+      gender: gender,
+      selectedCategory: "",
+      selectedItem: null,
+    })
+  // console.log("Gender State:", this.state.gender)
+  // console.log("ShopData", this.state.shopData)
+}
+
+handleSetData = async () => {
+  // await this.setState({ gender: ""});
+  this.state.gender === 'MENS' ?
+  await  this.setState({ 
+    // shopData: [],
+    shopData: MENS_SHOP_LIST 
+  })
+  :
+  await  this.setState({ shopData: WOMENS_SHOP_LIST })
+}
+
+categoryRedirect = async (clickedCategoryTitle) => {
+    await this.setState({ shopData: [] })
+    await this.handleSetData()
+    console.log("ShopDATA", this.state.shopData)
+
+    const categoryToAssign = clickedCategoryTitle
+    const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+    await this.setState({
+      selectedCategory: categoryToAssign,
+    })
+    await this.setState({ filteredList: appFilteredList })
+    // await this.setState({ mensFilteredList: mensTempFilteredList})
+    console.log("after state update", this.state.filteredList)
+}
+
+handleSelectedCategoryClick = (e) => {
+  if (this.state.selectedItem != null) {
+    this.setState({selectedItem: null})
+  } else if (this.state.selectedCategory != null) {
+    this.setState({selectedCategory: ""})
+  }
+}
+
+handleHomeClick = () => {
+  this.setState({ 
+    selectedItem: null,
+    categoryToAssign: null,
+  })
+  window.location.assign('#/')
+}
+
+handleBackClick = () => {
+  this.setState({
+    selectedCategory: "",
+  })
+}
+
+handleChangingSelectedItem = (id) => {
+  const selectedItem = id;
+  // console.log(selectedItem)
+  this.setState({
+    selectedItem: selectedItem
+  })
+}
+
+
+handleClearStateClick = () => {
+  console.log("HandleClear", )
+  this.setState({
+    selectedItem: null,
+    selectedCategory: "", 
+    filteredList: [],
+    gender: null,
+  })
+}
+
+handleSortClick = async (term) => {
+  // let shopList = [...this.state.mensItemList]
+  let tempSortList = [...this.state.shopData]
+  // await this.setState({ fullItemList: [] })
+  console.log("tempSortList", tempSortList)
+
+  switch(term) {
+    case 'H2L':
+      tempSortList.sort((item1, item2) => 
+      (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+      console.log("tempSortList", tempSortList[0].price)
+      await this.setState({
+        shopData: [...tempSortList]
+      })
+      break;
+    case "L2H":
+      tempSortList.sort((item1, item2) => 
+        (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+      console.log("tempSortList", tempSortList.price)
+      await this.setState({
+        shopData: [...tempSortList]
+      });
+      break;
+    default:
+      return;
+  }
+}
+
+handleFilterClick = async (value) => {
+  // let shopList = [...MENS_SHOP_LIST];
+  let shopList = [...this.state.shopData]
+  console.log("shopList from App", shopList)
+  if (value === '25') {
+    const under25 = shopList.filter((item) => item.price < 25)
+    console.log("under25", under25)
+    await this.setState({
+      shopData: under25,
+    });
+    console.log("fullItemList", this.state.fullItemList)
+  } else if (value === '50') {
+    const under50 = shopList.filter((item) => item.price < 50)
+    await this.setState({
+      shopData: under50
+    });
+  } else if (value === '75') {
+    const under75 = shopList.filter((item) => item.price < 75)
+    await this.setState({
+      shopData: under75
+    });
+  } else if (value === '100') {
+    const under100 = shopList.filter((item) => item.price < 100)
+    await this.setState({
+      shopData: under100
+    })
+  } else {
+    const under150 = shopList.filter((item) => item.price < 150)
+    await this.setState({
+      shopData: under150
+    })
+  }
+}
+
+unsubscribeFromAuth = null
 
 componentDidMount() {
   // console.log("componentDidMount Hit")
@@ -76,10 +237,10 @@ componentWillUnmount() {
 
 
   render() {
-  const { viewPort } = this.state;
+  const { viewPort, selectedCategory, selectedItem, filteredList, shopData, } = this.state;
     return (
       <>
-        <Header currentUser={this.state.currentUser}/>
+        <Header handleGenderUpdate={this.handleGenderUpdate} handleClearStateClick={this.handleClearStateClick} currentUser={this.state.currentUser} />
         <div className="App">
         <Routes>
             {/* pathway for categories */}
@@ -91,8 +252,40 @@ componentWillUnmount() {
             <Route path='/shop/shirts' element={<Shirts/>}/>
             <Route path='/shop/sale' element={<Sale />} />
 
-            <Route exact path='/shop/mens' element={<MensClothing />}/>
-            <Route exact path='/shop/womens' element={<WomensClothing/>}/>
+            <Route exact path='/shop/mens' element={
+              <MensClothing 
+                categoryRedirect={this.categoryRedirect}
+                onSelectedCategoryClick={this.handleSelectedCategoryClick}
+                handleChangingSelectedItem={this.handleChangingSelectedItem}
+                handleHomeClick={this.handleHomeClick}
+                handleSortClick={this.handleSortClick}
+                handleFilterClick={this.handleFilterClick}
+                handleBackClick={this.handleBackClick}
+
+                selectedCategory={selectedCategory}
+                selectedItem={selectedItem}
+                filteredList={filteredList}
+                shopData={shopData}
+                // mensItemList={mensItemList}
+              />}
+            />
+            <Route exact path='/shop/womens' element={
+              <WomensClothing
+                categoryRedirect={this.categoryRedirect}
+                onSelectedCategoryClick={this.handleSelectedCategoryClick}
+                handleChangingSelectedItem={this.handleChangingSelectedItem}
+                handleHomeClick={this.handleHomeClick}
+                handleSortClick={this.handleSortClick}
+                handleFilterClick={this.handleFilterClick}
+                handleBackClick={this.handleBackClick}
+
+                selectedCategory={selectedCategory}
+                selectedItem={selectedItem}
+                filteredList={filteredList}
+                shopData={shopData}
+                // womensItemList={womensItemList}
+              />
+            }/>
 
             <Route path="/pageNotAvailable" element={<UnderConstruction />} />
             <Route path='/returnpolicy' element={<ReturnPolicyPage />} />

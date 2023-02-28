@@ -15,11 +15,11 @@ import Radio from '../../../utility/radioButton/RadioButton.jsx';
 // import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
-  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick, } = props;
+  const { fullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick, } = props;
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
 
-
+  // console.log("FULLITEMLIST", fullItemList)
   function getRandom(array) {
     let i = array.length -1;
     for (; i > 0; i--) {
@@ -119,13 +119,21 @@ export default function ItemList(props) {
         }
         <br/>
         <div className='optionsContainer'>
-          <div>
-            <Radio 
-              onClick={()=> onFilterClick({radioValue})} 
-              onFilterClick={onFilterClick}
-            />
-          </div>
-          <br/>
+          {
+            priceFilterTitle ?
+              null
+            :
+            <>
+              <div>
+                <Radio 
+                  onClick={()=> onFilterClick({radioValue})} 
+                  onFilterClick={onFilterClick}
+                  />
+              </div>
+              <br/>
+            </>
+
+          }
           <div>
             <span>Sort by Price: </span>
             {
@@ -137,8 +145,8 @@ export default function ItemList(props) {
                 </div>
               :
                 <div>
-                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L', ...FullItemList)}/> High to Low &nbsp;&nbsp;
-                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H', ...FullItemList)}/> Low to High
+                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L', ...fullItemList)}/> High to Low &nbsp;&nbsp;
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H', ...fullItemList)}/> Low to High
                   {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
             }
@@ -166,7 +174,7 @@ export default function ItemList(props) {
             ))
           :
             // getRandom(FullItemList).map(({id, ...props}) => (
-            FullItemList.map(({id, ...props}) => (
+            fullItemList.map(({id, ...props}) => (
               <CollectionItem
                 key={id}
                 handleItemSelection={onItemSelection}
