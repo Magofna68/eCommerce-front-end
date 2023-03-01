@@ -5,14 +5,9 @@ import './homeLayout.styles.scss';
 import Carousel from '../../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import transparentCrown from '../../../assets/transparentCrown.png';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import { Typography } from "@mui/material";
 import  Banner from '../../../components/utility/banner/Banner.jsx';
-import Slider from 'react-touch-drag-slider'
-import Directory from '../../shopPage/directory/Directory.jsx';
-import MobileSlider from '../../../components/utility/mobileSlider/MobileSlider';
 import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
 
 export default function HomeLayout(props) {
@@ -55,8 +50,6 @@ export default function HomeLayout(props) {
       }
     ]
     
-    // const categories = ['shirts', 'sneakers','jackets', 'hats',]
-
     const mobileSlides = [
       {
         id: 0,
@@ -80,26 +73,9 @@ export default function HomeLayout(props) {
       },
     ]
 
-    // useEffect(() => {
-    //   window.scrollTo(0, 0)
-    // }, [])
-
-    // categoryRedirect = async (clickedCategoryTitle) => {
-    //   // clear the state for what is to be displayed
-    //     await this.setState({ shopData: [] })
-    //     // sets the correct dataset in state (mens vs womens)
-    //     await this.handleSetData()
-    //     console.log("ShopDATA", this.state.shopData)
-    
-    //     const categoryToAssign = clickedCategoryTitle
-    //     const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
-    //     await this.setState({
-    //       selectedCategory: categoryToAssign,
-    //     })
-    //     await this.setState({ filteredList: appFilteredList })
-    //     // await this.setState({ mensFilteredList: mensTempFilteredList})
-    //     console.log("after state update", this.state.filteredList)
-    // }
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
     
     return (
       <>

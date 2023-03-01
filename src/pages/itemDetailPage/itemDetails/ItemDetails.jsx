@@ -15,7 +15,7 @@ import CheckIcon from '@mui/icons-material/Check';
 export default function ItemDetails(props) {
   const { 
     name, price, id, img, img2, img3, img4, desc, reviews,
-     detail, alt, title, handleClearItemStateClick 
+     detail, alt, title, handleClearStateClick 
   } = props;
 
   const cart = useContext(ShoppingCartContext);
@@ -133,8 +133,8 @@ export default function ItemDetails(props) {
 
   return (
     <>
-      <span id="returnIcon" onClick={handleClearItemStateClick}>
-        <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
+      <span id="returnIcon" >
+        <Breadcrumb onClearStateClick={handleClearStateClick}/>
       </span>
       <Container fluid style={{padding: 0}}>
         <Row>
