@@ -8,6 +8,7 @@ import { HashRouter } from 'react-router-dom';
 import CartProvider from './components/context/ShoppingCartContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
     <HashRouter hashType="slash" basename='/'>
       <CartProvider>

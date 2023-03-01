@@ -89,7 +89,6 @@ export default function HomePage(props) {
           <Container fluid style={{ margin: 0, padding: 0}}>
             {currentlyVisibleState}
           </Container>
-          <Button style={{display: 'flex', justifyContent: 'left', marginLeft: '5%', marginTop: '-5%'}} onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
         </>
       }
       </>

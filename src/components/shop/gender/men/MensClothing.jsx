@@ -16,20 +16,6 @@ import Shirts from '../../category/shirts/Shirts.jsx';
 import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-
-// class MensClothing extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       selectedItem: null,
-//       mensItemList:  MENS_SHOP_LIST ,
-//       womensItemList: WOMENS_SHOP_LIST,
-//       selectedCategory: "",
-//       mensFilteredList: [],
-//       womensFilteredList: [],
-//     }
-//   }
-
 export default function MensClothing(props) {
   const { 
     selectedCategory, 
@@ -239,7 +225,6 @@ export default function MensClothing(props) {
         {
           buttonText === "Home" ? 
           <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
-          // <Button onClick={() => console.log("shopData", shopData)}>{buttonText}< ArrowBackIcon /></Button>
           :
           <Button onClick={handleBackClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }

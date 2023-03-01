@@ -20,10 +20,22 @@ div.itemListPreview.container-true {
   }
   
   span.title{
-    // font-size: 2em;
-    margin: 0 0 0 5%;
-    padding: 0 0 5% 0;
-    letter-spacing: 3px;
+    // font-size: 2rem;
+    font-weight: 300;
+    color: black;
+    font-size: 2.5em;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 -10% 0%;
+    text-decoration-line: underline overline;
+    text-decoration-thickness: .05em;
+    text-emphasis-position: over;
+    text-emphasis-color: black;
+    text-emphasis-style: triangle;
+    text-underline-offset: 1rem;
+    letter-spacing: 5px;
+    // text-shadow: '5px 5px 30px black, 0 0 .5em black, 0 0 0 .2em gray',
   }
   
   .preview {
@@ -64,11 +76,6 @@ ul.titleListContainer{
 }
   
   .title{
-    margin: 0% 0 5% 0;
-    justify-content: left;
-    align-items: left;
-    display: flex;
-    
     h1{
       display: flex;
       align-items: left;
@@ -119,6 +126,9 @@ ul.titleListContainer{
       margin: 4rem 0 -1% 0;
       text-align: left;
     }
+    .sortContainer{
+      margin-top: 13%;
+    }
     
     ul.titleListContainer{
       // margin: 8.5rem 0 0 0;
@@ -138,9 +148,13 @@ ul.titleListContainer{
     .itemListPreview{
 
       span.title{
-        font-size: 3.5rem;
+        font-size: 3.75rem;
         font-weight: 300;
         // margin: 0 0 0 5%;
+      }
+
+      .sortContainer{
+        margin-top: 10%;
       }
 
       .categoryLabel{
@@ -170,11 +184,15 @@ ul.titleListContainer{
       span.title{
         font-size: 3rem;
         font-weight: 300;
-        // margin: 0 0 0% 5%;
+        margin-top: 3%;
       }
 
       .title{
-        margin: 0 0 0 5%;
+        margin: 0 0 0 0%;
+      }
+
+      .sortContainer{
+        margin-top: 10%;
       }
 
       .categoryLabel{
@@ -232,15 +250,22 @@ ul.titleListContainer{
   @media only screen and (min-width: 200px) and (max-width: 420px) {
     .itemListPreview{
 
-      span.title{
+      span#title{
         font-size: 2rem;
-        font-weight: 300;
-        // margin: 0 0 0 5%;
+        display: flex;
+        justify-content: left;
+        margin: 0 0 0 3%;
+      }
+      
+      .preview{
+        display: flex;
+        flex-wrap: wrap;
       }
 
       .categoryLabel{
+        font-size: smaller;
         padding: 0 0 0 0;
-        margin: 8rem 0 -6% 5%;
+        margin: 8rem 0 -7% 0%;
         text-align: left;
       }
       

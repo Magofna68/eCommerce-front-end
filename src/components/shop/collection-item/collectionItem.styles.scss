@@ -1,19 +1,137 @@
 .collectionItem {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   border: none;
+  // width: 45%;
   width: 16rem;
   max-width: 22rem;
-  margin: 0% 2% 6% 2%;
-  min-height: 450px;
+  margin: 5% 2% 6% 2%;
+  // min-height: 450px;
   cursor: pointer;
 
-  // &:last-child{
-  //   margin-bottom: 20%;
-  // }
- 
-  @media  screen and (max-width: 614px) {
-    width: 22rem;
+  .collectionItemImg{
+    height: 75%;
   }
 
+  div.card-body{
+    height: 15%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 2%;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  // div.card-title{
+  //   background: white;
+  //   border-bottom: none;
+  // }
+
+  p.card-text{
+    margin: 0 0 3% 0;
+    font-weight: 600;
+  }
+ 
+  // @media  screen and (max-width: 614px) {
+  //   width: 22rem;
+  // }
+}
+// ========================= 1300 + ===========================
+
+@media only screen and (min-width: 1300) {
+  .collectionItem{
+    width: 24%;
+    max-height: 550px;
+    // margin-left: 1%;
+    padding: 1%;
+    
+    .collectionItemImg{
+      height: 80%;
+      // background: cover;
+    }
+    div.card-body{
+      
+      .card-title.h5{
+        font-size: 1.5em;
+        width: 100%;
+      }
+      
+      p.card-text{
+        font-size: 1.6em;
+        font-weight: 0;
+      }
+    }
+    
+  }
+}
+// ========================= 800 + ===========================
+
+@media only screen and (min-width: 800px) and (max-width: 1299px) {
+  .collectionItem{
+    width: 30%;
+    max-height: 475px;
+    margin-left: 1%;
+    padding: 1%;
+    
+    .collectionItemImg{
+      height: 80%;
+      // background: cover;
+    }
+    div.card-body{
+      height: 20%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      text-align: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    div.card-title{
+      font-size: 1.2em;
+      width: 100%;
+    }
+
+    p.card-text{
+      font-size: 1.3em;
+      font-weight: 0;
+    }
+    
+  }
+}
+
+// =========================  200 - 420px ===========================
+
+@media only screen and (min-width: 200px) and (max-width: 420px) {
+  .collectionItem{
+    padding: 1%;
+    width: 45%;
+    max-height: 275px;
+    
+    .collectionItemImg{
+      height: 70%;
+      background: cover;
+    }
+    div.card-body{
+      height: 30%;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      text-align: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    div.card-title{
+      font-size: .9em;
+      width: 100%;
+    }
+  }
 }

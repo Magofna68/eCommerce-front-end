@@ -92,7 +92,6 @@ function SlideShow(props) {
           {/* Right Arrow */}
             <div 
               className="
-              
               group-hover:block 
               absolute top-[37%] 
               -translate-x-[5%] 
@@ -158,22 +157,21 @@ function SlideShow(props) {
                   </h1>
                 </div>
           {/* Left Slider Icon*/}
-          <div style={{position: 'absolute', left: 0, bottom: 75, zIndex: 1}} 
-            className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer"
-          >
-              <BsChevronCompactLeft size={30} onClick={previousSlide} />
-          </div>
+            <div style={{position: 'absolute', left: 0, bottom: 75, zIndex: 1}} 
+              className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer"
+            >
+                <BsChevronCompactLeft size={30} onClick={previousSlide} />
+            </div>
 
           {/* Right Slider Icon */}
-          <div style={{position: 'absolute', right: 0, bottom: 75, zIndex: 1}} 
-          className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer">
-              <BsChevronCompactRight size={30} onClick={nextSlide} />
+            <div style={{position: 'absolute', right: 0, bottom: 75, zIndex: 1}} 
+              className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer">
+                <BsChevronCompactRight size={30} onClick={nextSlide} />
+            </div>
           </div>
-              </div>
-              ))}
-
+         ))}
           </Slider>
-      </>
+        </>
       }
     </Container>
   );
