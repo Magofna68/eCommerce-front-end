@@ -233,20 +233,22 @@ handleFilterClick = async (value) => {
         priceFilterData: filteredData,
         priceFilterTitle: "Under $100"
       });
+      await this.setState({ selectedCategory: "FILTER"})
     } else if (price === 'sale') {
       const filteredData = data.filter((item) => item.title.includes('sale'))
       await this.setState({ 
         priceFilterData: filteredData,
         priceFilterTitle: "Sale"
       });
+      await this.setState({ selectedCategory: "SALE"})
     } else {
       const filteredData = data.filter((item)=> item.price > price)
       await this.setState({ 
         priceFilterData: filteredData,
         priceFilterTitle: "Luxury Items",
       });
+      await this.setState({ selectedCategory: "FILTER"})
     }
-    await this.setState({ selectedCategory: "FILTER"})
     // console.log("AfterStateUpdate:", this.state.priceFilterData)
 
   }

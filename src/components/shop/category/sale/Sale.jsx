@@ -14,7 +14,7 @@ export default function Sale(props) {
   
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
-      <h1>{saleCollection.title}</h1>
+      {/* <h1>{saleCollection.title}</h1> */}
       {
         saleCollection.map(({id, ...otherCollectionProps}) => (
           <FullItemCollection 

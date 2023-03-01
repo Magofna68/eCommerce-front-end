@@ -151,6 +151,7 @@ export default function MensClothing(props) {
       />
       buttonText = selectedCategory
     } else if (selectedCategory === "SNEAKERS") {
+        buttonText="MENS"
         currentlyVisibleState = 
         <Sneakers 
           onItemSelection={handleChangingSelectedItem} 
@@ -159,6 +160,7 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     }  else if (selectedCategory === "SHIRTS") {
+      buttonText="MENS"
       currentlyVisibleState = 
       <Shirts
         onItemSelection={handleChangingSelectedItem} 
@@ -167,6 +169,7 @@ export default function MensClothing(props) {
         handleHomeClick={handleHomeClick}
       />
   } else if (selectedCategory === "HATS") {
+        buttonText="MENS"
         currentlyVisibleState =  
         <Hats 
           onItemSelection={handleChangingSelectedItem} 
@@ -175,6 +178,7 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     } else if (selectedCategory === "JACKETS") {
+        buttonText="MENS"
         currentlyVisibleState = 
         <Jackets 
           onItemSelection={handleChangingSelectedItem} 
@@ -183,6 +187,7 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     } else if (selectedCategory === "SALE") {
+      buttonText="MENS"
       currentlyVisibleState = 
       <Sale 
         onItemSelection={handleChangingSelectedItem} 

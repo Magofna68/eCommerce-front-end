@@ -10,12 +10,13 @@ import Accordion from '../../../components/utility/accordion/Accordion.jsx';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import CheckIcon from '@mui/icons-material/Check';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
   const { 
-    name, price, id, img, img2, img3, img4, desc, reviews,
-     detail, alt, title, handleClearStateClick 
+    name, price, id, img, img2, img3, img4, desc, reviews, handleBackClick,
+    detail, alt, title, handleClearStateClick, handleHomeClick,
   } = props;
 
   const cart = useContext(ShoppingCartContext);

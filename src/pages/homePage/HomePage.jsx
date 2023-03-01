@@ -33,7 +33,7 @@ export default function HomePage(props) {
     if (selectedItem !== null) {
       buttonText = "Back to List"
       currentlyVisibleState = 
-        <ItemDetail itemToShow={selectedItem} handleClearStateClick={handleClearStateClick}/>
+        <ItemDetail itemToShow={selectedItem} handleClearStateClick={handleClearStateClick} handleBackclick={handleBackClick} />
     } else if (selectedCategory === "SNEAKERS") {
       buttonText = "Home"
       currentlyVisibleState = 
@@ -82,7 +82,7 @@ export default function HomePage(props) {
           <Container fluid style={{ margin: 0, padding: 0, display: 'flex', alignItems: 'left'}}>
             {currentlyVisibleState}
           </Container>
-          <Button style={{display: 'flex', justifyContent: 'left', marginLeft: '5%', marginTop: '-5%'}} onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
+          <Button style={{display: 'flex', justifyContent: 'left', marginLeft: '5%', marginTop: ''}} onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
         </>
         :
         <>

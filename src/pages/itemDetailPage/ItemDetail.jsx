@@ -2,11 +2,12 @@ import React from 'react';
 import ItemDetails from './itemDetails/ItemDetails.jsx';
 
 export default function ItemDetail(props) {
-  const { itemToShow, handleClearStateClick } = props;
+  const { itemToShow, handleClearStateClick, handleBackClick } = props;
   return (
     <div>
       <ItemDetails 
-        handleClearStateClick={handleClearStateClick} 
+        handleClearStateClick={handleClearStateClick}
+        handleBackClick={handleBackClick}
         title={itemToShow.title} 
         id={itemToShow.id} 
         name={itemToShow.name} 

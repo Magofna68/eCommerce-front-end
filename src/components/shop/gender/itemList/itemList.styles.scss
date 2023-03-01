@@ -153,8 +153,15 @@ ul.titleListContainer{
         // margin: 0 0 0 5%;
       }
 
+      span#title{
+        font-size: 3.75rem;
+        display: flex;
+        justify-content: left;
+        margin: 0 0 0 6%;
+      }
+
       .sortContainer{
-        margin-top: 10%;
+        margin-top: 0%;
       }
 
       .categoryLabel{
@@ -186,9 +193,11 @@ ul.titleListContainer{
         font-weight: 300;
         margin-top: 3%;
       }
-
-      .title{
-        margin: 0 0 0 0%;
+      span#title{
+        font-size: 3rem;
+        display: flex;
+        justify-content: left;
+        margin: 0 0 0 6%;
       }
 
       .sortContainer{
@@ -222,6 +231,13 @@ ul.titleListContainer{
         font-size: 2.5rem;
         font-weight: 300;
         // margin: 0 0 0 5%;
+      }
+
+      span#title{
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: left;
+        margin: 0 0 0 3%;
       }
 
       .categoryLabel{
