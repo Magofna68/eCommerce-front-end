@@ -31,67 +31,64 @@ import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
 class App extends React.Component {
   constructor() {
     super();
-    // to update us on when authentication state changes
     this.state = {
       currentUser: null,
       currentView: null,
       viewPort: window.innerWidth,
-      // mensClothing REFACTORED
+      priceFilterData: [],
+      priceFilterTitle: "",
       selectedItem: null,
-      // mensItemList:  MENS_SHOP_LIST ,
-      // womensItemList: WOMENS_SHOP_LIST,
       filteredItemList: [],
       shopData: [],
       selectedCategory: "",
       filteredList: [],
       gender: "",
-      // mensFilteredList: [],
-      // womensFilteredList: [],
     }
 }
 
+  handleGenderUpdate = async (gender) => {
+    gender === 'MENS' ?
+      await this.setState({ 
+        shopData: MENS_SHOP_LIST,
+        gender: gender,
+        selectedCategory: "",
+        selectedItem: null
+      })
+    :
+      await this.setState({ 
+        shopData: WOMENS_SHOP_LIST,
+        gender: gender,
+        selectedCategory: "",
+        selectedItem: null,
+      })
+  }
 
-
-handleGenderUpdate = async (gender) => {
-  gender === 'MENS' ?
-    await this.setState({ 
-      shopData: MENS_SHOP_LIST,
-      gender: gender,
-      selectedCategory: "",
-      selectedItem: null
-    })
-  :
-    await this.setState({ 
-      shopData: WOMENS_SHOP_LIST,
-      gender: gender,
-      selectedCategory: "",
-      selectedItem: null,
-    })
-  // console.log("Gender State:", this.state.gender)
-  // console.log("ShopData", this.state.shopData)
-}
-
-handleSetData = async () => {
-  // await this.setState({ gender: ""});
-  this.state.gender === 'MENS' ?
-  await  this.setState({ 
-    // shopData: [],
-    shopData: MENS_SHOP_LIST 
-  })
-  :
-  await  this.setState({ shopData: WOMENS_SHOP_LIST })
-}
+  handleSetData = async () => {
+    this.state.gender === 'MENS' ?
+      await  this.setState({ 
+        shopData: MENS_SHOP_LIST 
+      })
+    :
+    this.state.gender === 'WOMENS' ?
+      await  this.setState({ 
+        shopData: WOMENS_SHOP_LIST 
+      })
+    :
+    await this.setState({ shopData: [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST]})
+  }
 
 categoryRedirect = async (clickedCategoryTitle) => {
+  // clear the state for what is to be displayed
     await this.setState({ shopData: [] })
+    // sets the correct dataset in state (mens vs womens)
     await this.handleSetData()
     console.log("ShopDATA", this.state.shopData)
-
-    const categoryToAssign = clickedCategoryTitle
+    const categoryToAssign = clickedCategoryTitle.toUpperCase();
     const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
     await this.setState({
       selectedCategory: categoryToAssign,
     })
+    console.log("selectedCategory", this.state.selectedCategory)
     await this.setState({ filteredList: appFilteredList })
     // await this.setState({ mensFilteredList: mensTempFilteredList})
     console.log("after state update", this.state.filteredList)
@@ -110,7 +107,7 @@ handleHomeClick = () => {
     selectedItem: null,
     categoryToAssign: null,
   })
-  window.location.assign('#/')
+  window.location.assign('/')
 }
 
 handleBackClick = () => {
@@ -128,43 +125,70 @@ handleChangingSelectedItem = (id) => {
 }
 
 
-handleClearStateClick = () => {
+handleClearStateClick = (text) => {
+  if (text === "HOME") {
+      this.setState({
+        selectedItem: null,
+        selectedCategory: "", 
+        filteredList: [],
+        gender: null,
+      })
+      window.location.assign('/');
+      // window.location.reload();
+  } else {
+    this.setState({
+      selectedItem: null,
+      selectedCategory: "",
+      filteredList: [],
+      gender: null,
+    })
   console.log("HandleClear", )
-  this.setState({
-    selectedItem: null,
-    selectedCategory: "", 
-    filteredList: [],
-    gender: null,
-  })
+  }
 }
 
 handleSortClick = async (term) => {
-  // let shopList = [...this.state.mensItemList]
-  let tempSortList = [...this.state.shopData]
-  // await this.setState({ fullItemList: [] })
-  console.log("tempSortList", tempSortList)
+ console.log("BEFORE priceFilterData:", this.state.priceFilterData)
+ console.log("BEFORE shopData:", this.state.shopData)
+    const priceFilterData = [...this.state.priceFilterData];
+    const shopData = [...this.state.shopData];
+    this.setState({ 
+      priceFilterData: [],
+      shopData: [],
+    })
+    
+    console.log("AFTER priceFilterData:", this.state.priceFilterData)
+    console.log("AFTER shopData", this.state.shopData)
 
-  switch(term) {
-    case 'H2L':
-      tempSortList.sort((item1, item2) => 
-      (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
-      console.log("tempSortList", tempSortList[0].price)
-      await this.setState({
-        shopData: [...tempSortList]
-      })
+    switch(term) {
+      case "H2L":
+        priceFilterData.sort((item1, item2) => 
+        (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+        await this.setState({ priceFilterData: [...priceFilterData]})
       break;
-    case "L2H":
-      tempSortList.sort((item1, item2) => 
+
+      case "L2H":
+        priceFilterData.sort((item1, item2) => 
         (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
-      console.log("tempSortList", tempSortList.price)
-      await this.setState({
-        shopData: [...tempSortList]
-      });
+        await this.setState({ priceFilterData: [...priceFilterData]})
       break;
-    default:
-      return;
+
+      case "High2Low":
+          shopData.sort((item1, item2) => (
+            item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+            await this.setState({ shopData: shopData})
+      break;
+
+      case "Low2High":
+          shopData.sort((item1, item2) => (
+            item1.price - item2.price > 0 ? 1: (item1.price - item2.price < 0) ? -1: 0))
+            await this.setState({ shopData: shopData })
+      break;
+
+      default:
+        return;
+        }
   }
-}
+
 
 handleFilterClick = async (value) => {
   // let shopList = [...MENS_SHOP_LIST];
@@ -199,6 +223,33 @@ handleFilterClick = async (value) => {
     })
   }
 }
+
+ priceFilterRedirect = async (price) => {
+    let data = [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST];
+  // console.log("data", data)
+    if (price === 100) {
+      const filteredData = data.filter((item)=> item.price < price)
+      await this.setState({ 
+        priceFilterData: filteredData,
+        priceFilterTitle: "Under $100"
+      });
+    } else if (price === 'sale') {
+      const filteredData = data.filter((item) => item.title.includes('sale'))
+      await this.setState({ 
+        priceFilterData: filteredData,
+        priceFilterTitle: "Sale"
+      });
+    } else {
+      const filteredData = data.filter((item)=> item.price > price)
+      await this.setState({ 
+        priceFilterData: filteredData,
+        priceFilterTitle: "Luxury Items",
+      });
+    }
+    await this.setState({ selectedCategory: "FILTER"})
+    // console.log("AfterStateUpdate:", this.state.priceFilterData)
+
+  }
 
 unsubscribeFromAuth = null
 
@@ -237,20 +288,38 @@ componentWillUnmount() {
 
 
   render() {
-  const { viewPort, selectedCategory, selectedItem, filteredList, shopData, } = this.state;
+  const { viewPort, selectedCategory, selectedItem, filteredList, shopData, priceFilterData, priceFilterTitle} = this.state;
     return (
       <>
         <Header handleGenderUpdate={this.handleGenderUpdate} handleClearStateClick={this.handleClearStateClick} currentUser={this.state.currentUser} />
         <div className="App">
         <Routes>
             {/* pathway for categories */}
-            <Route exact path='/' element={<HomePage />} />
+            <Route exact path='/' element={
+              <HomePage 
+                categoryRedirect={this.categoryRedirect}
+                onSelectedCategoryClick={this.handleSelectedCategoryClick}
+                handleChangingSelectedItem={this.handleChangingSelectedItem}
+                handleHomeClick={this.handleHomeClick}
+                handleSortClick={this.handleSortClick}
+                handleFilterClick={this.handleFilterClick}
+                handleBackClick={this.handleBackClick}
+                priceFilterRedirect={this.priceFilterRedirect}
 
-            <Route path='/shop/hats' element={<Hats/>}/>
-            <Route path='/shop/jackets' element={<Jackets />}/>
-            <Route path='/shop/sneakers' element={<Sneakers/>}/>
-            <Route path='/shop/shirts' element={<Shirts/>}/>
-            <Route path='/shop/sale' element={<Sale />} />
+                selectedCategory={selectedCategory}
+                priceFilterData={priceFilterData}
+                priceFilterTitle={priceFilterTitle}
+                selectedItem={selectedItem}
+                filteredList={filteredList}
+                shopData={shopData}
+              />} 
+            />
+
+            <Route path='/shop/hats' element={<Hats handleHomeClick={this.handleHomeClick} />}/>
+            <Route path='/shop/jackets' element={<Jackets handleHomeClick={this.handleHomeClick}/>}/>
+            <Route path='/shop/sneakers' element={<Sneakers handleHomeClick={this.handleHomeClick}/>}/>
+            <Route path='/shop/shirts' element={<Shirts handleHomeClick={this.handleHomeClick}/>}/>
+            <Route path='/shop/sale' element={<Sale handleHomeClick={this.handleHomeClick}/>} />
 
             <Route exact path='/shop/mens' element={
               <MensClothing 
@@ -263,6 +332,8 @@ componentWillUnmount() {
                 handleBackClick={this.handleBackClick}
 
                 selectedCategory={selectedCategory}
+                priceFilterData={priceFilterData}
+                priceFilterTitle={priceFilterTitle}
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
@@ -280,6 +351,8 @@ componentWillUnmount() {
                 handleBackClick={this.handleBackClick}
 
                 selectedCategory={selectedCategory}
+                priceFilterData={priceFilterData}
+                priceFilterTitle={priceFilterTitle}
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}

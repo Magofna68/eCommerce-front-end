@@ -44,6 +44,8 @@ export default function MensClothing(props) {
     handleSortClick,
     handleHomeClick,
     handleBackClick,
+    priceFilterData,
+    priceFilterTitle
   } = props;
 
 
@@ -209,7 +211,9 @@ export default function MensClothing(props) {
         onSortClick={handleSortClick}
         categoryRedirect={categoryRedirect}
         fullItemList={shopData} 
-        onItemSelection={handleChangingSelectedItem} 
+        onItemSelection={handleChangingSelectedItem}
+        // priceFilterData={priceFilterData}
+        // priceFilterTitle={priceFilterTitle}  
       />
       buttonText = "Home"
     }
@@ -235,6 +239,7 @@ export default function MensClothing(props) {
         {
           buttonText === "Home" ? 
           <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
+          // <Button onClick={() => console.log("shopData", shopData)}>{buttonText}< ArrowBackIcon /></Button>
           :
           <Button onClick={handleBackClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
         }

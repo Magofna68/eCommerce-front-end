@@ -1,12 +1,13 @@
 import React from 'react'
 import SingleItem from '../singleItem/SingleItem.jsx';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-
- export const FullItemCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList}) => (
+ export const FullItemCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList, handleHomeClick}) => (
     <Container fluid="true" className='collection'>
       <Row style={{ margin: '0 0 0 0'}}>
         <h1 
@@ -38,6 +39,7 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
               key={id} 
               title={title} 
               id={id} 
+              handleHomeClick={handleHomeClick}
               handleItemSelection={onItemSelection} 
               {...otherItemProps} 
             />
@@ -48,12 +50,14 @@ import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
               key={id} 
               title={title} 
               id={id} 
+              handleHomeClick={handleHomeClick}
               handleItemSelection={onItemSelection} 
               {...otherItemProps} 
             />
             ))
           }
       </div>
+      <Button style={{ display: 'flex', marginLeft: '5%'}} onClick={() => handleHomeClick()}>< ArrowBackIcon /></Button>
     </Container>
   )
 

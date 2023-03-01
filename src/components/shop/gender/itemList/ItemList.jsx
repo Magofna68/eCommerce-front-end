@@ -15,7 +15,9 @@ import Radio from '../../../utility/radioButton/RadioButton.jsx';
 // import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
-  const { fullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick, } = props;
+  const { fullItemList, onItemSelection, categoryRedirect, priceFilterData,
+    priceFilterTitle, onFilterClick, onSortClick, } = props;
+
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
 
@@ -140,13 +142,13 @@ export default function ItemList(props) {
               priceFilterData ?
                 <div>
                   <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
-                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H', ...priceFilterData)}/> Low to High
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H')}/> Low to High
                   {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
               :
                 <div>
-                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L', ...fullItemList)}/> High to Low &nbsp;&nbsp;
-                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H', ...fullItemList)}/> Low to High
+                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('High2Low')}/> High to Low &nbsp;&nbsp;
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('Low2High')}/> Low to High
                   {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
             }

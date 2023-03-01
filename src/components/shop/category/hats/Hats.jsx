@@ -5,7 +5,7 @@ import {SHOP_DATA} from '../../../../data.jsx'
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Hats(props) {
-  const { onItemSelection, filteredHats, itemToShow } = props;
+  const { onItemSelection, filteredHats, itemToShow, handleHomeClick } = props;
   const hatCollection = [];
   hatCollection.push(SHOP_DATA[2]);
   // const [ filteredList, setFilteredList ] = useState({...mensFilteredHats})
@@ -30,6 +30,7 @@ export default function Hats(props) {
             filteredList={filteredHats} 
             id={id} 
             onItemSelection={onItemSelection} 
+            handleHomeClick={handleHomeClick}
             {...otherCollectionProps} />
         ))
       };

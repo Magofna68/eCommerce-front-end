@@ -3,7 +3,7 @@ import {SHOP_DATA} from '../../../../data.jsx';
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Jackets(props) {
-  const {onItemSelection, filteredJackets} = props;
+  const {onItemSelection, filteredJackets, handleHomeClick } = props;
   const jacketCollection = [];
   jacketCollection.push(SHOP_DATA[1])
 
@@ -18,6 +18,7 @@ export default function Jackets(props) {
           <FullItemCollection 
             key={id} 
             filteredList={filteredJackets} 
+            handleHomeClick={handleHomeClick}
             onItemSelection={onItemSelection} 
             {...otherCollectionProps} 
           />

@@ -16,7 +16,7 @@ import MobileSlider from '../../../components/utility/mobileSlider/MobileSlider'
 import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
 
 export default function HomeLayout(props) {
-  const { categoryRedirect, priceFilterRedirect } = props;
+  const { categoryRedirect, priceFilterRedirect, filteredList } = props;
 
   const [ hide, setHide ] = useState(true)
 
@@ -80,9 +80,26 @@ export default function HomeLayout(props) {
       },
     ]
 
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [])
+    // useEffect(() => {
+    //   window.scrollTo(0, 0)
+    // }, [])
+
+    // categoryRedirect = async (clickedCategoryTitle) => {
+    //   // clear the state for what is to be displayed
+    //     await this.setState({ shopData: [] })
+    //     // sets the correct dataset in state (mens vs womens)
+    //     await this.handleSetData()
+    //     console.log("ShopDATA", this.state.shopData)
+    
+    //     const categoryToAssign = clickedCategoryTitle
+    //     const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
+    //     await this.setState({
+    //       selectedCategory: categoryToAssign,
+    //     })
+    //     await this.setState({ filteredList: appFilteredList })
+    //     // await this.setState({ mensFilteredList: mensTempFilteredList})
+    //     console.log("after state update", this.state.filteredList)
+    // }
     
     return (
       <>

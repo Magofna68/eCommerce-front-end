@@ -4,7 +4,7 @@ import {SHOP_DATA} from '../../../../data.jsx'
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Sale(props) {
-  const { onItemSelection, filteredSale, itemToShow } = props;
+  const { onItemSelection, filteredSale, itemToShow, handleHomeClick } = props;
   const saleCollection = [];
   saleCollection.push(SHOP_DATA[4]);
 
@@ -21,6 +21,7 @@ export default function Sale(props) {
             filteredList={filteredSale} 
             key={id} 
             id={id} 
+            handleHomeClick={handleHomeClick}
             onItemSelection={onItemSelection} 
             {...otherCollectionProps} />
         ))

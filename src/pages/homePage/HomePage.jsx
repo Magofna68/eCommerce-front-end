@@ -16,152 +16,185 @@ import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
 import Footer from '../../components/footer/Footer.jsx';
 import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
 
-class HomePage extends Component {
-  constructor() {
-    super(); 
-    this.state = {
-      clickedCategory: "",
-      selectedItem: null,
-      ShopData: [],
-      categoryItems: [],
-      filteredHomepageList: {},
-      priceFilterData: [],
-      priceFilterTitle: "",
-      sortResults: null,
-    }
-  }
+
+export default function HomePage(props) {
+  const { 
+    selectedCategory, 
+    mensItemList, 
+    mensFilteredList,
+    shopData,
+    filteredList, 
+    selectedItem, 
+    categoryRedirect, 
+    handleChangingSelectedItem,
+    handleFilterClick,
+    handleSortClick,
+    handleHomeClick,
+    handleBackClick,
+    priceFilterData,
+    priceFilterTitle,
+    priceFilterRedirect
+  } = props;
+
+// class HomePage extends Component {
+//   constructor() {
+//     super(); 
+//     this.state = {
+//       clickedCategory: "",
+//       selectedItem: null,
+//       ShopData: [],
+//       categoryItems: [],
+//       filteredHomepageList: {},
+//       priceFilterData: [],
+//       priceFilterTitle: "",
+//       sortResults: null,
+//     }
+//   }
   
-  categoryRedirect = async (clickedCategoryTitle) => {
-    console.log(clickedCategoryTitle)
-    // create list of mens and womens shop data
-    let ShopData = WOMENS_SHOP_LIST;
-    let ShopData2 = MENS_SHOP_LIST
-    let categoryToAssign = clickedCategoryTitle.toUpperCase();
-    await this.setState({ categoryItems: [...ShopData, ...ShopData2]})
-    const filteredList = this.state.categoryItems.filter((item) => item.title.includes(clickedCategoryTitle))
-    await this.setState({ filteredHomePageList: filteredList, clickedCategory: categoryToAssign })
+  // categoryRedirect = async (clickedCategoryTitle) => {
+  //   console.log(clickedCategoryTitle)
+  //   // create list of mens and womens shop data
+  //   let ShopData = WOMENS_SHOP_LIST;
+  //   let ShopData2 = MENS_SHOP_LIST
+  //   let categoryToAssign = clickedCategoryTitle.toUpperCase();
+  //   await this.setState({ categoryItems: [...ShopData, ...ShopData2]})
+  //   const filteredList = this.state.categoryItems.filter((item) => item.title.includes(clickedCategoryTitle))
+  //   await this.setState({ filteredHomePageList: filteredList, clickedCategory: categoryToAssign })
 
-  }
+  // }
 
-  priceFilterRedirect = async (price) => {
-    let data = [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST];
+  // priceFilterRedirect = async (price) => {
+  //   let data = [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST];
 
-    if (price === 100) {
-      const filteredData = data.filter((item)=> item.price < price)
-      await this.setState({ 
-        priceFilterData: filteredData,
-        priceFilterTitle: "Under $100"
-      });
-    } else if (price === 'sale') {
-      const filteredData = data.filter((item) => item.title.includes('sale'))
-      await this.setState({ 
-        priceFilterData: filteredData,
-        priceFilterTitle: "Sale"
-      });
-    } else {
-      const filteredData = data.filter((item)=> item.price > price)
-      await this.setState({ 
-        priceFilterData: filteredData,
-        priceFilterTitle: "Luxury Items",
-      });
-    }
-    await this.setState({ clickedCategory: "FILTER"})
-    // console.log("AfterStateUpdate:", this.state.priceFilterData)
+  //   if (price === 100) {
+  //     const filteredData = data.filter((item)=> item.price < price)
+  //     await this.setState({ 
+  //       priceFilterData: filteredData,
+  //       priceFilterTitle: "Under $100"
+  //     });
+  //   } else if (price === 'sale') {
+  //     const filteredData = data.filter((item) => item.title.includes('sale'))
+  //     await this.setState({ 
+  //       priceFilterData: filteredData,
+  //       priceFilterTitle: "Sale"
+  //     });
+  //   } else {
+  //     const filteredData = data.filter((item)=> item.price > price)
+  //     await this.setState({ 
+  //       priceFilterData: filteredData,
+  //       priceFilterTitle: "Luxury Items",
+  //     });
+  //   }
+  //   await this.setState({ clickedCategory: "FILTER"})
+  //   // console.log("AfterStateUpdate:", this.state.priceFilterData)
 
-  }
+  // }
   
-  handleItemClick = (id) => {
-    let clickedItem = id;
-    console.log(clickedItem)
-    this.setState({ selectedItem: clickedItem })
-  }
+  // handleItemClick = (id) => {
+  //   let clickedItem = id;
+  //   console.log(clickedItem)
+  //   this.setState({ selectedItem: clickedItem })
+  // }
 
-  componentDidMount() {
-    window.scrollTo(0, 0)
-  }
-
-  onSortClick = async (term) => {
-    let shopList = [...this.state.priceFilterData];
-    console.log("shopList", shopList)
-    console.log("term", term)
-    switch(term) {
-      case "H2L":
-        shopList.sort((item1, item2) => 
-        (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
-        console.log("shopList", shopList[1].price)
-        await this.setState({
-          priceFilterData: [...shopList]
-        })
-        break;
-      case "L2H":
-        shopList.sort((item1, item2) => 
-          (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
-        console.log("shopList", shopList.price)
-        await this.setState({
-          priceFilterData: [...shopList]
-        });
-        break;
-      default:
-        return;
-    }
-    console.log("sortResults", this.state.priceFilterData)
-  }
   
-  render() {
+  // onSortClick = async (term) => {
+  //   let shopList = [...this.state.priceFilterData];
+  //   console.log("shopList", shopList)
+  //   console.log("term", term)
+  //   switch(term) {
+  //     case "H2L":
+  //       shopList.sort((item1, item2) => 
+  //       (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+  //       console.log("shopList", shopList[1].price)
+  //       await this.setState({
+  //         priceFilterData: [...shopList]
+  //       })
+  //       break;
+  //       case "L2H":
+  //         shopList.sort((item1, item2) => 
+  //         (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+  //         console.log("shopList", shopList.price)
+  //         await this.setState({
+  //           priceFilterData: [...shopList]
+  //         });
+  //         break;
+  //         default:
+  //           return;
+  //         }
+  //         console.log("sortResults", this.state.priceFilterData)
+  //       }
 
-    let currentlyVisibleState = null;
-    let buttonText = null;
-    const { clickedCategory, selectedItem, priceFilterData, priceFilterTitle, onSortClickTest } = this.state;
-    
-          if (this.state.selectedItem !== null) {
+        
+        // render() {
+          
+          let currentlyVisibleState = null;
+          let buttonText = null;
+          // const { clickedCategory, selectedItem, priceFilterData, priceFilterTitle, } = this.state;
+          
+          if (selectedItem !== null) {
             currentlyVisibleState = 
-            <ItemDetail 
-              itemToShow={selectedItem} />
-            buttonText = clickedCategory
-          } else if (this.state.clickedCategory === "SNEAKERS") {
+              <ItemDetail 
+                itemToShow={selectedItem} 
+                handleHomeClick={handleHomeClick}
+              />
+            buttonText = selectedCategory
+          } else if (selectedCategory === "SNEAKERS") {
             currentlyVisibleState = 
-            <Sneakers 
-              onItemSelection={this.handleItemClick}/>
+              <Sneakers 
+                handleHomeClick={handleHomeClick}
+                onItemSelection={handleChangingSelectedItem}
+              />
             buttonText = "Home"
-          } else if (this.state.clickedCategory === "SHIRTS") {
+          } else if (selectedCategory === "SHIRTS") {
             currentlyVisibleState = 
-            <Shirts 
-              onItemSelection={this.handleItemClick}/>
+              <Shirts 
+                handleHomeClick={handleHomeClick}
+                onItemSelection={handleChangingSelectedItem}
+              />
             buttonText = "Home"
-          } else if (this.state.clickedCategory === "JACKETS") {
+          } else if (selectedCategory === "JACKETS") {
             currentlyVisibleState = 
-            <Jackets 
-              onItemSelection={this.handleItemClick}/>
+              <Jackets 
+                handleHomeClick={handleHomeClick}
+                onItemSelection={handleChangingSelectedItem}
+              />
             buttonText= "Home"
-          } else if (this.state.clickedCategory === "HATS") {
+          } else if (selectedCategory === "HATS") {
             currentlyVisibleState = 
-            <Hats 
-              onItemSelection={this.handleItemClick}/>
-            buttonText="Home"
-          } else if (this.state.clickedCategory === "SALE") {
-            currentlyVisibleState = 
-            <Sale 
-              onItemSelection={this.handleItemClick}/>
+              <Hats 
+                handleHomeClick={handleHomeClick}
+                onItemSelection={handleChangingSelectedItem}
+              />
               buttonText="Home"
-          } else if (this.state.clickedCategory === 'FILTER') {
+          } else if (selectedCategory === "SALE") {
+            currentlyVisibleState = 
+              <Sale 
+                handleHomeClick={handleHomeClick}
+                onItemSelection={handleChangingSelectedItem}
+              />
+              buttonText="Home"
+          } else if (selectedCategory === 'FILTER') {
             currentlyVisibleState =
             <ItemList 
-              onSortClick={this.onSortClick}
-              onItemSelection={this.handleItemClick} 
+              onFilterClick={handleFilterClick}
+              onSortClick={handleSortClick}
+              categoryRedirect={categoryRedirect}
+              fullItemList={shopData} 
+              onItemSelection={handleChangingSelectedItem}
               priceFilterData={priceFilterData}
-              priceFilterTitle={priceFilterTitle}
+              priceFilterTitle={priceFilterTitle} 
             />
           } else {
             currentlyVisibleState = 
             <HomeLayout 
-              priceFilterRedirect={this.priceFilterRedirect}
-              categoryRedirect={this.categoryRedirect} />
+              priceFilterRedirect={priceFilterRedirect}
+              categoryRedirect={categoryRedirect} />
           }
 
     return (
       <>
       {
-        clickedCategory ?
+        selectedCategory ?
         <>
           <div style={{ display: 'flex', justifyContent:'left', alignItems: 'left'}}>
             <Breadcrumb />
@@ -178,9 +211,9 @@ class HomePage extends Component {
       </>
     )
   }
-}
+// }
 
-export default HomePage;
+// export default HomePage;
 
 
 // export default function HomePage() {

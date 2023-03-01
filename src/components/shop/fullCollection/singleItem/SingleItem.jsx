@@ -6,7 +6,10 @@ import './singleItem.styles.scss';
 import { ShoppingCartContext } from '../../../context/ShoppingCartContext';
 
 export default function SingleItem(props) {
-  const {title, id, alt, name, price, img, img2, img3, img4, detail, desc, handleItemSelection} = props;
+  const {
+    title, id, alt, name, price, img, img2, img3, img4, 
+    detail, desc, handleItemSelection, handleHomeClick 
+  } = props;
   
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
