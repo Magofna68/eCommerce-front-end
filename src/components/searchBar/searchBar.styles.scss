@@ -1,31 +1,37 @@
-// @media screen and (max-width: 420px) {
 
-//   .searchBar{
-//     width: 50px;
-//     justify-content: center;
-//   }
-// }
-
+// ========= Desktop View ==============
 .searchBarContain{
   display: flex;
   // width: 80%;
   justify-content: right;
   margin: 5px 10px 5px 0;
-  
+  max-width: 220px;
+  min-width: 180px;
   
   .searchBar{
+    display: flex;
     flex-direction: row;
     border: 1px solid;
     border-radius: 30px;
-    width: 150px;
+    height: 40px;
+    width: 80%;
+    padding: 0 3px 0 12px;
+
+    .searchButton{
+      transition: all ease 1s;
+    }
     
     button{
-      width: 15%;
-      border-radius: 50%;
-      border: none;
-      border-right: none;
-      background-color: white;
-      margin: 0 5px 0 0;
+      width: 20%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      // border-radius: 50%;
+      // border: none;
+      // border-right: none;
+      // background-color: white;
+      // margin: 0 5px 0 0;
     }
     
     input{

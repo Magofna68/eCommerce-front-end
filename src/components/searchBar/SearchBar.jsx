@@ -8,7 +8,8 @@ import Container from 'react-bootstrap/Container';
 // import Table from 'react-bootstrap/Table';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-import {MdSearch} from 'react-icons/md';
+import SearchIcon from '@mui/icons-material/Search';
+import FormInput from '../form-input/Form-input.jsx';
 
 import { useNavigate } from 'react-router';
 
@@ -96,15 +97,10 @@ export default function SearchBar() {
   return (
     <Container fluid className='searchBarContain'>
       <div className='searchBar'>
-        <button 
-        onClick={handleShow}
-        type="submit">
-          <MdSearch />
-        </button>
-        
         <input 
           placeholder='Search..' 
           type="text"
+          label="Search"
           id="searchBar"
           name="search" 
           defaultValue={searchTerm}
@@ -112,6 +108,15 @@ export default function SearchBar() {
           onKeyDown={handleKeyDown}
           // onClick={getFocus()}
         />
+        
+        <button 
+          onClick={handleShow}
+          type="submit"
+          className="searchButton"
+        >
+          <SearchIcon fontSize="medium" />
+        </button>
+        
       </div>
       <div className='searchResultsContainer'>
         { show && searchResults ? 
@@ -124,8 +129,6 @@ export default function SearchBar() {
                 </Offcanvas.Header>
                 <Offcanvas.Body style={{minHeight: '95vh', width: '94%'}}>
                   <h4>Results:</h4>
-                  {/* <Table striped bordered hover variant="dark" sz="lg"> */}
-                    {/* <tbody style={{display: 'block'}} id="searchTable"> */}
                       <ul className="resultsContainer">
                         {searchResults.map((item, index) => {
                           return (
@@ -133,15 +136,9 @@ export default function SearchBar() {
                               <img src={item.img} alt="test" />
                               {item.name}
                             </li>
-                            // <tr key={item.id} className="itemContainer" onClick={id => handleClick(id)}>
-                            //   <img src={item.img} alt="test" />
-                            //   <td>{item.name}</td>
-                            // </tr>
                           )
                         })}
                       </ul>
-                    {/* </tbody> */}
-                  {/* </Table> */}
                 </Offcanvas.Body>
               </Offcanvas>
             </Container>

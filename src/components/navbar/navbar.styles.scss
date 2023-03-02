@@ -157,7 +157,8 @@ nav.navbar{
       align-items: center;
       
       .navbar-brand {
-        max-width: 60px;
+        max-width: 70px;
+        min-width: 60px;
         // padding: 0 0 5% 0;
         height: auto;
         
@@ -229,7 +230,7 @@ nav.navbar{
 
     // =================== Mobile View 420px ==================
 
-@media screen and (max-width: 420px) {
+@media only screen and (min-width: 200px) and (max-width: 420px) {
 
   nav.navbar.navbar {
     margin: 0 0 0 0;
