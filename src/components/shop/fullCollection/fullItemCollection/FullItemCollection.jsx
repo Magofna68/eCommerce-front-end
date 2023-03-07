@@ -40,6 +40,7 @@ import Row from 'react-bootstrap/Row';
               id={id} 
               handleHomeClick={handleHomeClick}
               handleItemSelection={onItemSelection} 
+              items={items}
               {...otherItemProps} 
             />
             ))
@@ -51,6 +52,7 @@ import Row from 'react-bootstrap/Row';
               id={id} 
               handleHomeClick={handleHomeClick}
               handleItemSelection={onItemSelection} 
+              items={items}
               {...otherItemProps} 
             />
             ))

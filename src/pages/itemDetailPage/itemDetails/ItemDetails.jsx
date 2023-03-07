@@ -14,10 +14,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { 
-    name, price, id, img, img2, img3, img4, desc, reviews, handleBackClick,
-    detail, alt, title, handleClearStateClick, handleHomeClick,
-  } = props;
+  const { itemToShow, handleHomeClick, handleBackClick, handleClearStateClick } = props;
+  const { name, price, id, img, img2, img3, img4, desc, reviews,
+      detail, alt, title, } = itemToShow;
+  // const { 
+  //   name, price, id, img, img2, img3, img4, desc, reviews, handleBackClick,
+  //   detail, alt, title, handleClearStateClick, handleHomeClick,
+  // } = props;
 
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
@@ -85,8 +88,8 @@ export default function ItemDetails(props) {
 
   let chip = `Size ${value}`
 
-  const details = detail;
-  const detailList = details.map((detail) => 
+  // const details = detail;
+  const detailList = detail.map((detail) => 
     <li className='detailItem'>{detail}</li>
   );
 

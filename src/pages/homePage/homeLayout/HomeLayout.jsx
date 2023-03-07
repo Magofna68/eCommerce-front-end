@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect, useRef } from "react";
 import './homeLayout.styles.scss';
+import {MENS_SHOP_LIST } from '../../../data.jsx';
 
 import Carousel from '../../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
@@ -9,6 +10,7 @@ import transparentCrown from '../../../assets/transparentCrown.png';
 import { Typography } from "@mui/material";
 import  Banner from '../../../components/utility/banner/Banner.jsx';
 import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
+import Randomizer from '../../../components/utility/randomizer/Randomizer';
 
 export default function HomeLayout(props) {
   const { categoryRedirect, priceFilterRedirect, filteredList } = props;
@@ -18,6 +20,8 @@ export default function HomeLayout(props) {
   const hideBanner = () => {
     setHide(false)
   }
+
+  const mens_randomizer_array = MENS_SHOP_LIST;
 
   const carouselImages = 
     [
@@ -136,6 +140,13 @@ export default function HomeLayout(props) {
           </div>
 
           <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} />
+
+          {/* <div className="trendingContainer">
+            <h1>TRENDING</h1>
+            <div className="randomizerContain">
+              <Randomizer array={mens_randomizer_array} />
+            </div>
+          </div> */}
 
           {/* Filter Function rendered based on Screen size*/}
             <div className='priceFilterContainer'>

@@ -6,7 +6,7 @@ import Carousel from '../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import HomeLayout from './homeLayout/HomeLayout';
-import ItemDetail from '../itemDetailPage/ItemDetail.jsx';
+import ItemDetails from '../itemDetailPage/itemDetails/ItemDetails.jsx';
 import Jackets from '../../components/shop/category/jackets/Jackets.jsx';
 import Shirts from '../../components/shop/category/shirts/Shirts.jsx';
 import Sneakers from '../../components/shop/category/sneakers/Sneakers.jsx';
@@ -30,11 +30,13 @@ export default function HomePage(props) {
   let currentlyVisibleState = null;
   let buttonText = null;
           
-    if (selectedItem !== null) {
+    if 
+    (selectedItem !== null) {
       buttonText = "Back to List"
       currentlyVisibleState = 
-        <ItemDetail itemToShow={selectedItem} handleClearStateClick={handleClearStateClick} handleBackclick={handleBackClick} />
-    } else if (selectedCategory === "SNEAKERS") {
+        <ItemDetails itemToShow={selectedItem} handleClearStateClick={handleClearStateClick} handleBackclick={handleBackClick} />
+    } else if 
+    (selectedCategory === "SNEAKERS") {
       buttonText = "Home"
       currentlyVisibleState = 
         <Sneakers handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem} />

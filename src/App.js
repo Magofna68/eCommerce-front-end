@@ -34,15 +34,15 @@ class App extends React.Component {
     this.state = {
       currentUser: null,
       currentView: null,
-      viewPort: window.innerWidth,
-      priceFilterData: [],
-      priceFilterTitle: "",
       selectedItem: null,
-      filteredItemList: [],
-      shopData: [],
-      selectedCategory: "",
-      filteredList: [],
       gender: "",
+      priceFilterTitle: "",
+      selectedCategory: "",
+      shopData: [],
+      filteredList: [],
+      priceFilterData: [],
+      filteredItemList: [],
+      viewPort: window.innerWidth,
     }
 }
 
@@ -105,23 +105,42 @@ handleSelectedCategoryClick = (e) => {
 handleHomeClick = () => {
   this.setState({ 
     selectedItem: null,
-    categoryToAssign: null,
+    selectedCategory: null,
   })
   window.location.assign('/')
 }
 
-handleBackClick = () => {
-  this.setState({
-    selectedCategory: "",
+handleBackClick = async () => {
+  // let selectedItem = this.state.selectedItem
+if (this.state.selectedItem !== null) {
+  const savedState = this.state.selectedCategory;
+  this.setState({ 
+    selectedItem: "",
+    selectedCategory: savedState,
   })
+  // await this.setState({ selectedItem: ""})
+} else if (this.state.selectedCategory !== null) {
+    // await this.setState({ selectedCategory: ""})
+    console.log("SelectedItem:", this.state.selectedItem);
+    console.log("SelectedCategory:", this.state.selectedCategory)
+  }
+  // {
+  //   selectedItem ?
+  //   this.setState({ selectedItem: "" })
+  //   :
+  //   this.setState({
+  //     selectedCategory: "",
+  //   })
+  // }
 }
 
-handleChangingSelectedItem = (id) => {
+handleChangingSelectedItem = async (id) => {
   const selectedItem = id;
-  // console.log(selectedItem)
-  this.setState({
+  console.log("SelectedItem App.js:", selectedItem)
+  await this.setState({
     selectedItem: selectedItem
   })
+  await console.log("(Write function in itemList to redirect to itemDetails) -- SelectedItem:", this.state.selectedItem)
 }
 
 
@@ -160,6 +179,7 @@ handleSortClick = async (term) => {
     console.log("AFTER shopData", this.state.shopData)
 
     switch(term) {
+      // from homePagelayout
       case "H2L":
         priceFilterData.sort((item1, item2) => 
         (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
@@ -171,7 +191,7 @@ handleSortClick = async (term) => {
         (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
         await this.setState({ priceFilterData: [...priceFilterData]})
       break;
-
+      // from Mens / Womens Clothing
       case "High2Low":
           shopData.sort((item1, item2) => (
             item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
@@ -371,12 +391,19 @@ componentWillUnmount() {
             <Route path='contact' element={<ContactPage viewPort={viewPort} />}></Route>
 
             {/* pathway for itemDetails */}
-            <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
+            {/* <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
             <Route path='/shop/sneakers/:id' element={<SearchedItemDetails />} /> 
             <Route path='/shop/shirts/:id' element={<SearchedItemDetails />} />
             <Route path='/shop/mens/:id' element={<SearchedItemDetails />} /> 
             <Route path='/shop/womens/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} /> 
+            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} />  */}
+
+            <Route path='/shop/hats/:id' element={<ItemDetails />} />
+            <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/shirts/:id' element={<ItemDetails />} />
+            <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/womens/:id' element={<ItemDetails />} />
+            <Route path='/shop/jackets/:id' element={<ItemDetails />} /> 
 
             <Route path="*" component={<NotFound />} />
         </Routes>

@@ -144,6 +144,7 @@ export default function MensClothing(props) {
     // const { selectedCategory } = this.state;
 
     if (selectedItem != null) {
+      buttonText="MensClothing"
       currentlyVisibleState = 
       <ItemDetail 
         itemToShow={selectedItem}
@@ -228,10 +229,13 @@ export default function MensClothing(props) {
         {currentlyVisibleState}
         <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
         {
-          buttonText === "Home" ? 
-          <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
+          buttonText === "ItemList" ? 
+          <Button onClick={handleBackClick}>ItemLIst< ArrowBackIcon /></Button>
           :
-          <Button onClick={handleBackClick}><strong>{buttonText}</strong>< ArrowBackIcon /></Button>
+          buttonText === "MENS" ?
+          <Button onClick={handleBackClick}>{buttonText}< ArrowBackIcon /></Button>
+          :
+          <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
         }
         </div>
       </div>
