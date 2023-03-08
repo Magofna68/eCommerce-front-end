@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import './mobileSlider.styles.scss';
 
 function SlideShow(props) {
-  const { categoryRedirect, slides } = props;
+  const { categoryRedirect, slides, } = props;
   const [index, setIndex] = useState(0)
   
   const nextSlide = () => {
@@ -21,7 +21,7 @@ function SlideShow(props) {
     setIndex(slideIdx)
   }
   const setFinishedIndex = (i) => {
-    console.log("finished dragging on slide", i);
+    // console.log("finished dragging on slide", i);
     setIndex(i);
   }
 

@@ -4,7 +4,7 @@ import {SHOP_DATA} from '../../../../data.jsx'
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Sale(props) {
-  const { testClick, onItemSelection, filteredSale, itemToShow, handleHomeClick } = props;
+  const { toItemDetailsClick, onItemSelection, filteredSale, itemToShow, handleHomeClick } = props;
   const saleCollection = [];
   saleCollection.push(SHOP_DATA[4]);
 
@@ -20,7 +20,7 @@ export default function Sale(props) {
           saleCollection.map(({id, ...otherCollectionProps}) => (
             <FullItemCollection 
             filteredList={filteredSale} 
-            testClick={testClick}
+            toItemDetailsClick={toItemDetailsClick}
             key={id} 
             id={id} 
             handleHomeClick={handleHomeClick}

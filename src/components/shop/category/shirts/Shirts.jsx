@@ -4,7 +4,7 @@ import FullItemCollection from '../../fullCollection/fullItemCollection/FullItem
 import { SHOP_DATA } from '../../../../data.jsx';
 
 export default function Shirts(props) {
-  const { testClick, onItemSelection, filteredShirts, itemToShow, handleHomeClick } = props;
+  const { toItemDetailsClick, onItemSelection, filteredShirts, itemToShow, handleHomeClick } = props;
   const shirtCollection = [];
   shirtCollection.push(SHOP_DATA[3]);
 
@@ -21,7 +21,7 @@ export default function Shirts(props) {
         shirtCollection.map(({id, ...otherCollectionProps}) => (
           <FullItemCollection 
             filteredList={filteredShirts} 
-            testClick={testClick}
+            toItemDetailsClick={toItemDetailsClick}
             id={id} 
             key={id} 
             handleHomeClick={handleHomeClick}

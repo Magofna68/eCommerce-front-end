@@ -38,7 +38,7 @@ export default function MensClothing(props) {
 
   const navigate = useNavigate();
 
-  const testClick = (e) => {
+  const toItemDetailsClick = (e) => {
     // Save the ID into variable and filter through array of obj to find selected item
     const savedId = e.id;
     console.log("MENSclothing# -- savedId: ", e)
@@ -84,7 +84,7 @@ export default function MensClothing(props) {
         buttonText="MENS"
         currentlyVisibleState = 
         <Sneakers 
-          testClick={testClick}
+          toItemDetailsClick={toItemDetailsClick}
           onItemSelection={handleChangingSelectedItem} 
           filteredSneakers={filteredList}
           itemToShow={selectedItem}
@@ -94,7 +94,7 @@ export default function MensClothing(props) {
         buttonText="MENS"
         currentlyVisibleState = 
         <Shirts
-          testClick={testClick}
+          toItemDetailsClick={toItemDetailsClick}
           onItemSelection={handleChangingSelectedItem} 
           filteredShirts={filteredList}
           itemToShow={selectedItem}
@@ -104,7 +104,7 @@ export default function MensClothing(props) {
         buttonText="MENS"
         currentlyVisibleState =  
         <Hats 
-          testClick={testClick}  
+          toItemDetailsClick={toItemDetailsClick}  
           onItemSelection={handleChangingSelectedItem} 
           filteredHats={filteredList}
           itemToShow={selectedItem}
@@ -114,7 +114,7 @@ export default function MensClothing(props) {
         buttonText="MENS"
         currentlyVisibleState = 
         <Jackets 
-          testClick={testClick}
+          toItemDetailsClick={toItemDetailsClick}
           onItemSelection={handleChangingSelectedItem} 
           filteredJackets={filteredList}
           itemToShow={selectedItem}
@@ -124,7 +124,7 @@ export default function MensClothing(props) {
       buttonText="MENS"
       currentlyVisibleState = 
       <Sale
-        testClick={testClick}
+        toItemDetailsClick={toItemDetailsClick}
         onItemSelection={handleChangingSelectedItem} 
         filteredSale={filteredList}
         itemToShow={selectedItem}
@@ -133,7 +133,7 @@ export default function MensClothing(props) {
     } else { 
       currentlyVisibleState = 
       <ItemList 
-        testClick={testClick}
+        toItemDetailsClick={toItemDetailsClick}
         onFilterClick={handleFilterClick}
         onSortClick={handleSortClick}
         categoryRedirect={categoryRedirect}

@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 // import SizeList from '../../components/utility/sizeList/SizeList';
 import SizeList from '../../../components/utility/sizeList/SizeList.jsx';
-import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping.jsx';
+import BreadcrumbGrouping from '../../../components/utility/breadcrumb/BreadcrumbGrouping.jsx';
 import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext.jsx';
 import Accordion from '../../../components/utility/accordion/Accordion.jsx';
 import StarIcon from '@mui/icons-material/Star';
@@ -12,10 +12,11 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import CheckIcon from '@mui/icons-material/Check';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { itemToShow, handleHomeClick, handleBackClick, handleClearStateClick } = props;
+  const { itemToShow, handleHomeClick, handleClearStateClick } = props;
   // const { name, price, id, img, img2, img3, img4, desc, reviews,
   //     detail, alt, title, } = itemToShow;
   // const { 
@@ -125,7 +126,7 @@ export default function ItemDetails(props) {
       default:
         setActiveImg(img)
     }
-  console.log(activeImg)}, [selectedImg])
+  }, [selectedImg])
 
 
   function reviewStars(num) {
@@ -150,10 +151,12 @@ export default function ItemDetails(props) {
     );
   };
 
+  const handleBackClick = useNavigate(-1);
+
   return (
     <>
       <span id="returnIcon" >
-        <Breadcrumb onClearStateClick={handleClearStateClick}/>
+        <BreadcrumbGrouping onClearStateClick={handleClearStateClick} onBackClick={handleBackClick} />
       </span>
       <Container fluid style={{padding: 0}}>
         <Row>
@@ -264,6 +267,8 @@ export default function ItemDetails(props) {
             
             <div style={{ textAlign: 'left', marginTop: '-3%'}}>
               <Accordion 
+                id={id}
+                key={id}
                 desc={desc} 
                 details={detailList} 
                 reviews={reviews}

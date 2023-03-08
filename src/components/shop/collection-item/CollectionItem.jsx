@@ -9,7 +9,7 @@ import { PropTypes } from 'prop-types';
 // Being fed from ITEMLIST
 export function CollectionItem (props) {
 const { 
-  id, name, alt, price, img, handleItemSelection, testClick
+  id, name, alt, price, img, handleItemSelection, toItemDetailsClick
   // img2, img3, img4, desc, details,
 } = props;
 
@@ -20,7 +20,7 @@ useEffect(() => {
 const saveSelectedItem = (e) => {
   const selectedItem = [props][0];
   console.log("COLLECTIONitem# -- selectedItem: ", selectedItem)
-  testClick(selectedItem);
+  toItemDetailsClick(selectedItem);
   // handleItemSelection(selectedItem);
 }
   

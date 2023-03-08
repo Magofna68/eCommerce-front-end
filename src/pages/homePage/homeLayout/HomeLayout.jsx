@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect, useRef } from "react";
 import './homeLayout.styles.scss';
-import {MENS_SHOP_LIST } from '../../../data.jsx';
-
+import {MENS_SHOP_LIST, } from '../../../data.jsx';
 import Carousel from '../../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import transparentCrown from '../../../assets/transparentCrown.png';
@@ -13,7 +12,7 @@ import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
 import Randomizer from '../../../components/utility/randomizer/Randomizer';
 
 export default function HomeLayout(props) {
-  const { categoryRedirect, priceFilterRedirect, filteredList } = props;
+  const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick } = props;
 
   const [ hide, setHide ] = useState(true)
 
@@ -80,6 +79,7 @@ export default function HomeLayout(props) {
     useEffect(() => {
       window.scrollTo(0, 0)
     }, [])
+
     
     return (
       <>
@@ -139,7 +139,7 @@ export default function HomeLayout(props) {
             </div>
           </div>
 
-          <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} />
+          <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} toItemDetailsClick={toItemDetailsClick} />
 
           {/* <div className="trendingContainer">
             <h1>TRENDING</h1>

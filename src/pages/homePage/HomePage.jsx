@@ -14,9 +14,8 @@ import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
 import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
 import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
-
+import { useNavigate } from 'react-router';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
 
 export default function HomePage(props) {
   const { 
@@ -26,40 +25,68 @@ export default function HomePage(props) {
     handleSortClick, handleHomeClick, handleBackClick,
     priceFilterData, priceFilterTitle, priceFilterRedirect
   } = props;
+
+  const navigate = useNavigate();
+
+  const toItemDetailsClick = (e) => {
+    // Save the ID into variable
+    const savedId = e.id;
+    const list = [ ...MENS_SHOP_LIST, ...WOMENS_SHOP_LIST ]
+    // filter through array of obj utilizing ID to find selected item
+    const savedItem = list.filter(item => item.id === savedId)[0]
+    // create path for single object view
+    let path3 = 'shop/' + savedItem.title + '/' + savedId;
+    navigate(path3, {
+      state:  {
+        id: savedId, 
+        title: savedItem.title,
+        name: savedItem.name, 
+        price: savedItem.price, 
+        img: savedItem.img,
+        img2: savedItem.img2,
+        img3: savedItem.img3,
+        img4: savedItem.img4,
+        desc: savedItem.desc,
+        detail: savedItem.detail,
+        reviews: savedItem.reviews
+      }
+    })
+  }
           
   let currentlyVisibleState = null;
   let buttonText = null;
           
     if 
-    (selectedItem !== null) {
-      buttonText = "Back to List"
-      currentlyVisibleState = 
-        <ItemDetails itemToShow={selectedItem} handleClearStateClick={handleClearStateClick} handleBackclick={handleBackClick} />
-    } else if 
+    // (selectedItem !== null) {
+    //   buttonText = "Back to List"
+    //   currentlyVisibleState = 
+    //     <ItemDetails itemToShow={selectedItem} handleClearStateClick={handleClearStateClick} handleBackclick={handleBackClick} />
+    // } else if 
     (selectedCategory === "SNEAKERS") {
       buttonText = "Home"
       currentlyVisibleState = 
-        <Sneakers handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem} />
+        <Sneakers toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem} />
     } else if (selectedCategory === "SHIRTS") {
       buttonText = "Home"
       currentlyVisibleState = 
-        <Shirts handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem} />
+        <Shirts toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem} />
     } else if (selectedCategory === "JACKETS") {
       buttonText= "Home"
       currentlyVisibleState = 
-        <Jackets handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
+        <Jackets toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
     } else if (selectedCategory === "HATS") {
       buttonText="Home"
       currentlyVisibleState = 
-        <Hats handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
+        <Hats toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
     } else if (selectedCategory === "SALE") {
       buttonText="Home"
       currentlyVisibleState = 
-        <Sale handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
+        <Sale toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
     } else if (selectedCategory === 'FILTER') {
       buttonText="Home"
       currentlyVisibleState =
         <ItemList 
+          toItemDetailsClick={toItemDetailsClick}
           onFilterClick={handleFilterClick}
           onSortClick={handleSortClick}
           categoryRedirect={categoryRedirect}
@@ -70,7 +97,7 @@ export default function HomePage(props) {
         />
     } else {
       currentlyVisibleState = 
-      <HomeLayout priceFilterRedirect={priceFilterRedirect} categoryRedirect={categoryRedirect}/>
+      <HomeLayout toItemDetailsClick={toItemDetailsClick} priceFilterRedirect={priceFilterRedirect} categoryRedirect={categoryRedirect}/>
     }
 
     return (

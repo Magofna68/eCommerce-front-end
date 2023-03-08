@@ -63,6 +63,7 @@ class App extends React.Component {
       })
   }
 
+  // sets the correct dataset in state (mens / womens / all)
   handleSetData = async () => {
     this.state.gender === 'MENS' ?
       await  this.setState({ 
@@ -80,7 +81,7 @@ class App extends React.Component {
 categoryRedirect = async (clickedCategoryTitle) => {
   // clear the state for what is to be displayed
     await this.setState({ shopData: [] })
-    // sets the correct dataset in state (mens vs womens)
+    // sets the correct dataset in state (mens / womens / all)
     await this.handleSetData()
     console.log("APP.js# ShopDATA", this.state.shopData)
     const categoryToAssign = clickedCategoryTitle.toUpperCase();
@@ -88,9 +89,8 @@ categoryRedirect = async (clickedCategoryTitle) => {
     await this.setState({
       selectedCategory: categoryToAssign,
     })
-    console.log("App.js# selectedCategory", this.state.selectedCategory)
+    console.log("App.js# selectedCategory -- updated from categoryRedirect", this.state.selectedCategory)
     await this.setState({ filteredList: appFilteredList })
-    // await this.setState({ mensFilteredList: mensTempFilteredList})
     console.log("APP.js# FilteredList -- after state update", this.state.filteredList)
 }
 
@@ -110,20 +110,20 @@ handleHomeClick = () => {
   window.location.assign('/')
 }
 
-handleBackClick = async () => {
-  // let selectedItem = this.state.selectedItem
-if (this.state.selectedItem !== null) {
-  const savedState = this.state.selectedCategory;
-  this.setState({ 
-    selectedItem: "",
-    selectedCategory: savedState,
-  })
-  // await this.setState({ selectedItem: ""})
-} else if (this.state.selectedCategory !== null) {
-    // await this.setState({ selectedCategory: ""})
-    console.log("SelectedItem:", this.state.selectedItem);
-    console.log("SelectedCategory:", this.state.selectedCategory)
-  }
+// handleBackClick = async () => {
+//   // let selectedItem = this.state.selectedItem
+// if (this.state.selectedItem !== null) {
+//   const savedState = this.state.selectedCategory;
+//   this.setState({ 
+//     selectedItem: "",
+//     selectedCategory: savedState,
+//   })
+//   // await this.setState({ selectedItem: ""})
+// } else if (this.state.selectedCategory !== null) {
+//     // await this.setState({ selectedCategory: ""})
+//     console.log("SelectedItem:", this.state.selectedItem);
+//     console.log("SelectedCategory:", this.state.selectedCategory)
+//   }
   // {
   //   selectedItem ?
   //   this.setState({ selectedItem: "" })
@@ -132,7 +132,7 @@ if (this.state.selectedItem !== null) {
   //     selectedCategory: "",
   //   })
   // }
-}
+// }
 
 handleChangingSelectedItem = async (id) => {
   const selectedItem = id;
