@@ -4,7 +4,7 @@ import {SHOP_DATA} from '../../../../data.jsx';
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx';
 
 export default function Sneakers(props) {
-  const { onItemSelection, itemToShow, filteredSneakers, handleHomeClick  } = props
+  const { testClick, onItemSelection, itemToShow, filteredSneakers, handleHomeClick  } = props
   const sneakerCollection = [];
     sneakerCollection.push(SHOP_DATA[0])
 
@@ -20,6 +20,7 @@ export default function Sneakers(props) {
         sneakerCollection.map(({id, ...otherCollectionProps}) => (
           <FullItemCollection 
             key={id} 
+            testClick={testClick}
             id={id}
             filteredList={filteredSneakers} 
             handleHomeClick={handleHomeClick}

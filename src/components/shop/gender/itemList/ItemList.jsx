@@ -16,7 +16,7 @@ import Radio from '../../../utility/radioButton/RadioButton.jsx';
 
 export default function ItemList(props) {
   const { fullItemList, onItemSelection, categoryRedirect, priceFilterData,
-    priceFilterTitle, onFilterClick, onSortClick, } = props;
+    priceFilterTitle, onFilterClick, onSortClick, testClick} = props;
 
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
@@ -127,6 +127,8 @@ export default function ItemList(props) {
             // getRandom(priceFilterData).map(({id, ...props}) => (
             priceFilterData.map(({id, ...props}) => (
               <CollectionItem
+                id={id}
+                testClick={testClick}
                 key={id}
                 handleItemSelection={onItemSelection}
                 {...props}
@@ -136,6 +138,8 @@ export default function ItemList(props) {
             // getRandom(FullItemList).map(({id, ...props}) => (
             fullItemList.map(({id, ...props}) => (
               <CollectionItem
+                id={id}
+                testClick={testClick}
                 key={id}
                 handleItemSelection={onItemSelection}
                 {...props}

@@ -11,16 +11,31 @@ import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import CheckIcon from '@mui/icons-material/Check';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useLocation } from 'react-router';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
   const { itemToShow, handleHomeClick, handleBackClick, handleClearStateClick } = props;
-  const { name, price, id, img, img2, img3, img4, desc, reviews,
-      detail, alt, title, } = itemToShow;
+  // const { name, price, id, img, img2, img3, img4, desc, reviews,
+  //     detail, alt, title, } = itemToShow;
   // const { 
   //   name, price, id, img, img2, img3, img4, desc, reviews, handleBackClick,
   //   detail, alt, title, handleClearStateClick, handleHomeClick,
   // } = props;
+
+  const location = useLocation();
+  // coming from searchBar
+    let name = location.state.name;
+    let id= location.state.id
+    let price = location.state.price;
+    let img = location.state.img;
+    let img2 = location.state.img2;
+    let img3 = location.state.img3;
+    let img4 = location.state.img4;
+    let desc = location.state.desc;
+    let detail = location.state.detail;
+    let alt = location.state.detail;
+    let reviews = location.state.reviews;
 
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);

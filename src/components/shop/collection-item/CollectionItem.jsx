@@ -9,7 +9,7 @@ import { PropTypes } from 'prop-types';
 // Being fed from ITEMLIST
 export function CollectionItem (props) {
 const { 
-  id, name, alt, price, img, handleItemSelection,
+  id, name, alt, price, img, handleItemSelection, testClick
   // img2, img3, img4, desc, details,
 } = props;
 
@@ -19,13 +19,14 @@ useEffect(() => {
 
 const saveSelectedItem = (e) => {
   const selectedItem = [props][0];
-  console.log(selectedItem)
-  handleItemSelection(selectedItem);
+  console.log("COLLECTIONitem# -- selectedItem: ", selectedItem)
+  testClick(selectedItem);
+  // handleItemSelection(selectedItem);
 }
   
   return (
     
-    <Card key={id} className='collectionItem' onClick={(e)=> saveSelectedItem(e)}>
+    <Card key={id} className='collectionItem' id={id} onClick={(e)=> saveSelectedItem(e)}>
       <Card.Img variant='top' className='collectionItemImg' src={img} alt={alt} />
 
       <Card.Body>

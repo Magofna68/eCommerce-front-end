@@ -4,7 +4,7 @@ import {SHOP_DATA} from '../../../../data.jsx'
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Sale(props) {
-  const { onItemSelection, filteredSale, itemToShow, handleHomeClick } = props;
+  const { testClick, onItemSelection, filteredSale, itemToShow, handleHomeClick } = props;
   const saleCollection = [];
   saleCollection.push(SHOP_DATA[4]);
 
@@ -14,17 +14,24 @@ export default function Sale(props) {
   
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
-      {/* <h1>{saleCollection.title}</h1> */}
+      {/* BUG: not correctly rendering h1 from ternary statement  */}
       {
-        saleCollection.map(({id, ...otherCollectionProps}) => (
-          <FullItemCollection 
+        filteredSale !== [] ?
+          saleCollection.map(({id, ...otherCollectionProps}) => (
+            <FullItemCollection 
             filteredList={filteredSale} 
+            testClick={testClick}
             key={id} 
             id={id} 
             handleHomeClick={handleHomeClick}
             onItemSelection={onItemSelection} 
             {...otherCollectionProps} />
-        ))
+          ))
+        :
+          <h1 style={{ color: 'black'}}>
+            Sorry, there are no items currently on Sale.<br/> 
+            Please check back later for the best deals and discounts available.
+          </h1>
       }
     </div>
   )

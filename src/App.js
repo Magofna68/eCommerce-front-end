@@ -82,16 +82,16 @@ categoryRedirect = async (clickedCategoryTitle) => {
     await this.setState({ shopData: [] })
     // sets the correct dataset in state (mens vs womens)
     await this.handleSetData()
-    console.log("ShopDATA", this.state.shopData)
+    console.log("APP.js# ShopDATA", this.state.shopData)
     const categoryToAssign = clickedCategoryTitle.toUpperCase();
     const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
     await this.setState({
       selectedCategory: categoryToAssign,
     })
-    console.log("selectedCategory", this.state.selectedCategory)
+    console.log("App.js# selectedCategory", this.state.selectedCategory)
     await this.setState({ filteredList: appFilteredList })
     // await this.setState({ mensFilteredList: mensTempFilteredList})
-    console.log("after state update", this.state.filteredList)
+    console.log("APP.js# FilteredList -- after state update", this.state.filteredList)
 }
 
 handleSelectedCategoryClick = (e) => {
@@ -391,19 +391,24 @@ componentWillUnmount() {
             <Route path='contact' element={<ContactPage viewPort={viewPort} />}></Route>
 
             {/* pathway for itemDetails */}
-            {/* <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
+            <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
             <Route path='/shop/sneakers/:id' element={<SearchedItemDetails />} /> 
             <Route path='/shop/shirts/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/mens/:id' element={<SearchedItemDetails />} /> 
-            <Route path='/shop/womens/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} />  */}
-
-            <Route path='/shop/hats/:id' element={<ItemDetails />} />
-            <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/shirts/:id' element={<ItemDetails />} />
+            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} /> 
             <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
             <Route path='/shop/womens/:id' element={<ItemDetails />} />
-            <Route path='/shop/jackets/:id' element={<ItemDetails />} /> 
+
+            <Route path='/shop/mens/hats/:id' element={<ItemDetails />} />
+            <Route path='/shop/mens/sneakers/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/mens/shirts/:id' element={<ItemDetails />} />
+            <Route path='/shop/mens/jackets/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/mens/sale/:id' element={<ItemDetails />} /> 
+
+            <Route path='/shop/womens/hats/:id' element={<ItemDetails />} />
+            <Route path='/shop/womens/sneakers/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/womens/shirts/:id' element={<ItemDetails />} />
+            <Route path='/shop/womens/jackets/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/womens/sale/:id' element={<ItemDetails />} /> 
 
             <Route path="*" component={<NotFound />} />
         </Routes>

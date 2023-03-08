@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WOMENS_SHOP_LIST } from '../../../../data.jsx';
+import { WOMENS_SHOP_LIST, MENS_SHOP_LIST } from '../../../../data.jsx';
 import Queen from '../../../../assets/Queen.png';
 import './womensClothing.styles.scss';
 import ItemList from '../itemList/ItemList.jsx';
@@ -8,9 +8,11 @@ import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
 import Sneakers from '../../category/sneakers/Sneakers.jsx';
 import Jackets from '../../category/jackets/Jackets.jsx';
 import Hats from '../../category/hats/Hats.jsx';
+import Sale from '../../category/sale/Sale.jsx';
 import Shirts from '../../category/shirts/Shirts.jsx';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ItemDetails from '../../../../pages/itemDetailPage/itemDetails/ItemDetails.jsx';
+import { useNavigate } from 'react-router';
 
 export default function WomensClothing(props) {
   const { 
@@ -29,17 +31,51 @@ export default function WomensClothing(props) {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (selectedItem != null) {
-      currentlyVisibleState = 
-        <ItemDetails
-          handleBackClick={handleBackClick}
-          itemToShow={selectedItem} 
-          onClearItemStateClick={handleHomeClick}
-        />
-        buttonText = "WomensClothing"
-    } else if (selectedCategory === "SNEAKERS") {
+    const navigate = useNavigate();
+
+    const testClick = (e) => {
+      // Save the ID into variable and filter through array of obj to find selected item
+      const savedId = e.id;
+      console.log("WOMENSclothing# -- savedId: ", e)
+      const list = [ ...MENS_SHOP_LIST, ...WOMENS_SHOP_LIST ]
+      console.log("#WOMENSclothing: list ", list)
+      const savedItem = list.filter(item => item.id === savedId)[0]
+      console.log("WOMENSclothing# -- SavedItem:", savedItem)
+      // let path = savedItem.title + '/' + savedId;
+      // let path2 = 'shop/'+ savedItem.title + '/' + savedId;
+      let path3 = savedId;
+      console.log("path", path3)
+      navigate(path3, {
+        state:  {
+          id: savedId, 
+          title: savedItem.title,
+          name: savedItem.name, 
+          price: savedItem.price, 
+          img: savedItem.img,
+          img2: savedItem.img2,
+          img3: savedItem.img3,
+          img4: savedItem.img4,
+          desc: savedItem.desc,
+          detail: savedItem.detail,
+          reviews: savedItem.reviews
+        }
+      })
+    }
+
+    if 
+    // (selectedItem != null) {
+    //   currentlyVisibleState = 
+    //     <ItemDetails
+    //       handleBackClick={handleBackClick}
+    //       itemToShow={selectedItem} 
+    //       onClearItemStateClick={handleHomeClick}
+    //     />
+    //     buttonText = "WomensClothing"
+    // } else if 
+    (selectedCategory === "SNEAKERS") {
       currentlyVisibleState = 
         <Sneakers 
+          testClick={testClick}
           onItemSelection={handleChangingSelectedItem} 
           filteredSneakers={filteredList}
           itemToShow={selectedItem}
@@ -49,6 +85,7 @@ export default function WomensClothing(props) {
       }  else if (selectedCategory === "SHIRTS") {
         currentlyVisibleState = 
           <Shirts
+            testClick={testClick}
             onItemSelection={handleChangingSelectedItem} 
             filteredShirts={filteredList}
             itemToShow={selectedItem}
@@ -57,6 +94,7 @@ export default function WomensClothing(props) {
         } else if (selectedCategory === "HATS") {
           currentlyVisibleState =  
             <Hats 
+              testClick={testClick}
               onItemSelection={handleChangingSelectedItem} 
               filteredHats={filteredList}
               itemToShow={selectedItem}
@@ -65,14 +103,26 @@ export default function WomensClothing(props) {
         } else if (selectedCategory === "JACKETS") {
           currentlyVisibleState = 
             <Jackets 
+              testClick={testClick}
               onItemSelection={handleChangingSelectedItem} 
               filteredJackets={filteredList}
               itemToShow={selectedItem}
               onHomeClick={handleHomeClick}
             />
-        } else { 
+        } else if (selectedCategory === "SALE") {
+          buttonText="WOMENS"
+          currentlyVisibleState = 
+            <Sale
+              testClick={testClick}
+              onItemSelection={handleChangingSelectedItem} 
+              filteredSale={filteredList}
+              itemToShow={selectedItem}
+              handleHomeClick={handleHomeClick}
+          />
+        }else { 
             currentlyVisibleState = 
             <ItemList 
+              testClick={testClick}
               onSortClick={handleSortClick}
               onFilterClick={handleFilterClick}
               categoryRedirect={categoryRedirect}

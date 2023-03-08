@@ -15,6 +15,7 @@ import Jackets from '../../category/jackets/Jackets.jsx';
 import Shirts from '../../category/shirts/Shirts.jsx';
 import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ItemDetails from '../../../../pages/itemDetailPage/itemDetails/ItemDetails.jsx';
 
 export default function MensClothing(props) {
   const { 
@@ -35,144 +36,75 @@ export default function MensClothing(props) {
   } = props;
 
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const handleBackClick = () => {
-  //   this.setState({
-  //     selectedCategory: "",
-  //   })
-  // }
-
-
-  // categoryRedirect = async (clickedCategoryTitle) => {
-  //   const categoryToAssign = clickedCategoryTitle
-  //   const mensTempFilteredList = this.state.mensItemList.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
-  //   await this.setState({
-  //     selectedCategory: categoryToAssign,
-  //   })
-  //   await this.setState({ mensFilteredList: mensTempFilteredList})
-  //   // console.log("after state update", this.state.mensFilteredList)
-  // }
-
-  // handleClick = (e) => {
-  //   if (this.state.selectedItem != null) {
-  //     this.setState({selectedItem: null})
-  //   } else if (this.state.selectedCategory != null) {
-  //     this.setState({selectedCategory: ""})
-  //   }
-  // }
-
-  // handleHomeClick = () => {
-  //   window.location.assign('#/')
-  // }
-
-  // handleChangingSelectedItem = (id) => {
-  //   const selectedItem = id;
-  //   // console.log(selectedItem)
-  //   this.setState({
-  //     selectedItem: selectedItem
-  //   })
-  // }
-
-  // handleClearItemStateClick = (e) => {
-  //   console.log("HandleClear")
-  //   this.setState({
-  //     selectedItem: null,
-  //   })
-  // }
-  
-  
-  // handleSortClick = async (term) => {
-  //   let shopList = [...this.state.mensItemList]
-  //   switch(term) {
-  //     case 'H2L':
-  //       shopList.sort((item1, item2) => 
-  //       (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
-  //       console.log("shopList", shopList.price)
-  //       await this.setState({
-  //         mensItemList: [...shopList]
-  //       })
-  //       break;
-  //     case "L2H":
-  //       shopList.sort((item1, item2) => 
-  //         (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
-  //       console.log("shopList", shopList.price)
-  //       await this.setState({
-  //         mensItemList: [...shopList]
-  //       });
-  //       break;
-  //     default:
-  //       return;
-  //   }
-  // }
+  const testClick = (e) => {
+    // Save the ID into variable and filter through array of obj to find selected item
+    const savedId = e.id;
+    console.log("MENSclothing# -- savedId: ", e)
+    const list = [ ...MENS_SHOP_LIST, ...WOMENS_SHOP_LIST ]
+    console.log("#MENSclothing: list ", list)
+    const savedItem = list.filter(item => item.id === savedId)[0]
+    console.log("MENSclothing# -- SavedItem:", savedItem)
+    // let path = savedItem.title + '/' + savedId;
+    // let path2 = 'shop/'+ savedItem.title + '/' + savedId;
+    let path3 = savedId;
+    console.log("path", path3)
+    navigate(path3, {
+      state:  {
+        id: savedId, 
+        title: savedItem.title,
+        name: savedItem.name, 
+        price: savedItem.price, 
+        img: savedItem.img,
+        img2: savedItem.img2,
+        img3: savedItem.img3,
+        img4: savedItem.img4,
+        desc: savedItem.desc,
+        detail: savedItem.detail,
+        reviews: savedItem.reviews
+      }
+    })
+  }
 
 
-  // handleFilterClick = async (value) => {
-  //   let shopList = [...MENS_SHOP_LIST];
-
-  //   if (value === '25') {
-  //     const under25 = shopList.filter((item) => item.price < 25)
-  //     await this.setState({
-  //       mensItemList: under25,
-  //     });
-  //   } else if (value === '50') {
-  //     const under50 = shopList.filter((item) => item.price < 50)
-  //     await this.setState({
-  //       mensItemList: under50
-  //     });
-  //   } else if (value === '75') {
-  //     const under75 = shopList.filter((item) => item.price < 75)
-  //     await this.setState({
-  //       mensItemList: under75
-  //     });
-  //   } else if (value === '100') {
-  //     const under100 = shopList.filter((item) => item.price < 100)
-  //     await this.setState({
-  //       mensItemList: under100
-  //     })
-  //   } else {
-  //     const under150 = shopList.filter((item) => item.price < 150)
-  //     await this.setState({
-  //       mensItemList: under150
-  //     })
-  //   }
-  // }
-
-  // render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    // const { selectedCategory } = this.state;
 
-    if (selectedItem != null) {
-      buttonText="MensClothing"
-      currentlyVisibleState = 
-      <ItemDetail 
-        itemToShow={selectedItem}
-        handleHomeClick={handleHomeClick} 
-      />
-      buttonText = selectedCategory
-    } else if (selectedCategory === "SNEAKERS") {
+    if 
+    // (selectedItem != null) {
+    //   buttonText="MensClothing"
+    //   currentlyVisibleState = 
+    //   <ItemDetails 
+    //     itemToShow={selectedItem}
+    //     handleHomeClick={handleHomeClick} 
+    //   />
+    // } else if 
+    (selectedCategory === "SNEAKERS") {
         buttonText="MENS"
         currentlyVisibleState = 
         <Sneakers 
+          testClick={testClick}
           onItemSelection={handleChangingSelectedItem} 
           filteredSneakers={filteredList}
           itemToShow={selectedItem}
           handleHomeClick={handleHomeClick}
         />
     }  else if (selectedCategory === "SHIRTS") {
-      buttonText="MENS"
-      currentlyVisibleState = 
-      <Shirts
-        onItemSelection={handleChangingSelectedItem} 
-        filteredShirts={filteredList}
-        itemToShow={selectedItem}
-        handleHomeClick={handleHomeClick}
-      />
+        buttonText="MENS"
+        currentlyVisibleState = 
+        <Shirts
+          testClick={testClick}
+          onItemSelection={handleChangingSelectedItem} 
+          filteredShirts={filteredList}
+          itemToShow={selectedItem}
+          handleHomeClick={handleHomeClick}
+        />
   } else if (selectedCategory === "HATS") {
         buttonText="MENS"
         currentlyVisibleState =  
         <Hats 
+          testClick={testClick}  
           onItemSelection={handleChangingSelectedItem} 
           filteredHats={filteredList}
           itemToShow={selectedItem}
@@ -182,6 +114,7 @@ export default function MensClothing(props) {
         buttonText="MENS"
         currentlyVisibleState = 
         <Jackets 
+          testClick={testClick}
           onItemSelection={handleChangingSelectedItem} 
           filteredJackets={filteredList}
           itemToShow={selectedItem}
@@ -190,7 +123,8 @@ export default function MensClothing(props) {
     } else if (selectedCategory === "SALE") {
       buttonText="MENS"
       currentlyVisibleState = 
-      <Sale 
+      <Sale
+        testClick={testClick}
         onItemSelection={handleChangingSelectedItem} 
         filteredSale={filteredList}
         itemToShow={selectedItem}
@@ -199,6 +133,7 @@ export default function MensClothing(props) {
     } else { 
       currentlyVisibleState = 
       <ItemList 
+        testClick={testClick}
         onFilterClick={handleFilterClick}
         onSortClick={handleSortClick}
         categoryRedirect={categoryRedirect}

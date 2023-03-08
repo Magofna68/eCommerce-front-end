@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 // import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
- export const FullItemCollection = ({title, items, routeName, selectedItem, onItemSelection, filteredList, handleHomeClick}) => (
+ export const FullItemCollection = ({ testClick, title, items, routeName, selectedItem, onItemSelection, filteredList, handleHomeClick}) => (
     <Container fluid="true" className='collection'>
       <Row style={{ margin: '0 0 0 0'}}>
         <h1 
@@ -35,7 +35,8 @@ import Row from 'react-bootstrap/Row';
           filteredList !== undefined ?
           filteredList.map(({id, ...otherItemProps}) => (
             <SingleItem 
-              key={id} 
+              key={id}
+              testClick={testClick}
               title={title} 
               id={id} 
               handleHomeClick={handleHomeClick}
@@ -46,7 +47,8 @@ import Row from 'react-bootstrap/Row';
             ))
           :
           items.map(({id, ...otherItemProps}) => (
-            <SingleItem 
+            <SingleItem
+              testClick={testClick}
               key={id} 
               title={title} 
               id={id} 
