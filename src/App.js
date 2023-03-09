@@ -45,8 +45,6 @@ class App extends React.Component {
     }
 }
 
-
-
 // assigns gender on Mens / Womens category click
   handleGenderUpdate = async (gender) => {
     if (gender === 'MENS') {

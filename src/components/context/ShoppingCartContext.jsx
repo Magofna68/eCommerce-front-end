@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { getProductData } from '../../data.jsx';
 import { Notyf } from 'notyf';
 
@@ -12,8 +12,15 @@ export const ShoppingCartContext = createContext({
   getTotalCost: () => {},
 });
 
+const cartFromSessionStorage = JSON.parse(sessionStorage.getItem('cartProducts')) || '[]'
+
 export function CartProvider({children}) {
-  const [cartProducts, setCartProducts ] = useState([]);
+  const [cartProducts, setCartProducts ] = useState(cartFromSessionStorage);
+
+
+  useEffect(() => {
+    sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts))
+  }, [cartProducts])
 
   const notyf = new Notyf();
 
