@@ -18,7 +18,6 @@ export function CartProvider({children}) {
   
   useEffect(() => {
     let cartFromSessionStorage = JSON.parse(sessionStorage.getItem('cartProducts'));
-
     if (cartFromSessionStorage) {
       setCartProducts(cartFromSessionStorage)
     }
@@ -27,6 +26,7 @@ export function CartProvider({children}) {
   useEffect(() => {
     sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts))
   }, [cartProducts])
+
 
   const notyf = new Notyf();
 

@@ -1,4 +1,4 @@
-import React, { Component, } from 'react';
+import React, { Component, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';

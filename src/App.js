@@ -54,6 +54,8 @@ class App extends React.Component {
         selectedCategory: "",
         selectedItem: null
       })
+      sessionStorage.setItem('data', JSON.stringify(this.state.shopData))
+      sessionStorage.setItem('gender', JSON.stringify(this.state.gender))
     } else if (gender === 'WOMENS') {
       await this.setState({ 
         shopData: WOMENS_SHOP_LIST,
@@ -61,6 +63,8 @@ class App extends React.Component {
         selectedCategory: "",
         selectedItem: null,
       })
+      sessionStorage.setItem('data', JSON.stringify(this.state.shopData))
+      sessionStorage.setItem('gender', JSON.stringify(this.state.gender))
     } else {
       console.log("APP# Error: ", this.state.gender)
     }
@@ -258,8 +262,18 @@ handleFilterClick = async (value) => {
 unsubscribeFromAuth = null
 
 componentDidMount() {
+    let genderSessionStorage = JSON.parse(sessionStorage.getItem('gender'));
+    let dataSessionStorage = JSON.parse(sessionStorage.getItem('data'));
+    if (genderSessionStorage) {
+      this.setState({ 
+        gender: genderSessionStorage,
+        shopData: dataSessionStorage
+       })
+    }
+  
   // console.log("componentDidMount Hit")
   // subscriber to listen to auth state change -- allots for OAuth sign in while component is mounted
+  
   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
     if (userAuth) {
 
@@ -286,6 +300,7 @@ componentDidMount() {
     // console.log("Welcome", userAuth.displayName);
   })
 }
+
 componentWillUnmount() {
   this.unsubscribeFromAuth();
 }
