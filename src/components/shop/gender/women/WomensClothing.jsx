@@ -157,7 +157,7 @@ export default function WomensClothing(props) {
             buttonText === "Home" ? 
             <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
             :
-            <Button onClick={handleBackClick}>{buttonText}< ArrowBackIcon /></Button>
+            <Button onClick={()=> navigate(-1)}>{buttonText}< ArrowBackIcon /></Button>
           }
         </div>
       </div>

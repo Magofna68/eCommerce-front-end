@@ -151,12 +151,16 @@ export default function ItemDetails(props) {
     );
   };
 
-  const handleBackClick = useNavigate(-1);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <>
       <span id="returnIcon" >
-        <BreadcrumbGrouping onClearStateClick={handleClearStateClick} onBackClick={handleBackClick} />
+        <BreadcrumbGrouping onClearStateClick={handleClearStateClick} navigate={navigate} />
       </span>
       <Container fluid style={{padding: 0}}>
         <Row>
@@ -322,6 +326,17 @@ export default function ItemDetails(props) {
         </Col>
       </Row>
     </Container>
+      <Button 
+        onClick={() => navigate(-1)}
+        style={{ 
+          padding: '0.5% 3%', 
+          marginLeft: '5%', 
+          display: 'flex', 
+          justifyContent: 'left', 
+          alignContent: 'left'
+        }}>
+          <ArrowBackIcon />
+      </Button>
     </>
   )
 }

@@ -8,7 +8,6 @@ import Sneakers from './components/shop/category/sneakers/Sneakers.jsx';
 import Sale from './components/shop/category/sale/Sale.jsx';
 import MensClothing from './components/shop/gender/men/MensClothing.jsx';
 import WomensClothing from './components/shop/gender/women/WomensClothing.jsx';
-import SearchedItemDetails from './pages/itemDetailPage/SearchedItemDetails.jsx';
 import ItemDetails from './pages/itemDetailPage/itemDetails/ItemDetails.jsx'
 import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from './data';
 import {Header} from './components/utility/header/Header.jsx';
@@ -46,6 +45,7 @@ class App extends React.Component {
     }
 }
 
+// assigns gender on Mens / Womens category click
   handleGenderUpdate = async (gender) => {
     gender === 'MENS' ?
       await this.setState({ 
@@ -110,29 +110,6 @@ handleHomeClick = () => {
   window.location.assign('/')
 }
 
-// handleBackClick = async () => {
-//   // let selectedItem = this.state.selectedItem
-// if (this.state.selectedItem !== null) {
-//   const savedState = this.state.selectedCategory;
-//   this.setState({ 
-//     selectedItem: "",
-//     selectedCategory: savedState,
-//   })
-//   // await this.setState({ selectedItem: ""})
-// } else if (this.state.selectedCategory !== null) {
-//     // await this.setState({ selectedCategory: ""})
-//     console.log("SelectedItem:", this.state.selectedItem);
-//     console.log("SelectedCategory:", this.state.selectedCategory)
-//   }
-  // {
-  //   selectedItem ?
-  //   this.setState({ selectedItem: "" })
-  //   :
-  //   this.setState({
-  //     selectedCategory: "",
-  //   })
-  // }
-// }
 
 handleChangingSelectedItem = async (id) => {
   const selectedItem = id;
@@ -378,7 +355,6 @@ componentWillUnmount() {
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
-                // womensItemList={womensItemList}
               />
             }/>
 
@@ -391,10 +367,14 @@ componentWillUnmount() {
             <Route path='contact' element={<ContactPage viewPort={viewPort} />}></Route>
 
             {/* pathway for itemDetails */}
-            <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
+            {/* <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
             <Route path='/shop/sneakers/:id' element={<SearchedItemDetails />} /> 
             <Route path='/shop/shirts/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} /> 
+            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} />  */}
+            <Route path='/shop/hats/:id' element={<ItemDetails />} />
+            <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/shirts/:id' element={<ItemDetails />} />
+            <Route path='/shop/jackets/:id' element={<ItemDetails />} /> 
             <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
             <Route path='/shop/womens/:id' element={<ItemDetails />} />
 

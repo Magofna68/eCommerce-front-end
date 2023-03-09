@@ -67,20 +67,15 @@ export default function MensClothing(props) {
     })
   }
 
+  // const handleMensClick = () => {
+  //   window.location.reload(true);
+  // }
+
 
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if 
-    // (selectedItem != null) {
-    //   buttonText="MensClothing"
-    //   currentlyVisibleState = 
-    //   <ItemDetails 
-    //     itemToShow={selectedItem}
-    //     handleHomeClick={handleHomeClick} 
-    //   />
-    // } else if 
-    (selectedCategory === "SNEAKERS") {
+    if (selectedCategory === "SNEAKERS") {
         buttonText="MENS"
         currentlyVisibleState = 
         <Sneakers 
@@ -164,13 +159,30 @@ export default function MensClothing(props) {
         {currentlyVisibleState}
         <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
         {
-          buttonText === "ItemList" ? 
-          <Button onClick={handleBackClick}>ItemLIst< ArrowBackIcon /></Button>
-          :
           buttonText === "MENS" ?
-          <Button onClick={handleBackClick}>{buttonText}< ArrowBackIcon /></Button>
+          <Button  
+            onClick={handleBackClick}
+            style={{ 
+              padding: '0.5% 3%', 
+              marginLeft: '5%', 
+              display: 'flex', 
+              justifyContent: 'left', 
+              alignContent: 'left'
+            }}>
+              {buttonText} < ArrowBackIcon />
+          </Button>
           :
-          <Button onClick={handleHomeClick}>{buttonText}< ArrowBackIcon /></Button>
+          <Button 
+            onClick={()=> navigate(-1)}
+            style={{ 
+              padding: '0.5% 1%', 
+              marginLeft: '5%', 
+              display: 'flex', 
+              justifyContent: 'left', 
+              alignContent: 'left'
+            }}>
+              {buttonText} < ArrowBackIcon />
+          </Button>
         }
         </div>
       </div>

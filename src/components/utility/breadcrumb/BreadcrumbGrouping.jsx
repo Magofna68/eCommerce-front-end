@@ -6,7 +6,7 @@ import './breadcrumbGrouping.styles.scss';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 export default function BreadcrumbGrouping(props) {
-  const {  onBackClick } = props;
+  const {  navigate } = props;
   return (
     <div 
     className='breadcrumbGrouping'>
@@ -25,7 +25,7 @@ export default function BreadcrumbGrouping(props) {
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', onHover: 'pointer' }}
           color="inherit"
-          onClick={onBackClick}
+          onClick={() => navigate(-1)}
           // onClick={onClearItemStateClick}
         >
           ITEM LIST

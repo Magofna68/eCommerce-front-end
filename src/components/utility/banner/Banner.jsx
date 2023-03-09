@@ -4,6 +4,23 @@ export default function Banner(props) {
   const { hideBanner } = props;
   const windowSize = window.innerWidth;
 
+
+
+  // const data = [
+  //   {
+  //     title: 'Turn of the Season Clothing Launch!',
+  //     body: 'Join us on the First of the month to see what’s coming next.'
+  //   },
+  //   {
+  //     title: 'Celebrate Diversity',
+  //     body: 'Be apart of the movement for inclusivity.'
+  //   },
+  //   {
+  //     title: 'Underground Loyalty',
+  //     body: 'Where being a member pays. Join Now.'
+  //   },
+  // ]
+
   return (
     <>
     { 
