@@ -22,8 +22,6 @@ import ItemDetails from '../../../../pages/itemDetailPage/itemDetails/ItemDetail
 export default function MensClothing(props) {
   const { 
     selectedCategory, 
-    mensItemList, 
-    mensFilteredList,
     shopData,
     filteredList, 
     selectedItem, 
@@ -33,8 +31,8 @@ export default function MensClothing(props) {
     handleSortClick,
     handleHomeClick,
     handleBackClick,
-    priceFilterData,
-    priceFilterTitle,
+    // priceFilterData,
+    // priceFilterTitle,
     gender
   } = props;
 

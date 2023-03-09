@@ -119,6 +119,10 @@ handleHomeClick = () => {
   window.location.assign('/')
 }
 
+handleBackClick = () => {
+  window.location.reload(true);
+}
+
 
 handleChangingSelectedItem = async (id) => {
   const selectedItem = id;
@@ -197,7 +201,6 @@ handleSortClick = async (term) => {
 
 
 handleFilterClick = async (value) => {
-  // let shopList = [...MENS_SHOP_LIST];
   let shopList = [...this.state.shopData]
   console.log("shopList from App", shopList)
   if (value === '25') {
@@ -353,13 +356,12 @@ componentWillUnmount() {
                 handleBackClick={this.handleBackClick}
 
                 selectedCategory={selectedCategory}
-                priceFilterData={priceFilterData}
-                priceFilterTitle={priceFilterTitle}
+                // priceFilterData={priceFilterData}
+                // priceFilterTitle={priceFilterTitle}
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
                 gender={gender}
-                // mensItemList={mensItemList}
               />}
             />
             <Route exact path='/shop/womens' element={
@@ -373,8 +375,8 @@ componentWillUnmount() {
                 handleBackClick={this.handleBackClick}
 
                 selectedCategory={selectedCategory}
-                priceFilterData={priceFilterData}
-                priceFilterTitle={priceFilterTitle}
+                // priceFilterData={priceFilterData}
+                // priceFilterTitle={priceFilterTitle}
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
