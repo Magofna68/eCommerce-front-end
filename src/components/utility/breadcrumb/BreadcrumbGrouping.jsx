@@ -3,11 +3,10 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import HomeIcon from '@mui/icons-material/Home';
 import './breadcrumbGrouping.styles.scss';
-import Button from 'react-bootstrap/Button';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
-export default function Breadcrumb(props) {
-  const { onClearItemStateClick } = props;
+export default function BreadcrumbGrouping(props) {
+  const {  navigate } = props;
   return (
     <div 
     className='breadcrumbGrouping'>
@@ -16,8 +15,8 @@ export default function Breadcrumb(props) {
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', }}
           color="inherit"
-          href="http://localhost:3000/"
-          // href='https://magofna68.github.io/eCommerce-front-end/#/'
+          // href="http://localhost:3000/"
+          href='https://magofna68.github.io/eCommerce-front-end/#/'
           >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           HOME
@@ -26,7 +25,8 @@ export default function Breadcrumb(props) {
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', onHover: 'pointer' }}
           color="inherit"
-          onClick={onClearItemStateClick}
+          onClick={() => navigate(-1)}
+          // onClick={onClearItemStateClick}
         >
           ITEM LIST
         <KeyboardReturnIcon sx={{ mr: 0.5, }} fontSize="inherit" />

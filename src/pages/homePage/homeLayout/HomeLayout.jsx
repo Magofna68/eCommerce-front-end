@@ -1,28 +1,32 @@
 import React, { useState } from 'react'
 import { useEffect, useRef } from "react";
 import './homeLayout.styles.scss';
-
+import {MENS_SHOP_LIST, } from '../../../data.jsx';
 import Carousel from '../../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import transparentCrown from '../../../assets/transparentCrown.png';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import { Typography } from "@mui/material";
 import  Banner from '../../../components/utility/banner/Banner.jsx';
-import Slider from 'react-touch-drag-slider'
-import Directory from '../../shopPage/directory/Directory.jsx';
-import MobileSlider from '../../../components/utility/mobileSlider/MobileSlider';
 import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
+import Randomizer from '../../../components/utility/randomizer/Randomizer';
 
 export default function HomeLayout(props) {
-  const { categoryRedirect, priceFilterRedirect } = props;
+  const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick } = props;
 
+  // const bannerSessionState = JSON.parse(sessionStorage.getItem('banner-info')) || '[]'
+  // const [ hide, setHide ] = useState(bannerSessionState)
   const [ hide, setHide ] = useState(true)
 
   const hideBanner = () => {
     setHide(false)
   }
+
+  // useEffect(()=> {
+  //   sessionStorage.setItem('banner-info', JSON.stringify(hide));
+  // }, [hide])
+
+  const mens_randomizer_array = MENS_SHOP_LIST;
 
   const carouselImages = 
     [
@@ -55,8 +59,6 @@ export default function HomeLayout(props) {
       }
     ]
     
-    // const categories = ['shirts', 'sneakers','jackets', 'hats',]
-
     const mobileSlides = [
       {
         id: 0,
@@ -79,6 +81,11 @@ export default function HomeLayout(props) {
         img: 'https://media.istockphoto.com/id/1392944438/photo/portrait-of-handsome-attractive-positive-curly-haired-indian-or-arabian-guy-wearing-white.jpg?b=1&s=170667a&w=0&k=20&c=AuDfv9PdKqXO3nKHFc-uBZ1bt0SXXceqFLo-OhJnI6o=',
       },
     ]
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
     
     return (
       <>
@@ -138,7 +145,14 @@ export default function HomeLayout(props) {
             </div>
           </div>
 
-          <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} />
+          <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} toItemDetailsClick={toItemDetailsClick} />
+
+          {/* <div className="trendingContainer">
+            <h1>TRENDING</h1>
+            <div className="randomizerContain">
+              <Randomizer array={mens_randomizer_array} />
+            </div>
+          </div> */}
 
           {/* Filter Function rendered based on Screen size*/}
             <div className='priceFilterContainer'>
@@ -170,7 +184,7 @@ export default function HomeLayout(props) {
                     </div>
                   </div>
 
-                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect(150)} style={{ background: 'black'}}>
+                  <div className="itemFilterContainer" onClick={()=> priceFilterRedirect('sale')} style={{ background: 'black'}}>
                   <div className="filterCategoryItem"  style={{ backgroundImage: `url('https://image.geeko.ltd/webp/original/3b75cc97-8b77-49ab-b06d-1eae7a626234-02163-pc-sec')`}}/>
                     <div className="content" >
                       <span>ON</span><h1>SALE</h1>

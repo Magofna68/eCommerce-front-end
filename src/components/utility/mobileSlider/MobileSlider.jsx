@@ -3,9 +3,10 @@ import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
 import { RxDotFilled } from 'react-icons/rx';
 import Slider from 'react-touch-drag-slider';
 import Container from 'react-bootstrap/Container';
+import './mobileSlider.styles.scss';
 
 function SlideShow(props) {
-  const { categoryRedirect, slides } = props;
+  const { categoryRedirect, slides, } = props;
   const [index, setIndex] = useState(0)
   
   const nextSlide = () => {
@@ -20,7 +21,7 @@ function SlideShow(props) {
     setIndex(slideIdx)
   }
   const setFinishedIndex = (i) => {
-    console.log("finished dragging on slide", i);
+    // console.log("finished dragging on slide", i);
     setIndex(i);
   }
 
@@ -91,7 +92,6 @@ function SlideShow(props) {
           {/* Right Arrow */}
             <div 
               className="
-              
               group-hover:block 
               absolute top-[37%] 
               -translate-x-[5%] 
@@ -110,7 +110,8 @@ function SlideShow(props) {
               {slides.map((slide, slideIdx) => (
                 <div 
                   onClick={() => goToSlide(slideIdx)} 
-                  className='text-2xl cursor-pointer active:gray'
+                  className='text-2xl cursor-pointer'
+                  // style={{ color: 'black'}}
                   key={slideIdx}
                 >
                   <RxDotFilled />
@@ -156,22 +157,21 @@ function SlideShow(props) {
                   </h1>
                 </div>
           {/* Left Slider Icon*/}
-          <div style={{position: 'absolute', left: 0, bottom: 75, zIndex: 1}} 
-            className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer"
-          >
-              <BsChevronCompactLeft size={30} onClick={previousSlide} />
-          </div>
+            <div style={{position: 'absolute', left: 0, bottom: 75, zIndex: 1}} 
+              className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer"
+            >
+                <BsChevronCompactLeft size={30} onClick={previousSlide} />
+            </div>
 
           {/* Right Slider Icon */}
-          <div style={{position: 'absolute', right: 0, bottom: 75, zIndex: 1}} 
-          className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer">
-              <BsChevronCompactRight size={30} onClick={nextSlide} />
+            <div style={{position: 'absolute', right: 0, bottom: 75, zIndex: 1}} 
+              className="group-hover:block rounded-full bg-black/20 text-2xl p-2 text-white cursor-pointer">
+                <BsChevronCompactRight size={30} onClick={nextSlide} />
+            </div>
           </div>
-              </div>
-              ))}
-
+         ))}
           </Slider>
-      </>
+        </>
       }
     </Container>
   );

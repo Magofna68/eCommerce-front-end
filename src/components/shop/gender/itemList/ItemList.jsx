@@ -1,38 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
-import King from '../../../../assets/King.png';
+// import King from '../../../../assets/King.png';
 import CollectionItem from '../../collection-item/CollectionItem.jsx';
 import { PropTypes } from 'prop-types';
 import Container from 'react-bootstrap/Container';
-import Link from 'react-dom';
+// import Link from 'react-dom';
 import './itemList.styles.scss';
-import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
-import Button from 'react-bootstrap/Button';
-import {Row, Col} from 'react-bootstrap/';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
+// import Breadcrumb from '../../../utility/breadcrumb/Breadcrumb.jsx';
+// import Button from 'react-bootstrap/Button';
+// import {Row, Col} from 'react-bootstrap/';
+// import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// import ToggleButton from 'react-bootstrap/ToggleButton';
 import Radio from '../../../utility/radioButton/RadioButton.jsx';
 // import { Items, PaginatedItems } from '../../../utility/pagination/Pagination';
 
 export default function ItemList(props) {
-  const { FullItemList, onItemSelection, categoryRedirect, priceFilterData, priceFilterTitle, onFilterClick, onSortClick } = props;
+  const { fullItemList, onItemSelection, categoryRedirect, priceFilterData,
+    priceFilterTitle, onFilterClick, onSortClick, toItemDetailsClick} = props;
+
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
 
-
-  function getRandom(array) {
-    let i = array.length -1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  }
+  // console.log("FULLITEMLIST", fullItemList)
+  // function getRandom(array) {
+  //   let i = array.length -1;
+  //   for (; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     const temp = array[i];
+  //     array[i] = array[j];
+  //     array[j] = temp;
+  //   }
+  //   return array;
+  // }
 
   const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <>
       <Container fluid="true" className='itemListPreview'>
@@ -48,19 +54,9 @@ export default function ItemList(props) {
 
         {
           priceFilterTitle ?
-          <span  className="title"
-            style={{ 
-              color: 'black', 
-              fontSize: '2em',
-              marginBottom: '.75em',
-              marginTop: '1em',
-              fontWeight: '700',
-              textAlign: 'center',
-            }}>
-              {priceFilterTitle}
-          </span>
+            <span  className="title"> {priceFilterTitle} </span>
           :
-          <span className="title">SHOP</span>
+            <span id="title">SHOP</span>
         }
         {
           // coming from homepagelayout
@@ -82,20 +78,37 @@ export default function ItemList(props) {
         }
         <br/>
         <div className='optionsContainer'>
-          <div>
-            <Radio 
-              onClick={()=> onFilterClick({radioValue})} 
-              onFilterClick={onFilterClick}
-            />
-          </div>
-          <br/>
-          <div>
+          {
+            priceFilterTitle ?
+              null
+            :
+            <>
+              {/* <div> */}
+                <Radio 
+                  onClick={()=> onFilterClick({radioValue})} 
+                  onFilterClick={onFilterClick}
+                  />
+              {/* </div> */}
+              <br/>
+            </>
+
+          }
+          <div className="sortContainer">
             <span>Sort by Price: </span>
+            {
+              priceFilterData ?
                 <div>
                   <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
                   <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H')}/> Low to High
                   {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
+              :
+                <div>
+                  <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('High2Low')}/> High to Low &nbsp;&nbsp;
+                  <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('Low2High')}/> Low to High
+                  {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
+                </div>
+            }
 
           </div>
         </div>
@@ -106,6 +119,7 @@ export default function ItemList(props) {
             display: 'flex',
             alignContent: 'space-between',
             justifyContent: 'center',
+            // columns: '2 auto',
           }}
         >
         {
@@ -113,6 +127,8 @@ export default function ItemList(props) {
             // getRandom(priceFilterData).map(({id, ...props}) => (
             priceFilterData.map(({id, ...props}) => (
               <CollectionItem
+                id={id}
+                toItemDetailsClick={toItemDetailsClick}
                 key={id}
                 handleItemSelection={onItemSelection}
                 {...props}
@@ -120,8 +136,10 @@ export default function ItemList(props) {
             ))
           :
             // getRandom(FullItemList).map(({id, ...props}) => (
-            FullItemList.map(({id, ...props}) => (
+            fullItemList.map(({id, ...props}) => (
               <CollectionItem
+                id={id}
+                toItemDetailsClick={toItemDetailsClick}
                 key={id}
                 handleItemSelection={onItemSelection}
                 {...props}

@@ -4,19 +4,39 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import Chip from '@mui/material/Chip';
 // import SizeList from '../../components/utility/sizeList/SizeList';
 import SizeList from '../../../components/utility/sizeList/SizeList.jsx';
-import Breadcrumb from '../../../components/utility/breadcrumb/BreadcrumbGrouping.jsx';
+import BreadcrumbGrouping from '../../../components/utility/breadcrumb/BreadcrumbGrouping.jsx';
 import { ShoppingCartContext } from '../../../components/context/ShoppingCartContext.jsx';
 import Accordion from '../../../components/utility/accordion/Accordion.jsx';
 import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import CheckIcon from '@mui/icons-material/Check';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { 
-    name, price, id, img, img2, img3, img4, desc, reviews,
-     detail, alt, title, handleClearItemStateClick 
-  } = props;
+  const { itemToShow, handleHomeClick, handleClearStateClick } = props;
+  // const { name, price, id, img, img2, img3, img4, desc, reviews,
+  //     detail, alt, title, } = itemToShow;
+  // const { 
+  //   name, price, id, img, img2, img3, img4, desc, reviews, handleBackClick,
+  //   detail, alt, title, handleClearStateClick, handleHomeClick,
+  // } = props;
+
+  const location = useLocation();
+  // coming from searchBar
+    let name = location.state.name;
+    let id= location.state.id
+    let price = location.state.price;
+    let img = location.state.img;
+    let img2 = location.state.img2;
+    let img3 = location.state.img3;
+    let img4 = location.state.img4;
+    let desc = location.state.desc;
+    let detail = location.state.detail;
+    let alt = location.state.detail;
+    let reviews = location.state.reviews;
 
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
@@ -84,8 +104,8 @@ export default function ItemDetails(props) {
 
   let chip = `Size ${value}`
 
-  const details = detail;
-  const detailList = details.map((detail) => 
+  // const details = detail;
+  const detailList = detail.map((detail) => 
     <li className='detailItem'>{detail}</li>
   );
 
@@ -106,7 +126,7 @@ export default function ItemDetails(props) {
       default:
         setActiveImg(img)
     }
-  console.log(activeImg)}, [selectedImg])
+  }, [selectedImg])
 
 
   function reviewStars(num) {
@@ -131,10 +151,16 @@ export default function ItemDetails(props) {
     );
   };
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
-      <span id="returnIcon" onClick={handleClearItemStateClick}>
-        <Breadcrumb onClearItemStateClick={handleClearItemStateClick}/>
+      <span id="returnIcon" >
+        <BreadcrumbGrouping onClearStateClick={handleClearStateClick} navigate={navigate} />
       </span>
       <Container fluid style={{padding: 0}}>
         <Row>
@@ -245,6 +271,8 @@ export default function ItemDetails(props) {
             
             <div style={{ textAlign: 'left', marginTop: '-3%'}}>
               <Accordion 
+                id={id}
+                key={id}
                 desc={desc} 
                 details={detailList} 
                 reviews={reviews}
@@ -298,6 +326,17 @@ export default function ItemDetails(props) {
         </Col>
       </Row>
     </Container>
+      <Button 
+        onClick={() => navigate(-1)}
+        style={{ 
+          padding: '0.5% 3%', 
+          marginLeft: '5%', 
+          display: 'flex', 
+          justifyContent: 'left', 
+          alignContent: 'left'
+        }}>
+          <ArrowBackIcon />
+      </Button>
     </>
   )
 }

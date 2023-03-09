@@ -16,6 +16,8 @@ export default function SearchedItemDetails(props) {
   const cart = useContext(ShoppingCartContext);
   const navigate = useNavigate(-1);
   const location = useLocation();
+  console.log("SEARCHEDitemDetails# -- location: ", location)
+  
   // coming from searchBar
     let name = location.state.name;
     let id= location.state.id

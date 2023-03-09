@@ -1,17 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import {SHOP_DATA} from '../../../../data.jsx'
 // import CollectionPreview from '../../preview-collection/CollectionPreview';
 // import FullItemCollection from '../fullCollection/FullItemCollection/FullItemCollection.jsx'
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Hats(props) {
-  const { onItemSelection, filteredHats, itemToShow } = props;
+  const { toItemDetailsClick, onItemSelection, filteredHats, itemToShow, handleHomeClick } = props;
   const hatCollection = [];
   hatCollection.push(SHOP_DATA[2]);
   // const [ filteredList, setFilteredList ] = useState({...mensFilteredHats})
   // console.log("FilteredList", filteredList);
   console.log("mensFilteredHats being passed from MensClothing", filteredHats)
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <div
       style={{
@@ -23,9 +27,11 @@ export default function Hats(props) {
         hatCollection.map(({id, ...otherCollectionProps}) => (
           <FullItemCollection 
             key={id} 
+            toItemDetailsClick={toItemDetailsClick}
             filteredList={filteredHats} 
             id={id} 
             onItemSelection={onItemSelection} 
+            handleHomeClick={handleHomeClick}
             {...otherCollectionProps} />
         ))
       };

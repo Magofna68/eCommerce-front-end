@@ -1,45 +1,39 @@
+import React, { useState, useContext } from 'react';
+// ASSETS
 import './navbar.styles.scss';
-
+import Bag from '../../assets/bag.png';
+import Logo from '../../assets/crown.png'
+// COMPONENTS
+import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
+import SearchBar from '../searchBar/SearchBar.jsx';
+// BOOTSTRAP
 import { Row, Col, } from 'react-bootstrap';
-import { Container, Button, Modal, NavDropdown } from 'react-bootstrap';
+import { Container, Button, Modal } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/esm/Nav';
-
+// MATERIAL UI
 import ClearIcon from '@mui/icons-material/Clear';
 import SearchIcon from '@mui/icons-material/Search';
 import { Typography } from '@mui/material';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-
 import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
-
-import Bag from '../../assets/bag.png';
-import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
-import HomePage from '../../pages/homePage/HomePage.jsx';
-import ContactPage from '../../pages/contactPage/ContactPage.jsx';
-import ShopPage from '../../pages/shopPage/ShopPage.jsx';
-import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage.jsx';
-import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage.jsx';
-
-import Logo from '../../assets/crown.png'
-import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
-import SearchBar from '../searchBar/SearchBar.jsx';
-
-import { Route, Link, Routes, } from 'react-router-dom';
-
-import React, { useState, useContext,  } from 'react';
+// REACT ROUTER
+import { Link } from 'react-router-dom';
 
 
-export default function Navigationbar({currentUser}) {
+
+export default function Navigationbar(props) {
+  const {currentUser, handleClearStateClick, handleGenderUpdate } = props;
+
   const cart = useContext(ShoppingCartContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
   
   const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0); 
   const [open, setOpen ] = useState(false);
@@ -111,11 +105,11 @@ export default function Navigationbar({currentUser}) {
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
         <NavbarCollapse className='navbar-toggle justify-content-end'>
           <Nav className='justify-content-center margin-left-auto'>            
-            <Link className="nav-link" to="/#">HOME</Link>
-            <Link className="nav-link" to="/shop" >Shop</Link>
-            <Link className='nav-link' to="/shop/mens">Mens</Link>
-            <Link className='nav-link' to="/shop/womens">Womens</Link>
-            <Link className='nav-link' to='/contact'>contact</Link>
+            <Link className="nav-link" to="/#" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
+            <Link className="nav-link" to="/shop" onClick={handleClearStateClick}>Shop</Link>
+            <Link className='nav-link' to="/shop/mens" onClick={() => handleGenderUpdate("MENS")}>Mens</Link>
+            <Link className='nav-link' to="/shop/womens" onClick={() => handleGenderUpdate("WOMENS")}>Womens</Link>
+            <Link className='nav-link' to='/contact' onClick={handleClearStateClick}>contact</Link>
           </Nav>
         </NavbarCollapse>
       </Navbar>
@@ -135,7 +129,6 @@ export default function Navigationbar({currentUser}) {
                 transition: 'color 0.50s, -webkit-text-stroke 0.50s',
                 '&: hover': {
                   color: 'rgb(255,155,0,50%)',
-                  // color: 'rgb(192,192,192,50%)',
                   WebkitTextStroke: '0.5px silver',
                   cursor: 'arrow',
                 }

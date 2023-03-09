@@ -1,13 +1,11 @@
 import React from 'react';
-import Navigationbar from '../../navbar/Navbar.jsx'
-// import SearchBar from '../../searchBar/SearchBar';
-
 import './header.styles.scss';
+import Navigationbar from '../../navbar/Navbar.jsx'
 import { auth } from '../../../firebase/Firebase.utils';
 
 import { Notyf } from 'notyf';
-
 import { Link, } from 'react-router-dom';
+
 import Navbar from 'react-bootstrap/Navbar';
 
 const notyf = new Notyf();
@@ -22,7 +20,7 @@ function showSuccessAlert() {
 };
 
 
-export const Header = ({currentUser}) => (
+export const Header = ({currentUser, handleClearStateClick, handleGenderUpdate }) => (
     <div className='header'>
       <div className="contactInfo">
         <span>503-269-2656</span>
@@ -48,6 +46,6 @@ export const Header = ({currentUser}) => (
             </div>
           </div>
           
-          <Navigationbar currentUser = {currentUser} />
+          <Navigationbar handleGenderUpdate={handleGenderUpdate} handleClearStateClick={handleClearStateClick} currentUser={currentUser} />
         </div>
-    );
+);

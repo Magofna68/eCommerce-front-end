@@ -8,7 +8,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 export default function Footer() {
   const services = [
@@ -42,7 +41,6 @@ export default function Footer() {
   ];
 
   const footerBottomMobile = footerBottom.slice(0, 3);
-  console.log(footerBottomMobile)
 
   const connect = [
     <a href="https://www.facebook.com/brandon.magofna.5" target="_blank" rel="noreferrer"><FacebookIcon fontSize="large" /></a>,
