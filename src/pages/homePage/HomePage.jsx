@@ -56,13 +56,7 @@ export default function HomePage(props) {
   let currentlyVisibleState = null;
   let buttonText = null;
           
-    if 
-    // (selectedItem !== null) {
-    //   buttonText = "Back to List"
-    //   currentlyVisibleState = 
-    //     <ItemDetails itemToShow={selectedItem} handleClearStateClick={handleClearStateClick} handleBackclick={handleBackClick} />
-    // } else if 
-    (selectedCategory === "SNEAKERS") {
+    if (selectedCategory === "SNEAKERS") {
       buttonText = "Home"
       currentlyVisibleState = 
         <Sneakers toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem} />

@@ -31,7 +31,7 @@ import SearchBar from '../searchBar/SearchBar.jsx';
 
 import { Route, Link, Routes, } from 'react-router-dom';
 
-import React, { useState, useContext,  } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 
 export default function Navigationbar(props) {
@@ -40,7 +40,6 @@ export default function Navigationbar(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
   
   const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0); 
   const [open, setOpen ] = useState(false);

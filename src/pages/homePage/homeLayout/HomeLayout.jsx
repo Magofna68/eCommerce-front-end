@@ -14,11 +14,17 @@ import Randomizer from '../../../components/utility/randomizer/Randomizer';
 export default function HomeLayout(props) {
   const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick } = props;
 
+  // const bannerSessionState = JSON.parse(sessionStorage.getItem('banner-info')) || '[]'
+  // const [ hide, setHide ] = useState(bannerSessionState)
   const [ hide, setHide ] = useState(true)
 
   const hideBanner = () => {
     setHide(false)
   }
+
+  // useEffect(()=> {
+  //   sessionStorage.setItem('banner-info', JSON.stringify(hide));
+  // }, [hide])
 
   const mens_randomizer_array = MENS_SHOP_LIST;
 

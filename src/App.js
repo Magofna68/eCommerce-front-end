@@ -384,6 +384,7 @@ componentWillUnmount() {
             <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
             <Route path='/shop/shirts/:id' element={<ItemDetails />} />
             <Route path='/shop/jackets/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/sale/:id' element={<ItemDetails />} />
             <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
             <Route path='/shop/womens/:id' element={<ItemDetails />} />
 

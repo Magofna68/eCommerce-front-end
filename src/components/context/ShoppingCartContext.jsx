@@ -12,11 +12,17 @@ export const ShoppingCartContext = createContext({
   getTotalCost: () => {},
 });
 
-const cartFromSessionStorage = JSON.parse(sessionStorage.getItem('cartProducts')) || '[]'
-
 export function CartProvider({children}) {
-  const [cartProducts, setCartProducts ] = useState(cartFromSessionStorage);
+  // const [cartProducts, setCartProducts ] = useState([cartFromSessionStorage]);
+  const [cartProducts, setCartProducts ] = useState([]);
+  
+  useEffect(() => {
+    let cartFromSessionStorage = JSON.parse(sessionStorage.getItem('cartProducts'));
 
+    if (cartFromSessionStorage) {
+      setCartProducts(cartFromSessionStorage)
+    }
+  }, [])
 
   useEffect(() => {
     sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts))
