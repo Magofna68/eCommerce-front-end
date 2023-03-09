@@ -1,41 +1,35 @@
+import React, { useState, useContext } from 'react';
+// ASSETS
 import './navbar.styles.scss';
-
+import Bag from '../../assets/bag.png';
+import Logo from '../../assets/crown.png'
+// COMPONENTS
+import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
+import SearchBar from '../searchBar/SearchBar.jsx';
+// BOOTSTRAP
 import { Row, Col, } from 'react-bootstrap';
-import { Container, Button, Modal, NavDropdown } from 'react-bootstrap';
+import { Container, Button, Modal } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/esm/Nav';
-
+// MATERIAL UI
 import ClearIcon from '@mui/icons-material/Clear';
 import SearchIcon from '@mui/icons-material/Search';
 import { Typography } from '@mui/material';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-
 import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
+// REACT ROUTER
+import { Link } from 'react-router-dom';
 
-import Bag from '../../assets/bag.png';
-import SignInAndSignUpPage from '../../pages/signinPage/Sign-in-sign-up';
-import HomePage from '../../pages/homePage/HomePage.jsx';
-import ContactPage from '../../pages/contactPage/ContactPage.jsx';
-import ShopPage from '../../pages/shopPage/ShopPage.jsx';
-import PaymentCompletePage from '../../pages/paymentCompletePage/PaymentCompletePage.jsx';
-import PaymentFailedPage from '../../pages/paymentCompletePage/PaymentFailedPage.jsx';
-
-import Logo from '../../assets/crown.png'
-import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
-import SearchBar from '../searchBar/SearchBar.jsx';
-
-import { Route, Link, Routes, } from 'react-router-dom';
-
-import React, { useState, useContext, useEffect } from 'react';
 
 
 export default function Navigationbar(props) {
   const {currentUser, handleClearStateClick, handleGenderUpdate } = props;
+
   const cart = useContext(ShoppingCartContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -81,10 +75,6 @@ export default function Navigationbar(props) {
           window.location.assign(response.url);
         }
     })
-  }
-
-  const useClearState = () => {
-    useState(null)
   }
 
   return (
@@ -139,7 +129,6 @@ export default function Navigationbar(props) {
                 transition: 'color 0.50s, -webkit-text-stroke 0.50s',
                 '&: hover': {
                   color: 'rgb(255,155,0,50%)',
-                  // color: 'rgb(192,192,192,50%)',
                   WebkitTextStroke: '0.5px silver',
                   cursor: 'arrow',
                 }

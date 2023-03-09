@@ -4,13 +4,10 @@ import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
 import Queen from '../../../../assets/Queen.png';
 import './mensClothing.styles.scss';
-import '../women/womensClothing.styles.scss';
+import './womensClothing.styles.scss';
 import ItemList from '../itemList/ItemList.jsx';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
-// import Breadcrumbs from '../../../utility/breadcrumb/Breadcrumb.jsx';
-// import Link from '@mui/material/Link';
-// import HomeIcon from '@mui/icons-material/Home';
 import Sneakers from '../../category/sneakers/Sneakers.jsx';
 import Hats from '../../category/hats/Hats.jsx';
 import Jackets from '../../category/jackets/Jackets.jsx';
@@ -19,7 +16,7 @@ import Sale from '../../category/sale/Sale.jsx'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ItemDetails from '../../../../pages/itemDetailPage/itemDetails/ItemDetails.jsx';
 
-export default function MensClothing(props) {
+export default function ClothingController(props) {
   const { 
     selectedCategory, 
     shopData,
@@ -42,16 +39,10 @@ export default function MensClothing(props) {
   const toItemDetailsClick = (e) => {
     // Save the ID into variable and filter through array of obj to find selected item
     const savedId = e.id;
-    console.log("MENSclothing# -- savedId: ", e)
     const list = [ ...MENS_SHOP_LIST, ...WOMENS_SHOP_LIST ]
-    console.log("#MENSclothing: list ", list)
     const savedItem = list.filter(item => item.id === savedId)[0]
-    console.log("MENSclothing# -- SavedItem:", savedItem)
-    // let path = savedItem.title + '/' + savedId;
-    // let path2 = 'shop/'+ savedItem.title + '/' + savedId;
-    let path3 = savedId;
-    console.log("path", path3)
-    navigate(path3, {
+    let path = savedId;
+    navigate(path, {
       state:  {
         id: savedId, 
         title: savedItem.title,
@@ -68,16 +59,10 @@ export default function MensClothing(props) {
     })
   }
 
-  // const handleMensClick = () => {
-  //   window.location.reload(true);
-  // }
-
-
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (selectedCategory === "SNEAKERS") {
-        // buttonText="MENS"
         buttonText=`${gender}`
         currentlyVisibleState = 
         <Sneakers 
@@ -88,7 +73,6 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     }  else if (selectedCategory === "SHIRTS") {
-        // buttonText="MENS"
         buttonText=`${gender}`
         currentlyVisibleState = 
         <Shirts
@@ -99,7 +83,6 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
   } else if (selectedCategory === "HATS") {
-        // buttonText="MENS"
         buttonText=`${gender}`
         currentlyVisibleState =  
         <Hats 
@@ -110,7 +93,6 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     } else if (selectedCategory === "JACKETS") {
-        // buttonText="MENS"
         buttonText=`${gender}`
         currentlyVisibleState = 
         <Jackets 
@@ -121,7 +103,6 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     } else if (selectedCategory === "SALE") {
-      // buttonText="MENS"
       buttonText=`${gender}`
       currentlyVisibleState = 
       <Sale
@@ -139,13 +120,10 @@ export default function MensClothing(props) {
         onFilterClick={handleFilterClick}
         categoryRedirect={categoryRedirect}
         fullItemList={shopData} 
-        onItemSelection={handleChangingSelectedItem}
-        // priceFilterData={priceFilterData}
-        // priceFilterTitle={priceFilterTitle}  
+        onItemSelection={handleChangingSelectedItem} 
       />
       buttonText = "Home"
     }
-
 
     return (
       <div>
@@ -204,6 +182,3 @@ export default function MensClothing(props) {
       </div>
     );
   }
-// }
-
-// export default MensClothing;

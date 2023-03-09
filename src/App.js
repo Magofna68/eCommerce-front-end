@@ -1,15 +1,17 @@
 import React from 'react';
-import './App.scss';
 import { Route, Routes } from 'react-router-dom';
+import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
+
+import './App.scss';
+import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from './data';
+
 import Jackets from '../src/components/shop/category/jackets/Jackets.jsx';
 import Hats from './components/shop/category/hats/Hats.jsx';
 import Shirts from './components/shop/category/shirts/Shirts.jsx';
 import Sneakers from './components/shop/category/sneakers/Sneakers.jsx';
 import Sale from './components/shop/category/sale/Sale.jsx';
-import MensClothing from './components/shop/gender/men/MensClothing.jsx';
-import WomensClothing from './components/shop/gender/women/WomensClothing.jsx';
+import ClothingController from './components/shop/gender/clothingController/ClothingController.jsx';
 import ItemDetails from './pages/itemDetailPage/itemDetails/ItemDetails.jsx'
-import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from './data';
 import {Header} from './components/utility/header/Header.jsx';
 import HomePage from './pages/homePage/HomePage.jsx';
 import NotFound from './pages/notFound/NotFound.jsx';
@@ -21,12 +23,6 @@ import PaymentFailedPage from './pages/paymentCompletePage/PaymentFailedPage.jsx
 import UnderConstruction from './pages/underConstruction/UnderConstruction.jsx';
 import ReturnPolicyPage from './pages/returnPolicyPage/ReturnPolicyPage.jsx';
 
-import { auth, createUserProfileDocument } from './firebase/Firebase.utils';
-
-// import CartProvider from './components/context/ShoppingCartContext';
-// import UnderConstruction from './pages/underConstruction/UnderConstruction';
-// import ReturnPolicyPage from './pages/returnPolicyPage/ReturnPolicyPage';
-
 class App extends React.Component {
   constructor() {
     super();
@@ -35,13 +31,14 @@ class App extends React.Component {
       currentView: null,
       selectedItem: null,
       gender: "",
-      priceFilterTitle: "",
       selectedCategory: "",
       shopData: [],
       filteredList: [],
-      priceFilterData: [],
       filteredItemList: [],
       viewPort: window.innerWidth,
+      // Below consumed by homePage:
+      priceFilterTitle: "",
+      priceFilterData: [],
     }
 }
 
@@ -130,7 +127,7 @@ handleChangingSelectedItem = async (id) => {
   await this.setState({
     selectedItem: selectedItem
   })
-  await console.log("(Write function in itemList to redirect to itemDetails) -- SelectedItem:", this.state.selectedItem)
+  // await console.log("(Write function in itemList to redirect to itemDetails) -- SelectedItem:", this.state.selectedItem)
 }
 
 
@@ -155,45 +152,39 @@ handleClearStateClick = (text) => {
   }
 }
 
-handleSortClick = async (term) => {
- console.log("BEFORE priceFilterData:", this.state.priceFilterData)
- console.log("BEFORE shopData:", this.state.shopData)
+  handleSortClick = async (term) => {
     const priceFilterData = [...this.state.priceFilterData];
     const shopData = [...this.state.shopData];
     this.setState({ 
       priceFilterData: [],
       shopData: [],
     })
-    
-    console.log("AFTER priceFilterData:", this.state.priceFilterData)
-    console.log("AFTER shopData", this.state.shopData)
 
     switch(term) {
       // from homePagelayout
       case "H2L":
-        priceFilterData.sort((item1, item2) => 
-        (item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
-        await this.setState({ priceFilterData: [...priceFilterData]})
-      break;
+          priceFilterData.sort((item1, item2) => (
+            item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
+            await this.setState({ priceFilterData: [...priceFilterData]})
+        break;
 
       case "L2H":
-        priceFilterData.sort((item1, item2) => 
-        (item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
-        await this.setState({ priceFilterData: [...priceFilterData]})
-      break;
+          priceFilterData.sort((item1, item2) => (
+            item1.price - item2.price > 0) ? 1 : (item1.price - item2.price < 0) ? -1: 0);
+            await this.setState({ priceFilterData: [...priceFilterData]})
+        break;
       // from Mens / Womens Clothing
       case "High2Low":
           shopData.sort((item1, item2) => (
             item1.price - item2.price > 0) ? -1 : (item1.price - item2.price < 0) ? 1: 0);
             await this.setState({ shopData: shopData})
-      break;
+        break;
 
       case "Low2High":
           shopData.sort((item1, item2) => (
             item1.price - item2.price > 0 ? 1: (item1.price - item2.price < 0) ? -1: 0))
             await this.setState({ shopData: shopData })
-      break;
-
+        break;
       default:
         return;
         }
@@ -235,7 +226,6 @@ handleFilterClick = async (value) => {
 
  priceFilterRedirect = async (price) => {
     let data = [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST];
-  // console.log("data", data)
     if (price === 100) {
       const filteredData = data.filter((item)=> item.price < price)
       await this.setState({ 
@@ -258,8 +248,6 @@ handleFilterClick = async (value) => {
       });
       await this.setState({ selectedCategory: "FILTER"})
     }
-    // console.log("AfterStateUpdate:", this.state.priceFilterData)
-
   }
 
 unsubscribeFromAuth = null
@@ -274,7 +262,6 @@ componentDidMount() {
        })
     }
   
-  // console.log("componentDidMount Hit")
   // subscriber to listen to auth state change -- allots for OAuth sign in while component is mounted
   
   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
@@ -291,16 +278,8 @@ componentDidMount() {
             // .data() is what returns our properties with data values stored in snapshot
           }
         });
-        // console.log(this.state);
       });
-      
-    } else { 
-      this.setState({currentUser: userAuth})
-      
-    }
-    // createUserProfileDocument(userAuth);
-    // this.setState({ currentUser: user });
-    // console.log("Welcome", userAuth.displayName);
+    } else { this.setState({currentUser: userAuth})}
   })
 }
 
@@ -308,14 +287,18 @@ componentWillUnmount() {
   this.unsubscribeFromAuth();
 }
 
-
   render() {
   const { 
     viewPort, selectedCategory, selectedItem, filteredList, shopData, 
     priceFilterData, priceFilterTitle, gender } = this.state;
+    
     return (
       <>
-        <Header handleGenderUpdate={this.handleGenderUpdate} handleClearStateClick={this.handleClearStateClick} currentUser={this.state.currentUser} />
+        <Header 
+          handleGenderUpdate={this.handleGenderUpdate} 
+          handleClearStateClick={this.handleClearStateClick} 
+          currentUser={this.state.currentUser} 
+        />
         <div className="App">
         <Routes>
             {/* pathway for categories */}
@@ -338,15 +321,15 @@ componentWillUnmount() {
                 shopData={shopData}
               />} 
             />
-
+      {/* Categories */}
             <Route path='/shop/hats' element={<Hats handleHomeClick={this.handleHomeClick} />}/>
             <Route path='/shop/jackets' element={<Jackets handleHomeClick={this.handleHomeClick}/>}/>
             <Route path='/shop/sneakers' element={<Sneakers handleHomeClick={this.handleHomeClick}/>}/>
             <Route path='/shop/shirts' element={<Shirts handleHomeClick={this.handleHomeClick}/>}/>
             <Route path='/shop/sale' element={<Sale handleHomeClick={this.handleHomeClick}/>} />
-
+      {/* Accessing Gender */}
             <Route exact path='/shop/mens' element={
-              <MensClothing 
+              <ClothingController 
                 categoryRedirect={this.categoryRedirect}
                 onSelectedCategoryClick={this.handleSelectedCategoryClick}
                 handleChangingSelectedItem={this.handleChangingSelectedItem}
@@ -356,8 +339,6 @@ componentWillUnmount() {
                 handleBackClick={this.handleBackClick}
 
                 selectedCategory={selectedCategory}
-                // priceFilterData={priceFilterData}
-                // priceFilterTitle={priceFilterTitle}
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
@@ -365,7 +346,7 @@ componentWillUnmount() {
               />}
             />
             <Route exact path='/shop/womens' element={
-              <MensClothing 
+              <ClothingController 
                 categoryRedirect={this.categoryRedirect}
                 onSelectedCategoryClick={this.handleSelectedCategoryClick}
                 handleChangingSelectedItem={this.handleChangingSelectedItem}
@@ -375,28 +356,13 @@ componentWillUnmount() {
                 handleBackClick={this.handleBackClick}
 
                 selectedCategory={selectedCategory}
-                // priceFilterData={priceFilterData}
-                // priceFilterTitle={priceFilterTitle}
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
                 gender={gender}
               />}
             />
-
-            <Route path="/pageNotAvailable" element={<UnderConstruction />} />
-            <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
-            <Route path='login'  element={<SignInAndSignUpPage />}></Route>
-            <Route path='/shop' element={<ShopPage/>}></Route>
-            <Route path='success' element={<PaymentCompletePage />}></Route>
-            <Route path='cancel' element={<PaymentFailedPage />}></Route>
-            <Route path='contact' element={<ContactPage viewPort={viewPort} />}></Route>
-
-            {/* pathway for itemDetails */}
-            {/* <Route path='/shop/hats/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/sneakers/:id' element={<SearchedItemDetails />} /> 
-            <Route path='/shop/shirts/:id' element={<SearchedItemDetails />} />
-            <Route path='/shop/jackets/:id' element={<SearchedItemDetails />} />  */}
+      {/* Accessing From Categories */}
             <Route path='/shop/hats/:id' element={<ItemDetails />} />
             <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
             <Route path='/shop/shirts/:id' element={<ItemDetails />} />
@@ -405,6 +371,7 @@ componentWillUnmount() {
             <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
             <Route path='/shop/womens/:id' element={<ItemDetails />} />
 
+      {/* Accessing from ClothingController */}
             <Route path='/shop/mens/hats/:id' element={<ItemDetails />} />
             <Route path='/shop/mens/sneakers/:id' element={<ItemDetails />} /> 
             <Route path='/shop/mens/shirts/:id' element={<ItemDetails />} />
@@ -416,6 +383,14 @@ componentWillUnmount() {
             <Route path='/shop/womens/shirts/:id' element={<ItemDetails />} />
             <Route path='/shop/womens/jackets/:id' element={<ItemDetails />} /> 
             <Route path='/shop/womens/sale/:id' element={<ItemDetails />} /> 
+
+            <Route path="/pageNotAvailable" element={<UnderConstruction />} />
+            <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
+            <Route path='login'  element={<SignInAndSignUpPage />}></Route>
+            <Route path='/shop' element={<ShopPage/>}></Route>
+            <Route path='success' element={<PaymentCompletePage />}></Route>
+            <Route path='cancel' element={<PaymentFailedPage />}></Route>
+            <Route path='contact' element={<ContactPage viewPort={viewPort} />}></Route>
 
             <Route path="*" component={<NotFound />} />
         </Routes>
