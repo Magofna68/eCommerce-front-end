@@ -83,12 +83,12 @@ export default function ItemList(props) {
               null
             :
             <>
-              <div>
+              {/* <div> */}
                 <Radio 
                   onClick={()=> onFilterClick({radioValue})} 
                   onFilterClick={onFilterClick}
                   />
-              </div>
+              {/* </div> */}
               <br/>
             </>
 

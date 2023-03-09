@@ -2,7 +2,9 @@ import React, { Component, } from 'react';
 import { useNavigate } from 'react-router';
 import { MENS_SHOP_LIST, WOMENS_SHOP_LIST } from '../../../../data.jsx';
 import King from '../../../../assets/King.png';
+import Queen from '../../../../assets/Queen.png';
 import './mensClothing.styles.scss';
+import '../women/womensClothing.styles.scss';
 import ItemList from '../itemList/ItemList.jsx';
 import Button from 'react-bootstrap/Button';
 import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
@@ -32,7 +34,8 @@ export default function MensClothing(props) {
     handleHomeClick,
     handleBackClick,
     priceFilterData,
-    priceFilterTitle
+    priceFilterTitle,
+    gender
   } = props;
 
 
@@ -76,7 +79,8 @@ export default function MensClothing(props) {
     let buttonText = null;
 
     if (selectedCategory === "SNEAKERS") {
-        buttonText="MENS"
+        // buttonText="MENS"
+        buttonText=`${gender}`
         currentlyVisibleState = 
         <Sneakers 
           toItemDetailsClick={toItemDetailsClick}
@@ -86,7 +90,8 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     }  else if (selectedCategory === "SHIRTS") {
-        buttonText="MENS"
+        // buttonText="MENS"
+        buttonText=`${gender}`
         currentlyVisibleState = 
         <Shirts
           toItemDetailsClick={toItemDetailsClick}
@@ -96,7 +101,8 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
   } else if (selectedCategory === "HATS") {
-        buttonText="MENS"
+        // buttonText="MENS"
+        buttonText=`${gender}`
         currentlyVisibleState =  
         <Hats 
           toItemDetailsClick={toItemDetailsClick}  
@@ -106,7 +112,8 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     } else if (selectedCategory === "JACKETS") {
-        buttonText="MENS"
+        // buttonText="MENS"
+        buttonText=`${gender}`
         currentlyVisibleState = 
         <Jackets 
           toItemDetailsClick={toItemDetailsClick}
@@ -116,7 +123,8 @@ export default function MensClothing(props) {
           handleHomeClick={handleHomeClick}
         />
     } else if (selectedCategory === "SALE") {
-      buttonText="MENS"
+      // buttonText="MENS"
+      buttonText=`${gender}`
       currentlyVisibleState = 
       <Sale
         toItemDetailsClick={toItemDetailsClick}
@@ -129,8 +137,8 @@ export default function MensClothing(props) {
       currentlyVisibleState = 
       <ItemList 
         toItemDetailsClick={toItemDetailsClick}
-        onFilterClick={handleFilterClick}
         onSortClick={handleSortClick}
+        onFilterClick={handleFilterClick}
         categoryRedirect={categoryRedirect}
         fullItemList={shopData} 
         onItemSelection={handleChangingSelectedItem}
@@ -144,7 +152,7 @@ export default function MensClothing(props) {
     return (
       <div>
         {
-          buttonText === "Home" ?
+          buttonText === "Home" && gender === 'MENS' ?
             <div className="backdropContain">
               <div className='backdropText'>
                 <h1>Men's</h1><h1>Clothing</h1>
@@ -154,12 +162,22 @@ export default function MensClothing(props) {
               </span>
             </div>
         :
-          null
+          buttonText === "Home" && gender === 'WOMENS' ?
+            <div className="womensBackdropContain">
+              <div className='womensBackdropMobile'>
+                <h1>Women's</h1><h1>Clothing</h1>
+              </div>
+              <span className="queenIconContainer">
+                <img src={Queen} alt="Queen" width="100%" />
+              </span>
+            </div>
+        :
+        null
         }
         {currentlyVisibleState}
         <div style={{ display: 'flex', margin: '3% 0 0% 5%'}}>
         {
-          buttonText === "MENS" ?
+          buttonText === "MENS" || buttonText === 'WOMENS' ?
           <Button  
             onClick={handleBackClick}
             style={{ 

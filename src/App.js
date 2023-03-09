@@ -45,36 +45,43 @@ class App extends React.Component {
     }
 }
 
+
+
 // assigns gender on Mens / Womens category click
   handleGenderUpdate = async (gender) => {
-    gender === 'MENS' ?
+    if (gender === 'MENS') {
       await this.setState({ 
         shopData: MENS_SHOP_LIST,
         gender: gender,
         selectedCategory: "",
         selectedItem: null
       })
-    :
+    } else if (gender === 'WOMENS') {
       await this.setState({ 
         shopData: WOMENS_SHOP_LIST,
         gender: gender,
         selectedCategory: "",
         selectedItem: null,
       })
+    } else {
+      console.log("APP# Error: ", this.state.gender)
+    }
   }
 
   // sets the correct dataset in state (mens / womens / all)
   handleSetData = async () => {
+    console.log('APP# Gender: ', this.state.gender)
     this.state.gender === 'MENS' ?
       await  this.setState({ 
         shopData: MENS_SHOP_LIST 
       })
     :
     this.state.gender === 'WOMENS' ?
-      await  this.setState({ 
-        shopData: WOMENS_SHOP_LIST 
-      })
+    await  this.setState({ 
+      shopData: WOMENS_SHOP_LIST 
+    })
     :
+    // console.log('APP# Gender: ', this.state.gender)
     await this.setState({ shopData: [...WOMENS_SHOP_LIST, ...MENS_SHOP_LIST]})
   }
 
@@ -287,7 +294,9 @@ componentWillUnmount() {
 
 
   render() {
-  const { viewPort, selectedCategory, selectedItem, filteredList, shopData, priceFilterData, priceFilterTitle} = this.state;
+  const { 
+    viewPort, selectedCategory, selectedItem, filteredList, shopData, 
+    priceFilterData, priceFilterTitle, gender } = this.state;
     return (
       <>
         <Header handleGenderUpdate={this.handleGenderUpdate} handleClearStateClick={this.handleClearStateClick} currentUser={this.state.currentUser} />
@@ -336,11 +345,12 @@ componentWillUnmount() {
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
+                gender={gender}
                 // mensItemList={mensItemList}
               />}
             />
             <Route exact path='/shop/womens' element={
-              <WomensClothing
+              <MensClothing 
                 categoryRedirect={this.categoryRedirect}
                 onSelectedCategoryClick={this.handleSelectedCategoryClick}
                 handleChangingSelectedItem={this.handleChangingSelectedItem}
@@ -355,8 +365,9 @@ componentWillUnmount() {
                 selectedItem={selectedItem}
                 filteredList={filteredList}
                 shopData={shopData}
-              />
-            }/>
+                gender={gender}
+              />}
+            />
 
             <Route path="/pageNotAvailable" element={<UnderConstruction />} />
             <Route path='/returnpolicy' element={<ReturnPolicyPage />} />
