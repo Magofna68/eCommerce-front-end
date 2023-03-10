@@ -12,6 +12,7 @@ export default function SingleItem(props) {
   const goToSelectedItem = async (e) => {
     const selectedItem = [props][0];
     // await handleItemSelection(selectedItem);
+    console.log("SingleItem# -- toItemDetailsClick Hit", selectedItem)
     await toItemDetailsClick(selectedItem);
   }
 
