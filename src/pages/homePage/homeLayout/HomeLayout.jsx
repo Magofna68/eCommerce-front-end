@@ -25,6 +25,19 @@ export default function HomeLayout(props) {
     sessionStorage.setItem('banner-info', JSON.stringify(hide));
   }, [hide])
 
+  function getRandom(array) {
+    let i = array.length -1;
+      for (; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+      const test = array.splice(2, Infinity)
+      console.log("Test", array)
+    return array;
+    }
+
   const mens_randomizer_array = MENS_SHOP_LIST;
 
   const carouselImages = 
@@ -147,9 +160,11 @@ export default function HomeLayout(props) {
           <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} toItemDetailsClick={toItemDetailsClick} />
 
           {/* <div className="trendingContainer">
-            <h1>TRENDING</h1>
+            <div >
+              <h1>TRENDING</h1>
+            </div>
             <div className="randomizerContain">
-              <Randomizer array={mens_randomizer_array} />
+              <Randomizer getRandom={getRandom} array={mens_randomizer_array} />
             </div>
           </div> */}
 
@@ -200,6 +215,12 @@ export default function HomeLayout(props) {
               </div>
             </div>
             <br/>
+
+            {/* <div className="trendingContainer">
+              <div className="randomizerContain">
+                <Randomizer getRandom={getRandom} array={mens_randomizer_array} />
+              </div>
+            </div> */}
 
             {/* Carousel */}
             <br/>
