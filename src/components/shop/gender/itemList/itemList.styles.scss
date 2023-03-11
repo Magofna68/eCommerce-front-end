@@ -14,10 +14,10 @@ div.itemListPreview.container-true {
     align-items: center;
     margin: auto;
     width: 80%;
-    margin-top: 3%;
+    margin-top: 1%;
     flex-direction: column;
     // margin: 0 2% 0 2%;
-    height: 100px;
+    // height: 100px;
   }
   
   span.title{
@@ -266,6 +266,10 @@ ul.titleListContainer{
 
   @media only screen and (min-width: 200px) and (max-width: 420px) {
     .itemListPreview{
+
+      .optionsContainer{
+        background-color: white;
+      }
 
       span#title{
         font-size: 2rem;

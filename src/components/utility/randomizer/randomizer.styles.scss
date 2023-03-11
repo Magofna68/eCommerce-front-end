@@ -1,20 +1,87 @@
-// .randomizerContainer{
-//   // width: 50vw;
-//   // height: auto;
-//   div.collectionItem.card {
-//     width: 96%;
-//     min-height: 250px;
-//     max-height: 250px;
+// div.container.cardContainer{
+//   width: 50%;
+//   flex-direction: column;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 0;
+//   padding: 0;
+  
+//   h1{
+//     margin-bottom: 3%;
+//   }
+  
+//   .card {
+//     min-height: 300px;
+//     max-height: 300px;
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: row;
+//     width: 98%;
+//     margin: 0% auto 0% auto;
+//     overflow: hidden;
+//     padding: 0;
     
-//     img.card-img-top{
-//       height: 60%;
+//     img{
+//       display: flex;
+//       height: 75%;
+//       max-height: 250px;
+//       min-height: 250px;
 //     }
-//     div.card-title{
-//       font-size: 1.1rem;
-//     }
-
-//     p.card-text{
-//       display: none;
+    
+//     div.card-title.h5{
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       height: 25%;
+//       width: 96%;
+//       background-color: rgb(238, 238, 238);
+//       flex-grow: 1;
+//       margin: 0;
+//       margin: 5px;
 //     }
 //   }
 // }
+
+// // ===================== 551 - 700px ========================
+// @media only screen and (min-width: 551px) and (max-width: 700px) {
+//   div.container{
+//     height: 350px;
+    
+//     // .card {
+      
+//     // }
+//   }
+// }
+
+// // ===================== 421 - 550px ========================
+// @media only screen and (min-width: 421px) and (max-width: 550px) {
+//   div.container{
+//     height: 325px;
+//     width: 100%;
+//     margin-top: 5%;
+    
+//     .card {
+//       margin: 0% auto 0% auto;
+      
+//     }
+//   }
+// }
+
+// // ====================== 200 - 420px =====================
+// @media only screen and (min-width: 200px) and (max-width: 420px) {
+
+//   div.container{
+//     height: 300px;
+//     margin: 0;
+    
+//     .card {
+//       width: 98%;
+//       height: 200px;
+      
+//     }
+//   }
+// }
+  

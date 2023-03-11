@@ -1,143 +1,4 @@
 
-// ======================== Mobile Display ========================
-@media only screen and (min-width: 200px) and (max-width: 420px) {
-  
-  .footerTitle{
-    height: 60px;
-    padding-top: 12px;
-    
-    .typographyContainer{
-      
-      height: 50px;
-      border-bottom: solid 0.5px white;
-      border-top: solid 0.25px white;
-      opacity: .8;
-      
-      .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
-        font-size: 28px;
-      }
-    }
-  }
-  
-  .middleFooterCol{
-    display: none;
-  }
-  
-  div.footerBottomContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    padding-bottom: 1%;
-    font-weight: 600;
-    height: 35px;
-    min-height: 35px;
-    max-height: 40px;
-    color: white;
-    
-    .footerBottom{
-      position: relative;
-      padding: 2%;
-      border-right: 1px solid white;
-      height: 100%;
-      font-size: 12px;
-      text-align: center;
-      align-items: center;
-      
-      &:last-child{
-        border-right: none;
-      }
-    }
-  }
-  .connectCol {
-    margin-top: 8%;
-  }
-}
-
-// ==================== Tablet Display =======================
-@media only screen and (min-width: 421px) and (max-width:660px) {
-    .footerTitle{
-      height: 70px;
-      padding-top: 12px;
-      
-      .typographyContainer{
-        
-        height: 60px;
-        border-bottom: solid 0.5px white;
-        border-top: solid 0.25px white;
-        opacity: .8;
-        
-        .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
-          // font-size: 32px;
-          font-size: 2em;
-        }
-      }
-    }
-    
-    
-    div.footerBottomContainer{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      align-content: center;
-      align-self: center;
-      padding-bottom: 3%;
-      // font-weight: 600;
-      height: 40px;
-      min-height: 35px;
-      max-height: 50px;
-      color: white;
-      margin: 0;
-      
-      .footerBottom{
-        display: flex;
-        padding-top: 2%;
-        padding-right: 2%;
-        border-right: 1px solid white;
-        height: 100%;
-        font-size: 12px;
-        text-align: center;
-        align-items: center;
-        
-        &:last-child{
-          border-right: none;
-        }
-      }
-    }
-    .backdrop{
-      margin-bottom: 5%;
-      
-      div.needHelpCol.col{
-        order: 2;
-        padding-right: 0;
-      }
-
-      .middleFooterCol{
-        display: none;
-        order: 2;
-        width: 50%;
-      }
-
-      .exploreCol{
-        display: none;
-        order: 1;
-        height: 50%;
-      }
-
-      .connectCol{
-        margin-right: 3%;
-        flex: 2;
-        justify-content:flex-start ;
-      }
-
-      .opportunitiesCol{
-        order: 0;
-        margin-right: 3%;
-      }
-    }
-  }
-  
   // ======================= Desktop View ==========================
 
 div.container-fluid{
@@ -273,5 +134,142 @@ div.container-fluid{
   @media only screen and (max-width: 660px) {
     background-position-y: bottom;
     background-size: 100px;
+  }
+}
+
+// ==================== Tablet Display =======================
+@media only screen and (min-width: 421px) and (max-width:660px) {
+  .footerTitle{
+    height: 70px;
+    padding-top: 12px;
+    
+    .typographyContainer{
+      
+      height: 60px;
+      border-bottom: solid 0.5px white;
+      border-top: solid 0.25px white;
+      opacity: .8;
+      
+      .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
+        // font-size: 32px;
+        font-size: 2em;
+      }
+    }
+  }
+  
+  
+  div.footerBottomContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding-bottom: 3%;
+    // font-weight: 600;
+    height: 40px;
+    min-height: 35px;
+    max-height: 50px;
+    color: white;
+    margin: 0;
+    
+    .footerBottom{
+      display: flex;
+      padding-top: 2%;
+      padding-right: 2%;
+      border-right: 1px solid white;
+      height: 100%;
+      font-size: 12px;
+      text-align: center;
+      align-items: center;
+      
+      &:last-child{
+        border-right: none;
+      }
+    }
+  }
+  .backdrop{
+    margin-bottom: 5%;
+    
+    div.needHelpCol.col{
+      order: 2;
+      padding-right: 0;
+    }
+
+    .middleFooterCol{
+      display: none;
+      order: 2;
+      width: 50%;
+    }
+
+    .exploreCol{
+      display: none;
+      order: 1;
+      height: 50%;
+    }
+
+    .connectCol{
+      margin-right: 3%;
+      flex: 2;
+      justify-content:flex-start ;
+    }
+
+    .opportunitiesCol{
+      order: 0;
+      margin-right: 3%;
+    }
+  }
+}
+
+// ======================== Mobile Display ========================
+@media only screen and (min-width: 200px) and (max-width: 420px) {
+  
+  .footerTitle{
+    height: 60px;
+    
+    .typographyContainer{
+      height: 50px;
+      border-bottom: solid 0.5px white;
+      border-top: solid 0.25px white;
+      opacity: .8;
+      
+      .css-1oe3rkh-MuiTypography-root, .css-6ss94k-MuiTypography-root{
+        font-size: 28px;
+      }
+    }
+  }
+  
+  .middleFooterCol{
+    display: none;
+  }
+  
+  div.footerBottomContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding-bottom: 1%;
+    font-weight: 600;
+    height: 35px;
+    min-height: 35px;
+    max-height: 40px;
+    color: white;
+    
+    .footerBottom{
+      position: relative;
+      padding: 2%;
+      border-right: 1px solid white;
+      height: 100%;
+      font-size: 12px;
+      text-align: center;
+      align-items: center;
+      
+      &:last-child{
+        border-right: none;
+      }
+    }
+  }
+  .connectCol {
+    margin-top: 8%;
   }
 }

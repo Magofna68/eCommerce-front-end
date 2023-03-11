@@ -1,37 +1,45 @@
 import React from 'react';
-import './randomizer.styles.scss';
+// import './randomizer.styles.scss';
 import CollectionItem from '../../shop/collection-item/CollectionItem';
+import { Card, Container } from 'react-bootstrap';
+import SingleItem from '../../shop/fullCollection/singleItem/SingleItem';
 
 export default function Randomizer(props) {
-  const { array, onItemSelection, } = props;
+  const { array, onItemSelection, getRandom} = props;
 
-  const GetRandom = (array) => {
-  let i = array.length -1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    const test = array.splice(2, Infinity)
-    console.log("Test", array)
-  return array;
-  }
+  // function getRandom(array) {
+  // let i = array.length -1;
+  //   for (; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     const temp = array[i];
+  //     array[i] = array[j];
+  //     array[j] = temp;
+  //   }
+  //   const test = array.splice(2, Infinity)
+  //   console.log("Test", array)
+  // return array;
+  // }
 
   return (
-      GetRandom(array).map(({title, body, ...props}) => (
-        <div className="randomizerContainer">
-          
-          {/* <CollectionItem
-            key={id}
-            img={img}
-            price={price}
-            name={name}
-            handleItemSelectiond={onItemSelection}
-            {...props}
-            /> */}
-          </div>
-      )
-    )
+    <div styles={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+    <h1>TRENDING</h1>
+      {getRandom(array).map(({name, img, alt}) => (
+        <div>
+        <SingleItem
+          name={name}
+          img={img}
+          alt={alt} 
+        />
+        </div>
+  
+  // <Container className="cardContainer">
+  //   <Card>
+  //     <img src={img} alt={alt} width="100%"/>
+  //     <Card.Title>{name}</Card.Title>
+  //   </Card>
+  // </Container>
+  )
+  )}
+  </div>
   )
 }

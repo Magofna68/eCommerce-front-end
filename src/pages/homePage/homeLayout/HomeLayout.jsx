@@ -14,17 +14,29 @@ import Randomizer from '../../../components/utility/randomizer/Randomizer';
 export default function HomeLayout(props) {
   const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick } = props;
 
-  // const bannerSessionState = JSON.parse(sessionStorage.getItem('banner-info')) || '[]'
-  // const [ hide, setHide ] = useState(bannerSessionState)
-  const [ hide, setHide ] = useState(true)
+  const bannerSessionState = JSON.parse(sessionStorage.getItem('banner-info')) || '[]'
+  const [ hide, setHide ] = useState(bannerSessionState)
 
   const hideBanner = () => {
     setHide(false)
   }
 
-  // useEffect(()=> {
-  //   sessionStorage.setItem('banner-info', JSON.stringify(hide));
-  // }, [hide])
+  useEffect(()=> {
+    sessionStorage.setItem('banner-info', JSON.stringify(hide));
+  }, [hide])
+
+  function getRandom(array) {
+    let i = array.length -1;
+      for (; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+      const test = array.splice(2, Infinity)
+      console.log("Test", array)
+    return array;
+    }
 
   const mens_randomizer_array = MENS_SHOP_LIST;
 
@@ -148,9 +160,11 @@ export default function HomeLayout(props) {
           <SlideShow categoryRedirect={categoryRedirect} slides={mobileSlides} toItemDetailsClick={toItemDetailsClick} />
 
           {/* <div className="trendingContainer">
-            <h1>TRENDING</h1>
+            <div >
+              <h1>TRENDING</h1>
+            </div>
             <div className="randomizerContain">
-              <Randomizer array={mens_randomizer_array} />
+              <Randomizer getRandom={getRandom} array={mens_randomizer_array} />
             </div>
           </div> */}
 
@@ -201,6 +215,12 @@ export default function HomeLayout(props) {
               </div>
             </div>
             <br/>
+
+            {/* <div className="trendingContainer">
+              <div className="randomizerContain">
+                <Randomizer getRandom={getRandom} array={mens_randomizer_array} />
+              </div>
+            </div> */}
 
             {/* Carousel */}
             <br/>
