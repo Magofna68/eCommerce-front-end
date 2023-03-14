@@ -105,7 +105,7 @@ export default function Navigationbar(props) {
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
         <NavbarCollapse className='navbar-toggle justify-content-end'>
           <Nav className='justify-content-center margin-left-auto'>            
-            <Link className="nav-link" to="/" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
+            <Link className="nav-link" to="https://magofna68.github.io/eCommerce-front-end/#/" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
             <Link className="nav-link" to="/shop" onClick={handleClearStateClick}>Shop</Link>
             <Link className='nav-link' to="/shop/mens" onClick={() => handleGenderUpdate("MENS")}>Mens</Link>
             <Link className='nav-link' to="/shop/womens" onClick={() => handleGenderUpdate("WOMENS")}>Womens</Link>
