@@ -100,7 +100,6 @@ export default function HomePage(props) {
         selectedCategory ?
         <>
           <div style={{ display: 'flex', justifyContent:'left', alignItems: 'left'}}>
-            {/* <Breadcrumb /> */}
           </div>
           <Container fluid style={{ margin: 0, padding: 0, display: 'flex', alignItems: 'left'}}>
             {currentlyVisibleState}
