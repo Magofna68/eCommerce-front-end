@@ -69,29 +69,30 @@ export default function SearchBar() {
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)
 
-  const handleChange = (e) => {
-    e.preventDefault();
+const clearResults = () => {
+  setSearchResults([]);
+  setSearchTerm("");
+}
 
+  const handleChange = async (e) => {
+    e.preventDefault();
+    clearResults()
     const searchedTerm = e.target.value
     const newTerm = searchedTerm.toString().toLowerCase();
     setSearchTerm(newTerm);
     // bug: only includes search queries relating to title
-    const itemTitleResults = itemObj.filter(item => item.title.toLowerCase().includes(searchTerm))
-    const itemNameResults = itemObj.filter(item => item.name.toLowerCase().includes(searchTerm))
-    const resultsTest = [...itemTitleResults, ...itemNameResults];
-    resultsTest.push(itemTitleResults && itemNameResults)
-    // itemTitleResults.concat(itemNameResults)
-    // itemNameResults.concat(itemTitleResults);
-    console.log("ItemTitleResults:", itemTitleResults)
-    console.log("ItemNAME:", itemNameResults)
-    // const finalResults = Array.from(new Set(resultsTest))
-    // console.log("FinalResults:", finalResults)
-    setSearchResults(itemTitleResults);
-    // setSearchResults(resultsTest)
-  }
-
-  function getFocus() {
-    document.getElementById("searchBar").focus();
+    // const results = [];
+    const itemTitleResults = itemObj.filter(item => item.title.toLowerCase().includes(newTerm))
+    const itemNameResults = itemObj.filter(item => item.name.toLowerCase().includes(newTerm))
+    const itemAltResults = itemObj.filter(item => item.alt.toLowerCase().includes(newTerm))
+    // results.push(itemTitleResults && itemNameResults)
+    const results = [...itemTitleResults, ...itemNameResults, ...itemAltResults];
+    // console.log("ItemTitleResults:", itemTitleResults)
+    // console.log("ItemNAME:", itemNameResults)
+    console.log("results: ", results)
+    // setSearchResults(itemTitleResults);
+    await setSearchResults(results)
+    console.log("searchResults: ", searchResults)
   }
 
   return (
@@ -133,7 +134,7 @@ export default function SearchBar() {
                         {searchResults.map((item, index) => {
                           return (
                             <li key={item.id} id={item.id} className="itemContainer" onClick={e => handleClick(e)}>
-                              <img src={item.img} alt="test" />
+                              <img src={item.img} alt={item.alt} />
                               {item.name}
                             </li>
                           )

@@ -44,7 +44,7 @@ export default function HomeLayout(props) {
     [
       {
         id: 0,
-        title: "Elegant Night Out",
+        title: "Dress to Impress",
         img: 'https://img.ltwebstatic.com/images3_pi/2022/04/26/16509410621ce21a0f1297302307bcfe4e7f4c7590_thumbnail_600x.webp',
         img2: 'https://img.ltwebstatic.com/images3_pi/2022/04/26/1650941068cd0cce154a16bc6787e4d712adf8453e_thumbnail_600x.webp',
         alt: "black semi formal gown",

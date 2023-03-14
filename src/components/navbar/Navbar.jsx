@@ -105,7 +105,7 @@ export default function Navigationbar(props) {
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
         <NavbarCollapse className='navbar-toggle justify-content-end'>
           <Nav className='justify-content-center margin-left-auto'>            
-            <Link className="nav-link" to="/#" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
+            <Link className="nav-link" to="/" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
             <Link className="nav-link" to="/shop" onClick={handleClearStateClick}>Shop</Link>
             <Link className='nav-link' to="/shop/mens" onClick={() => handleGenderUpdate("MENS")}>Mens</Link>
             <Link className='nav-link' to="/shop/womens" onClick={() => handleGenderUpdate("WOMENS")}>Womens</Link>
@@ -241,16 +241,29 @@ export default function Navigationbar(props) {
                       </Backdrop>
                     </>
                   :
-                    <div style={{display: 'flex', justifyContent: 'right'}}>
-                      <p style={{fontWeight: 300, fontSize: '12px'}}>You'll have to sign in to complete your purchase</p>
+                  <>
+                    <div style={{display: 'flex', justifyContent: 'right', }}>
+                      <p style={{fontWeight: 300, fontSize: '12px'}}>Please sign in to complete your purchase</p>
                     </div>
+                      <Button variant="success" onClick={handleToggle} style={{}}>
+                        Checkout Anonymously
+                      </Button>
+                      <Backdrop
+                        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                        open={open}
+                        onClick={handleBackdropClose}
+                      >
+                        <CircularProgress color="success" />
+                      </Backdrop>
+                      {/* <p style={{display: 'flex', justifyContent: 'right', marginRight: '12%', fontWeight: 300, fontSize: '10px'}}>OR</p> */}
+                    </>
                 }
               </>
             :
               <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                 <br/>
                 <RemoveShoppingCartIcon fontSize="large" /><br/>
-                <h5 style={{display: 'block'}}>Click <a href="https://magofna68.github.io/eCommerce-front-end/#/">Here</a> to visit the Shop Page</h5>
+                <h5 style={{display: 'block'}}>Click <a href="https://magofna68.github.io/eCommerce-front-end/#/shop">Here</a> to visit the Shop Page</h5>
                 <br/><br/>
               </div>
           }
