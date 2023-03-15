@@ -195,23 +195,23 @@ export default function Navigationbar(props) {
                     <Col className="modalCol">
                       <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center', }}>
                           
-                        <Col style={{padding: '0', }}>
+                        <Col className="cartQuantityArrow">
                           <KeyboardArrowLeftIcon 
                             fontSize='large' 
                             onClick={()=> cart.removeOneItemFromCart(currentProduct.id)}
-                            className="cartQuantityArrow"
+                            // className="cartQuantityArrow"
                           />
                         </Col>
 
                         <Col style={{paddingTop: '8%',}}>
-                          <h6 style={{marginTop: '0%'}}>{currentProduct.quantity}</h6>
+                          <h6 style={{marginTop: '0%', fontSize: '1.2em', fontWeight: 300}}>{currentProduct.quantity}</h6>
                         </Col>
 
-                        <Col style={{padding: '0'}}>
+                        <Col className="cartQuantityArrow">
                           <KeyboardArrowRightIcon 
                             fontSize='large' 
                             onClick={()=> cart.addOneItemToCart(currentProduct.id)}
-                            className="cartQuantityArrow"
+                            // className="cartQuantityArrow"
                           />
                         </Col>
                       </div>

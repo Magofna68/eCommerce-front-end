@@ -1,19 +1,19 @@
 import React, { Component, useState } from 'react';
 // import './homePage.styles.scss';
 // import { Container, Row, Col } from 'react-bootstrap';
-import  { MENS_SHOP_LIST, SHOP_DATA, WOMENS_SHOP_LIST }  from '../../data.jsx';
-import Carousel from '../../components/utility/carousel/Carousel.jsx';
+import  { MENS_SHOP_LIST, WOMENS_SHOP_LIST }  from '../../data.jsx';
+// import Carousel from '../../components/utility/carousel/Carousel.jsx';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import HomeLayout from './homeLayout/HomeLayout';
-import ItemDetails from '../itemDetailPage/itemDetails/ItemDetails.jsx';
+// import ItemDetails from '../itemDetailPage/itemDetails/ItemDetails.jsx';
 import Jackets from '../../components/shop/category/jackets/Jackets.jsx';
 import Shirts from '../../components/shop/category/shirts/Shirts.jsx';
 import Sneakers from '../../components/shop/category/sneakers/Sneakers.jsx';
 import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
 import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
-import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
+// import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
 import { useNavigate } from 'react-router';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 

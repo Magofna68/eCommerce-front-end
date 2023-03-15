@@ -149,7 +149,7 @@ handleHomeClick = () => {
     selectedCategory: null,
   })
   // development
-  window.location.assign('/')
+  // window.location.assign('/')
   // production
   window.location.assign('https://magofna68.github.io/eCommerce-front-end/#/')
 }
@@ -178,7 +178,7 @@ handleClearStateClick = (text) => {
         gender: null,
       })
       // development
-      window.location.assign('/')
+      // window.location.assign('/')
       // production
       window.location.assign('https://magofna68.github.io/eCommerce-front-end/#/');
       // window.location.reload();
