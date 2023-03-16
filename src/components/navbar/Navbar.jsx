@@ -7,7 +7,10 @@ import Logo from '../../assets/crown.png'
 import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
 import SearchBar from '../searchBar/SearchBar.jsx';
 // BOOTSTRAP
-import { Row, Col, DropdownButton, Dropdown} from 'react-bootstrap';
+// import Button from 'react-bootstrap/Button';
+// import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+// import Popover from 'react-bootstrap/Popover';
+import { Row, Col, DropdownButton, Dropdown, OverlayTrigger, Popover} from 'react-bootstrap';
 import { Container, Button, Modal } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
@@ -52,6 +55,8 @@ export default function Navigationbar(props) {
       setOpenSearch(false);
     }, 15000)
   }
+
+  const viewPort = window.innerWidth;
 
 
   const checkout = async () => {
@@ -237,7 +242,133 @@ export default function Navigationbar(props) {
                 </>
               ))}
               <hr/>
-              <h6 style={{ display: 'flex', justifyContent:'start'}}>My Bag: ({productCount} item)</h6>
+              <Row>
+                <Col>
+                  <h6 style={{ display: 'flex', justifyContent:'start'}}>My Bag: ({productCount} item)</h6>
+                </Col>
+                <Col>
+                {
+                  viewPort > 420 ?
+                  <span style={{ display: 'flex', justifyContent: 'end', fontSize: '.75em'}}>
+                    <OverlayTrigger
+                      trigger="click"
+                      placement="left"
+                      overlay={
+                        <Popover id="popover-positioned-left">
+                          <Popover.Header as="h3">CHECKOUT PROCESS Information:</Popover.Header>
+                          <Popover.Body style={{ padding: 0}}>
+                            <Container style={{ padding: '0 5px 0 5px', margin: '5px',}}>
+                            SUCCESSFUL PAYMENT:
+                              <Row style={{ margin: 0, }} className="paymentSuccess">
+                                <Col style={{padding: 0, margin: '5px 20px 0 20px'}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: 0}}>
+                                    <Row><strong style={{ padding: 0}}>Card #:</strong> </Row>
+                                    <Row><strong style={{ padding: 0}}>Name / ZIP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>EXP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>Security:</strong></Row>
+                                  </p>
+                                </Col>
+                                <Col xs={7} style={{padding: 0,}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: '5px 0'}}>
+                                      <Row style={{ margin: 0}}>4242 4242 4242 4242<br/></Row>
+                                      <Row style={{ margin: 0}}>Any<br/></Row>
+                                      <Row style={{ margin: 0}}>12/34<br/></Row>
+                                      <Row style={{ margin: 0}}> 123</Row>
+                                  </p>
+                                </Col>
+                              </Row>
+
+                              <br/>
+
+                             FAILED PAYMENT:
+                              <Row style={{ margin: 0}} className="paymentFail">
+                                <Col style={{padding: 0, margin: '5px 20px 0 20px'}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: 0}}>
+                                    <Row><strong style={{ padding: 0}}>Card #:</strong> </Row>
+                                    <Row><strong style={{ padding: 0}}>Name / ZIP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>EXP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>Security:</strong></Row>
+                                  </p>
+                                </Col>
+                                <Col xs={7} style={{padding: 0}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: '5px 0'}}>
+                                      <Row style={{ margin: 0}}>4000 0000 0000 3220<br/></Row>
+                                      <Row style={{ margin: 0}}>Any<br/></Row>
+                                      <Row style={{ margin: 0}}>12/34<br/></Row>
+                                      <Row style={{ margin: 0}}> 123</Row>
+                                  </p>
+                                </Col>
+                              </Row> <br/>
+                            </Container>
+                          </Popover.Body>
+                        </Popover>
+                      }
+                      >
+                      <Button variant="secondary" style={{ width: '125px', fontSize: '.65rem', margin: 0, }}>Test Payment Info</Button>
+                    </OverlayTrigger>
+                  </span>
+                  :
+                  <span style={{ display: 'flex', justifyContent: 'end', fontSize: '.75em'}}>
+                    <OverlayTrigger
+                      trigger="click"
+                      placement="bottom"
+                      overlay={
+                        <Popover id="popover-positioned-bottom">
+                          <Popover.Header as="h3">CHECKOUT PROCESS Information:</Popover.Header>
+                          <Popover.Body style={{ padding: 0}}>
+                            <Container style={{ padding: '0 5px 0 5px', margin: '5px',}}>
+                            SUCCESSFUL PAYMENT:
+                              <Row style={{ margin: 0, }} className="paymentSuccess">
+                                <Col style={{padding: 0, margin: '5px 20px 0 20px'}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: 0}}>
+                                    <Row><strong style={{ padding: 0}}>Card #:</strong> </Row>
+                                    <Row><strong style={{ padding: 0}}>Name / ZIP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>EXP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>Security:</strong></Row>
+                                  </p>
+                                </Col>
+                                <Col xs={7} style={{padding: 0,}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: '5px 0'}}>
+                                      <Row style={{ margin: 0}}>4242 4242 4242 4242<br/></Row>
+                                      <Row style={{ margin: 0}}>Any<br/></Row>
+                                      <Row style={{ margin: 0}}>12/34<br/></Row>
+                                      <Row style={{ margin: 0}}> 123</Row>
+                                  </p>
+                                </Col>
+                              </Row>
+
+                              <br/>
+
+                             FAILED PAYMENT:
+                              <Row style={{ margin: 0}} className="paymentFail">
+                                <Col style={{padding: 0, margin: '5px 20px 0 20px'}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: 0}}>
+                                    <Row><strong style={{ padding: 0}}>Card #:</strong> </Row>
+                                    <Row><strong style={{ padding: 0}}>Name / ZIP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>EXP:</strong></Row>
+                                    <Row><strong style={{ padding: 0}}>Security:</strong></Row>
+                                  </p>
+                                </Col>
+                                <Col xs={7} style={{padding: 0}}>
+                                  <p style={{ fontSize: '.75rem', padding: 0, margin: '5px 0'}}>
+                                      <Row style={{ margin: 0}}>4000 0000 0000 3220<br/></Row>
+                                      <Row style={{ margin: 0}}>Any<br/></Row>
+                                      <Row style={{ margin: 0}}>12/34<br/></Row>
+                                      <Row style={{ margin: 0}}> 123</Row>
+                                  </p>
+                                </Col>
+                              </Row> <br/>
+                            </Container>
+                          </Popover.Body>
+                        </Popover>
+                      }
+                      >
+                      <Button variant="secondary" style={{ width: '125px', fontSize: '.65rem', margin: 0, }}>Test Payment Info</Button>
+                    </OverlayTrigger>
+                  </span>
+                }
+                </Col>
+              </Row>
               <h3 style={{ textAlign: 'right', paddingTop: '3%'}}><span style={{fontSize: '20px'}}>Total:</span> ${cart.getTotalCost()}</h3>
                 {
                   currentUser ?
