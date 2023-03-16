@@ -10,6 +10,7 @@ export const ShoppingCartContext = createContext({
   removeOneItemFromCart: () => {},
   deleteItemFromCart: () => {},
   getTotalCost: () => {},
+  editItemSizeInCart: () => {}
 });
 
 export function CartProvider({children}) {
@@ -23,24 +24,25 @@ export function CartProvider({children}) {
     }
   }, [])
 
+  
   useEffect(() => {
     sessionStorage.setItem('cartProducts', JSON.stringify(cartProducts))
   }, [cartProducts])
-
+  
 
   const notyf = new Notyf();
 
-  function showSuccessAlert() {
+  function showSuccessAlert(string) {
     notyf.success({
-      message: 'Added to Cart',
+      message: string,
       duration: 5000,
       dismissible: true,
     })
   }
 
-  function showErrorAlert() {
+  function showErrorAlert(string) {
     notyf.error({
-      message: 'Removed from Cart',
+      message: string,
       duration: 5000,
       dismissible: true,
     })
@@ -58,9 +60,9 @@ export function CartProvider({children}) {
 
   function addOneItemToCart(id, name, price, img, value) {
     const quantity = getProductQuantity(id);
-    showSuccessAlert()
-
+    
     if (quantity === 0) {  //if product is not in cart
+      showSuccessAlert("Added To Cart")
       setCartProducts(
         [
           ...cartProducts, // copy cart objects
@@ -83,12 +85,27 @@ export function CartProvider({children}) {
           product                                     // No -- leave product as is
         )
       )
-      showSuccessAlert()
+      showSuccessAlert("Added To Cart")
     }
   }
 
+ function editItemSizeInCart (id, value) {
+   notyf.success("Size Updated")
+    // console.log("cartProductsBEFORE: ", cartProducts)
+     setCartProducts(
+        cartProducts.map(
+          product => product.id === id ?
+          { ...product, size: value}
+          :
+          showErrorAlert("Unable to Update Size"),
+          // console.log("Was not able to update sizing")
+          )
+      )
+    console.log("cartProducts: ", cartProducts)
+  }
+
   function deleteItemFromCart(id) {
-    showErrorAlert()
+    showErrorAlert("Item Deleted")
     setCartProducts(
       cartProducts => cartProducts.filter(currentProduct => {
         return currentProduct.id !== id;
@@ -102,6 +119,7 @@ export function CartProvider({children}) {
     if (quantity === 1) {
       deleteItemFromCart(id);
     } else {
+      showErrorAlert("Item Removed")
       setCartProducts(
         cartProducts.map(
           product => product.id === id ?
@@ -121,6 +139,7 @@ export function CartProvider({children}) {
       // console.log(priceArray.length, "PRODUCT DATA");
       totalCost += (priceArray * cartItem.quantity);
       console.log(totalCost, "Total Cost");
+      return totalCost
     });
     return Number(totalCost).toFixed(2);
   }
@@ -131,7 +150,8 @@ export function CartProvider({children}) {
     addOneItemToCart,
     removeOneItemFromCart,
     deleteItemFromCart,
-    getTotalCost
+    getTotalCost,
+    editItemSizeInCart
   }
 
   return (

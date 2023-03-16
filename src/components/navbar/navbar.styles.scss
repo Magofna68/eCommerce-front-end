@@ -65,6 +65,24 @@ nav.navbar{
     }
   }
 
+  button.dropdown-toggle{
+    padding: 0 5px;
+    color: white;
+    background-color: gray;
+    transition: 0s all;
+    border: 1px solid black;
+
+    &:hover{
+      cursor: pointer;
+      background-color: white;
+      color: black;
+    }
+  }
+
+  div.dropdown-menu.show{
+    width: 100px;
+  }
+
     .cartIcon{
       width: 3.3rem;
       height: 3.3rem;

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 // ASSETS
 import './navbar.styles.scss';
 import Bag from '../../assets/bag.png';
@@ -7,7 +7,7 @@ import Logo from '../../assets/crown.png'
 import { ShoppingCartContext } from '../context/ShoppingCartContext.jsx';
 import SearchBar from '../searchBar/SearchBar.jsx';
 // BOOTSTRAP
-import { Row, Col, } from 'react-bootstrap';
+import { Row, Col, DropdownButton, Dropdown} from 'react-bootstrap';
 import { Container, Button, Modal } from 'react-bootstrap';
 import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
@@ -24,7 +24,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 // REACT ROUTER
 import { Link } from 'react-router-dom';
-
 
 
 export default function Navigationbar(props) {
@@ -53,6 +52,7 @@ export default function Navigationbar(props) {
       setOpenSearch(false);
     }, 15000)
   }
+
 
   const checkout = async () => {
     await fetch('https://https-magofna68-github-io-ecommerce.onrender.com/checkout', {
@@ -186,7 +186,22 @@ export default function Navigationbar(props) {
                       </div>
                     </Col>
                     <Col className="modalCol">
-                      {currentProduct.size}
+                    {/* {currentProduct.size} */}
+                      <DropdownButton 
+                        id="dropdown-basic-button" 
+                        variant="secondary" 
+                        size="sm" 
+                        title={currentProduct.size} 
+                      >
+                        {/* <Dropdown.Menu variant="dark"> */}
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XS")} onChange={() => console.log(currentProduct.size)}>XS</Dropdown.Item>
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "S")}>S</Dropdown.Item>
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "M")}>M</Dropdown.Item>
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "L")}>L</Dropdown.Item>
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XL")}>XL</Dropdown.Item>
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XXL")}>XXL</Dropdown.Item>
+                        {/* </Dropdown.Menu> */}
+                      </DropdownButton>
                     </Col>
                     <Col xs={4} className="modalCol" >
                       {currentProduct.name}
@@ -199,7 +214,6 @@ export default function Navigationbar(props) {
                           <KeyboardArrowLeftIcon 
                             fontSize='large' 
                             onClick={()=> cart.removeOneItemFromCart(currentProduct.id)}
-                            // className="cartQuantityArrow"
                           />
                         </Col>
 
@@ -211,7 +225,6 @@ export default function Navigationbar(props) {
                           <KeyboardArrowRightIcon 
                             fontSize='large' 
                             onClick={()=> cart.addOneItemToCart(currentProduct.id)}
-                            // className="cartQuantityArrow"
                           />
                         </Col>
                       </div>
