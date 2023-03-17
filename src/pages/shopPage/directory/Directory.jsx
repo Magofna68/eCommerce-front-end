@@ -119,7 +119,7 @@ import './directory.styles.scss';
           buttonDisplayed === null ?
           null
           :
-          <Button onClick={() => navigate('#/shop')}>{buttonText}</Button>
+          <Button onClick={() => navigate('https://magofna68.github.io/eCommerce-front-end/#/shop')}>{buttonText}</Button>
         }
       </Container>
     );

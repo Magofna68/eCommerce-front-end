@@ -12,7 +12,7 @@ import SlideShow from '../../../components/utility/mobileSlider/MobileSlider';
 import Randomizer from '../../../components/utility/randomizer/Randomizer';
 
 export default function HomeLayout(props) {
-  const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick } = props;
+  const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick, handleGenderUpdate } = props;
 
   const bannerSessionState = JSON.parse(sessionStorage.getItem('banner-info')) || '[]'
   const [ hide, setHide ] = useState(bannerSessionState)
@@ -49,7 +49,8 @@ export default function HomeLayout(props) {
         img2: 'https://img.ltwebstatic.com/images3_pi/2022/04/26/1650941068cd0cce154a16bc6787e4d712adf8453e_thumbnail_600x.webp',
         alt: "black semi formal gown",
         text: "Shop Sales Now",
-        quote: "Own the Night"
+        quote: "Own the Night",
+        // href: ''
       },
       {
         id: 1,
@@ -59,6 +60,9 @@ export default function HomeLayout(props) {
         alt: "Womens lambskin leather jacket",
         quote: "Explore Your Look",
         text: "Shop Womens Now",
+        gender: 'WOMENS',
+        href: 'http://localhost:3000/eCommerce-front-end#/shop/womens',
+        // href: 'https://magofna68.github.io/eCommerce-front-end/#/shop/womens'
       },
       {
         id: 2,
@@ -68,6 +72,9 @@ export default function HomeLayout(props) {
         alt: 'designer',
         quote: "Find Your Style",
         text: 'Shop Mens Now',
+        gender: 'MENS',
+        href: 'http://localhost:3000/eCommerce-front-end#/shop/mens',
+        // href: 'https://magofna68.github.io/eCommerce-front-end/#/shop/mens'
       }
     ]
     
@@ -226,7 +233,7 @@ export default function HomeLayout(props) {
             <br/>
             <h1>Newest Arrivals</h1>
             <div className='carouselContainer'>
-              <Carousel  dataSet={carouselImages}/>
+              <Carousel onGenderUpdate={handleGenderUpdate} dataSet={carouselImages}/>
             </div>
         </Container>
     </>

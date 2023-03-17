@@ -352,6 +352,7 @@ componentWillUnmount() {
                 handleFilterClick={this.handleFilterClick}
                 handleBackClick={this.handleBackClick}
                 priceFilterRedirect={this.priceFilterRedirect}
+                handleGenderUpdate={this.handleGenderUpdate}
 
                 selectedCategory={selectedCategory}
                 priceFilterData={priceFilterData}

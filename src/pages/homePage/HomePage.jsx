@@ -22,7 +22,7 @@ export default function HomePage(props) {
     selectedCategory, handleClearStateClick,
     shopData, selectedItem, categoryRedirect, 
     handleChangingSelectedItem, handleFilterClick,
-    handleSortClick, handleHomeClick, handleBackClick,
+    handleSortClick, handleHomeClick, handleGenderUpdate,
     priceFilterData, priceFilterTitle, priceFilterRedirect
   } = props;
 
@@ -91,7 +91,7 @@ export default function HomePage(props) {
         />
     } else {
       currentlyVisibleState = 
-      <HomeLayout toItemDetailsClick={toItemDetailsClick} priceFilterRedirect={priceFilterRedirect} categoryRedirect={categoryRedirect}/>
+      <HomeLayout handleGenderUpdate={handleGenderUpdate} toItemDetailsClick={toItemDetailsClick} priceFilterRedirect={priceFilterRedirect} categoryRedirect={categoryRedirect}/>
     }
 
     return (
