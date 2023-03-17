@@ -191,7 +191,6 @@ export default function Navigationbar(props) {
                       </div>
                     </Col>
                     <Col className="modalCol">
-                    {/* {currentProduct.size} */}
                       <DropdownButton 
                         id="dropdown-basic-button" 
                         variant="secondary" 

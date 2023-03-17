@@ -42,7 +42,12 @@ export default function CarouselComponent({dataSet, onGenderUpdate}) {
                   <FormatQuoteIcon />
                 </div>
                 <br/>
-                <Button>{slide.text}</Button>
+                {
+                  slide.href ?
+                    <Button onClick={()=> shopClick(slide.href, slide.gender)}>{slide.text}</Button>
+                  :
+                    null
+                }
               </div>
               <div className="carouselImg">
                 <img 
