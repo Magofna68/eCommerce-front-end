@@ -7,7 +7,6 @@ import './mensClothing.styles.scss';
 import './womensClothing.styles.scss';
 import ItemList from '../itemList/ItemList.jsx';
 import Button from 'react-bootstrap/Button';
-import ItemDetail from '../../../../pages/itemDetailPage/ItemDetail.jsx';
 import Sneakers from '../../category/sneakers/Sneakers.jsx';
 import Hats from '../../category/hats/Hats.jsx';
 import Jackets from '../../category/jackets/Jackets.jsx';

@@ -5,10 +5,16 @@ import { Carousel, Button } from 'react-bootstrap';
 
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
-export default function CarouselComponent({dataSet}) {
+export default function CarouselComponent({dataSet, onGenderUpdate}) {
   const [index, setIndex ] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
+  };
+
+  const shopClick = (href, gender) => {
+    onGenderUpdate(gender)
+    window.location.assign(href)
+    console.log(href)
   };
 
   return (
@@ -36,7 +42,12 @@ export default function CarouselComponent({dataSet}) {
                   <FormatQuoteIcon />
                 </div>
                 <br/>
-                <Button>{slide.text}</Button>
+                {
+                  slide.href ?
+                    <Button onClick={()=> shopClick(slide.href, slide.gender)}>{slide.text}</Button>
+                  :
+                    null
+                }
               </div>
               <div className="carouselImg">
                 <img 
@@ -66,7 +77,12 @@ export default function CarouselComponent({dataSet}) {
                 {/* <FormatQuoteIcon /> */}
               </div>
               <br/>
-              <Button>{slide.text}</Button>
+              {
+                slide.href ?
+                <Button onClick={()=> shopClick(slide.href, slide.gender)}>{slide.text}</Button>
+                :
+                null
+              }
             </div> 
             </div>
             }

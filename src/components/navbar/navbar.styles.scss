@@ -39,9 +39,6 @@ nav.navbar{
     align-content: center;
     justify-content: center;
   }
-  // .logo {
-    //   width: 100px;
-    // }
     
     #clearItemFromCart{
       transition: .5s ease all;
@@ -58,32 +55,37 @@ nav.navbar{
       max-width: 100%;
     }
     
-    .cartQuantityArrow{
-      color: black;
+  }
+  .cartQuantityArrow{
+    color: black;
+    
+    :hover {
       cursor: pointer;
-      
-      &:hover {
-        transform: scale(1.25);
-        color: rgb(249, 209, 209)
-      }
+      color: rgb(133, 133, 133)
     }
   }
-  
-  // .cartIcon{
-    //   width: 4.5rem;
-    //   height: 4.5rem;
-    //   // position: relative;
-    //   opacity: 80%;
-    //   position: fixed;
-    //   right: 0;
-    //   top: 50%;
-    //   // justify-content: right;
-    //   margin: 0 10px 0 0;
-    //   z-index: 3;
+
+  button.dropdown-toggle{
+    padding: 0 5px;
+    color: white;
+    background-color: gray;
+    transition: 0s all;
+    border: 1px solid black;
+
+    &:hover{
+      cursor: pointer;
+      background-color: white;
+      color: black;
+    }
+  }
+
+  div.dropdown-menu.show{
+    width: 100px;
+  }
+
     .cartIcon{
       width: 3.3rem;
       height: 3.3rem;
-      // position: relative;
       opacity: 80%;
       position: fixed;
       right: 0;
@@ -116,7 +118,6 @@ nav.navbar{
     
     .modalHeader{
       background-image: url('https://media4.giphy.com/media/JoVV55m3KZHdxlpFZ6/giphy.gif?cid=790b7611a83f4f78529b8fcf466865c46bf0b8f1147e8386&rid=giphy.gif&ct=g');
-      // background-image: url('https://media0.giphy.com/media/LUl2tRY5oVlBu/giphy.gif?cid=ecf05e47kvey7j9bjvxfnp14ewmt9llynby370cw0a7s5q3m&rid=giphy.gif&ct=g');
       
       button.btn-close{
         background-color: white;
@@ -159,22 +160,17 @@ nav.navbar{
       .navbar-brand {
         max-width: 70px;
         min-width: 60px;
-        // padding: 0 0 5% 0;
         height: auto;
         
       }
       
       .searchBarContainer{
         width: 100%;
-        // display: flex;
         justify-content: center;
         margin: 0 0 % 0;
         
         .searchIcon {
           width: 30px;
-          // height: 150px;
-          // display: flex;
-          // justify-content: center;
           margin: 0 10% 0 10%;
           padding: 0 0 0 0;
           
@@ -194,18 +190,31 @@ nav.navbar{
       }
     }
 
+    .paymentSuccess{
+      background-size: 25%;
+      background-repeat: no-repeat;
+      background-position: 85% 80%;
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ef/Success.png");
+    }
+
+    .paymentFail{
+      // margin: 0 0 5% 0;
+      background-size: 30%;
+      background-repeat: no-repeat;
+      background-position: 85% 200%;
+      background-image: url("https://thumbs.dreamstime.com/b/x-red-mark-cross-sign-graphic-symbol-crossed-brush-strokes-red-mark-cross-sign-graphic-symbol-154904173.jpg");
+    }
+
 // ======================== 1000+  =========================
 
     @media only screen and (min-width: 1000px) {
       .cartIcon{
         width: 4.5rem;
         height: 4.5rem;
-        // position: relative;
         opacity: 80%;
         position: fixed;
         right: 0;
         top: 50%;
-        // justify-content: right;
         margin: 0 10px 0 0;
         z-index: 3;
         
@@ -259,7 +268,6 @@ nav.navbar{
     display: flex;
     justify-content: left;
     align-items: left;
-    // text-align: left;
   }
 
   .col{

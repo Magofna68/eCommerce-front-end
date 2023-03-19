@@ -17,8 +17,8 @@
             <img src="https://img.shields.io/github/license/Magofna68/capstone?style=plastic">
         </a>
         ¨
-        <a href="https://github.com/Magofna68/Portfolio/issues">
-            <img src="https://img.shields.io/github/last-commit/Magofna68/e-commerce?style=plastic">
+        <a href="https://github.com/Magofna68/eCommerce-front-end">
+            <img src="https://img.shields.io/github/last-commit/Magofna68/eCommerce-front-end?style=plastic">
         </a>
         ¨
         <a href="https://linkedin.com/in/Magofna68">
@@ -62,17 +62,20 @@ _*This project mainly focused on utilizing the skills I have learned thus far an
 1. Internet browser
 2. VS Code
 3. React
-4. React-Router -- for routing 
-5. React-Bootstrap -- for styling and design
+4. React-Router -- routing 
+5. React-Bootstrap -- styling and design
 6. Stripe -- for payment processing
-7. Material-UI/Core -- for styling purposes
+7. Material-UI/Core -- styling / Icons
 8. Render -- for hosting STRIPE backend
 9. Notyf -- TOAST notifications
+<br>
 
 # Known Bugs:
 - Home breadcrumb is currently not redirecting back to homepage
 
-## Support and contact details
+<br>
+
+# Support and contact details:
 
 _Brandon Magofna: Magofna68@gmail.com_
 
