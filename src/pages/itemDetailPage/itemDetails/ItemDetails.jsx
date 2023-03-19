@@ -326,7 +326,9 @@ export default function ItemDetails(props) {
         </Col>
       </Row>
     </Container>
-      <Button 
+    {
+      window.innerWidth > 420 ?
+        <Button 
         onClick={() => navigate(-1)}
         style={{ 
           padding: '0.5% 3%', 
@@ -335,8 +337,25 @@ export default function ItemDetails(props) {
           justifyContent: 'left', 
           alignContent: 'left'
         }}>
-          <ArrowBackIcon />
-      </Button>
+            <ArrowBackIcon />
+        </Button>
+      :
+      <>
+        <br/>
+        <Button 
+          onClick={() => navigate(-1)}
+          style={{ 
+            width: '50%'
+            // padding: '0.5% 3%', 
+            // marginLeft: '5%', 
+            // display: 'flex', 
+            // justifyContent: 'left', 
+            // alignContent: 'left'
+          }}>
+            <ArrowBackIcon />
+        </Button>
+      </>
+    }
     </>
   )
 }
