@@ -57,6 +57,7 @@ export default function ItemList(props) {
             <span  className="title"> {priceFilterTitle} </span>
           :
             <span id="title">SHOP</span>
+            
         }
         {
           // coming from homepagelayout

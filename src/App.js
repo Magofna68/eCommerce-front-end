@@ -124,7 +124,7 @@ categoryRedirect = async (clickedCategoryTitle) => {
     await this.setState({ shopData: [] })
     // sets the correct dataset in state (mens / womens / all)
     await this.handleSetData()
-    console.log("APP.js# ShopDATA", this.state.shopData)
+    // console.log("APP.js# ShopDATA", this.state.shopData)
     const categoryToAssign = clickedCategoryTitle.toUpperCase();
     const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
     await this.setState({
@@ -295,6 +295,8 @@ unsubscribeFromAuth = null
 componentDidMount() {
     let genderSessionStorage = JSON.parse(sessionStorage.getItem('gender'));
     let dataSessionStorage = JSON.parse(sessionStorage.getItem('data'));
+    // sessionStorage.setItem('banner-info', JSON.stringify('false'))
+
     if (genderSessionStorage) {
       this.setState({ 
         gender: genderSessionStorage,
