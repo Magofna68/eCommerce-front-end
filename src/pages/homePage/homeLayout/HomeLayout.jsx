@@ -25,7 +25,7 @@ export default function HomeLayout(props) {
   }
     
   useEffect(()=> {
-    console.log("bannerSessionStorage: ", JSON.parse(sessionStorage.getItem('banner-info')))
+    // console.log("bannerSessionStorage: ", JSON.parse(sessionStorage.getItem('banner-info')))
   }, [hide])
 
   function getRandom(array) {

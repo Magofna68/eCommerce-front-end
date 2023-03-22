@@ -14,7 +14,7 @@ div.itemListPreview.container-true {
     align-items: center;
     margin: auto;
     width: 80%;
-    margin-top: 1%;
+    margin-top: .9rem;
     flex-direction: column;
     // margin: 0 2% 0 2%;
     // height: 100px;
@@ -40,6 +40,8 @@ div.itemListPreview.container-true {
   }
   
   .preview {
+    max-width: 1400px;
+    margin: auto;
     display: flex;
     margin-bottom: -5%;
     margin-top: 0;
@@ -120,20 +122,39 @@ ul.titleListContainer{
   }
 // ====================== 1400+ ======================
 @media only screen and (min-width: 1400px) {
-  .itemListPreview{
+  div.itemListPreview{
+
+    span.title{
+      font-size: 3.75rem;
+      font-weight: 300;
+      // margin: 0 0 0 5%;
+    }
+
+    span#title{
+      font-size: 3.75rem;
+      display: flex;
+      justify-content: left;
+      margin: 0 0 0 6%;
+    }
+
+    .optionsContainer{
+      margin-top: 5%;
+    }
+
+    .sortContainer{
+      font-size: 1.5rem;
+      // margin-top: 10%;
+    }
 
     .categoryLabel{
       padding: 0 0 0 0;
-      margin: 4rem 0 -1% 0;
+      margin: 5rem 0 -2% 0;
       text-align: left;
-    }
-    .sortContainer{
-      margin-top: 13%;
     }
     
     ul.titleListContainer{
       // margin: 8.5rem 0 0 0;
-      margin: 0 0 -3% 0;
+      margin: 0 0 -2% 0;
       height: 3.5rem;
       max-width: 1000px;
       
@@ -143,10 +164,34 @@ ul.titleListContainer{
     }
   }
 }
+//   .itemListPreview{
+
+//     .categoryLabel{
+//       padding: 0 0 0 0;
+//       margin: 4rem 0 -1% 0;
+//       text-align: left;
+//     }
+//     .sortContainer{
+//       font-size: 1.5rem;
+//       margin-top: 12%;
+//     }
+    
+//     ul.titleListContainer{
+//       // margin: 8.5rem 0 0 0;
+//       margin: 0 0 -3% 0;
+//       height: 3.5rem;
+//       max-width: 1000px;
+      
+//       li{
+//         font-size: 1.25rem;
+//       }
+//     }
+//   }
+// }
 
   // ===================== 1000+ =======================
   @media only screen and (min-width: 1000px) and (max-width: 1399px) {
-    .itemListPreview{
+    div.itemListPreview{
 
       span.title{
         font-size: 3.75rem;
@@ -161,9 +206,14 @@ ul.titleListContainer{
         margin: 0 0 0 6%;
       }
 
-      .sortContainer{
-        margin-top: 0%;
-      }
+        .optionsContainer{
+          margin-top: 5%;
+        }
+
+          .sortContainer{
+            font-size: 1.5rem;
+            // margin-top: 10%;
+          }
 
       .categoryLabel{
         padding: 0 0 0 0;
@@ -189,6 +239,11 @@ ul.titleListContainer{
   @media only screen and (min-width: 600px) and (max-width: 999px) {
     .itemListPreview{
 
+      .optionsContainer{
+        background-color: white;
+        margin-top: -3%;
+      }
+
       span.title{
         font-size: 3rem;
         font-weight: 300;
@@ -202,7 +257,8 @@ ul.titleListContainer{
       }
 
       .sortContainer{
-        margin-top: 10%;
+        // margin-top: 10%;
+        font-size: 1.3rem;
       }
 
       .categoryLabel{
@@ -227,6 +283,15 @@ ul.titleListContainer{
   
   @media only screen and (min-width: 421px) and (max-width: 599px) {
     .itemListPreview{
+
+      .optionsContainer{
+        background-color: white;
+        margin-top: -3%;
+      }
+
+      .sortContainer{
+        margin-top: 3%;
+      }
 
       span.title{
         font-size: 2.5rem;
@@ -284,6 +349,7 @@ ul.titleListContainer{
       }
 
       .sortContainer{
+        margin-top: 5%;
         margin-bottom: 5%;
       }
 
@@ -298,7 +364,7 @@ ul.titleListContainer{
         // margin: 8rem 0 0 0;
       
         li{
-          font-size: 1rem;
+          font-size: .9rem;
         }
       }
     }

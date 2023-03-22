@@ -33,7 +33,7 @@ export default function ItemList(props) {
   //   return array;
   // }
 
-  const categoryTitles = ['SNEAKERS', 'SHIRTS', 'HATS', 'JACKETS', 'SALE']
+  const categoryTitles = ['SNEAKERS', 'HATS','SHIRTS', 'JACKETS', 'SALE']
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -42,28 +42,12 @@ export default function ItemList(props) {
   return (
     <>
       <Container fluid="true" className='itemListPreview'>
-        <div 
-          style={{ 
-            display: 'flex', 
-            justifyContent: 'left', 
-            alignContent: 'left', 
-            alignItems: 'left', 
-            width: '100%' }}
-        >
-        </div>
-
         {
           priceFilterTitle ?
             <span  className="title"> {priceFilterTitle} </span>
           :
+          <>
             <span id="title">SHOP</span>
-            
-        }
-        {
-          // coming from homepagelayout
-          priceFilterData ?
-            null
-          :
             <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
               <p className="categoryLabel"><strong>Select a Category:</strong></p><br/>
               <ul className='titleListContainer'>
@@ -76,6 +60,7 @@ export default function ItemList(props) {
                 }
               </ul>
             </div>
+            </>
         }
         <br/>
         <div className='optionsContainer'>
@@ -84,12 +69,10 @@ export default function ItemList(props) {
               null
             :
             <>
-              {/* <div> */}
                 <Radio 
                   onClick={()=> onFilterClick({radioValue})} 
                   onFilterClick={onFilterClick}
                   />
-              {/* </div> */}
               <br/>
             </>
 
@@ -101,13 +84,11 @@ export default function ItemList(props) {
                 <div>
                   <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('H2L')}/> High to Low &nbsp;&nbsp;
                   <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('L2H')}/> Low to High
-                  {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
               :
                 <div>
                   <input value="H2L" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('High2Low')}/> High to Low &nbsp;&nbsp;
                   <input value="L2H" type="radio" name='sort' id="sortStatus" onChange={() => onSortClick('Low2High')}/> Low to High
-                  {/* <input value="clear" type="radio" name='sort' onChange={() => onSortClick(null)} /> Clear  */}
                 </div>
             }
 
