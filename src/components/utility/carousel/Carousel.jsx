@@ -71,11 +71,11 @@ export default function CarouselComponent({dataSet, onGenderUpdate}) {
             <div className='textBox'>
               <span className='slideTitle'>{slide.title}</span>
               <br/>
-              <div className="quoteContainer">
-                {/* <FormatQuoteIcon /> */}
-                  {slide.quote}
-                {/* <FormatQuoteIcon /> */}
-              </div>
+              <div className="quoteContainer" style={{ width: 'fitContent'}}>
+                  <FormatQuoteIcon />
+                   <div style={{ marginTop: '3%',}}><span>{slide.quote}</span></div>
+                  <FormatQuoteIcon />
+                </div>
               <br/>
               {
                 slide.href ?
