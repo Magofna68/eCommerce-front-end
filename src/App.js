@@ -362,6 +362,7 @@ componentWillUnmount() {
             />
             <Route exact path='/shop' element={
               <Directory 
+                handleClearStateClick={this.handleClearStateClick}
                 selectedCategory={selectedCategory}  
                 sections={sections}
                 categoryRedirect={this.categoryRedirect}

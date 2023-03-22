@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import './directory.styles.scss';
   
   export default function Directory(props) {
-    const { selectedCategory, sections, categoryRedirect, handleGenderUpdate } = props;
+    const { selectedCategory, sections, categoryRedirect, handleGenderUpdate, handleClearStateClick } = props;
 
     const navigate = useNavigate();
 
@@ -38,6 +38,11 @@ import './directory.styles.scss';
         reviews: savedItem.reviews
       }
     })
+  }
+
+  const returnToShopPage = () => {
+    handleClearStateClick();
+    window.location.assign('https://magofna68.github.io/eCommerce-front-end/#/shop')
   }
 
   const handleClothingControllerClick = (gender) => {
@@ -119,7 +124,7 @@ import './directory.styles.scss';
           buttonDisplayed === null ?
           null
           :
-          <Button onClick={() => navigate('https://magofna68.github.io/eCommerce-front-end/#/shop')}>{buttonText}</Button>
+          <Button onClick={() => returnToShopPage()}>{buttonText}</Button>
         }
       </Container>
     );
