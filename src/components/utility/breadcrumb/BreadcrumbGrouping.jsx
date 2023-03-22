@@ -6,21 +6,22 @@ import './breadcrumbGrouping.styles.scss';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 export default function BreadcrumbGrouping(props) {
-  const {  navigate } = props;
+  const {  navigate, handleClearStateClick } = props;
   return (
     <div 
     className='breadcrumbGrouping'>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link
+        {/* <Link
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', }}
           color="inherit"
           // href="http://localhost:3000/"
-          href='https://magofna68.github.io/eCommerce-front-end/#/'
+          onClick={() => navigate(-2)}
+          // href='https://magofna68.github.io/eCommerce-front-end/#/'
           >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           HOME
-        </Link>
+        </Link> */}
         <Link
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center', onHover: 'pointer' }}

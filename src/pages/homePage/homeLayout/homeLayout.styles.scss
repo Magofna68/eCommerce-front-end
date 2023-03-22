@@ -168,7 +168,7 @@
       margin-bottom: 13%;
       
       .css-17lrfl-MuiTypography-root{
-        font-size: 100px;
+        font-size: 125px;
         // margin-top: 5%;
       }
       
@@ -176,23 +176,20 @@
         font-size: 95px;
       }
       
-      .crownIcon{
-        // display: flex;
-        // justify-content: space-between;
-        // margin-bottom: 10% ;
-        width: 200px;
-        position: absolute;
-        top: 61.5%;
-        
-      }
       .subtext{
-        display: flex;
-        // position: relative;
-        margin-top: 27% ;
         color: black;
+        position: relative;
+        // margin-top: 26% ;
         font-size: 1.75em;
+        bottom: 10%
         // margin-bottom: 10%;
         // font-weight: 600;
+      }
+      .crownIcon{
+        width: 175px ;
+        position: absolute;
+        top: 70%;
+        margin-top: 3%;
       }
     }
     .priceFilterContainer{
@@ -215,23 +212,38 @@
         font-size: 95px;
       }
       
-      .crownIcon{
-        // display: flex;
-        // justify-content: space-between;
-        // margin-bottom: 10% ;
-        width: 175px;
-        position: absolute;
-        top: 50%;
+      // .crownIcon{
+      //   // display: flex;
+      //   // justify-content: space-between;
+      //   // margin-bottom: 10% ;
+      //   width: 175px;
+      //   position: absolute;
+      //   top: 50%;
         
-      }
+      // }
+      // .subtext{
+      //   display: flex;
+      //   // position: relative;
+      //   margin-top: 25% ;
+      //   color: black;
+      //   font-size: 1.75em;
+      //   // margin-bottom: 10%;
+      //   // font-weight: 600;
+      // }
       .subtext{
-        display: flex;
-        // position: relative;
-        margin-top: 25% ;
         color: black;
-        font-size: 1.75em;
+        position: relative;
+        // margin-top: 26% ;
+        font-size: 1.5em;
+        bottom: 25%
         // margin-bottom: 10%;
         // font-weight: 600;
+      }
+      .crownIcon{
+        width: 150px ;
+        position: absolute;
+        top: 65%;
+        margin-top: 3%;
       }
     }
     .priceFilterContainer{
@@ -249,7 +261,7 @@
     .underGroundRoyalty{
       
       .css-17lrfl-MuiTypography-root{
-        font-size: 100px;
+        font-size: 80px;
         // margin-top: 5%;
       }
       
@@ -258,19 +270,20 @@
       }
       
       
-      .crownIcon{
-        width: 175px ;
-        position: absolute;
-        top: 55%;
-        margin-top: 0%;
-      }
       .subtext{
         color: black;
         position: relative;
-        margin-top: 26% ;
-        font-size: 1.75em;
+        // margin-top: 26% ;
+        font-size: 1.5em;
+        bottom: 20%
         // margin-bottom: 10%;
         // font-weight: 600;
+      }
+      .crownIcon{
+        width: 150px ;
+        position: absolute;
+        top: 60%;
+        margin-top: 3%;
       }
     }
     .priceFilterContainer{
@@ -301,7 +314,7 @@
       }
       
       .css-17lrfl-MuiTypography-root{
-        font-size: xxx-large;
+        font-size: xx-large;
         margin-top: 5%;
       }
       
@@ -311,7 +324,7 @@
       
       .subtext{
         display: flex;
-        margin-top: 40%;
+        margin-top: 35%;
         font-size: 20px;
         font-weight: 600;
       }
@@ -367,7 +380,7 @@
       
       .subtext{
         display: flex;
-        margin-top: 55.75%;
+        margin-top: 50%;
         font-size: 15px;
         font-weight: 600;
       }
@@ -418,7 +431,7 @@
       
       .subtext{
         display: flex;
-        margin-top: 50%;
+        margin-top: 52%;
         margin-bottom: -4%;
         font-size: 15px;
         font-weight: 600;

@@ -4,7 +4,7 @@ import {SHOP_DATA} from '../../../../data.jsx'
 import FullItemCollection from '../../fullCollection/fullItemCollection/FullItemCollection.jsx'
 
 export default function Sale(props) {
-  const { toItemDetailsClick, onItemSelection, filteredSale, itemToShow, handleHomeClick } = props;
+  const { toItemDetailsClick, onItemSelection, filteredSale, handleHomeClick, selectedCategory } = props;
   const saleCollection = [];
   saleCollection.push(SHOP_DATA[4]);
 
@@ -12,26 +12,42 @@ export default function Sale(props) {
     window.scrollTo(0, 0)
   }, [])
   
+  console.log("FilteredSale: ", filteredSale)
+  const gender = JSON.parse(sessionStorage.getItem('gender'));
+
   return (
     <div style={{display: 'flex', justifyContent: 'center'}}>
-      {/* BUG: not correctly rendering h1 from ternary statement  */}
       {
-        filteredSale !== [] ?
+        selectedCategory === 'SALE' ?
           saleCollection.map(({id, ...otherCollectionProps}) => (
             <FullItemCollection 
-            filteredList={filteredSale} 
-            toItemDetailsClick={toItemDetailsClick}
-            key={id} 
-            id={id} 
-            handleHomeClick={handleHomeClick}
-            onItemSelection={onItemSelection} 
-            {...otherCollectionProps} />
-          ))
+              filteredList={filteredSale} 
+              toItemDetailsClick={toItemDetailsClick}
+              key={id} 
+              id={id} 
+              handleHomeClick={handleHomeClick}
+              onItemSelection={onItemSelection} 
+              {...otherCollectionProps} />
+            ))
         :
-          <h1 style={{ color: 'black'}}>
-            Sorry, there are no items currently on Sale.<br/> 
-            Please check back later for the best deals and discounts available.
-          </h1>
+        gender === "MENS" ?
+            filteredSale.map(({id, ...otherCollectionProps}) => (
+              <FullItemCollection 
+                filteredList={filteredSale} 
+                toItemDetailsClick={toItemDetailsClick}
+                key={id} 
+                id={id} 
+                handleHomeClick={handleHomeClick}
+                onItemSelection={onItemSelection} 
+                {...otherCollectionProps} />
+              ))
+            :
+            <div>
+              <h1 style={{ color: 'black'}}>
+                <strong>Sorry,<br/> there are no {gender.toLowerCase()} items currently on Sale.</strong>
+              </h1>
+              <h3 style={{ padding: '10px'}}>Please check back later for the best deals and discounts available.</h3>
+          </div>
       }
     </div>
   )

@@ -27,7 +27,7 @@ export default function HomePage(props) {
   } = props;
 
   const navigate = useNavigate();
-
+  
   const toItemDetailsClick = (e) => {
     // Save the ID into variable
     const savedId = e.id;
@@ -48,8 +48,9 @@ export default function HomePage(props) {
         img4: savedItem.img4,
         desc: savedItem.desc,
         detail: savedItem.detail,
-        reviews: savedItem.reviews
-      }
+        reviews: savedItem.reviews,
+      },
+      handleClearStateClick,
     })
   }
           
@@ -75,11 +76,12 @@ export default function HomePage(props) {
     } else if (selectedCategory === "SALE") {
       buttonText="Home"
       currentlyVisibleState = 
-        <Sale toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
+        <Sale  selectedCategory={selectedCategory} toItemDetailsClick={toItemDetailsClick} handleHomeClick={handleHomeClick} onItemSelection={handleChangingSelectedItem}/>
     } else if (selectedCategory === 'FILTER') {
       buttonText="Home"
       currentlyVisibleState =
         <ItemList 
+          handleClearStateClick={handleClearStateClick}
           toItemDetailsClick={toItemDetailsClick}
           onFilterClick={handleFilterClick}
           onSortClick={handleSortClick}

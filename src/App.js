@@ -124,7 +124,7 @@ categoryRedirect = async (clickedCategoryTitle) => {
     await this.setState({ shopData: [] })
     // sets the correct dataset in state (mens / womens / all)
     await this.handleSetData()
-    console.log("APP.js# ShopDATA", this.state.shopData)
+    // console.log("APP.js# ShopDATA", this.state.shopData)
     const categoryToAssign = clickedCategoryTitle.toUpperCase();
     const appFilteredList = this.state.shopData.filter(item => item.title.includes(clickedCategoryTitle.toLowerCase()))
     await this.setState({
@@ -161,11 +161,10 @@ handleBackClick = () => {
 
 handleChangingSelectedItem = async (id) => {
   const selectedItem = id;
-  console.log("SelectedItem App.js:", selectedItem)
+  // console.log("SelectedItem App.js:", selectedItem)
   await this.setState({
     selectedItem: selectedItem
   })
-  // await console.log("(Write function in itemList to redirect to itemDetails) -- SelectedItem:", this.state.selectedItem)
 }
 
 
@@ -177,11 +176,7 @@ handleClearStateClick = (text) => {
         filteredList: [],
         gender: null,
       })
-      // development
-      // window.location.assign('/')
-      // production
       window.location.assign('https://magofna68.github.io/eCommerce-front-end/#/');
-      // window.location.reload();
   } else {
     this.setState({
       selectedItem: null,
@@ -295,6 +290,8 @@ unsubscribeFromAuth = null
 componentDidMount() {
     let genderSessionStorage = JSON.parse(sessionStorage.getItem('gender'));
     let dataSessionStorage = JSON.parse(sessionStorage.getItem('data'));
+    // sessionStorage.setItem('banner-info', JSON.stringify('false'))
+
     if (genderSessionStorage) {
       this.setState({ 
         gender: genderSessionStorage,
@@ -351,6 +348,7 @@ componentWillUnmount() {
                 handleSortClick={this.handleSortClick}
                 handleFilterClick={this.handleFilterClick}
                 handleBackClick={this.handleBackClick}
+                handeClearStateClick={this.handleClearStateClick}
                 priceFilterRedirect={this.priceFilterRedirect}
                 handleGenderUpdate={this.handleGenderUpdate}
 
@@ -364,6 +362,7 @@ componentWillUnmount() {
             />
             <Route exact path='/shop' element={
               <Directory 
+                handleClearStateClick={this.handleClearStateClick}
                 selectedCategory={selectedCategory}  
                 sections={sections}
                 categoryRedirect={this.categoryRedirect}
@@ -413,26 +412,26 @@ componentWillUnmount() {
               />}
             />
       {/* Accessing From Categories */}
-            <Route path='/shop/hats/:id' element={<ItemDetails />} />
-            <Route path='/shop/sneakers/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/shirts/:id' element={<ItemDetails />} />
-            <Route path='/shop/jackets/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/sale/:id' element={<ItemDetails />} />
-            <Route path='/shop/mens/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/womens/:id' element={<ItemDetails />} />
+            <Route path='/shop/hats/:id'  element={<ItemDetails />} />
+            <Route path='/shop/sneakers/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/shirts/:id'  element={<ItemDetails />} />
+            <Route path='/shop/jackets/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/sale/:id'  element={<ItemDetails />} />
+            <Route path='/shop/mens/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/womens/:id'  element={<ItemDetails />} />
 
       {/* Accessing from ClothingController */}
-            <Route path='/shop/mens/hats/:id' element={<ItemDetails />} />
-            <Route path='/shop/mens/sneakers/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/mens/shirts/:id' element={<ItemDetails />} />
-            <Route path='/shop/mens/jackets/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/mens/sale/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/mens/hats/:id'  element={<ItemDetails />} />
+            <Route path='/shop/mens/sneakers/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/mens/shirts/:id'  element={<ItemDetails />} />
+            <Route path='/shop/mens/jackets/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/mens/sale/:id'  element={<ItemDetails />} /> 
 
-            <Route path='/shop/womens/hats/:id' element={<ItemDetails />} />
-            <Route path='/shop/womens/sneakers/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/womens/shirts/:id' element={<ItemDetails />} />
-            <Route path='/shop/womens/jackets/:id' element={<ItemDetails />} /> 
-            <Route path='/shop/womens/sale/:id' element={<ItemDetails />} /> 
+            <Route path='/shop/womens/hats/:id'  element={<ItemDetails />} />
+            <Route path='/shop/womens/sneakers/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/womens/shirts/:id'  element={<ItemDetails />} />
+            <Route path='/shop/womens/jackets/:id'  element={<ItemDetails />} /> 
+            <Route path='/shop/womens/sale/:id'  element={<ItemDetails />} /> 
 
             <Route path="/pageNotAvailable" element={<UnderConstruction />} />
             <Route path='/returnpolicy' element={<ReturnPolicyPage />} />

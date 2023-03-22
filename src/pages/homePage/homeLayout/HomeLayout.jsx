@@ -14,15 +14,18 @@ import Randomizer from '../../../components/utility/randomizer/Randomizer';
 export default function HomeLayout(props) {
   const { categoryRedirect, priceFilterRedirect, filteredList, toItemDetailsClick, handleGenderUpdate } = props;
 
-  const bannerSessionState = JSON.parse(sessionStorage.getItem('banner-info')) || '[]'
-  const [ hide, setHide ] = useState(bannerSessionState)
-
+  const initialBannerState = sessionStorage.getItem('banner-info') ? JSON.parse(sessionStorage.getItem('banner-info')) : 'false'
+    
+  const [ hide, setHide ] = useState(initialBannerState)
+    
   const hideBanner = () => {
-    setHide(false)
+    sessionStorage.setItem('banner-info', JSON.stringify('true'));
+    const hideBanner = JSON.parse(sessionStorage.getItem('banner-info'))
+    setHide(hideBanner)
   }
-
+    
   useEffect(()=> {
-    sessionStorage.setItem('banner-info', JSON.stringify(hide));
+    // console.log("bannerSessionStorage: ", JSON.parse(sessionStorage.getItem('banner-info')))
   }, [hide])
 
   function getRandom(array) {
@@ -109,7 +112,7 @@ export default function HomeLayout(props) {
     return (
       <>
         {
-          hide === true ? 
+          hide === 'false' ? 
           <div className='bannerContainer'>
             <Banner hideBanner={hideBanner} />
           </div>

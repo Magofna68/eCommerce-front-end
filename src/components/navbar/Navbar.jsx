@@ -90,10 +90,16 @@ export default function Navigationbar(props) {
         expand="md" 
         >
         <div className="navbarLeft">
+
   {/* CROWN LOGO */}
-          <Navbar.Brand href="https://magofna68.github.io/eCommerce-front-end/#/" className='logo'>
+          <Navbar.Brand 
+            // href="https://magofna68.github.io/eCommerce-front-end/#/" 
+            className='logo' 
+            onClick={() => handleClearStateClick("HOME")}
+          >
             <img src={Logo} width='100%' alt='logo' />
           </Navbar.Brand>
+
   {/* SEARCH ICON */}
           <div className='searchBarContainer'>
             {
@@ -110,7 +116,7 @@ export default function Navigationbar(props) {
         <NavbarToggle className='border-0' aria-controls="justify-content-center navbar-toggle" />
         <NavbarCollapse className='navbar-toggle justify-content-end'>
           <Nav className='justify-content-center margin-left-auto'>            
-            <Link className="nav-link" to="https://magofna68.github.io/eCommerce-front-end/#/" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
+            <Link className="nav-link" to="/" onClick={() => handleClearStateClick("HOME")}>HOME</Link>
             <Link className="nav-link" to="/shop" onClick={handleClearStateClick}>Shop</Link>
             <Link className='nav-link' to="/shop/mens" onClick={() => handleGenderUpdate("MENS")}>Mens</Link>
             <Link className='nav-link' to="/shop/womens" onClick={() => handleGenderUpdate("WOMENS")}>Womens</Link>
@@ -152,7 +158,7 @@ export default function Navigationbar(props) {
                 <Col className="modalItemText">Item:</Col>
                 <Col className="modalItemText">Size:</Col>
                 <Col xs={4} style={{ }}>Name:</Col>
-                <Col className="modalItemText">#:</Col>
+                <Col className="modalItemText">Quantity:</Col>
                 <Col className="modalItemText">Price:</Col>
               </Row> 
                       
@@ -386,19 +392,20 @@ export default function Navigationbar(props) {
                   :
                   <>
                     <div style={{display: 'flex', justifyContent: 'right', }}>
-                      <p style={{fontWeight: 300, fontSize: '12px'}}>Please sign in to complete your purchase</p>
+                      <p style={{fontWeight: 300, fontSize: '12px'}}>Please sign in to complete your purchase or <span className="checkoutBtn" onClick={handleToggle}>Proceed As Guest</span></p>
                     </div>
-                      <Button variant="success" onClick={handleToggle} style={{}}>
+                      {/* <Button variant="success" onClick={handleToggle} style={{}}>
                         Checkout Anonymously
-                      </Button>
+                      </Button> */}
                       <Backdrop
                         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                         open={open}
                         onClick={handleBackdropClose}
                       >
-                        <CircularProgress color="success" />
+                        Loading...
+                        <CircularProgress color="success"></CircularProgress>
+                        Almost Done
                       </Backdrop>
-                      {/* <p style={{display: 'flex', justifyContent: 'right', marginRight: '12%', fontWeight: 300, fontSize: '10px'}}>OR</p> */}
                     </>
                 }
               </>

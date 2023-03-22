@@ -9,7 +9,7 @@ import { PropTypes } from 'prop-types';
 // Being fed from ITEMLIST
 export function CollectionItem (props) {
 const { 
-  id, name, alt, price, img, handleItemSelection, toItemDetailsClick
+  id, name, alt, price, img, toItemDetailsClick, handleClearStateClick
   // img2, img3, img4, desc, details,
 } = props;
 
