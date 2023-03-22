@@ -38,7 +38,7 @@ export default function CarouselComponent({dataSet, onGenderUpdate}) {
                 <span className='slideTitle'>{slide.title}</span>
                 <div className="quoteContainer">
                   <FormatQuoteIcon />
-                    {slide.quote}
+                   <div style={{ width: '80%', marginTop: '3%',}}><span>{slide.quote}</span></div>
                   <FormatQuoteIcon />
                 </div>
                 <br/>

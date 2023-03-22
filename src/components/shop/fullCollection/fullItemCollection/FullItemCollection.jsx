@@ -19,7 +19,7 @@ import Row from 'react-bootstrap/Row';
             textAlign: 'center',
           }}
         >
-          {title.toUpperCase()}
+          {title.toUpperCase()} 
         </h1>
       </Row>
       <div 

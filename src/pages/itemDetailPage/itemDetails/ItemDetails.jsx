@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router';
 
 // came from ItemDetail
 export default function ItemDetails(props) {
-  const { itemToShow, handleHomeClick, handleClearStateClick } = props;
+  const { itemToShow, handleHomeClick, handleClearStateClick  } = props;
   // const { name, price, id, img, img2, img3, img4, desc, reviews,
   //     detail, alt, title, } = itemToShow;
   // const { 
@@ -37,6 +37,8 @@ export default function ItemDetails(props) {
     let detail = location.state.detail;
     let alt = location.state.detail;
     let reviews = location.state.reviews;
+    let handleClear = location.state.handleClearStateClick;
+    console.log(handleClear)
 
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
@@ -160,7 +162,7 @@ export default function ItemDetails(props) {
   return (
     <>
       <span id="returnIcon" >
-        <BreadcrumbGrouping onClearStateClick={handleClearStateClick} navigate={navigate} />
+        <BreadcrumbGrouping handleClearStateClick={handleClearStateClick} handleClear={handleClear} navigate={navigate} />
       </span>
       <Container fluid style={{padding: 0}}>
         <Row>

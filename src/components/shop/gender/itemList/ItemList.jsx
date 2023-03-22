@@ -16,7 +16,7 @@ import Radio from '../../../utility/radioButton/RadioButton.jsx';
 
 export default function ItemList(props) {
   const { fullItemList, onItemSelection, categoryRedirect, priceFilterData,
-    priceFilterTitle, onFilterClick, onSortClick, toItemDetailsClick} = props;
+    priceFilterTitle, onFilterClick, onSortClick, toItemDetailsClick, handleClearStateClick } = props;
 
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState(null);
@@ -44,7 +44,7 @@ export default function ItemList(props) {
       <Container fluid="true" className='itemListPreview'>
         {
           priceFilterTitle ?
-            <span  className="title"> {priceFilterTitle} </span>
+            <span  className="title"> {priceFilterTitle}</span>
           :
           <>
             <span id="title">SHOP</span>
@@ -106,10 +106,10 @@ export default function ItemList(props) {
         >
         {
           priceFilterData ? 
-            // getRandom(priceFilterData).map(({id, ...props}) => (
             priceFilterData.map(({id, ...props}) => (
               <CollectionItem
                 id={id}
+                handleClearStateClick={handleClearStateClick}
                 toItemDetailsClick={toItemDetailsClick}
                 key={id}
                 handleItemSelection={onItemSelection}
@@ -117,10 +117,10 @@ export default function ItemList(props) {
                 />
             ))
           :
-            // getRandom(FullItemList).map(({id, ...props}) => (
             fullItemList.map(({id, ...props}) => (
               <CollectionItem
                 id={id}
+                handleClearStateClick={handleClearStateClick}
                 toItemDetailsClick={toItemDetailsClick}
                 key={id}
                 handleItemSelection={onItemSelection}
