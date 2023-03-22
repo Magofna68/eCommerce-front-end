@@ -404,9 +404,8 @@ export default function Navigationbar(props) {
                       >
                         Loading...
                         <CircularProgress color="success"></CircularProgress>
-                        Almost there
+                        Almost Done
                       </Backdrop>
-                      {/* <p style={{display: 'flex', justifyContent: 'right', marginRight: '12%', fontWeight: 300, fontSize: '10px'}}>OR</p> */}
                     </>
                 }
               </>
