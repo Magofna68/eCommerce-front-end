@@ -91,7 +91,6 @@ export function CartProvider({children}) {
 
  function editItemSizeInCart (id, value) {
    notyf.success("Size Updated")
-    // console.log("cartProductsBEFORE: ", cartProducts)
      setCartProducts(
         cartProducts.map(
           product => product.id === id ?

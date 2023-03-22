@@ -26,6 +26,7 @@ export default function ItemDetails(props) {
 
   const location = useLocation();
   // coming from searchBar
+    let title = location.state.title;
     let name = location.state.name;
     let id= location.state.id
     let price = location.state.price;
@@ -37,8 +38,6 @@ export default function ItemDetails(props) {
     let detail = location.state.detail;
     let alt = location.state.detail;
     let reviews = location.state.reviews;
-    let handleClear = location.state.handleClearStateClick;
-    console.log(handleClear)
 
   const cart = useContext(ShoppingCartContext);
   const productQuantity = cart.getProductQuantity(id);
@@ -49,6 +48,8 @@ export default function ItemDetails(props) {
   // const [ reviewAvg, setReviewAvg ] = useState([]);
   const [activeImg, setActiveImg ] = useState({
     img: [ {img}, {img2}, {img3}, {img4} ] })
+
+    console.log("props.title: ", title)
 
   const sneakers = [
     { id: 6, value: 6 },
@@ -66,6 +67,19 @@ export default function ItemDetails(props) {
     { id: 12, value: 12 },
     { id: 12.5, value: 12.5 },
     { id: 13, value: 13 },
+  ]
+
+  const hats = [
+    {id: 1, value: '6 5/8' },
+    {id: 2, value: '6 3/4' },
+    {id: 3, value: '6 7/8' },
+    {id: 4, value: '7 1/8' },
+    {id: 5, value: '7 1/4' },
+    {id: 6, value: '7 1/2' },
+    {id: 7, value: '7 3/4' },
+    {id: 8, value: '7 7/8' },
+    {id: 9, value: '8' },
+    {id: 10, value: '8 1/8' },
   ]
   
   const clothesSize = [
@@ -162,7 +176,7 @@ export default function ItemDetails(props) {
   return (
     <>
       <span id="returnIcon" >
-        <BreadcrumbGrouping handleClearStateClick={handleClearStateClick} handleClear={handleClear} navigate={navigate} />
+        <BreadcrumbGrouping handleClearStateClick={handleClearStateClick} navigate={navigate} />
       </span>
       <Container fluid style={{padding: 0}}>
         <Row>
@@ -240,13 +254,10 @@ export default function ItemDetails(props) {
           >
             Select Size:
           </span>
-          {/* {
-
-          } */}
           <div className='sizeContainer'>
 
           {
-            props.title === 'sneakers' ?
+            title === 'sneakers' ?
               sneakers.map(({ id, value }) => (
                 <SizeList
                   key={id}
@@ -257,12 +268,22 @@ export default function ItemDetails(props) {
                 />
               ))
            : 
+              title === 'hats' ?
+                hats.map(({id, value}) => 
+                  <SizeList 
+                    key={id}
+                    id={id}
+                    value={value}
+                    onSizeSelect={handleSizeSelect}
+                    active={selectedSize === id}
+                  />
+                )
+            :
               clothesSize.map(({id, value}) => 
                 <SizeList 
                   key={id}
                   id={id}
                   value={value}
-                  onClick={() => console.log(id)}
                   onSizeSelect={handleSizeSelect}
                   active={selectedSize === id}
                 />
