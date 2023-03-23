@@ -32,10 +32,33 @@
           margin: -1.5% 0 0 3%;
         }
       }
-
-// ==================== 1080 + =====================
+  // ======================= 1400 + =====================
+@media only screen and (min-width: 1401px) {
+  .backdropContain{
+    margin: -5% 0 0 0;
     
-    @media only screen and (min-width: 1080px) {
+    div.backdropText{
+      width: 70%;
+      max-width: 600px;
+      justify-content: space-between;
+      
+      h1{
+        font-size: 2.75em;
+        margin: 3% 0 0 8%;
+      }
+    }
+    .crownIconContainer {
+      position: absolute;
+      top: 55%;
+      width: 11rem;
+      z-index: -1;
+      margin-top: -8%;
+    }
+  }
+}
+// ==================== 1080 - 1400 =====================
+    
+    @media only screen and (min-width: 1080px) and (max-width: 1400px) {
       .backdropContain{
         margin: -5% 0 0 0;
         
@@ -46,22 +69,22 @@
           
           h1{
             font-size: 2.75em;
-            margin: 3% 0 0 5%;
+            margin: 3% 0 0 8%;
           }
         }
         .crownIconContainer {
           position: absolute;
-          top: 60%;
-          width: 11.5rem;
+          top: 45%;
+          width: 11rem;
           z-index: -1;
-          margin-top: -5%;
+          margin-top: -8%;
         }
       }
     }
     
     // ===================== 850+ ==========================
     
-    @media only screen and (min-width: 850px) {
+    @media only screen and (min-width: 850px) and (max-width: 1079px) {
       .backdropContain{
         margin: -5% 0 0 0;
         
@@ -72,12 +95,12 @@
           
           h1{
             font-size: 2.75em;
-            margin: 8% 0 0 5%;
+            margin: 5% 0 0 8%;
           }
         }
         .crownIconContainer {
           position: absolute;
-          top: 60%;
+          top: 45%;
           width: 11rem;
           z-index: -1;
           margin-top: -8%;
@@ -87,7 +110,7 @@
     
     /* ======================== 701 - 850 ============================ */
     
-    @media only screen and (min-width: 701px) {
+    @media only screen and (min-width: 701px) and (max-width: 849px) {
       .backdropContain{
         margin: -8% 0 0 0;
         
@@ -98,7 +121,7 @@
           
           h1{
             font-size: 2.75em;
-            margin: 8% 0 0 5%;
+            margin: 8% 0 0 8%;
           }
         }
         .crownIconContainer {
@@ -118,17 +141,17 @@
         margin: -8% 0 0 0;
         
         div.backdropText{
-          width: 75%;
+          width: 85%;
           justify-content: space-between;
           
           h1{
-            font-size: 2.5em;
-            margin: 8% 0 0 5%;
+            font-size: 2.2em;
+            margin: 10% 0 0 8%;
           }
         }
         .crownIconContainer {
           position: absolute;
-          top: 60%;
+          top: 45%;
           width: 9.5rem;
           z-index: -1;
           margin-top: -6%;
@@ -143,17 +166,17 @@
         margin: -8% 0 0 0;
         
         div.backdropText{
-          width: 80%;
+          width: 90%;
           justify-content: space-between;
           
           h1{
             font-size: 2em;
-            margin: 8% 0 0 5%;
+            margin: 12% 0 0 7%;
           }
         }
         .crownIconContainer {
           position: absolute;
-          top: 60%;
+          top: 45%;
           width: 8.5rem;
           z-index: -1;
           margin-top: -3%;
@@ -168,17 +191,17 @@
         margin: -5% 0 0 0;
         
         div.backdropText{
-          width: 80%;
+          width: 90%;
           justify-content: space-between;
           
           h1{
-            font-size: 2em;
-            margin: 8% 0 0 5%;
+            font-size: 1.75em;
+            margin: 10% 0 0 7%;
           }
         }
         .crownIconContainer {
           position: absolute;
-          top: 60%;
+          top: 35%;
           width: 8.5rem;
           z-index: -1;
           margin-top: -3%;
