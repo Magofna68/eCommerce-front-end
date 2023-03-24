@@ -12,7 +12,7 @@ import Shirts from '../../components/shop/category/shirts/Shirts.jsx';
 import Sneakers from '../../components/shop/category/sneakers/Sneakers.jsx';
 import Hats from '../../components/shop/category/hats/Hats.jsx';
 import Sale from '../../components/shop/category/sale/Sale.jsx';
-import ItemList from '../../components/shop/gender/itemList/ItemList.jsx';
+import FilteredItemList from './filteredItemList/FilteredItemList.jsx';
 // import Breadcrumb from '../../components/utility/breadcrumb/Breadcrumb.jsx';
 import { useNavigate } from 'react-router';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -80,7 +80,7 @@ export default function HomePage(props) {
     } else if (selectedCategory === 'FILTER') {
       buttonText="Home"
       currentlyVisibleState =
-        <ItemList 
+        <FilteredItemList 
           handleClearStateClick={handleClearStateClick}
           toItemDetailsClick={toItemDetailsClick}
           onFilterClick={handleFilterClick}

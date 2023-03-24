@@ -203,14 +203,12 @@ export default function Navigationbar(props) {
                         size="sm" 
                         title={currentProduct.size} 
                       >
-                        {/* <Dropdown.Menu variant="dark"> */}
-                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XS")} onChange={() => console.log(currentProduct.size)}>XS</Dropdown.Item>
+                          <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XS")}>XS</Dropdown.Item>
                           <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "S")}>S</Dropdown.Item>
                           <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "M")}>M</Dropdown.Item>
                           <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "L")}>L</Dropdown.Item>
                           <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XL")}>XL</Dropdown.Item>
                           <Dropdown.Item onClick={() => cart.editItemSizeInCart(currentProduct.id, "XXL")}>XXL</Dropdown.Item>
-                        {/* </Dropdown.Menu> */}
                       </DropdownButton>
                     </Col>
                     <Col xs={4} className="modalCol" >

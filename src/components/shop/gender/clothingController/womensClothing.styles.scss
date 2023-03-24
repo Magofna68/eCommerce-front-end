@@ -29,10 +29,97 @@
 }
 
 
+// ============================= 1400 + ========================
+@media only screen and (min-width: 1401px) {
+  .womensBackdropContain{
+
+
+    .womensBackdropMobile{
+      width: 75%;
+      max-width: 800px;
+      margin: 5% 16% 0 19%;
+      
+      h1{
+        font-size: 3rem;
+      }
+    }
+
+    .queenIconContainer{
+      width: 11.5rem;
+      top: 18%;
+    }
+  }
+}
+// =============================== 1200+ ========================
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+  .womensBackdropContain{
+
+
+    .womensBackdropMobile{
+      width: 65%;
+      max-width: 700px;
+      margin: 5% 0 0 0;
+      
+      h1{
+
+        font-size: 3rem;
+      }
+    }
+
+    .queenIconContainer{
+      width: 11.5rem;
+      top: 18%;
+    }
+  }
+}
+// ========================== 1000 + ===========================
+
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+  .womensBackdropContain{
+
+
+    .womensBackdropMobile{
+      width: 65%;
+      max-width: 700px;
+      margin: 8% 0 0 0;
+      
+      h1{
+
+        font-size: 3rem;
+      }
+    }
+
+    .queenIconContainer{
+      width: 11.5rem;
+      top: 18%;
+    }
+  }
+}
+// =========================== 700 + =========================
+
+@media only screen and (min-width: 700px) and (max-width: 999px) {
+  .womensBackdropContain{
+    
+
+    .womensBackdropMobile{
+      width: 65%;
+      
+      h1{
+        font-size: 2rem;
+      }
+    }
+
+    .queenIconContainer{
+      width: 10.5rem;
+      top: 20%;
+    }
+  }
+}
 // ======================= Mobile View ===========================
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 500px) and (max-width: 699px) {
   .womensBackdropContain{
+    
 
     .womensBackdropMobile{
       width: 75%;
@@ -44,50 +131,7 @@
 
     .queenIconContainer{
       width: 9.5rem;
-    }
-  }
-}
-
-// =========================== 700 + =========================
-
-@media only screen and (min-width: 700px) {
-  .womensBackdropContain{
-
-    .womensBackdropMobile{
-      width: 65%;
-      margin: 5% 0 0 0;
-      
-      h1{
-        font-size: 2.5rem;
-      }
-    }
-
-    .queenIconContainer{
-      width: 10.5rem;
-      margin: -5rem 0 -5% 0;
-    }
-  }
-}
-
-// ========================== 1000 + ===========================
-
-@media only screen and (min-width: 1000px) {
-  .womensBackdropContain{
-    margin: 0 0 0 0;
-
-    .womensBackdropMobile{
-      width: 60%;
-      max-width: 700px;
-      margin: 8% 0 0 0;
-      
-      h1{
-        font-size: 2.75rem;
-      }
-    }
-
-    .queenIconContainer{
-      width: 11.5rem;
-      margin: -6rem;
+      top: 30%;
     }
   }
 }

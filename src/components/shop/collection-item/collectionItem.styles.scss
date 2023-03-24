@@ -3,11 +3,8 @@
   justify-content: space-between;
   flex-wrap: wrap;
   border: none;
-  // width: 45%;
-  width: 16rem;
   max-width: 22rem;
   margin: 5% 2% 6% 2%;
-  // min-height: 450px;
   cursor: pointer;
 
   .collectionItemImg{
@@ -25,19 +22,11 @@
     flex-direction: column;
   }
 
-  // div.card-title{
-  //   background: white;
-  //   border-bottom: none;
-  // }
-
   p.card-text{
     margin: 0 0 3% 0;
     font-weight: 600;
   }
- 
-  // @media  screen and (max-width: 614px) {
-  //   width: 22rem;
-  // }
+
 }
 // ========================= 1300 + ===========================
 
@@ -45,12 +34,10 @@
   .collectionItem{
     width: 24%;
     max-height: 550px;
-    // margin-left: 1%;
     padding: 1%;
     
     .collectionItemImg{
       height: 80%;
-      // background: cover;
     }
     div.card-body{
       
@@ -78,7 +65,6 @@
     
     .collectionItemImg{
       height: 80%;
-      // background: cover;
     }
     div.card-body{
       height: 20%;
